@@ -29,8 +29,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
-
+		echo $this->Html->css('/kickstart/prettify');
+		echo $this->Html->css('kickstart/kickstart-buttons');
+		echo $this->Html->css('kickstart/kickstart-icons');
+		echo $this->Html->script('kickstart/kickstart');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
