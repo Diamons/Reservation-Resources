@@ -88,4 +88,7 @@ footer {
 	position:absolute;
 	width:100%;
 	bottom:0; /* stick to bottom */
+	min-height: 200px;
+	background-color: #001D30;
+	color: #FFFFFF;
 }

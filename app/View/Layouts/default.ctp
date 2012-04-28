@@ -16,7 +16,7 @@
 	
 	<?php 
 		echo $this->Html->meta('icon');
-		echo $this->Html->css(array('kickstart/kickstart', 'kickstart/kickstart-buttons', 'kickstart/kickstart-forms', 'kickstart/kickstart-grid', 'kickstart/kickstart-icons', 'kickstart/kickstart-menus', 'kickstart/prettify', 'kickstart/tiptip', 'kickstart/jquery.fancybox-1.3.4', 'stylesheet'));
+		echo $this->Html->css(array('kickstart/kickstart-buttons', 'kickstart/kickstart-grid', 'kickstart/kickstart-icons', 'kickstart/prettify', 'kickstart/tiptip', 'kickstart/jquery.fancybox-1.3.4', 'formee-structure', 'formee-style',  'main', 'stylesheet'));
 	?>
 	<?php echo $this->fetch('scriptTop'); ?>
 </head>
@@ -36,7 +36,7 @@
 	
 <?php echo $this->element('sql_dump'); ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<?php echo $this->Html->script(array('kickstart/kickstart', 'kickstart/prettify')); ?>
+<?php echo $this->Html->script(array('kickstart/kickstart', 'kickstart/prettify', 'formee')); ?>
 <?php echo $this->fetch('scriptBottom'); ?>
 <!-- end scripts-->
 <script>
