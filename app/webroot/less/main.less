@@ -1,3 +1,27 @@
- body{
-	padding: 20px;
- }
+@round(@r1: 4px, @r2: 4px, @r3: 4px, @r4: 4px){
+	-moz-border-radius: @r1 @r2 @r3 @r4;
+	-webkit-border-radius: @r1 @r2 @r3 @r4;
+	border-radius: @r1 @r2 @r3 @r4;
+}
+
+@inline-block(@width: 'auto'){
+	display: inline-block;
+	vertical-align: top;
+	width: @width;
+}
+
+#body{
+	@round(0, 0, 4px, 4px);
+}
+
+footer #logo{
+	@inline-block(auto);
+	width: 240px;
+	height: 90px;
+	margin-top: 25px;
+}
+
+footer nav{
+	@inline-block(65%);
+	padding-top: 25px;
+}

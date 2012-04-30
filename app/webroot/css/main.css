@@ -1,1 +1,19 @@
-body { padding:20px; }
+#body {
+  -moz-border-radius:0 0 4px 4px;
+  -webkit-border-radius:0 0 4px 4px;
+  border-radius:0 0 4px 4px;
+}
+footer #logo {
+  display:inline-block;
+  vertical-align:top;
+  width:auto;
+  width:240px;
+  height:90px;
+  margin-top:25px;
+}
+footer nav {
+  display:inline-block;
+  vertical-align:top;
+  width:65%;
+  padding-top:25px;
+}

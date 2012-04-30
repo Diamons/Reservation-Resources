@@ -29,9 +29,7 @@
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<footer>
-			Footer
-		</footer>
+		<?php echo $this->element('Layout\footer'); ?>
 	</div>
 	
 <?php echo $this->element('sql_dump'); ?>
