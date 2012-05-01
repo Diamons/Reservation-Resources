@@ -96,16 +96,16 @@ div#container {
 	margin: auto;
 	background-color: #FFFFFF;
 	padding: 10px;
-	min-height: 100%;
 }
 
 footer {
 	position:absolute;
 	width:100%;
 	bottom:0; /* stick to bottom */
-	min-height: 200px;
+	height: 200px;
 	background-color: #001D30;
 	color: #FFFFFF;
+	overflow: hidden;
 }
 
 footer > div.inner_footer{
@@ -123,24 +123,27 @@ footer div > p{
 }
 
 footer .social_media{
-	float: right;
+	position: absolute;
+	right: 0;
 	padding: 10px 20px 0 0;
 }
 
 footer .social_media img{
 	margin: 10px 20px 0 0;
+	float: right;
 	width: 42px;
 	height: 42px;
-	   -webkit-transition: -webkit-transform 0.1s ease-in;
-
+	transition: opacity .7s;
+	-moz-transition: opacity .7s; /* Firefox 4 */
+	-webkit-transition: opacity .7s; /* Safari and Chrome */
+	-o-transition: opacity .7s; /* Opera */
+	opacity:0.4;
+	filter:alpha(opacity=40); /* For IE8 and earlier */
 }
 
 footer .social_media img:hover{
-	transform:rotate(350deg);
--ms-transform:rotate(350deg); /* IE 9 */
--moz-transform:rotate(350deg); /* Firefox */
--webkit-transform:rotate(350deg); /* Safari and Chrome */
--o-transform:rotate(350deg); /* Opera */
+	opacity:1;
+	filter:alpha(opacity=100); /* For IE8 and earlier */
 }
 
 /*footer .social_media:after{
