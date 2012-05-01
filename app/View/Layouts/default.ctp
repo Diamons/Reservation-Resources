@@ -12,7 +12,6 @@
 	
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<meta name="viewport" content="width=device-width">
 	
 	<?php 
 		echo $this->Html->meta('icon');
@@ -25,12 +24,14 @@
 </head>
 <body>
 	<div id = "container">
-		<header>
-
-		</header>
+		<?php if(isset($auth) && $auth == 1){
+			echo $this->element('Layout\header');
+		} else {
+			echo $this->element('Layout\Guest\header');
+		} ?>
 		<div id = "body" role="main">
 			<?php echo $this->Session->flash(); ?>
-			<?php echo $this->fetch('content'); ?>
+			<?php for($i = 0; $i < 1000; $i++){echo $this->fetch('content');} ?>
 		</div>
 		<?php echo $this->element('Layout\footer'); ?>
 	</div>

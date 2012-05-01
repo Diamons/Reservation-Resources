@@ -3,12 +3,22 @@
   -webkit-border-radius:0 0 4px 4px;
   border-radius:0 0 4px 4px;
 }
+#main_navigation ul li ul, #main_navigation ul li ul li.last {
+  -moz-border-radius:0 0 5px 5px;
+  -webkit-border-radius:0 0 5px 5px;
+  border-radius:0 0 5px 5px;
+}
+#main_navigation .sub_icon {
+  -moz-border-radius:5px 5px 5px 5px;
+  -webkit-border-radius:5px 5px 5px 5px;
+  border-radius:5px 5px 5px 5px;
+}
 footer #logo {
   display:inline-block;
   vertical-align:top;
   width:auto;
-  width:240px;
-  height:90px;
+  width:200px;
+  height:78px;
   margin-top:25px;
 }
 footer nav {
