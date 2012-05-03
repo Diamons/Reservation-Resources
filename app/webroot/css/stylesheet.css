@@ -108,7 +108,7 @@ header{
 	background: linear-gradient(top, #6b6b6b 0%,#333333 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b6b6b', endColorstr='#333333',GradientType=0 ); /* IE6-9 */
 	border-style: solid;
-	border-width: 1px 0 1px 0;
+	border-width: 2px 0 2px 0;
 	border-color: #d0d0d0;
 	line-height: 8px;
 	color: #CECECE;
@@ -119,18 +119,18 @@ header{
 	display: block;
 	float: left;
 	position: relative;
-	
 }
 
 #main_navigation ul li a{
 	display: block;
 	padding: 16px 25px 16px 25px;
+	text-decoration: none;
 }
 
 #main_navigation ul li ul{
 	position: absolute;
 	background-color: black;
-	width: 240px;
+	min-width: 100%;
 	left: -9999px;
 	opacity:0.6;
 	transition: opacity .5s;
@@ -146,13 +146,8 @@ header{
 
 #main_navigation .sub_icon{
 	float: left;
-	width: 26px;
-	height: 26px;
-	padding: 4px 9px 4px 9px;
-	margin: 0 25px 0 0;
-	border-style: solid;
-	border-width: 1px;
-	border-color; #FFFFFF;
+	width: 32px;
+	height: 32px;
 }
 
 #main_navigation ul li:hover{
@@ -167,23 +162,32 @@ header{
 	-moz-box-shadow: inset 0 0 5px #888;
 	-webkit-box-shadow: inset 0 0 5px#888;
 	box-shadow: inner 0 0 5px #888;
+	border-style: solid;
+	border-width: 4px 0 0 0;
+	border-color: #84c4ff;
+	margin-top: -4px;
 }
 
 #main_navigation ul li ul li a{
 	color: inherit;
 	text-decoration: none;
-	padding: 10px;
-	font-family: "Lato", sans-serif;
-	font-weight: 400;
-	font-size: 14px;
+	font-family: "Tahoma", sans-serif;
+	font-size: 11px;
+	letter-spacing: 1px;
+	padding: 4px 10px 10px 10px;
 }
 
 #main_navigation ul li ul li a div{
-	padding: 12px 0 0 0px;
+	padding: 4px 20px 4px 20px;
+	margin: 10px 0 0 28px;
 }
 
 #main_navigation ul li ul li{
 	width: 100%;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+	border-color: #2e2e2e;
+	text-transform: uppercase;
 }
 
 #main_navigation ul li ul li:hover{
