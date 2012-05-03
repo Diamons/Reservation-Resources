@@ -115,6 +115,11 @@ header{
 	font-size: 11px;
 }
 
+#main_navigation ul{
+	float: left;
+	width: 22%;
+}
+
 #main_navigation ul li{
 	display: block;
 	float: left;
@@ -127,10 +132,17 @@ header{
 	text-decoration: none;
 }
 
+#main_navigation ul li a:active{
+	-moz-box-shadow: inset 0 0 8px #888;
+	-webkit-box-shadow: inset 0 0 8px#888;
+	box-shadow: inner 0 0 8px #888;
+	background-color: #404040;
+}
+
 #main_navigation ul li ul{
 	position: absolute;
 	background-color: black;
-	min-width: 100%;
+	width: 180px;
 	left: -9999px;
 	opacity:0.6;
 	transition: opacity .5s;
@@ -151,14 +163,14 @@ header{
 }
 
 #main_navigation ul li:hover{
-	background: #605d5d; /* Old browsers */
-	background: -moz-linear-gradient(top, #605d5d 0%, #000000 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#605d5d), color-stop(100%,#000000)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #605d5d 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #605d5d 0%,#000000 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #605d5d 0%,#000000 100%); /* IE10+ */
-	background: linear-gradient(top, #605d5d 0%,#000000 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#605d5d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+	background: #747373; /* Old browsers */
+	background: -moz-linear-gradient(top, #747373 0%, #3d3d3d 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#747373), color-stop(100%,#3d3d3d)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #747373 0%,#3d3d3d 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #747373 0%,#3d3d3d 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #747373 0%,#3d3d3d 100%); /* IE10+ */
+	background: linear-gradient(top, #747373 0%,#3d3d3d 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#747373', endColorstr='#3d3d3d',GradientType=0 ); /* IE6-9 */
 	-moz-box-shadow: inset 0 0 5px #888;
 	-webkit-box-shadow: inset 0 0 5px#888;
 	box-shadow: inner 0 0 5px #888;
@@ -198,6 +210,18 @@ header{
 	-moz-box-shadow: none;
 	background: #00a2ff;
 	color: #FFFFFF;
+}
+
+#searchBar{
+	margin: auto;
+	text-align: center;
+	width: 40%;
+	display: none;
+}
+
+#searchBar input{
+	text-align: center;
+	color: #868686;
 }
 
 #topLogo{
