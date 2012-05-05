@@ -9,12 +9,12 @@
 <div id = "main_slider">
 	<div id = "captions">
 		<span class = "caption">Landlords and Hosts list <em>properties</em></span><br />
-		<span style = "margin-top: 22px;" class = "caption">Tenants book places to <em>stay</em></span><br />
+		 <span style = "margin-top: 22px;" class = "caption">Tenants book places to <em>stay</em></span><br /> 
 	</div>
 	<div id = "searchBar">
 		<form class = "formee">
 			<div class="grid-12-12">
-				<label>Search Properties</label>
+				<label style = "font-size: 12pt;">What's your destination?</label>
 				<input type = "text" placeholder = "Search by Location " />
 			</div>
 			<input type = "submit" title = "search" value = "search" />	

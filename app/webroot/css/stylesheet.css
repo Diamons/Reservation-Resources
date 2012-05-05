@@ -256,20 +256,20 @@ div#container {
 #main_slider .caption{
 	opacity:0.6;
 	filter:alpha(opacity=60);
-	background-color: #350754;
-	color: #ECECEC;
-	font-size: 40px;
+	background-color: #000000;
+	color: #FFFFFF;
+	font-size: 16pt;
 	display: inline-block;
 	padding: 10px 4px 10px 4px;
-	font-family: "Raleway", "Arial", sans-serif;
+	font-family:  "Latos", "Arial", sans-serif;
 	text-transform: uppercase;
 	width: 100%;
 }
 
 #main_slider #captions{
 	left: -2000px;
-	max-width: 65%;
-	top: 0;
+	max-width: 450px;
+	bottom: 40px;
 	position: absolute;
 	z-index: 5;
 	text-align: left;
