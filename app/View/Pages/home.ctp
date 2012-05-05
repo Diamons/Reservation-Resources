@@ -2,16 +2,32 @@
 	$this->start('scriptBottom');
 	echo $this->Html->script('main_page');
 	$this->end();
+	$this->start('cssTop');
+	echo $this->Html->css('main_page');
+	$this->end();
 ?>
 <div id = "main_slider">
-	<div style = "margin-top: 20px;" class = "caption">Landlords and Hosts list properties</div><br />
-	<div style = "margin-top: 122px;" class = "caption">Tenants book places to stay</div><br />
+	<div id = "captions">
+		<span class = "caption">Landlords and Hosts list <em>properties</em></span><br />
+		<span style = "margin-top: 22px;" class = "caption">Tenants book places to <em>stay</em></span><br />
+	</div>
+	<div id = "searchBar">
+		<form class = "formee">
+			<div class="grid-12-12">
+				<label>Search Properties</label>
+				<input type = "text" placeholder = "Search by Location " />
+			</div>
+			<input type = "submit" title = "search" value = "search" />	
+		</form>
+	</div>
 </div>
 <div id = "banners">
-		<?php echo  $this->Html->image('icons/absolutely_free.png', array('class' => 'banner')); ?>
+	<a href = "#">
 		<?php echo  $this->Html->image('icons/explore_world.png', array('class' => 'banner')); ?>
+		<?php echo  $this->Html->image('icons/absolutely_free.png', array('class' => 'banner')); ?>
 		<?php echo  $this->Html->image('icons/new_experience.png', array('class' => 'banner')); ?>
-	</div>
+	</a>
+</div>
 <div class = "full" id = "body" role="main">
 	<div id = "features">
 		<div>

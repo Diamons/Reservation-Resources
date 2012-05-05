@@ -249,8 +249,8 @@ div#container {
 	height: 600px;
 	overflow: hidden;
 	position: relative;
-	background-image: url('../img/icons/background-image.jpg');
-	background-position: -60px -490px;
+	background-image:url('../img/icons/background-image.jpg');
+	background-position: 0px 690px;
 }
 
 #main_slider .caption{
@@ -258,14 +258,21 @@ div#container {
 	filter:alpha(opacity=60);
 	background-color: #350754;
 	color: #ECECEC;
-	font-size: 34px;
+	font-size: 40px;
 	display: inline-block;
-	padding: 20px;
+	padding: 10px 4px 10px 4px;
 	font-family: "Raleway", "Arial", sans-serif;
 	text-transform: uppercase;
-	position: absolute;
-	left: -500px;
+	width: 100%;
+}
+
+#main_slider #captions{
+	left: -2000px;
+	max-width: 65%;
 	top: 0;
+	position: absolute;
+	z-index: 5;
+	text-align: left;
 }
 
 #banners{
@@ -276,7 +283,7 @@ div#container {
 	width: 33%;
 	display: inline-block;
 	height: auto;
-	margin-top: 3px;
+	margin-top: -10px;
 }
 #features{
 	text-align: center;

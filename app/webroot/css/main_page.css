@@ -1,0 +1,16 @@
+#searchBar{
+	display: block;
+	position: absolute;
+	bottom: 0;
+	width: 300px;
+	padding: 5px 25px 10px 25px;
+	text-align: center;
+	right: 0;
+	background-color: #f0f0f0;
+	-moz-border-radius: 11px 11px 0 0;
+	-webkit-border-radius: 11px 11px 0 0;
+	border-radius: 11px 11px 0 0;
+	opacity:0.85;
+	filter:alpha(opacity=85);
+	z-index: 5;
+}

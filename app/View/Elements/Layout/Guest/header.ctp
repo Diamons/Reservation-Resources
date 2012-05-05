@@ -15,6 +15,7 @@
 			<li class = "active"><a name = "search" href = "#">Search</a>
 		</ul>
 	</nav>
+	<?php if($this->viewVars['page'] !== 'home'){ ?>
 		<div id = "searchBar">
 			<form class = "formee">
 				<div class = "grid-2-12">
@@ -50,4 +51,5 @@
 				</div>
 			</form>
 		</div>
+	<?php } ?>
 </header>
