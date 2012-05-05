@@ -1,5 +1,5 @@
 <footer>
-<div class = "social_media"><a href = "#"><?php echo $this->Html->image('icons/facebook.png'); ?></a> <a href = "#"><?php echo $this->Html->image('icons/twitter.png'); ?></a></div>
+	<div class = "social_media"><a href = "#"><?php echo $this->Html->image('icons/facebook.png'); ?></a> <a href = "#"><?php echo $this->Html->image('icons/twitter.png'); ?></a></div>
 	<div class = "inner_footer">
 		<a href = "#"><?php echo $this->Html->image('logo.png', array('id' => 'logo')); ?></a>
 		<nav>

@@ -15,6 +15,7 @@
 	
 	<?php 
 		echo $this->Html->meta('icon');
+		echo $this->Html->css(array('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/blitzer/jquery-ui.css'));
 		echo $this->Html->css(array('kickstart/kickstart-buttons', 'kickstart/kickstart-grid', 'kickstart/kickstart-icons', 'kickstart/prettify', 'kickstart/tiptip', 'kickstart/jquery.fancybox-1.3.4', 'formee-style', 'formee-structure', 'main', 'stylesheet'));
 	?>
 	<?php echo $this->fetch('scriptTop'); ?>
@@ -29,15 +30,15 @@
 		} else {
 			echo $this->element('Layout\Guest\header');
 		} ?>
-		<div id = "body" role="main">
-			<?php echo $this->Session->flash(); ?>
-			<?php for($i = 0; $i < 1000; $i++){echo $this->fetch('content');} ?>
-		</div>
+		<?php echo $this->Session->flash(); ?>
+		<?php echo $this->fetch('content'); ?>
 		<?php echo $this->element('Layout\footer'); ?>
 	</div>
 	
 <?php echo $this->element('sql_dump'); ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+
 <?php echo $this->Html->script(array('kickstart/kickstart', 'kickstart/prettify', 'formee', 'main')); ?>
 <?php echo $this->fetch('scriptBottom'); ?>
 <!-- end scripts-->
