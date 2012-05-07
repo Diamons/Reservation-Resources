@@ -1,7 +1,7 @@
 <?php
 	$cakeDescription = __d('cake_dev', 'Reservation Resources - ');
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">

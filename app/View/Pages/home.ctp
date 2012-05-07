@@ -7,10 +7,40 @@
 	$this->end();
 ?>
 <div id = "main_slider">
+	<div id = "slider_images">
+		<div data-price = "$200" data-location = "New York City, NY" style = "background-image: url('http://farm6.staticflickr.com/5284/5344607573_3a6dcdd76e_o.jpg'); background-position: 140px -240px;" class = "image"></div>
+		<div data-price = "$100" data-location = "Washington D.C." style = "background-image: url('http://farm3.staticflickr.com/2724/4260668021_0191a5fe07_b.jpg'); background-position: 0 -200px;" class = "image"></div>
+		<div data-price = "$160" data-location = "Fort Lauderdale, FL" style = "background-image: url('http://farm6.staticflickr.com/5066/5829442256_376d379d1b_b.jpg'); background-position: 0 -200px;" class = "image"></div>
+	</div>
+	
+	<?php
+	/* PORTION A */
+	/* PORTION A */
+	/* PORTION A */
+	/* PORTION A */
+	/* PORTION A */
+	
+	if(1 == 1){ ?>
+		<div id = "captions">
+			<div class = "caption">Starting at <em><span id = "price">$100</span> a night</em><br />
+				<span id = "location">New York City, NY</span>
+			</div>		
+		</div>
+	<?php } ?>
+	<?php 
+	/* PORTION B */
+	/* PORTION B */
+	/* PORTION B */
+	/* PORTION B */
+	/* PORTION B */
+	
+	if(1 !== 1){ ?>
 	<div id = "captions">
-		<span class = "caption">Landlords and Hosts list <em>properties</em></span><br />
+		 <span class = "caption">Landlords and Hosts list <em>properties</em></span><br />
 		 <span style = "margin-top: 22px;" class = "caption">Tenants book places to <em>stay</em></span><br /> 
 	</div>
+	<?php } ?>
+	
 	<div id = "searchBar">
 		<form class = "formee">
 			<div class="grid-12-12">

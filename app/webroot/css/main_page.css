@@ -6,11 +6,19 @@
 	padding: 5px 25px 10px 25px;
 	text-align: center;
 	right: 0;
-	background-color: #000000;
 	-moz-border-radius: 11px 11px 0 0;
 	-webkit-border-radius: 11px 11px 0 0;
 	border-radius: 11px 11px 0 0;
-	opacity:0.65;
-	filter:alpha(opacity=65);
+	background-image: url('../img/icons/transparent.png');
 	z-index: 5;
+}
+
+#location{
+	font-size: 14px;
+	color: #25aae1;
+	font-weight: bold;
+}
+
+#price{
+	font-size: 1.1em;
 }

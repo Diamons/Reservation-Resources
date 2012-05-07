@@ -1,6 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
-@import url(http://fonts.googleapis.com/css?family=Raleway:100);
 
 @font-face {
     font-family: 'Nevis';
@@ -245,12 +243,28 @@ div#container {
 
 #main_slider{
 	text-align: center;
-	background-color: #ECECEC;
-	height: 600px;
+	height: 450px;
 	overflow: hidden;
 	position: relative;
-	background-image:url('../img/icons/background-image.jpg');
-	background-position: 0px 690px;
+}
+
+#main_slider #slider_images{
+	width: 100%;
+	position: relative;
+	margin: auto;
+	height: 100%;
+	-moz-box-shadow: 0 0 5px #FFFFFF;
+	-webkit-box-shadow: 0 0 5px#FFFFFF;
+	box-shadow: 0 0 5px #FFFFFF;
+}
+
+#main_slider .image{
+	min-height: 100%;
+	min-width: 100%;
+	position: absolute;
+	z-index: 4;
+	background-size: 100% auto;
+	display: none;
 }
 
 #main_slider .caption{
@@ -259,11 +273,10 @@ div#container {
 	background-color: #000000;
 	color: #FFFFFF;
 	font-size: 16pt;
-	display: inline-block;
 	padding: 15px 4px 15px 24px;
 	font-family:  "Helvetica", "Arial", sans-serif;
 	text-transform: uppercase;
-	width: 100%;
+	min-width: 300px;
 }
 
 #main_slider #captions{
@@ -289,9 +302,6 @@ div#container {
 	text-align: center;
 }
 
-#features div div{
-}
-
 #features h1.letter{
 	background-color: #95ca00;
 	color: #FFFFFF;
@@ -307,9 +317,11 @@ div#container {
 }
 
 #features li{
-	font-family: "Nevis", "Arial", sans-serif;
-	font-size: 10pt;
+	font-size: 12px;
 	text-transform: uppercase;
+	line-height: 28px;
+	word-spacing: 0em; 
+	font-weight: 900;
 }
 
 #features h3{
