@@ -9,7 +9,7 @@ $(document).ready(function(){
     });
 	*/
 	$( "input[name='checkin'], input[name='checkout']" ).datepicker();
-	$('a[name="search"]').click(function(){
+	$('a#search').click(function(){
 		$("#searchBar").stop(true,true).slideToggle(400);
 	});
 });

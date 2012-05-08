@@ -1,4 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
 
 @font-face {
     font-family: 'Nevis';
@@ -74,13 +75,13 @@ a:hover{
 	text-decoration: underline;
 }
 
-em{
+em, b{
 	font-weight: 900;
 }
 
 body{
-	font-family: "Droid Sans", "Helvetica", "Arial", sans-serif;
-	font-size: 12px;
+	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+	font-size: 11px;
 	background-color: #F7F7F7;
 }
 
@@ -177,8 +178,8 @@ header{
 }
 
 #main_navigation ul li ul li a div{
-	padding: 4px 20px 4px 20px;
-	margin: 10px 0 0 28px;
+	padding: 14px 20px 4px 30px;
+	margin: 10px 0 0 48px;
 }
 
 #main_navigation ul li ul li{
@@ -197,6 +198,56 @@ header{
 	-moz-box-shadow: none;
 	background: #00a2ff;
 	color: #FFFFFF;
+	margin-top: -5px;
+}
+
+#main_navigation #profile{
+	float: right;
+	-moz-box-shadow: inset 0 0 5px #888;
+	-webkit-box-shadow: inset 0 0 5px#888;
+	box-shadow: inner 0 0 5px #888;
+}
+
+#main_navigation #profile li a{
+	color: #FFFFFF;
+}
+
+#main_navigation #profile li ul{
+	width: 100%;
+	background: #272626; /* Old browsers */
+	background: -moz-linear-gradient(top, #272626 0%, #151515 100%, #151515 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#272626), color-stop(100%,#151515), color-stop(100%,#151515)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #272626 0%,#151515 100%,#151515 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #272626 0%,#151515 100%,#151515 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #272626 0%,#151515 100%,#151515 100%); /* IE10+ */
+	background: linear-gradient(top, #272626 0%,#151515 100%,#151515 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#272626', endColorstr='#151515',GradientType=0 ); /* IE6-9 */
+}
+
+#main_navigation #profile li ul img.profile_pic{
+	float: left;
+	width: 48px;
+	height: 48px;
+}
+
+#main_navigation #profile li ul img{
+	padding: 9px;
+	border-style: solid;
+	border-width: 0 1px 0 0;
+	border-color: #070707;
+	box-shadow: 1px 0px 0 #4e4c4c;
+}
+
+#main_navigation #profile li ul .profile{
+	border-style: solid;
+	border-width: 0 0 0 1px;
+	border-color: #444242;
+	margin-left: 67px;
+	padding: 15px 0 0 25px;
+	color: #828282;
+	font-weight: bold;
+	text-transform: none;
+	font-size: .9em;
 }
 
 #searchBar{
@@ -308,40 +359,35 @@ div#container {
 	font-size: 22px;
 	padding: 5px 0 8px 0;
 	text-align: center;
-	font-family: "Nevis", "Arial", sans-serif;
-	font-weight: 900;
+	font-family: "Arvo", "Arial", serif;
+	font-weight: 700;
 	text-transform: uppercase;
 	border-style: solid;
 	border-width: 0 0 4px 0;
 	border-color: #ECECEC;
 }
 
-#features li{
+#features .feature_individual h1{
 	font-size: 12px;
 	text-transform: uppercase;
-	line-height: 28px;
+	line-height: 12px;
 	word-spacing: 0em; 
 	font-weight: 900;
+	padding: 20px 0 9px 0;
+}
+
+#features .feature_individual{
+	float: right;
+	padding-left: 100px;
 }
 
 #features h3{
 	display:
 }
 
-#features div.feature_individual ul p{
-	padding: 3px 0 15px 10px;
-}
-
 #features ul{
 	padding-left: 88px;
 	float: right;
-}
-
-#features div.letter, #features div.feature_individual{
-}
-
-#features div.feature_individual p{
-	padding: 15px 0 0 0;
 }
 
 #body{

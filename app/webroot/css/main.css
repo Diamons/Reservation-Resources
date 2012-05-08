@@ -8,11 +8,6 @@
   -webkit-border-radius:0 0 5px 5px;
   border-radius:0 0 5px 5px;
 }
-#main_navigation .sub_icon {
-  -moz-border-radius:5px 5px 5px 5px;
-  -webkit-border-radius:5px 5px 5px 5px;
-  border-radius:5px 5px 5px 5px;
-}
 #features > div {
   display:inline-block;
   vertical-align:top;

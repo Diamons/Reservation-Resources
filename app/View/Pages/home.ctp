@@ -61,50 +61,43 @@
 <div class = "full" id = "body" role="main">
 	<div id = "features">
 		<div>
-				<h1 class = "letter">How it Works</h1>
-				<div class = "feature_individual">
-					<p>	
-						<ul>
-							<li>Search for where you want to stay</li>
-							<p>Start off with a simple search query for where you're looking for a place to stay! Reservation Resources allows you to search over <span class = "important">10,000</span> listings all from one site! </p>
-							<li>Browse, explore, and communicate</li>
-							<p>View various listings in locations from all over the world posted by members like you! Send messages with questions, search by property type and price, and view stunning pictures for rentals all in your budget.</p>
-							<li>Rent and manage your vacation online</li>
-							<p>With a few clicks, you can rent out the places you see online straight from your computer. Await confirmation from the landlord and you're all set!</p>
-						</ul>
-						<div class = "howitworks sprite"></div>
-					</p>
-				</div>
+		
+			<h1 class = "letter">How it Works</h1>
+			<div class = "feature_individual">
+				<h1>Search for where you want to stay</h1>
+				Start off with a simple search query for where you're looking for a place to stay! Reservation Resources allows you to search over <span class = "important">10,000</span> listings all from one site!
+				<h1>Browse, explore, and communicate</h1>
+				View various listings in locations from all over the world posted by members like you! Send messages with questions, search by property type and price, and view stunning pictures for rentals all in your budget.
+				<h1>Rent and manage your vacation online</h1>
+				With a few clicks, you can rent out the places you see online straight from your computer. Await confirmation from the landlord and you're all set!
+			</div>
+			<div class = "howitworks sprite"></div>
+			
 		</div><div>
+		
 			<h1 class = "letter">Features</h1>
 			<div class = "feature_individual">
-				<p>
-					<ul>
-						<li>Search for where you want to stay</li>
-						<p>Start off with a simple search query for where you're looking for a place to stay! Reservation Resources allows you to search over <span class = "important">10,000</span> listings all from one site! </p>
-						<li>Browse, explore, and communicate</li>
-						<p>View various listings in locations from all over the world posted by members like you! Send messages with questions, search by property type and price, and view stunning pictures for rentals all in your budget.</p>
-						<li>Rent and manage your vacation online</li>
-						<p>With a few clicks, you can rent out the places you see online straight from your computer. Await confirmation from the landlord and you're all set!</p>
-					</ul>
-					<div class = "features sprite"></div>
-				</p>
+				<h1>Search for where you want to stay</h1>
+				Start off with a simple search query for where you're looking for a place to stay! Reservation Resources allows you to search over <span class = "important">10,000</span> listings all from one site!
+				<h1>Browse, explore, and communicate</h1>
+				View various listings in locations from all over the world posted by members like you! Send messages with questions, search by property type and price, and view stunning pictures for rentals all in your budget.
+				<h1>Rent and manage your vacation online</h1>
+				With a few clicks, you can rent out the places you see online straight from your computer. Await confirmation from the landlord and you're all set!
 			</div>
+			<div class = "features sprite"></div>
+			
 		</div><div>
+		
 			<h1 class = "letter">Benefits</h1>
 			<div class = "feature_individual">
-				<p>
-					<ul>
-						<li>Search for where you want to stay</li>
-						<p>Start off with a simple search query for where you're looking for a place to stay! Reservation Resources allows you to search over <span class = "important">10,000</span> listings all from one site! </p>
-						<li>Browse, explore, and communicate</li>
-						<p>View various listings in locations from all over the world posted by members like you! Send messages with questions, search by property type and price, and view stunning pictures for rentals all in your budget.</p>
-						<li>Rent and manage your vacation online</li>
-						<p>With a few clicks, you can rent out the places you see online straight from your computer. Await confirmation from the landlord and you're all set!</p>
-					</ul>
-					<div class = "benefits sprite"></div>
-				</p>
+				<h1>Search for where you want to stay</h1>
+				Start off with a simple search query for where you're looking for a place to stay! Reservation Resources allows you to search over <span class = "important">10,000</span> listings all from one site!
+				<h1>Browse, explore, and communicate</h1>
+				View various listings in locations from all over the world posted by members like you! Send messages with questions, search by property type and price, and view stunning pictures for rentals all in your budget.
+				<h1>Rent and manage your vacation online</h1>
+				With a few clicks, you can rent out the places you see online straight from your computer. Await confirmation from the landlord and you're all set!
 			</div>
+			<div class = "benefits sprite"></div>
 		</div>
 	</div>
 </div>

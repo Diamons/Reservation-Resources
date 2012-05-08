@@ -4,10 +4,8 @@
 <!DOCTYPE html>
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>
 		<?php echo $title_for_layout; ?> - <?php echo $cakeDescription ?>
-		
 	</title>
 	
 	<meta name="description" content="">
@@ -27,7 +25,7 @@
 <body>
 	<div id = "container">
 		<?php if(isset($auth) && $auth == 1){
-			echo $this->element('Layout\header');
+			echo $this->element('Layout\User\header');
 		} else {
 			echo $this->element('Layout\Guest\header');
 		} ?>
