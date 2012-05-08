@@ -39,6 +39,7 @@
 <?php echo $this->element('sql_dump'); ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 
 <?php echo $this->Html->script(array('kickstart/kickstart', 'kickstart/prettify', 'formee', 'main')); ?>
 <?php echo $this->fetch('scriptBottom'); ?>
