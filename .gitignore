@@ -1,3 +1,4 @@
+app/config/
 app/tmp
 /lib/Cake/Console/Templates/skel/tmp/
 /plugins

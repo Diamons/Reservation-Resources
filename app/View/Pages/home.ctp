@@ -45,7 +45,7 @@
 		<form class = "formee">
 			<div class="grid-12-12">
 				<label style = "font-size: 12pt;">What's your destination?</label>
-				<input type = "text" placeholder = "Search by Location " />
+				<input type = "text" id = "searchField" placeholder = "Search by Location " />
 			</div>
 			<input type = "submit" title = "search" value = "search" />	
 		</form>

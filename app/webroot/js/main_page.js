@@ -24,4 +24,7 @@ $(document).ready(function(){
 		$("#captions #location").text(location);
 		count++;
 	}
+//google autocomplete
+//var elementId= $("#search").
+//end google autocomplete
 });
