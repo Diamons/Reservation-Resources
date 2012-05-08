@@ -22,3 +22,21 @@
 #price{
 	font-size: 1.1em;
 }
+
+.sprite{
+	height: 130px;
+	width: 88px;
+	background-image: url('../img/icons/homepage.png');
+}
+
+.howitworks{
+	background-position: 88px 0;
+}
+
+.features{
+	background-position: 0 0;
+}
+
+.benefits{
+	background-position: 176px 0;
+}

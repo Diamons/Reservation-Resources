@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$("#captions").first().animate({
+	$("#captions").animate({
 		'left': 0
 	}, 1400);
 	

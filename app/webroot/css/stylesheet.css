@@ -333,7 +333,8 @@ div#container {
 }
 
 #features ul{
-	padding-left: 20px;
+	padding-left: 88px;
+	float: right;
 }
 
 #features div.letter, #features div.feature_individual{
