@@ -63,7 +63,7 @@
 		<div>
 				<h1 class = "letter">How it Works</h1>
 				<div class = "feature_individual">
-					<p>
+					<p>	
 						<ul>
 							<li>Search for where you want to stay</li>
 							<p>Start off with a simple search query for where you're looking for a place to stay! Reservation Resources allows you to search over <span class = "important">10,000</span> listings all from one site! </p>
@@ -72,6 +72,7 @@
 							<li>Rent and manage your vacation online</li>
 							<p>With a few clicks, you can rent out the places you see online straight from your computer. Await confirmation from the landlord and you're all set!</p>
 						</ul>
+						<div class = "howitworks sprite"></div>
 					</p>
 				</div>
 		</div><div>
@@ -86,6 +87,7 @@
 						<li>Rent and manage your vacation online</li>
 						<p>With a few clicks, you can rent out the places you see online straight from your computer. Await confirmation from the landlord and you're all set!</p>
 					</ul>
+					<div class = "features sprite"></div>
 				</p>
 			</div>
 		</div><div>
@@ -100,6 +102,7 @@
 						<li>Rent and manage your vacation online</li>
 						<p>With a few clicks, you can rent out the places you see online straight from your computer. Await confirmation from the landlord and you're all set!</p>
 					</ul>
+					<div class = "benefits sprite"></div>
 				</p>
 			</div>
 		</div>

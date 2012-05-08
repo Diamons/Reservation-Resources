@@ -1,17 +1,17 @@
 <?php
-	$cakeDescription = __d('cake_dev', 'Reservation Resources - ');
+	$cakeDescription = __d('cake_dev', 'Reservation Resources');
 ?>
 <!DOCTYPE html>
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $title_for_layout; ?>
+		<?php echo $title_for_layout; ?> - <?php echo $cakeDescription ?>
+		
 	</title>
 	
 	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="author" content="Reservation Resources LLC">
 	
 	<?php 
 		echo $this->Html->meta('icon');
