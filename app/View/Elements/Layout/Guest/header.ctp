@@ -2,7 +2,7 @@
 	<a href = "#"><?php echo $this->Html->image('logo-light.png', array('id' => 'topLogo')); ?></a>
 	<nav id = "main_navigation">
 		<ul id = "profile">
-			<li><a href = "#">Welcome back, <em>Shahruk Khan</em>!</a>
+			<li><a href = "#">Welcome back, <em>Shahruk Khan</em>! <span class = "notification">(1)</span></a>
 				<ul>
 					<li><a class = "clearfix" href = "#"><?php echo $this->Html->image('icons/Key.png', array('class' => 'sub_icon')); ?><div>Properties</div></a></li>
 					<li><a class = "clearfix" href = "#"><?php echo $this->Html->image('icons/Calendar-Month.png', array('class' => 'sub_icon')); ?><div>Reservations</div></a></li>
@@ -23,11 +23,11 @@
 			<form class = "formee">
 				<div class = "grid-2-12">
 					<label>Check In Date</label>						
-					<input type = "text" name = "checkin" placeholder = "mm/dd/yyyy">
+					<input type = "text" name = "checkin" placeholder = "mm/dd/yyyy" />
 				</div>
 				<div class = "grid-2-12">
 					<label>Check Out Date</label>
-					<input type = "text" name = "checkout" placeholder = "mm/dd/yyyy">
+					<input type = "text" name = "checkout" placeholder = "mm/dd/yyyy" />
 				</div>
 				<div class="grid-4-12">
 					<label>Search Properties <em class="formee-req">*</em></label>
@@ -50,7 +50,7 @@
 				</div>
 				<div class = "grid-1-12">
 					<label>Search</label>
-					<input type = "submit" title = "search" value = "search">
+					<input type = "submit" title = "search" value = "search" />
 				</div>
 			</form>
 		</div>

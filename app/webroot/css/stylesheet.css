@@ -390,6 +390,11 @@ div#container {
 	float: right;
 }
 
+.notification{
+	color: red;
+	font-weight: bold;
+}
+
 #body{
 	width: 980px;
 	margin: 20px auto 0 auto;
