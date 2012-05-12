@@ -8,7 +8,7 @@
 ?>
 <div id = "main_slider">
 	<div id = "slider_images">
-		<div data-price = "$200" data-location = "New York City, NY" style = "background-image: url('http://farm6.staticflickr.com/5284/5344607573_3a6dcdd76e_o.jpg'); background-position: 140px -240px;" class = "image"></div>
+		<div data-price = "$200" data-location = "New York City, NY" style = "background-image: url('http://farm6.staticflickr.com/5284/5344607573_6b57282f4e_b.jpg'); background-position: 140px -240px;" class = "image"></div>
 		<div data-price = "$100" data-location = "Washington D.C." style = "background-image: url('http://farm3.staticflickr.com/2724/4260668021_0191a5fe07_b.jpg'); background-position: 0 -200px;" class = "image"></div>
 		<div data-price = "$160" data-location = "Fort Lauderdale, FL" style = "background-image: url('http://farm6.staticflickr.com/5066/5829442256_376d379d1b_b.jpg'); background-position: 0 -200px;" class = "image"></div>
 	</div>

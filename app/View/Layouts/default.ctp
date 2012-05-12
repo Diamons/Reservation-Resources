@@ -14,7 +14,7 @@
 	<?php 
 		echo $this->Html->meta('icon');
 		echo $this->Html->css(array('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/blitzer/jquery-ui.css'));
-		echo $this->Html->css(array('kickstart/kickstart-buttons', 'kickstart/kickstart-grid', 'kickstart/kickstart-icons', 'kickstart/prettify', 'kickstart/tiptip', 'kickstart/jquery.fancybox-1.3.4', 'formee-style', 'formee-structure', 'main', 'stylesheet'));
+		echo $this->Html->css(array('quick_notifications/main', 'notification_center/css/style_light', 'bootstrap', 'bootstrap-responsive.min', 'formee-style', 'formee-structure', 'main', 'stylesheet'));
 	?>
 	<?php echo $this->fetch('cssTop'); ?>
 	<?php echo $this->fetch('scriptTop'); ?>
@@ -27,7 +27,7 @@
 		<?php if(isset($auth) && $auth == 1){
 			echo $this->element('Layout\User\header');
 		} else {
-			echo $this->element('Layout\Guest\header');
+			echo $this->element('Layout\User\header');
 		} ?>
 		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>
@@ -36,10 +36,10 @@
 	
 <?php echo $this->element('sql_dump'); ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 
-<?php echo $this->Html->script(array('kickstart/kickstart', 'kickstart/prettify', 'formee', 'main')); ?>
+<?php echo $this->Html->script(array('quick_notifications/notification', 'notification_center/ttw-notification-center', 'bootstrap.min', 'formee', 'main')); ?>
 <?php echo $this->fetch('scriptBottom'); ?>
 <!-- end scripts-->
 <script>

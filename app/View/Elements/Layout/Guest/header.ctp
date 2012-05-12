@@ -1,23 +1,10 @@
 <header>
-	<a href = "#"><?php echo $this->Html->image('logo-light.png', array('id' => 'topLogo')); ?></a>
-	<nav id = "main_navigation">
-		<ul id = "profile">
-			<li><a href = "#">Welcome back, <em>Shahruk Khan</em>! <span class = "notification">(1)</span></a>
-				<ul>
-					<li><a class = "clearfix" href = "#"><?php echo $this->Html->image('icons/Key.png', array('class' => 'sub_icon')); ?><div>Properties</div></a></li>
-					<li><a class = "clearfix" href = "#"><?php echo $this->Html->image('icons/Calendar-Month.png', array('class' => 'sub_icon')); ?><div>Reservations</div></a></li>
-					<li><a class = "clearfix" href = "#"><?php echo $this->Html->image('icons/Airplane.png', array('class' => 'sub_icon')); ?><div>Bookings</div></a></li>
-					<li><a class = "clearfix" href = "#"><?php echo $this->Html->image('icons/Chats.png', array('class' => 'sub_icon')); ?><div>Messages</div></a></li>
-				</ul>
-					
-			</li>
-		</ul>	
-		<ul class = "clearfix">
-			<li><a href = "#">Home</a></li>
-			<li class = "support_link"><a id = "support" href = "#">Support</a></li>
-			<li class = "active"><a id = "search" href = "#">Search</a></li>
-		</ul>
-	</nav>
+	<div class = "float_right">
+		<input class="btn btn-small btn-warning" type = "button" value = "List my Property" />
+		<input class="btn btn-small btn-primary" type = "button" value = "New Account" />
+		<input class="btn btn-small btn-success" type = "button" value = "Login" />		
+	</div>	
+	<a href = "<?php echo $this->Html->root; ?>"><?php echo $this->Html->image('logo-light.png', array('id' => 'topLogo')); ?></a>
 	<?php if($this->viewVars['page'] !== 'home'){ ?>
 		<div id = "searchBar">
 			<form class = "formee">
