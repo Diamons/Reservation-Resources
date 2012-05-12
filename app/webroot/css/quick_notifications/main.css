@@ -4,9 +4,6 @@
 	right: 0;
 	width: 400px;
 	margin-left: -200px;
-	background: #fff;
-	background: -webkit-linear-gradient(#fff, #dbdbdb);
-	background: -moz-linear-gradient(#fff, #dbdbdb);
 	border-radius: 6px;
 	-webkit-box-shadow: white 0px -1px 0px inset, rgba(0,0,0,0.5) 0px 4px 30px;
 	-moz-box-shadow: white 0px -1px 0px inset, rgba(0,0,0,0.5) 0px 4px 30px;

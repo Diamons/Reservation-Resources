@@ -14,7 +14,7 @@
 			<li class = "active"><a id = "search" class = "clearfix" href = "#"><?php echo $this->Html->image('icons/Search.png', array('class' => 'sub_icon')); ?><div>Search</div></a></li>
 		</ul>	
 	</nav>
-	<?php if($this->viewVars['page'] !== 'home'){ ?>
+	<?php if($this->Html->request->action !== 'display'){ ?>
 		<div id = "searchBar">
 			<form class = "formee">
 				<div class = "grid-2-12">

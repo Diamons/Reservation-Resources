@@ -1,16 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 @import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,300,700,800);
 
-@font-face {
-    font-family: 'Nevis';
-    src: url('fonts/nevis-webfont.eot');
-    src: url('fonts/nevis-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/nevis-webfont.woff') format('woff'),
-         url('fonts/nevis-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-
-}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -91,6 +82,30 @@ header{
 	-moz-box-shadow: 0 0 5px #888;
 	-webkit-box-shadow: 0 0 5px#888;
 	box-shadow: 0 0 5px #888;
+}
+
+input[type="text"]{
+	font-style: italic;
+	font-weight: 500;
+}
+
+h1{
+	font-size: 14pt;
+	line-height: 1.2em;
+	text-align: center;
+	font-weight: 700;
+	font-style: italic;
+}
+
+span.highlight{
+	color: #3598cf;
+	display: inline;
+
+}
+
+div.submit{
+	margin: 10px 0;
+	text-align: right;
 }
 
 #main_navigation{
@@ -350,7 +365,8 @@ div#container {
 }
 
 #body{
-	width: 980px;
+	width: 100%;
+	max-width: 1200px;
 	margin: 20px auto 0 auto;
 	background-color: #FFFFFF;
 	padding: 10px 10px 260px 10px;
@@ -437,4 +453,20 @@ footer nav ul{
 	font-weight: bold;
 	font-family: "Arial", sans-serif;
 	font-size: 1.2em;
+}
+
+.features_block{
+	border-style: solid;
+	border-width: 0 0 0 2px;
+	border-color: #ECECEC;
+	background-color: #95CA00;
+	padding: 20px;
+	border-radius: 9px;
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	margin-bottom: 10px;
+}
+
+.blue{
+	background-color: #d2efff;
 }
