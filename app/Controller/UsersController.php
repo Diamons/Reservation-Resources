@@ -6,15 +6,11 @@
 		}
 		
 		public function login(){
-			if(isset($this->data) && !empty($this->data)){
-				if($this->request->is('ajax')){
-				
-				} else if($this->request->is('post')){
-				
-				}
-			} else{
-				
-			}
+		
+		}
+		public function register(){
+
+		
 		}
 	}
 ?>

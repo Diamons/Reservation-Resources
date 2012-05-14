@@ -12,6 +12,13 @@
 		<ul class = "list">
 			<li>It's absolutely <span class = "highlight">free!</span></li>
 		</ul>
+			<?php 
+			echo $this->Form->create('User', array('class' => 'formee','action'=>'register'));
+			echo $this->Form->input('Username', array('placeholder' => 'Enter your e-mail address here...'));
+			echo $this->Form->input('Password', array('type' => 'password'));
+			echo $this->Form->input('Password_Confirmation', array('type' => 'password'));
+			echo $this->Form->end('Register');
+		?>
 	</div>
 	
 </div>
