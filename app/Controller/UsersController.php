@@ -6,11 +6,8 @@
 		}
 		
 		public function login(){
-		
 		}
 		public function register(){
-
-		
 		}
 	}
 ?>
