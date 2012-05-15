@@ -26,6 +26,19 @@
 				'rule' => 'mustMatch',
 				'mesage' => 'Passwords do not Match'
 			)
+		),
+		'first_name' => array(
+			'firstname_cannotbe_blank' =>array(
+				'rule' =>'notEmtpy',
+				'message'  =>'Ooops! I think you forgot your first name'
+			)
+		
+		),
+		'last_name' => array(
+			'lastname_cannotbe_blank' =>array(
+				'rule' => 'notEmpty',
+				'message' => 'Ooops! I think you forgot your last name'
+			)
 		)
 	);
 	

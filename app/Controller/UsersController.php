@@ -29,9 +29,9 @@
 				}
 		}
 		public function register(){
-			
+			$this->autoRender  = FALSE;
 			if($this->request->is('post')){
-				$this->autoRender  = FALSE;
+				
 				$this->User->create();
 				if($this->User->save($this->request->data)){
 					$this->redirect('/');
