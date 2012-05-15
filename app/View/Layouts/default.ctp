@@ -27,7 +27,7 @@
 		<?php if(isset($auth) && $auth == 1){
 			echo $this->element('Layout\User\header');
 		} else {
-			echo $this->element('Layout\User\header');
+			echo $this->element('Layout\Guest\header');
 		} ?>
 		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>
