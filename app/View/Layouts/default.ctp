@@ -39,7 +39,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 
-<?php echo $this->Html->script(array('quick_notifications/notification', 'notification_center/ttw-notification-center', 'bootstrap.min', 'formee', 'main')); ?>
+<?php echo $this->Html->script(array('quick_notifications/notification', 'notification_center/ttw-notification-center', 'bootstrap.min', 'formee', 'checkboxes_radio/replacer', 'main')); ?>
 <?php echo $this->fetch('scriptBottom'); ?>
 <!-- end scripts-->
 <script>

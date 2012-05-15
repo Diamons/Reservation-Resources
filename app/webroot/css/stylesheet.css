@@ -6,8 +6,7 @@ html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
+small, strike, strong, sub, sup, tt, var, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
@@ -42,6 +41,25 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+.has-js .label_check, .has-js .label_radio{ padding: 0 0 5px 25px;}
+
+.has-js .label_check:hover, .has-js .label_radio:hover{
+	cursor: pointer;
+}
+.has-js .label_radio { background: url(radio-off.png) no-repeat; }
+.has-js .label_check { background: url(check-off.png) no-repeat; }
+.has-js label.c_on { background: url(check-on.png) no-repeat; }
+.has-js label.r_on { background: url(radio-on.png) no-repeat; }
+.has-js .label_check input,
+.has-js .label_radio input { position: absolute; left: -9999px; }
+
+p{
+	margin: 0 0 9px;
+	line-height: 17px;
+}
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 /* =================================== */
 /*		BASE STYLE STARTS NOW
@@ -89,11 +107,42 @@ input[type="text"]{
 	font-weight: 500;
 }
 
+.formee input[type="submit"]{
+	background-color: #000000;
+	background-color: #0096D5;
+	padding: 4px 19px 4px 19px;
+	text-transform: lowercase;
+	color: white;
+	font-weight: 700;
+	font-size: 11px;
+	border-radius: 50px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	border: none;
+	-webkit-transition: background-color 200ms linear,color 200ms linear;
+	-moz-transition: background-color 200ms linear,color 200ms linear;
+	-o-transition: background-color 200ms linear,color 200ms linear;
+	-ms-transition: background-color 200ms linear,color 200ms linear;
+	transition: background-color 200ms linear;
+	border: none;
+	padding: 5px 15px;
+}
+
+.formee input[type="submit"]:hover{
+	background-color: #FB812F;
+}
+
 h1{
 	font-size: 14pt;
 	line-height: 1.2em;
 	text-align: center;
 	font-weight: 700;
+}
+
+.features_block h1{
 	font-style: italic;
 }
 
@@ -366,10 +415,10 @@ div#container {
 
 #body{
 	width: 100%;
-	max-width: 1200px;
+	max-width: 1600px;
 	margin: 20px auto 0 auto;
 	background-color: #FFFFFF;
-	padding: 10px 10px 260px 10px;
+	padding: 10px 20px 260px 20px;
 }
 
 footer {
@@ -444,7 +493,7 @@ footer nav ul{
 
 .full{
 	width: 100% !important;
-	margin: 0 !important;
+	margin: 0 auto 0 auto!important;
 	padding: 10px 0px 260px 0 !important;
 }
 
@@ -456,9 +505,6 @@ footer nav ul{
 }
 
 .features_block{
-	border-style: solid;
-	border-width: 0 0 0 2px;
-	border-color: #ECECEC;
 	background-color: #95CA00;
 	padding: 20px;
 	border-radius: 9px;
@@ -469,4 +515,16 @@ footer nav ul{
 
 .blue{
 	background-color: #d2efff;
+}
+
+.termsofservice {
+	overflow: auto;
+	height: 200px;
+	background-color: #F5F8F8;
+	border-style: solid;
+	border-width: 1px;
+	border-color: gray;
+	padding: 10px;
+	text-align: left;
+	font-size: 1.1em;
 }
