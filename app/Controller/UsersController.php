@@ -33,6 +33,7 @@
 			if($this->request->is('post')){
 				
 				$this->User->create();
+				debug($this->request);
 				if($this->User->save($this->request->data)){
 					$this->redirect('/');
 				}

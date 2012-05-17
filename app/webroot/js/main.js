@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$('a#search').click(function(){
 		$("#searchBar").stop(true,true).slideToggle(400);
 	});
-	
+	$("select, input:checkbox, input:radio, input:file").uniform();
 	//Notifications
 	var notifications = new $.ttwNotificationCenter();
 	notifications.initMenu({
