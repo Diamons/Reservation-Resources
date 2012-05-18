@@ -15,9 +15,13 @@
 		echo $this->Html->meta('icon');
 		echo $this->Html->css(array('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/blitzer/jquery-ui.css'));
 		echo $this->Html->css(array('quick_notifications/main', 'notification_center/css/style_light', 'bootstrap', 'bootstrap-responsive.min', 'formee-style', 'formee-structure', 'main', 'stylesheet'));
-	?>
+		echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
+		echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js');
+	?>	
 	<?php echo $this->fetch('cssTop'); ?>
 	<?php echo $this->fetch('scriptTop'); ?>
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 	<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -35,9 +39,7 @@
 	</div>
 	
 <?php echo $this->element('sql_dump'); ?>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+
 
 <?php echo $this->Html->script(array('quick_notifications/notification', 'notification_center/ttw-notification-center', 'bootstrap.min', 'formee', 'checkboxes_radio/replacer', 'main')); ?>
 <?php echo $this->fetch('scriptBottom'); ?>

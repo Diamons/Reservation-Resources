@@ -14,9 +14,14 @@
 				'username_must_not_be_blank'=>array(
 					'rule'=>'notEmpty',
 					'message'=>'Email address cannot be blank'
+				),
+				'username_must_match' => array(
+					'rule' =>'emailMustMatch',
+					'message'=>'Your email address do not match'
 				)
 		
 			),
+
 		'password' => array(
 			'password_must_not_be_empty' =>array(
 				'rule' => 'notEmpty',
@@ -24,12 +29,12 @@
 			),
 			'password_must_match' =>array(
 				'rule' => 'mustMatch',
-				'mesage' => 'Passwords do not Match'
+				'message' => 'Passwords do not Match'
 			)
 		),
 		'first_name' => array(
 			'firstname_cannotbe_blank' =>array(
-				'rule' =>'notEmtpy',
+				'rule' =>'notEmpty',
 				'message'  =>'Ooops! I think you forgot your first name'
 			)
 		
@@ -43,7 +48,7 @@
 	);
 	
 	public function mustMatch($data){
-		if($this->data['User']['password'] ==$this->data['User']['password_confirmation']  ){
+		if($this->data['User']['password'] == $this->data['User']['password_confirmation']  ){
 			$this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
 			return true;
 		}
@@ -52,5 +57,17 @@
 		}
 	}
 	
+	public function emailMustMatch($data){
+		if($this->data['User']['username'] == $this->data['User']['confirm_username']  ){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public function hashPassword(){
+		return  AuthComponent::password($this->data['User']['password']);
+	}
+
 }
 ?>

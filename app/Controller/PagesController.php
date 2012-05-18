@@ -58,6 +58,10 @@ class PagesController extends AppController {
  * @param mixed What page to display
  * @return void
  */
+
+ 
+ 
+ 
 	public function display() {
 		$path = func_get_args();
 

@@ -32,7 +32,8 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	var $components = array('Session','Auth');
+	var $components = array('Session','Auth'=>array( 'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')),'AjaxHandler');
+	var $helpers = array('Form','Html','Session');
 	public function beforeRender()
 	{
 		// only compile it on development mode
@@ -51,5 +52,8 @@ class AppController extends Controller {
 			lessc::ccompile($less, $css);
 		}
 		parent::beforeRender();
+	}
+	public function beforeFilter(){
+		$this->Auth->allow('display');
 	}
 }
