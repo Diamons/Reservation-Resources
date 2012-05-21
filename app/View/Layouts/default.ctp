@@ -14,15 +14,15 @@
 	<?php 
 		echo $this->Html->meta('icon');
 		echo $this->Html->css(array('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/blitzer/jquery-ui.css'));
-<<<<<<< HEAD
+
 		echo $this->Html->css(array('quick_notifications/main', 'notification_center/css/style_light', 'bootstrap', 'bootstrap-responsive.min', 'formee-style', 'formee-structure', 'main', 'stylesheet'));
 		echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
 		echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js');
-	?>	
-=======
-		echo $this->Html->css(array('quick_notifications/main', 'notification_center/css/style_light', 'bootstrap', 'bootstrap-responsive.min', 'formee-style', 'formee-structure', 'uniform.default', 'main', 'stylesheet'));
 	?>
->>>>>>> bb8ccd4cda5bffed65c4f7722d94be37531d77c0
+	 <?php
+	echo $this->Html->css(array('quick_notifications/main', 'notification_center/css/style_light', 'bootstrap', 'bootstrap-responsive.min', 'formee-style', 'formee-structure', 'uniform.default', 'main', 'stylesheet'));
+	?>
+
 	<?php echo $this->fetch('cssTop'); ?>
 	<?php echo $this->fetch('scriptTop'); ?>
 

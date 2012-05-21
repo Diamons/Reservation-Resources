@@ -4,7 +4,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$.ajax({
 			type:"POST",
-			url:"users/login",
+			url:"login",
 			data:$(this).serialize(),
 			success: function (data){
 				alert(data.data);
@@ -16,7 +16,7 @@ $(document).ready(function(){
 		$(".fieldError").remove();
 		$.ajax({
 			type:"POST",
-			url:"users/register",
+			url:"register",
 			dataType:"json",
 			data:$(this).serialize(),
 			success: function (data){
