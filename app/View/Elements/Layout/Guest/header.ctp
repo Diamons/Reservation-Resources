@@ -1,11 +1,11 @@
 <header>
 	<div class = "float_right">
 		<input class="btn btn-small btn-warning" type = "button" value = "List my Property" />
-		<input class="btn btn-small btn-primary" type = "button" value = "New Account" />
+		<input class="btn btn-small btn-primary" type = "button" value = "Register" />
 		<input class="btn btn-small btn-success" type = "button" value = "Login" />		
 	</div>	
 	<a href = "<?php echo $this->Html->root; ?>"><?php echo $this->Html->image('logo-light.png', array('id' => 'topLogo')); ?></a>
-	<?php if($this->viewVars['page'] !== 'home'){ ?>
+	<?php if(!isset($this->viewVars['page']) || $this->viewVars['page'] !== 'home'){ ?>
 		<div id = "searchBar">
 			<form class = "formee">
 				<div class = "grid-2-12">

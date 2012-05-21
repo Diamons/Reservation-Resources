@@ -41,6 +41,7 @@
 			$this->layout = 'ajax';
 			$response = array('success' => false);
 				$this->User->create();
+				debug($this->request);
 				if($this->User->save($this->request->data)){
 					$response['success'] = true;
 					$response['data'] = 1;	
