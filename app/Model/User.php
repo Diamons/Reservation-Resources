@@ -1,4 +1,5 @@
 <?php
+App::uses('CakeEmail', 'Network/Email');
 	class User extends  AppModel{
 	public $name = 'User';
 	public $validate = array(
@@ -67,6 +68,14 @@
 	}
 	public function hashPassword(){
 		return  AuthComponent::password($this->data['User']['password']);
+	}
+	public function afterSave($created){
+		if($created){
+			$email = new CakeEmail('smtp');
+			$email->sender('noreply@reservationresources.com')->to($this->data['User']['username'])->subject('Welcome to Reservation Resources')->send('this is a test'); 
+		
+		}
+	
 	}
 
 }

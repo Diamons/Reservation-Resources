@@ -2,12 +2,17 @@ $(document).ready(function(){
 
 	$("form#UserLoginForm").submit(function(event){
 		event.preventDefault();
+		$(".fieldError").remove();
 		$.ajax({
 			type:"POST",
-			url:"login",
+			url:"users/login",
 			data:$(this).serialize(),
 			success: function (data){
-				alert(data.data);
+				if(data.success == false){
+					$("#UserLoginForm #UserUsername ").css('border-color','red').after("<div style = 'color:red;'class = 'fieldError'>"+data.data+"</div");
+					$("#UserLoginForm #UserPassword ").css('border-color','red');
+				
+				}
 			}
 		});
 	});
@@ -16,7 +21,7 @@ $(document).ready(function(){
 		$(".fieldError").remove();
 		$.ajax({
 			type:"POST",
-			url:"register",
+			url:"users/register",
 			dataType:"json",
 			data:$(this).serialize(),
 			success: function (data){
