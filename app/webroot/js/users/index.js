@@ -21,7 +21,7 @@ $(document).ready(function(){
 		$(".fieldError").remove();
 		$.ajax({
 			type:"POST",
-			url:"users/register",
+			url:"register",
 			dataType:"json",
 			data:$(this).serialize(),
 			success: function (data){

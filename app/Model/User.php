@@ -72,7 +72,9 @@ App::uses('CakeEmail', 'Network/Email');
 	public function afterSave($created){
 		if($created){
 			$email = new CakeEmail('smtp');
-			$email->sender('noreply@reservationresources.com')->to($this->data['User']['username'])->subject('Welcome to Reservation Resources')->send('this is a test'); 
+			$email->viewVars(array('first' =>$this->data['User']['first_name'],'last'=>$this->data['User']['last_name']));
+			$email->template('welcome', 'email_layout')->emailFormat('html');
+			$email->sender('noreply@reservationresources.com')->to($this->data['User']['username'])->subject('Welcome to Reservation Resources')->send(); 
 		
 		}
 	
