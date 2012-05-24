@@ -54,4 +54,11 @@ $(document).ready(function(){
 	$("#main_navigation ul a.clearfix").click(function(){
 		$(this).children(".notification-bubble").click();
 	});
+
 });
+
+	
+function parseGeoCoordinates(type,geocode){
+	return geocode;
+	
+}

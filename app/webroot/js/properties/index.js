@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 //google autocomplete
 var elementId= document.getElementById("PropertyPropertyAddress");
 var autocomplete = new google.maps.places.Autocomplete(elementId);
@@ -55,6 +56,8 @@ $("#PropertyCity").val(address["city"]);
 $("#PropertyState").val(address["state"]);
 $("#PropertyCountry").val(address["country"]);
 $("#PropertyZipCode").val(address["zip"]);
+var latitude = parseGeoCoordinates('lat',place.geometry.location);
+alert(latitude);
 $('#PropertyGeocode').val(place.geometry.location);
 
 //lets show the hidden input elements upon google request completion
