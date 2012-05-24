@@ -32,7 +32,7 @@ $(document).ready(function(){
 						$("#UserRegisterForm input[name$='data[User]["+field+"]']").after("<div style = 'color:red;'class = 'fieldError'>"+value+"</div");
 						
 					});
-				$(".fieldError").effect("pulsate");
+				$(".fieldError").effect("pulsate", {times: 1});
 				}
 				else{	//alert(data.success);
 					$("form#UserRegisterForm").slideUp();
