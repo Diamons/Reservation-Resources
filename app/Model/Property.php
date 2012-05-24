@@ -81,7 +81,7 @@
 		);
 	
 	public function mustHavePrice(){
-			if($this->data['Property']['price_per_night']||$this->data['Property']['price_per_week']||$this->data['Property']['price_per_week']){
+			if($this->data['Property']['price_per_night']||$this->data['Property']['price_per_week']||$this->data['Property']['price_per_month']){
 				return true;
 			}
 			else{

@@ -1,4 +1,7 @@
 <?php echo $this->Html->script('properties/index', array('block' => 'scriptBottom'));?>
+<div id = "body" role = "main">
+	<div class = "row-fluid">
+		<div class = "span6">
 <?php
 //currency code options
 	$currency_options = array('USD'=>'USD','AUD'=>'AUD','CAD'=>'CAD','EUR'=>'EUR','GBP'=>'GBP','JPY'=>'JPY','ZAR'=>'ZAR');
@@ -15,7 +18,6 @@
 	echo $this->Form->input('longtitude',array('type'=>'hidden'));
 	echo $this->Form->input('title',array('placeholder'=>'Enter the title of your listing, this is what others will see when they are searching'));
 	echo $this->Form->input('description');
-	echo $this->Form->input('house_rules');
 	echo $this->Form->input('rent_once',array('label'=>array('text'=>'Is this a one time sublet?','style'=>'display:inline'),'format'=>array('before', 'label', 'between', 'input', 'after', 'error' )));
 	echo $this->Form->input('currency_code',array('options'=>$currency_options,'default'=>'USD'));
 	echo $this->Form->input('price_per_night');
@@ -23,3 +25,7 @@
 	echo $this->Form->input('price_per_month');
 	echo $this->Form->end('Publish');
 ?>
+		</div>
+	</div>
+</div>
+	
