@@ -1,4 +1,6 @@
+
 <?php echo $this->Html->script('properties/index', array('block' => 'scriptBottom'));?>
+
 <div id = "body" role = "main">
 	<div class = "row-fluid">
 		<div class = "span6">

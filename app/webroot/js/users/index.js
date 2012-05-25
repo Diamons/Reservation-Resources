@@ -5,7 +5,7 @@ $(document).ready(function(){
 		$(".fieldError").remove();
 		$.ajax({
 			type:"POST",
-			url:"login",
+			url:"http://localhost/cakephp/users/login",
 			data:$(this).serialize(),
 			success: function (data){
 				if(data.success == false){
@@ -21,7 +21,7 @@ $(document).ready(function(){
 		$(".fieldError").remove();
 		$.ajax({
 			type:"POST",
-			url:"register",
+			url:"http://localhost/cakephp/users/register",
 			dataType:"json",
 			data:$(this).serialize(),
 			success: function (data){
