@@ -33,7 +33,7 @@
 </head>
 <body>
 	<div id = "container">
-		<?php if(isset($auth) && $auth == 1){
+		<?php if(isset($auth) && $auth == true){
 			echo $this->element('Layout\User\header');
 		} else {
 			echo $this->element('Layout\Guest\header');

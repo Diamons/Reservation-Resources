@@ -5,7 +5,7 @@ $(document).ready(function(){
 		$(".fieldError").remove();
 		$.ajax({
 			type:"POST",
-			url:"users/login",
+			url:"login",
 			data:$(this).serialize(),
 			success: function (data){
 				if(data.success == false){

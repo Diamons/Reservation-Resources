@@ -55,5 +55,11 @@ class AppController extends Controller {
 	}
 	public function beforeFilter(){
 		$this->Auth->allow('display');
+			if($this->Auth->loggedIn()){
+				$this->set('auth',true);
+			}
+			else{
+				$this->set('auth',false);
+			}
 	}
 }

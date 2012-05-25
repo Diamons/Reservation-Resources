@@ -1,5 +1,6 @@
 <?php
 App::uses('CakeEmail', 'Network/Email');
+App::uses('Folder', 'Utility');
 	class User extends  AppModel{
 	public $name = 'User';
 	public $validate = array(
@@ -77,8 +78,15 @@ App::uses('CakeEmail', 'Network/Email');
 			$email->sender('noreply@reservationresources.com')->to($this->data['User']['username'])->subject('Welcome to Reservation Resources')->send(); 
 		
 		}
+		
 	
 	}
+	//we will set up user directory if successfully saved
+	public function createUserDirectory($id){
+		$dir = new Folder();//default constructor sets up a path to directory instance NOT create!
+		$dir->create(WWW_ROOT.'images'.DS.$id);
+	}
+	
 
 }
 ?>

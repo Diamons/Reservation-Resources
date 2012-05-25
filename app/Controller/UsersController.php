@@ -6,8 +6,8 @@
 			
 		}
 		public function beforeFilter() {
-			$this->Auth->allow('register','index','login');
-			$this->AjaxHandler->handle('login','register');
+			$this->Auth->allow('register','index','login','checkloginstatus');
+			$this->AjaxHandler->handle('login','register','checkloginstatus');
 		}
 		public function index(){
 		
@@ -41,8 +41,8 @@
 			$this->layout = 'ajax';
 			$response = array('success' => false);
 				$this->User->create();
-				debug($this->request);
 				if($this->User->save($this->request->data)){
+					$this->User->createUserDirectory($this->User->id);
 					$response['success'] = true;
 					$response['data'] = 1;	
 				}
@@ -55,6 +55,21 @@
 			return $this->AjaxHandler->respond('json',$response);
 			
 
+		}
+		public function checkloginstatus(){
+			$this->autoLayout = FALSE;
+			$this->layout = 'ajax';
+			$response = array('success' => false);
+			if($this->Auth->loggedIn()){
+					$response['success'] = true;
+					$response['data'] = 1;
+			}
+			else{
+					$response['data'] = 0;
+					
+			}
+			return $this->AjaxHandler->respond('json',$response);
+	
 		}
 
 	}

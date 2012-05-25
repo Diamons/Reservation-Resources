@@ -56,9 +56,9 @@ $("#PropertyCity").val(address["city"]);
 $("#PropertyState").val(address["state"]);
 $("#PropertyCountry").val(address["country"]);
 $("#PropertyZipCode").val(address["zip"]);
-var latitude = parseGeoCoordinates('lat',place.geometry.location);
-alert(latitude);
-$('#PropertyGeocode').val(place.geometry.location);
+$("#PropertyLatitude").val( place.geometry.location.lat());
+$("#PropertyLongtitude").val( place.geometry.location.lng());
+
 
 //lets show the hidden input elements upon google request completion
 if(!$("#PropertyAddress").val()){
@@ -105,4 +105,30 @@ $("#PropertyState").parent().hide();
 $("#PropertyZipCode").parent().hide();
 $("#PropertyCountry").parent().hide();
 
+
 });
+//check login status to determine if they should log in or proceed as normal
+function checkLoginStatus(){
+var auth;
+	$.ajax({
+		type:"POST",
+		url:"http://localhost/cakephp/users/checkloginstatus",
+		dataType:"json",
+		async: false,//we set async to false, usually defeats purpose of js but we need to make sure the auth variable gets set
+		success:function(data){
+			if(data.success == false){//user is not logged in
+				auth = data.success
+				$("#registrationForm").slideDown();
+				
+				
+			}
+			else{//user is logged in
+				auth =  data.success
+			}
+		}
+		
+		
+	});
+return auth;
+
+}

@@ -9,13 +9,19 @@
 			$this->Auth->allow('index');
 			}
 		public function index(){
-			if($this->request->is('post')){
+			if($this->request->is('post')&&$this->Auth->loggedIn()){
 				if($this->Property->save($this->request->data)){
 					
 				}
 				else{
 					debug($this->Property->validationErrors);
 				}
+			}
+			else{
+				if($this->request->is('post') ){
+					
+				}
+			
 			}
 		}
 	}

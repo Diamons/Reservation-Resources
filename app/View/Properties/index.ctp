@@ -6,7 +6,7 @@
 //currency code options
 	$currency_options = array('USD'=>'USD','AUD'=>'AUD','CAD'=>'CAD','EUR'=>'EUR','GBP'=>'GBP','JPY'=>'JPY','ZAR'=>'ZAR');
 	$property_type = array('Apartment'=>'Apartment','House'=>'House','Bed and Breakfast'=>'Bed and Breakfast','Cabin'=>'Cabin','Villa'=>'Villa','Guest Room'=>'Guest Room','Condo');
-	echo $this->Form->create('Property',array('class'=>'formee'));
+	echo $this->Form->create('Property',array('class'=>'formee','onSubmit'=>'return checkLoginStatus();'));
 	echo $this->Form->input('type',array('options'=>$property_type,'default'=>'Apartment','label'=>'Property Type'));
 	echo $this->Form->input('property_address',array('placeholder'=>'Enter your property address'));
 	echo $this->Form->input('address');
@@ -28,4 +28,13 @@
 		</div>
 	</div>
 </div>
+<?php
+	if($auth == false){
+		?>
+		<div id = 'registrationForm' style = "display:none;">
+		<?php
+		echo $this->element('login_register');
+		}?>
+		</div>
 	
+?>

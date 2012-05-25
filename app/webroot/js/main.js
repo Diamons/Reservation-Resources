@@ -58,7 +58,3 @@ $(document).ready(function(){
 });
 
 	
-function parseGeoCoordinates(type,geocode){
-	return geocode;
-	
-}
