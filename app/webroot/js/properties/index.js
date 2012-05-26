@@ -118,12 +118,17 @@ var auth;
 		success:function(data){
 			if(data.success == false){//user is not logged in
 				auth = data.success
-				//$("#registrationForm").slideDown();
+				
 					$( "#registrationForm" ).dialog({
 						autoOpen: true,
 						height: 900,
 						width: 1200,
-						modal: true
+						modal: true,
+						buttons:[{
+							text:"Cancel",
+							click: function() { $(this).dialog("close"); }
+						}]
+						
 					});
 				
 				
