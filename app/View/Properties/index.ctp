@@ -80,6 +80,18 @@
 	</div>
 */ ?>
 <div id = "body" class = "row-fluid" role = "main">
+	<div class = "panel_info span6">
+		<div class = "formee">
+			<h1 style = "color:#3a3a3a; text-transform: uppercase; font-size: 10pt;">List your Location</h1>
+			<input type = "text" id = "address" placeholder = "Where is your property located?" />
+		</div>
+		<div id="map_canvas" style="width:100%; height:100%"></div>
+		<div class = "panel">
+			<?php
+				echo $this->element('file_upload');
+			?>
+		</div>
+	</div>
 	<div class = "span6">
 		<?php
 				//currency code options
@@ -99,7 +111,6 @@
 		</div>
 		</section>
 		<?php
-				echo $this->Form->input('property_address',array('placeholder'=>'Enter your property address'));
 				echo $this->Form->input('address');
 				echo $this->Form->input('city');
 				echo $this->Form->input('state');
@@ -109,20 +120,20 @@
 				echo $this->Form->input('longtitude',array('type'=>'hidden'));
 				echo $this->Form->input('title',array('placeholder'=>'Enter the title of your listing, this is what others will see when they are searching'));
 				echo $this->Form->input('description');
-				echo $this->Form->input('price_per_night');
-				echo $this->Form->input('price_per_week');
-				echo $this->Form->input('price_per_month');
-				echo $this->Form->end('Publish');
-			?>
-	</div>
-	<div class = "panel_info span6">
-		<div id="map_canvas" style="width:100%; height:100%"></div>
-		<div class = "panel">
-			<?php
-				echo $this->element('file_upload');
-			?>
+		?>
+		<div class = "row-fluid">
+			<div class = "span4">
+				<?php echo $this->Form->input('price_per_night', array('placeholder' => 'With or without $ symbols')); ?>
+			</div>
+			<div class = "span4">
+				<?php echo $this->Form->input('price_per_week', array('placeholder' => 'With or without $ symbols')); ?>
+			</div>
+			<div class = "span4">
+				<?php echo $this->Form->input('price_per_month', array('placeholder' => 'With or without $ symbols')); ?>
+			</div>
 		</div>
 	</div>
+	<div class = "formee"><?php echo $this->Form->end('Save and List My Property'); ?></div>
 <?php if($auth == false){?>
 		<div id = "registrationForm">
 			<?php

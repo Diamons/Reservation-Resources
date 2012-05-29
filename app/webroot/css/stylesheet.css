@@ -144,11 +144,10 @@ input[type="text"]{
 }
 
 h1{
-	font-size: 14pt;
+	font-size: 12pt;
 	line-height: 1.2em;
 	text-align: center;
 	font-weight: 700;
-	font-family: "ProximaNovaLtBold", "Helvetica", "Arial", sans-serif;
 }
 
 .features_block h1{
@@ -574,3 +573,4 @@ form.formee > div.submit{
 
 /* == GLOBAL == */
 #map_canvas { min-height: 475px; height: 100% }
+#map_canvas img{ max-width: none; }
