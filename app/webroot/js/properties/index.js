@@ -1,5 +1,11 @@
+/*$('.types').click(function(){
+	$('.types').removeClass('active');
+	$(this).addClass('active');
+	$('#PropertyType option').removeAttr('selected');
+	$("#PropertyType option[value='"+$.trim($(this).text())+"']").attr('selected', 'selected');
+}); */
 $(document).ready(function(){
-
+// $("#uniform-PropertyType, #uniform-PropertyType").parent("div").hide();
 //google autocomplete
 var elementId= document.getElementById("PropertyPropertyAddress");
 var autocomplete = new google.maps.places.Autocomplete(elementId);
@@ -104,7 +110,6 @@ $("#PropertyCity").parent().hide();
 $("#PropertyState").parent().hide();
 $("#PropertyZipCode").parent().hide();
 $("#PropertyCountry").parent().hide();
-
 
 });
 //check login status to determine if they should log in or proceed as normal
