@@ -73,7 +73,7 @@ $(function () {
 			$("[data-delete*='"+data.url+"']").remove();
 		});
         // Load existing files:
-        $('#fileupload').each(function () {
+       /* $('#fileupload').each(function () {
             var that = this;
             $.getJSON(this.action, function (result) {
                 if (result && result.length) {
@@ -81,7 +81,7 @@ $(function () {
                         .call(that, null, {result: result});
                 }
             });
-        });
+        });*/
     }
 
 });
