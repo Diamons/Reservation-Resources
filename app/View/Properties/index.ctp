@@ -8,18 +8,6 @@
 	echo $this->Html->css('properties/index');
 	$this->end();
 ?>
-<<<<<<< HEAD
-
-		</div>
-<?php
-	echo $this->element('file_upload');
-?>
-	</div>
-
-</div>
-<?php
-	echo $this->element('file_upload');
-?>
 <?php
 	if($auth == false){
 		?>
@@ -28,7 +16,7 @@
 		echo $this->element('login_register');
 }?>
 		</div>
-=======
+
 <?php /*	<div class = "row-fluid">
 		<div class = "span7">
 			<div class = "features_block blue">
@@ -92,7 +80,7 @@
 	</div>
 */ ?>
 <div id = "body" class = "row-fluid" role = "main">
-	<div class = "span7">
+	<div class = "span6">
 		<?php
 				//currency code options
 				$currency_options = array('USD'=>'USD','AUD'=>'AUD','CAD'=>'CAD','EUR'=>'EUR','GBP'=>'GBP','JPY'=>'JPY','ZAR'=>'ZAR');
@@ -129,8 +117,11 @@
 				echo $this->Form->end('Publish');
 			?>
 	</div>
-	<div class = "span5">
+	<div class = "span6">
 		<div id="map_canvas" style="width:100%; height:100%"></div>
+		<?php
+			echo $this->element('file_upload');
+		?>
 	</div>
 <?php if($auth == false){?>
 		<div id = "registrationForm">
@@ -140,5 +131,4 @@
 		</div>
 		<?php }?>
 </div>
->>>>>>> 1f2071b2d11fc58eafa1a3d13e97b55fa0f76cde
 

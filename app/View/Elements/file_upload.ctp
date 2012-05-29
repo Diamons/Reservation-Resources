@@ -1,8 +1,6 @@
 <?php echo $this->Html->css("http://blueimp.github.com/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css",null,array('inline'=>false));?>
 
 <?php echo $this->Html->css("/js/blueimp/css/jquery.fileupload-ui",null,array('inline'=>false));?>
-<!-- Shim to make HTML5 elements usable in older Internet Explorer versions -->
-<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <?php echo $this->Html->script('blueimp/js/jquery.fileupload', array('block' => 'scriptBottom'));?>
 <?php echo $this->Html->script('blueimp/js/jquery.iframe-transport', array('block' => 'scriptBottom'));?>
 <?php echo $this->Html->script('http://blueimp.github.com/JavaScript-Templates/tmpl.min.js', array('block' => 'scriptBottom'));?>
@@ -23,7 +21,7 @@
     <form id="fileupload" action="/cakephp/image_handler/" method="POST" enctype="multipart/form-data">
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
         <div class="row fileupload-buttonbar">
-            <div class="span7">
+            <div class="span12">
                 <!-- The fileinput-button span is used to style the file input field as button -->
                 <span class="btn btn-success fileinput-button">
                     <i class="icon-plus icon-white"></i>
@@ -45,7 +43,7 @@
                 <input type="checkbox" class="toggle">
             </div>
             <!-- The global progress information -->
-            <div class="span5 fileupload-progress fade">
+            <div class="span12 fileupload-progress fade">
                 <!-- The global progress bar -->
                 <div class="progress progress-success progress-striped active">
                     <div class="bar" style="width:0%;"></div>
