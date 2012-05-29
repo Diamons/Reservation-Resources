@@ -6,22 +6,27 @@
 }); */
 $(document).ready(function(){
 var myOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 8,
+          center: new google.maps.LatLng(1, 1),
+          zoom: 2,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var map = new google.maps.Map(document.getElementById("map_canvas"),
             myOptions);
+		var markersArray = [];
+		
 //google autocomplete
-var elementId= document.getElementById("PropertyPropertyAddress");
+var elementId= document.getElementById("address");
 var autocomplete = new google.maps.places.Autocomplete(elementId);
 google.maps.event.addListener(autocomplete, 'place_changed', function() {
+	
 	var place = autocomplete.getPlace();
+	updateMap(place.geometry.location.lat(), place.geometry.location.lng(), 13);
+
+	
 	$(elementId).val(place.formatted_address);
 	//alert(place.address_components);
- var address = [];
+		var address = [];
  
-
  //lets extract and parse the data needed since address componants can be variable length
  for(i = 0; i < place.address_components.length;i++){
 	
@@ -102,7 +107,6 @@ if(!$("#PropertyCountry").val()){
 	
 }
 
-
 $("#PropertyAddress").parent().slideDown(500);
 $("#PropertyCity").parent().slideDown(500);
 $("#PropertyState").parent().slideDown(500);
@@ -118,6 +122,20 @@ $("#PropertyState").parent().hide();
 $("#PropertyZipCode").parent().hide();
 $("#PropertyCountry").parent().hide();
 
+function updateMap(lati, longi, zoom){
+	if(markersArray[0]!=undefined){
+		markersArray[0].setMap(null);
+	}
+	var latLng = new google.maps.LatLng(lati, longi);
+		var marker = new google.maps.Marker({
+		  animation: google.maps.Animation.DROP,
+		  position: latLng,
+		  map: map
+	  });
+	  map.setCenter(latLng);
+	  map.setZoom(zoom);
+	  markersArray[0] = marker;
+}
 });
 //check login status to determine if they should log in or proceed as normal
 function checkLoginStatus(){
