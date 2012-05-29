@@ -27,16 +27,23 @@
 	echo $this->Form->input('price_per_month');
 	echo $this->Form->end('Publish');
 ?>
+
 		</div>
+<?php
+	echo $this->element('file_upload');
+?>
 	</div>
+
 </div>
+<?php
+	echo $this->element('file_upload');
+?>
 <?php
 	if($auth == false){
 		?>
 		<div id = 'registrationForm' style = "display:none;">
 		<?php
 		echo $this->element('login_register');
-		}?>
+}?>
 		</div>
-	
-?>
+
