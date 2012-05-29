@@ -5,7 +5,13 @@
 	$("#PropertyType option[value='"+$.trim($(this).text())+"']").attr('selected', 'selected');
 }); */
 $(document).ready(function(){
-// $("#uniform-PropertyType, #uniform-PropertyType").parent("div").hide();
+var myOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            myOptions);
 //google autocomplete
 var elementId= document.getElementById("PropertyPropertyAddress");
 var autocomplete = new google.maps.places.Autocomplete(elementId);
@@ -57,6 +63,7 @@ google.maps.event.addListener(autocomplete, 'place_changed', function() {
 	}
 	
  }
+
 $("#PropertyAddress").val(address["street"]);
 $("#PropertyCity").val(address["city"]);
 $("#PropertyState").val(address["state"]);

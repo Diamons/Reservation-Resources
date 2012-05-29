@@ -1,4 +1,8 @@
-<?php echo $this->Html->script('properties/index', array('block' => 'scriptBottom'));?>
+<?php
+	$this->start('scriptBottom');
+		echo $this->Html->script('properties/index'); 
+	$this->end();
+?>
 <?php 
 	$this->start('cssTop');
 	echo $this->Html->css('properties/index');
@@ -67,13 +71,25 @@
 	</div>
 */ ?>
 <div id = "body" class = "row-fluid" role = "main">
-	<div class = "span6">
-	<?php
-			//currency code options
+	<div class = "span7">
+		<?php
+				//currency code options
 				$currency_options = array('USD'=>'USD','AUD'=>'AUD','CAD'=>'CAD','EUR'=>'EUR','GBP'=>'GBP','JPY'=>'JPY','ZAR'=>'ZAR');
 				$property_type = array('Apartment'=>'Apartment','House'=>'House','Bed and Breakfast'=>'Bed and Breakfast','Cabin'=>'Cabin','Villa'=>'Villa','Guest Room'=>'Guest Room','Condo' => 'Condo');
 				echo $this->Form->create('Property',array('class'=>'formee','onSubmit'=>'return checkLoginStatus();'));
-				echo $this->Form->input('type',array('options'=>$property_type,'default'=>'Apartment','label'=>'Property Type'));
+		?>
+		<section class = "row-fluid">
+		<div class = "span4">
+			<?php echo $this->Form->input('type',array('options'=>$property_type,'default'=>'Apartment','label'=>'Property Type')); ?>
+		</div>
+		<div class = "span4">
+			<?php echo $this->Form->input('rent_once',array('label'=>array('text'=>'Is this a one time sublet? ','style'=>'display:inline'),'format'=>array('before', 'label', 'between', 'input', 'after', 'error' )));?>
+		</div>
+		<div class = "span4">
+			<?php echo $this->Form->input('currency_code',array('options'=>$currency_options,'default'=>'USD')); ?>
+		</div>
+		</section>
+		<?php
 				echo $this->Form->input('property_address',array('placeholder'=>'Enter your property address'));
 				echo $this->Form->input('address');
 				echo $this->Form->input('city');
@@ -91,6 +107,9 @@
 				echo $this->Form->input('price_per_month');
 				echo $this->Form->end('Publish');
 			?>
+	</div>
+	<div class = "span5">
+		<div id="map_canvas" style="width:100%; height:100%"></div>
 	</div>
 <?php if($auth == false){?>
 		<div id = "registrationForm">
