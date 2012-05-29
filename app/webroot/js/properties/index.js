@@ -71,38 +71,33 @@ $("#PropertyCountry").val(address["country"]);
 $("#PropertyZipCode").val(address["zip"]);
 $("#PropertyLatitude").val( place.geometry.location.lat());
 $("#PropertyLongtitude").val( place.geometry.location.lng());
-
-
+$('input').css('border-color','#c6c6c6');
+$('.fieldError').remove();
 //lets show the hidden input elements upon google request completion
 if(!$("#PropertyAddress").val()){
 	$("#PropertyAddress").css('border-color','red');
-	$("#PropertyAddress + .fieldError").remove();
 	$("#PropertyAddress").after("<div style = 'color:red;'class = 'fieldError'>Sorry our system could not find your address,can you help us out?</div");
 	
 }
 if(!$("#PropertyCity").val()){
 	$("#PropertyCity").css('border-color','red');
-	$("#PropertyCity + .fieldError").remove();
 	$("#PropertyCity").after("<div style = 'color:red;'class = 'fieldError'>Sorry our system could not find your city/town,can you help us out?</div");
 	
 }
 
 if(!$("#PropertyState").val()){
 	$("#PropertyState").css('border-color','red');
-	$("#PropertyState + .fieldError").remove();
 	$("#PropertyState").after("<div style = 'color:red;'class = 'fieldError'>Sorry our system could not find your state/region,can you help us out?</div");
 	
 }
 if(!$("#PropertyZipCode").val()){
 	$("#PropertyZipCode").css('border-color','red');
-	$("#PropertyZipCode + .fieldError").remove();
 	$("#PropertyZipCode").after("<div style = 'color:red;'class = 'fieldError'>Sorry our system could not find your zip/postal code,can you help us out?</div");
 	
 }
 
 if(!$("#PropertyCountry").val()){
 	$("#PropertyCountry").css('border-color','red');
-	$("#PropertyCountry + .fieldError").remove();
 	$("#PropertyCountry").after("<div style = 'color:red;'class = 'fieldError'>Sorry our system could not find your country,can you help us out?</div");
 	
 }
