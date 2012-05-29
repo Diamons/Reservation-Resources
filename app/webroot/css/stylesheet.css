@@ -59,6 +59,14 @@ p{
 	line-height: 17px;
 }
 
+h2{
+	font-size: 11pt;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #CECECE;
+	text-align: left;
+}
+
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 /* =================================== */
@@ -89,8 +97,8 @@ em, b{
 }
 
 body{
-	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
-	font-size: 11px;
+	font-family: "ProximaNovaLtRegular", "Helvetica", "Arial", sans-serif;
+	font-size: 12pt;
 	background-color: #F7F7F7;
 }
 
@@ -304,7 +312,6 @@ div#container {
 	height:100%;
 	min-height:100%; 
 	width: 100%;
-	max-width: 1680px;
 	background-image:url('../img/xv_pattern.png');
 }
 
@@ -418,11 +425,11 @@ div#container {
 	max-width: 1600px;
 	margin: 20px auto 0 auto;
 	background-color: #FFFFFF;
-	padding: 10px 20px 260px 20px;
+	padding: 10px 20px 20px 20px;
 }
 
 footer {
-	position:absolute;
+	position:relative;
 	width:100%;
 	bottom:0; /* stick to bottom */
 	min-height: 200px;
@@ -439,7 +446,7 @@ footer > div.inner_footer{
 	margin: auto;
 	padding-top: 8px;
 	letter-spacing: 1px;
-	font-size: 8pt;
+	font-size: 9pt;
 	line-height: 20px;
 	text-align: center;
 }
@@ -494,7 +501,6 @@ footer nav ul{
 .full{
 	width: 100% !important;
 	margin: 0 auto 0 auto!important;
-	padding: 10px 0px 260px 0 !important;
 }
 
 .important{

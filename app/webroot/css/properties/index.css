@@ -1,0 +1,95 @@
+#registrationForm{
+	display: none;
+}
+.property_types{
+	text-align: center;
+}
+
+.property_info{
+	background: rgb(38,38,38); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(38,38,38,1) 0%, rgba(25,25,25,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(38,38,38,1)), color-stop(100%,rgba(25,25,25,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(38,38,38,1) 0%,rgba(25,25,25,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(38,38,38,1) 0%,rgba(25,25,25,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(38,38,38,1) 0%,rgba(25,25,25,1) 100%); /* IE10+ */
+background: linear-gradient(top, rgba(38,38,38,1) 0%,rgba(25,25,25,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#262626', endColorstr='#191919',GradientType=0 ); /* IE6-9 */
+position: fixed;
+right: 0;
+width: 100%;
+-moz-border-radius: 12px;
+-webkit-border-radius: 12px;
+border-radius: 12px;
+padding: 25px;
+font-size: 18pt;
+color: #ECECEC;
+}
+
+.property_types > .types{
+	display: inline-block;
+	vertical-align: top;
+	text-transform: uppercase;
+	font-size: 12pt;
+	font-weight: bold;
+	padding: 4px;
+	margin-top: 10px;
+}
+.types > [class*="property"]{
+	width: 170px;
+	height: 170px;
+	background-image: url('../../img/properties/property_types.png');
+	padding:0 1px;
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	border-radius: 9px;
+	margin: 15px 5px;
+}
+
+.types:hover{
+	cursor: pointer;
+	-moz-box-shadow: 0 0 1px #888;
+	-webkit-box-shadow: 0 0 1px#888;
+	box-shadow: 0 0 1px #888;
+	background-color: #ebffc8;
+}
+.types:active, .active{
+	/*background-color: #d5ff8d !important;*/
+}
+
+.property_apartment{
+	background-position: 200px -40px;
+}
+.property_apartment:hover, .types.active .property_apartment{
+	background-position-y: -760px;
+}
+.property_house{
+	background-position: -35px -40px;
+}
+.property_house:hover, .types.active .property_house{
+	background-position-y:  -760px;
+}
+.property_bedandbreakfast{
+	background-position: -35px -280px;
+}
+.property_bedandbreakfast:hover, .types.active .property_bedandbreakfast{
+	background-position-y: -1000px;
+}
+.property_cabin{
+	background-position: 210px -520px;
+}
+.property_cabin:hover, .types.active .property_cabin{
+	background-position-y: 200px;
+}
+.property_villa{
+	background-position: 220px -270px;
+	width: 210px !important;
+}
+.property_villa:hover, .types.active .property_villa{
+	background-position: 220px -990px;
+}
+.property_condo{
+	background-position: -45px -510px;
+}
+.property_condo:hover, .types.active .property_condo{
+	background-position-y:  210px;
+}
