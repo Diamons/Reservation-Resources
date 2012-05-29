@@ -10,8 +10,6 @@
 <?php echo $this->Html->script('blueimp/js/jquery.fileupload-ui.js', array('block' => 'scriptBottom'));?>
 <?php echo $this->Html->script('blueimp/js/main.js', array('block' => 'scriptBottom'));?>
 
-
-
 <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="js/vendor/jquery.ui.widget.js"></script>
 <script src="js/jquery.iframe-transport.js"></script>
@@ -20,7 +18,7 @@
     <!-- The file upload form used as target for the file upload widget -->
     <form id="fileupload" action="/cakephp/image_handler/" method="POST" enctype="multipart/form-data">
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
-        <div class="row fileupload-buttonbar">
+        <div class="row-fluid fileupload-buttonbar">
             <div class="span12">
                 <!-- The fileinput-button span is used to style the file input field as button -->
                 <span class="btn btn-success fileinput-button">

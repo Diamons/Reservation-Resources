@@ -109,19 +109,19 @@
 				echo $this->Form->input('longtitude',array('type'=>'hidden'));
 				echo $this->Form->input('title',array('placeholder'=>'Enter the title of your listing, this is what others will see when they are searching'));
 				echo $this->Form->input('description');
-				echo $this->Form->input('rent_once',array('label'=>array('text'=>'Is this a one time sublet? ','style'=>'display:inline'),'format'=>array('before', 'label', 'between', 'input', 'after', 'error' )));
-				echo $this->Form->input('currency_code',array('options'=>$currency_options,'default'=>'USD'));
 				echo $this->Form->input('price_per_night');
 				echo $this->Form->input('price_per_week');
 				echo $this->Form->input('price_per_month');
 				echo $this->Form->end('Publish');
 			?>
 	</div>
-	<div class = "span6">
+	<div class = "panel_info span6">
 		<div id="map_canvas" style="width:100%; height:100%"></div>
-		<?php
-			echo $this->element('file_upload');
-		?>
+		<div class = "panel">
+			<?php
+				echo $this->element('file_upload');
+			?>
+		</div>
 	</div>
 <?php if($auth == false){?>
 		<div id = "registrationForm">

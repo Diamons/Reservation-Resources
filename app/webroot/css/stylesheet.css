@@ -148,6 +148,7 @@ h1{
 	line-height: 1.2em;
 	text-align: center;
 	font-weight: 700;
+	font-family: "ProximaNovaLtBold", "Helvetica", "Arial", sans-serif;
 }
 
 .features_block h1{
@@ -537,7 +538,7 @@ footer nav ul{
 
 /* == FORMS == */
 
-form.formee > div, form.formee > section > div{
+form.formee > div, form.formee > section > div, .panel_info{
 	margin: 0 0 15px 0;
 	background-color: #ECECEC;
 	padding: 9px;
@@ -546,12 +547,29 @@ form.formee > div, form.formee > section > div{
 	border-radius: 4px;
 }
 
+.panel_info > h1{
+	font-size: 1em;
+	color: #A3A3A3;
+	text-transform: uppercase;
+}
+
+.panel_info .panel{
+	background-color: #FFFFFF;
+	text-align: center;
+	margin: 5px;
+}
+
 form.formee > section > div{
 	background-color: #e6f2f9;
 }
 
 form.formee > div.submit{
 	background-color: transparent;
+}
+
+.fileupload-buttonbar{
+	margin-top: 25px;
+	padding: 15px;
 }
 
 /* == GLOBAL == */
