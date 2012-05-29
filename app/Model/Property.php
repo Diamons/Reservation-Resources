@@ -88,6 +88,14 @@
 				return false;
 			}
 		}
+	public function handleImage($propertyid, $userid){//this will apply gd watermark to uploaded property images and apply them to approperiate directory
+			$watermark = imagecreatefromjpeg(Router::url('/img/watermark.jpg',true));//path to water mark image. true returns full base address
+			$watermark_width = imagesx($watermark);
+			$watermark_height = imagesy($watermark);
+			debug($watermark);
+			return true;
+	
+		}
 	
 	}
 
