@@ -423,7 +423,7 @@ div#container {
 #body{
 	width: 100%;
 	max-width: 1600px;
-	margin: 20px auto 0 auto;
+	margin: 0 auto 0 auto;
 	background-color: #FFFFFF;
 	padding: 10px 20px 20px 20px;
 }
@@ -523,18 +523,6 @@ footer nav ul{
 	background-color: #d2efff;
 }
 
-.termsofservice {
-	overflow: auto;
-	height: 200px;
-	background-color: #F5F8F8;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #ECECEC;
-	padding: 10px;
-	text-align: left;
-	font-size: 1.1em;
-}
-
 /* == FORMS == */
 
 form.formee > div, form.formee > section > div, .panel_info{
@@ -569,6 +557,18 @@ form.formee > div.submit{
 .fileupload-buttonbar{
 	margin-top: 25px;
 	padding: 15px;
+}
+
+form.formee > div.termsofservice {
+	overflow: auto;
+	height: 200px;
+	background-color: #F5F8F8;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ECECEC;
+	padding: 10px;
+	text-align: left;
+	font-size: 1.1em;
 }
 
 /* == GLOBAL == */

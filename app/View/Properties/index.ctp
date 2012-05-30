@@ -1,22 +1,13 @@
 <?php
 	$this->start('scriptBottom');
-		echo $this->Html->script('properties/index'); 
+		echo $this->Html->script(array('../lightbox/shadowbox', 'properties/index')); 
 	$this->end();
 ?>
 <?php 
 	$this->start('cssTop');
-	echo $this->Html->css('properties/index');
+	echo $this->Html->css(array('../lightbox/shadowbox', 'properties/index'));
 	$this->end();
 ?>
-<?php
-	if($auth == false){
-		?>
-		<div id = 'registrationForm' style = "display:none;">
-		<?php
-		echo $this->element('login_register');
-}?>
-		</div>
-
 <?php /*	<div class = "row-fluid">
 		<div class = "span7">
 			<div class = "features_block blue">
