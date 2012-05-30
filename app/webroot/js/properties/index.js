@@ -5,6 +5,11 @@
 	$("#PropertyType option[value='"+$.trim($(this).text())+"']").attr('selected', 'selected');
 }); */
 $(document).ready(function(){
+Shadowbox.init({
+    // let's skip the automatic setup because we don't have any
+    // properly configured link elements on the page
+    skipSetup: true
+});
 var myOptions = {
           center: new google.maps.LatLng(1, 1),
           zoom: 2,
@@ -148,17 +153,12 @@ var auth;
 		success:function(data){
 			if(data.success == false){//user is not logged in
 				auth = data.success
-				
-					$( "#registrationForm" ).dialog({
-						autoOpen: true,
-						height: 900,
-						width: 1200,
-						modal: true,
-						buttons:[{
-							text:"Cancel",
-							click: function() { $(this).dialog("close"); }
-						}]
-						
+					Shadowbox.open({
+						content:    $("#registrationForm").html(),
+						player:     "html",
+						title:      "Please signup or Login",
+						height:     $(window).height(),
+						width:      $(window).width()
 					});
 				
 				
