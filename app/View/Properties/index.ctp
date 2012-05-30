@@ -123,13 +123,13 @@
 		?>
 		<div class = "row-fluid">
 			<div class = "span4">
-				<?php echo $this->Form->input('price_per_night', array('placeholder' => 'With or without $ symbols')); ?>
+				<?php echo $this->Form->input('price_per_night', array('placeholder' => 'Without currency symbols')); ?>
 			</div>
 			<div class = "span4">
-				<?php echo $this->Form->input('price_per_week', array('placeholder' => 'With or without $ symbols')); ?>
+				<?php echo $this->Form->input('price_per_week', array('placeholder' => 'Without currency symbols')); ?>
 			</div>
 			<div class = "span4">
-				<?php echo $this->Form->input('price_per_month', array('placeholder' => 'With or without $ symbols')); ?>
+				<?php echo $this->Form->input('price_per_month', array('placeholder' => 'Without  currency symbols')); ?>
 			</div>
 		</div>
 	</div>
