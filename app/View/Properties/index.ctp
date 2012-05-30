@@ -1,11 +1,11 @@
 <?php
 	$this->start('scriptBottom');
-		echo $this->Html->script(array('../lightbox/shadowbox', 'properties/index')); 
+		echo $this->Html->script('properties/index'); 
 	$this->end();
 ?>
 <?php 
 	$this->start('cssTop');
-	echo $this->Html->css(array('../lightbox/shadowbox', 'properties/index'));
+	echo $this->Html->css('properties/index');
 	$this->end();
 ?>
 <?php /*	<div class = "row-fluid">
@@ -125,12 +125,5 @@
 		</div>
 	</div>
 	<div class = "formee"><?php echo $this->Form->end('Save and List My Property'); ?></div>
-<?php if($auth == false){?>
-		<div id = "registrationForm">
-			<?php
-				echo $this->element('login_register');
-			?>
-		</div>
-		<?php }?>
 </div>
 

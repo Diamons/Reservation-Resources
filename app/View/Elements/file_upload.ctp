@@ -1,5 +1,4 @@
 <?php echo $this->Html->css("http://blueimp.github.com/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css",null,array('inline'=>false));?>
-
 <?php echo $this->Html->css("/js/blueimp/css/jquery.fileupload-ui",null,array('inline'=>false));?>
 <?php echo $this->Html->script('blueimp/js/jquery.fileupload', array('block' => 'scriptBottom'));?>
 <?php echo $this->Html->script('blueimp/js/jquery.iframe-transport', array('block' => 'scriptBottom'));?>
@@ -23,7 +22,7 @@
                 <!-- The fileinput-button span is used to style the file input field as button -->
                 <span class="btn btn-success fileinput-button">
                     <i class="icon-plus icon-white"></i>
-                    <span>Add files...</span>
+                    <span>Add Images</span>
                     <input type="file" name="files[]" size="96" multiple>
                 </span>
                 <button type="submit" class="btn btn-primary start">
