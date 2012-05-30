@@ -1,6 +1,7 @@
 <?php
 App::uses('CakeEmail', 'Network/Email');
 App::uses('Folder', 'Utility');
+App::uses('File', 'Utility'); 
 	class Property extends AppModel{
 	public $name = 'Property';
 	public $validate = array(
@@ -104,6 +105,7 @@ App::uses('Folder', 'Utility');
 	public function createPropertyFolder($propertyid,$userid){//set up folder structure to copy images to
 			$dir = new Folder();//default constructor sets up a path to directory instance NOT create!
 			$dir->create(WWW_ROOT.'images'.DS.$userid.DS.$propertyid);
+			$dir->create(WWW_ROOT.'images'.DS.$userid.DS.$propertyid.DS.'thumbnails');
 	}
 	public function handleImage($propertyid, $userid,$property_pictures){//this will apply gd watermark to uploaded property images and apply them to approperiate directory
 		if($property_pictures){
@@ -119,7 +121,13 @@ App::uses('Folder', 'Utility');
 				imagejpeg($image,'images/'.$userid.'/'.$propertyid.'/'.$value,100); //output new image with watermark
 				imagedestroy($image);//clear from ram
 				imagedestroy($watermark);//clear from ram
+				$file = new File(WWW_ROOT ."/image_handler/files/".$value);
+				$thumbnail = new File(WWW_ROOT ."/image_handler/thumbnails/".$value);
+				//before we delete lets copy thumbails over.
+				$thumbnail->copy(WWW_ROOT."/images/".$userid."/".$propertyid."/thumbnails/".$value,true);//set over write to true
 				//delete image from images directory 
+				$file->delete();
+				$thumbnail->delete();
 			
 				}
 			return true;

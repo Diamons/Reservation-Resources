@@ -20,6 +20,7 @@
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
         <div class="row-fluid fileupload-buttonbar">
             <div class="span12">
+				<h2 style = "color:#E85B85; font-weight:bold;">Add Property Photos</h2>
                 <!-- The fileinput-button span is used to style the file input field as button -->
                 <span class="btn btn-success fileinput-button">
                     <i class="icon-plus icon-white"></i>
@@ -39,6 +40,8 @@
                     <span>Delete</span>
                 </button>
                 <input type="checkbox" class="toggle">
+				
+				
             </div>
             <!-- The global progress information -->
             <div class="span12 fileupload-progress fade">
