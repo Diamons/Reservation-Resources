@@ -65,7 +65,7 @@ $(function () {
     } else {
 		$('#fileupload').bind('fileuploaddone', function (e, data) {//this is the allback function after the image is successfully uploaded we dynamically add hidden input elements to form upload so we can water mark and move the images to correct directory
 		
-			$('.submit').before("<input type = 'hidden' data-delete ='"+data.result[0].delete_url+"' name = 'data[Image]["+data.result[0].name+"]' value = '"+data.result[0].name+"'></input>");
+			$('#PropertyIndexForm').append("<input type = 'hidden' data-delete ='"+data.result[0].delete_url+"' name = 'data[Image]["+data.result[0].name+"]' value = '"+data.result[0].name+"'></input>");
 			
 		});
 		$('#fileupload').bind('fileuploaddestroy', function (e, data) {
