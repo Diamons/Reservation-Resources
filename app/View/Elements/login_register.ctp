@@ -1,4 +1,4 @@
-<div id = "body" role = "main">
+<div class = "inner" id = "body" role = "main">
 	<div class = "row-fluid">
 		<div class = "span6">
 			<div class = "features_block blue"><h1>Hi there! <span class = "highlight">Login</span> with your user details!</h1></div>

@@ -8,7 +8,7 @@
 	echo $this->Html->css('properties/index');
 	$this->end();
 ?>
-<div id = "body" class = "row-fluid" role = "main">
+<div id = "body" class = "inner row-fluid" role = "main">
 	<div class = "panel_info span6">
 		<div class = "formee">
 			<h1 style = "color:#3a3a3a; text-transform: uppercase; font-size: 10pt;">List your Location</h1>

@@ -1,11 +1,7 @@
 $(document).ready(function(){
 
 jQuery.fx.interval = 0;
-Shadowbox.init({
-    // let's skip the automatic setup because we don't have any
-    // properly configured link elements on the page
-    skipSetup: true
-});
+
 var myOptions = {
           center: new google.maps.LatLng(1, 1),
           zoom: 2,

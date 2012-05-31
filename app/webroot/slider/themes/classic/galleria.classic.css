@@ -3,11 +3,11 @@
  * Copyright (c) 2010, Aino
  * Licensed under the MIT license.
  */
-
+ 
 .galleria-container {
     position: relative;
     overflow: hidden;
-    background: #000;
+    background: #2e2e2e;
 }
 .galleria-container img {
     -moz-user-select: none;
@@ -21,6 +21,7 @@
     left: 10px;
     right: 10px;
     overflow:hidden;
+	background-color: #FFFFFF;
 }
 .galleria-thumbnails-container {
     height: 50px;
@@ -39,7 +40,7 @@
     width: 60px;
     background: #000;
     margin: 0 5px 0 0;
-    border: 1px solid #000;
+    border: 4px solid #454544;
     float: left;
     cursor: pointer;
 }
@@ -53,7 +54,7 @@
     z-index: 1;
 }
 .galleria-loader {
-    background: #ECECEC;
+    background: #000;
     width: 20px;
     height: 20px;
     position: absolute;

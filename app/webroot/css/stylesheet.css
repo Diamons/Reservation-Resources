@@ -1,6 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 @import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,300,700,800);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,700);
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -425,7 +424,6 @@ div#container {
 	max-width: 1600px;
 	margin: 1px auto 0 auto;
 	background-color: #FFFFFF;
-	padding: 10px 20px 20px 20px;
 }
 
 footer {
@@ -576,5 +574,117 @@ form.formee > div.termsofservice {
 }
 
 /* == GLOBAL == */
+#contact_card{
+	margin: 10px 0 0 0;
+	
+	padding: 15px 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ECECEC;
+	background-color: #F7F8F7;
+}
+#contact_card  img{
+	display: block;
+}
 #map_canvas { min-height: 475px; height: 100% }
 #map_canvas img{ max-width: none; }
+.book_now, .contact_me{
+	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 19px;
+	background-color: green;
+	font-size: 18pt;
+	font-weight: 700;
+	background: rgb(174,220,86); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(174,220,86,1) 2%, rgba(107,185,40,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(2%,rgba(174,220,86,1)), color-stop(100%,rgba(107,185,40,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(174,220,86,1) 2%,rgba(107,185,40,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(174,220,86,1) 2%,rgba(107,185,40,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(174,220,86,1) 2%,rgba(107,185,40,1) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(174,220,86,1) 2%,rgba(107,185,40,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aedc56', endColorstr='#6bb928',GradientType=0 ); /* IE6-9 */
+	border-style: solid;
+	border-width: 1px;
+	border-color: #6fb930;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	color: #FFFFFF;
+}
+
+.contact_me{
+	background: rgb(86,203,220); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(86,203,220,1) 0%, rgba(40,118,185,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(86,203,220,1)), color-stop(100%,rgba(40,118,185,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(86,203,220,1) 0%,rgba(40,118,185,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(86,203,220,1) 0%,rgba(40,118,185,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(86,203,220,1) 0%,rgba(40,118,185,1) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(86,203,220,1) 0%,rgba(40,118,185,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56cbdc', endColorstr='#2876b9',GradientType=0 ); /* IE6-9 */
+	font-size: 14pt;
+	padding: 15px;
+}
+
+.book_now:hover{
+	border-color: #cdcdcd;
+}
+.contact_me:hover{
+	border-color: #ECECEC;
+}
+.book_now:active, .contact_me:active{
+	-moz-box-shadow: inset 0 0 15px #888;
+	-webkit-box-shadow: inset 0 0 15px#888;
+	box-shadow: inner 0 0 15px #888;
+}
+.book_now > h2, .contact_me > h2{
+	text-align: center;
+	color: #555;
+	font-size: 12px;
+	font-style: italic;
+}
+a:hover{
+	text-decoration: none;
+}
+.inner{
+	padding: 10px 20px 20px 20px;
+}
+
+.comment{
+	background-color: #e7eded;
+	padding: 15px;
+	margin-top: 7px;
+}
+
+.comment img{
+	border-style: solid;
+	border-width: 4px;
+	border-color: #FFFFFF;
+	width: 90px;
+	height: 90px;
+	float: left;
+}
+
+.comment h1{
+	text-transform: uppercase;
+	font-weight: 700;
+	text-align: left;
+	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+	font-size: 10pt;
+}
+
+.comment .text{
+	font-size: 10pt;
+	margin-top: 5px;
+}
+
+.comment h1, .comment .text{
+	padding-left: 105px;
+}
+
+.comment div[class*="span"]:first-child{
+	border-style: solid;
+	border-width: 0 1px 0 0;
+	border-color: #cfd8d7;
+}
