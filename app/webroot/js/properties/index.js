@@ -1,10 +1,11 @@
-/*$('.types').click(function(){
-	$('.types').removeClass('active');
-	$(this).addClass('active');
-	$('#PropertyType option').removeAttr('selected');
-	$("#PropertyType option[value='"+$.trim($(this).text())+"']").attr('selected', 'selected');
-}); */
 $(document).ready(function(){
+
+jQuery.fx.interval = 0;
+Shadowbox.init({
+    // let's skip the automatic setup because we don't have any
+    // properly configured link elements on the page
+    skipSetup: true
+});
 var myOptions = {
           center: new google.maps.LatLng(1, 1),
           zoom: 2,
@@ -106,6 +107,7 @@ if(!$("#PropertyCountry").val()){
 	$("#PropertyCountry").after("<div style = 'color:red;'class = 'fieldError'>Sorry our system could not find your country,can you help us out?</div");
 	
 }
+
 
 $("#PropertyAddress").parent().slideDown(500);
 $("#PropertyCity").parent().slideDown(500);
