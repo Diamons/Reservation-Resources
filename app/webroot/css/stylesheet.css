@@ -523,6 +523,10 @@ footer nav ul{
 	background-color: #d2efff;
 }
 
+.panel{
+	background-color: #ECECEC;
+}
+
 /* == FORMS == */
 
 form.formee > div, form.formee > section > div, .panel_info{
