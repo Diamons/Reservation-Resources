@@ -39,5 +39,25 @@
 		public function viewproperty(){
 		
 		}
+		public function edit($property_id = null){
+			$this->Property->id = $property_id;
+				if($this->request->is('get')){
+					$this->request->data = $this->Property->read();
+					$this->set('propertyid',$property_id);
+				}
+				else{
+					if($this->Property->save($this->request->data)){
+						if(isset($this->data['Image'])){
+							$this->Property->handleImage($property_id,$this->Auth->user('id'),$this->data['Image']);
+						}
+						$this->Session->setFlash('Congrats! Your property has been updated');
+					}
+					else{
+						$this->Session->setFlash('Sorry, we could not update your propety at this time. Please double check for any information error');
+					}
+				}
+				
+		
+		}
 	}
 ?>

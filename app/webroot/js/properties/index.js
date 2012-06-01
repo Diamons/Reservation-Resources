@@ -118,11 +118,13 @@ $('.fieldError').effect('pulsate');
 
  });
 //end google autocomplete
-$("#PropertyAddress").parent().hide();
-$("#PropertyCity").parent().hide();
-$("#PropertyState").parent().hide();
-$("#PropertyZipCode").parent().hide();
-$("#PropertyCountry").parent().hide();
+if(!$('.error-message')[0]){
+	$("#PropertyAddress").parent().hide();
+	$("#PropertyCity").parent().hide();
+	$("#PropertyState").parent().hide();
+	$("#PropertyZipCode").parent().hide();
+	$("#PropertyCountry").parent().hide();
+}
 
 function updateMap(lati, longi, zoom){
 	if(markersArray[0]!=undefined){

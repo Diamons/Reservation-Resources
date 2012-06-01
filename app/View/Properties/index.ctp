@@ -51,7 +51,7 @@
 				echo $this->Form->input('city');
 				echo $this->Form->input('state');
 				echo $this->Form->input('zip_code');
-				echo $this->Form->input('Country');
+				echo $this->Form->input('country');
 				echo $this->Form->input('latitude',array('type'=>'hidden'));
 				echo $this->Form->input('longtitude',array('type'=>'hidden'));
 				echo $this->Form->input('title',array('placeholder'=>'Enter the title of your listing, this is what others will see when they are searching'));
@@ -106,7 +106,7 @@
 				echo $this->Form->input('city');
 				echo $this->Form->input('state');
 				echo $this->Form->input('zip_code');
-				echo $this->Form->input('Country');
+				echo $this->Form->input('country');
 				echo $this->Form->input('latitude',array('type'=>'hidden'));
 				echo $this->Form->input('longtitude',array('type'=>'hidden'));
 				echo $this->Form->input('title',array('placeholder'=>'Enter the title of your listing, this is what others will see when they are searching'));
