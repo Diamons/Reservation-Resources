@@ -123,19 +123,17 @@
 			<h1>Amenities and Other Accommodations</h1>
 			<?php echo $this->Html->image('icons/bed.png'); ?>
 			<ul class = "bed_type amenities_list">
-				<li>Refrigerator</li>
-				<li>Stove</li>
-				<li>Microwave</li>
-				<li>Coffee Maker</li>
-				<li>Toaster</li>
+				<li>Single</li>
+				<li>Double</li>
+				<li>Twin</li>
 			</ul>
 			<?php echo $this->Html->image('icons/service.png'); ?>
 			<ul class = "amenities_list">
-				<li>Refrigerator</li>
-				<li>Stove</li>
-				<li>Microwave</li>
-				<li>Coffee Maker</li>
-				<li>Toaster</li>
+				<li>WiFI</li>
+				<li>Internet</li>
+				<li>Television</li>
+				<li>Cable</li>
+				<li>Washer</li>
 			</ul>
 			<?php echo $this->Html->image('icons/kitchen.png'); ?>
 			<ul class = "kitchen amenities_list">
