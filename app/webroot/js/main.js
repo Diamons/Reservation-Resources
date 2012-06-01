@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$( "input[name='checkin'], input[name='checkout']" ).datepicker();
+	$( "input[name='checkin'], input[name='checkout'], input.checkin, input.checkout" ).datepicker();
 	$('a#search').click(function(){
 		$("#searchBar").stop(true,true).slideToggle(400);
 	});
