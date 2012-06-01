@@ -9,9 +9,9 @@
 	$this->end();
 ?>
 <div id = "body" class = "inner row-fluid" role = "main">
-	<div class = "panel_info span6">
-		<div class = "formee">
-			<h1 style = "color:#3a3a3a; text-transform: uppercase; font-size: 10pt;">List your Location</h1>
+	<div class = "span6">
+		<h1 class = "heading">List Your Property</h1>
+		<div class = "panel_info formee">
 			<input type = "text" id = "address" placeholder = "Where is your property located?" />
 		</div>
 		<div id="map_canvas" style="width:100%; height:100%"></div>
@@ -22,6 +22,7 @@
 		</div>
 	</div>
 	<div class = "span6">
+	<h1 class = "heading">Property Details</h1>
 		<?php
 				//currency code options
 				$currency_options = array('USD'=>'USD','AUD'=>'AUD','CAD'=>'CAD','EUR'=>'EUR','GBP'=>'GBP','JPY'=>'JPY','ZAR'=>'ZAR');
@@ -39,16 +40,19 @@
 			<?php echo $this->Form->input('currency_code',array('options'=>$currency_options,'default'=>'USD')); ?>
 		</div>
 		</section>
+		<div id = "propertyAddressSection">
 		<?php
-				echo $this->Form->input('address');
-				echo $this->Form->input('city');
-				echo $this->Form->input('state');
-				echo $this->Form->input('zip_code');
-				echo $this->Form->input('Country');
-				echo $this->Form->input('latitude',array('type'=>'hidden'));
-				echo $this->Form->input('longtitude',array('type'=>'hidden'));
-				echo $this->Form->input('title',array('placeholder'=>'Enter the title of your listing, this is what others will see when they are searching'));
-				echo $this->Form->input('description');
+			echo $this->Form->input('address');
+			echo $this->Form->input('city');
+			echo $this->Form->input('state');
+			echo $this->Form->input('zip_code');
+			echo $this->Form->input('Country');
+			echo $this->Form->input('latitude',array('type'=>'hidden'));
+			echo $this->Form->input('longtitude',array('type'=>'hidden')); ?>
+		</div>
+		<?php
+			echo $this->Form->input('title',array('placeholder'=>'Enter the title of your listing, this is what others will see when they are searching'));
+			echo $this->Form->input('description');
 		?>
 		<div class = "row-fluid">
 			<div class = "span4">

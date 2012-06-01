@@ -37,7 +37,7 @@ $totaldays = date("t",$date); //get the total day of specified date
 ?>
 <div style = "float: left;"><a style='color:#5A5AA3' onclick='updateCalendar(<?php echo $prev.",". $yprev ?>)' href = 'javascript:void(0)'><b>Previous</a></b></div><div style = "float:right;"><b> <a style='color:#5A5AA3' onclick='updateCalendar(<?php echo $next.",". $ynext ?>);' href = 'javascript:void(0)'>Next</a></b> </div>
 
-<div style = "text-align: center;"><h1 style = "font-size: 26pt; padding-bottom: 15px;"><?php echo $m; ?></h1></div>
+<div style = "text-align: center;"><h1 style = "font-size: 26pt; padding-bottom: 15px;"><?php echo $m ." ". $year; ?></h1></div>
 <?php 
 echo "<table style='width: 100%;' border = '1' cellspacing = '3' bordercolor='white' cellpadding ='2'><tr> 
 <td colspan='7'></td></tr> 
