@@ -23,7 +23,7 @@ header('X-Content-Type-Options: nosniff');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: OPTIONS, HEAD, GET, POST, PUT, DELETE');
 header('Access-Control-Allow-Headers: X-File-Name, X-File-Type, X-File-Size');
-
+if($_SERVER['HTTP_REFERER'] == "http://localhost/cakephp/properties" ){
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'OPTIONS':
         break;
@@ -44,3 +44,39 @@ switch ($_SERVER['REQUEST_METHOD']) {
     default:
         header('HTTP/1.1 405 Method Not Allowed');
 }
+}
+else{
+
+$upload_edit =   new UploadHandler();
+$uid = $_GET['uid'];
+$pid = $_GET['pid'];
+switch ($_SERVER['REQUEST_METHOD']) {
+
+    case 'OPTIONS':
+        break;
+    case 'HEAD':
+    case 'GET':
+		$options = array( 'upload_dir' => '../images/'.$uid.'/'.$pid.'/','upload_url'=>'http://localhost/cakephp/images/'.$uid.'/'.$pid.'/','image_versions'=>array('thumbnail'=>array('upload_dir' => '../images/'.$uid.'/'.$pid.'/thumbnails/','upload_url'=>'http://localhost/cakephp/images/'.$uid.'/'.$pid.'/thumbnails/')));
+		//var_dump($options);
+		$upload_edit =   new UploadHandler($options);
+        $upload_edit->get();
+        break;
+    case 'POST':
+        if (isset($_REQUEST['_method']) && $_REQUEST['_method'] === 'DELETE') {
+            $upload_edit->delete();
+        } else {
+            $upload_edit->post();
+        }
+        break;
+    case 'DELETE':
+		$options = array('upload_dir' => '../images/'.$uid.'/'.$pid.'/','upload_url'=>'http://localhost/cakephp/images/'.$uid.'/'.$pid.'/','image_versions'=>array('thumbnail'=>array('upload_dir' => '../images/'.$uid.'/'.$pid.'/thumbnails/','upload_url'=>'http://localhost/cakephp/images/'.$uid.'/'.$pid.'/thumbnails/')));
+		//var_dump($options);
+		$upload_edit =   new UploadHandler($options);
+        $upload_edit->delete();
+        break;
+    default:
+        header('HTTP/1.1 405 Method Not Allowed');
+}
+
+}
+
