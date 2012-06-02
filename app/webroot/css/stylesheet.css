@@ -67,6 +67,10 @@ h2{
 }
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.error-message{
+	color: red;
+	font-size: 9px;
+}
 h1.heading{
 	text-align: left;
 	text-transform: uppercase;
