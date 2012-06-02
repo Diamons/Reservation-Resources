@@ -1,0 +1,215 @@
+#body > div:first-child{
+	background-color: #f5f0e3;
+	padding: 15px;
+	border-style: solid;
+	border-width: 0 0 2px 0;
+	border-color: #ECECEC;
+}
+
+.property_panel{
+	padding: 0px;
+}
+
+#gallery{
+	height: 520px;
+}
+
+.property_info, #property_moreinfo section{
+	color: #555;
+	font-family: "Arial", sans-serif;
+	font-size: 10pt;
+	line-height: 1.4em;
+}
+
+.property_info > div{
+	padding: 15px 15px 0;
+}
+
+.property_info p{
+	line-height: 1.3em;
+	padding: 15px 15px 0px;
+}
+
+.property_info > div > h1, h2{
+	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+	font-weight: 700;
+	font-size: 15pt;
+}
+.property_info > div > h1 span{
+	font-size: 11px;
+	display: block;
+	text-transform: uppercase;
+}
+
+h2{
+	color: #494949;
+	font-size: 10pt;
+	margin: 5px 0 0 0;
+}
+
+#contact_card{
+	margin-top: 15px;
+}
+
+#contact_card > div > img{
+	float: left;
+	padding: 10px;
+}
+
+#contact_card > div > div img{
+	width: 90px;
+	height: 90px;
+	padding: 4px;
+	-moz-box-shadow: 0 0 5px #888;
+-webkit-box-shadow: 0 0 5px#888;
+box-shadow: 0 0 5px #888;
+}
+
+#contact_card .profile > div > div{
+	margin-top: 5px;
+	font-weight: 700;
+	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+	font-size: 12pt;
+}
+
+#contact_card .profile > div > div > div{
+	margin-top: 5px;
+}
+#contact_card > [class*="span"]{
+	border-style: solid;
+	border-width: 0 1px 0 0;
+	border-color: #e4e4e4;
+}
+#contact_card > [class*="span"]:last-child{
+	border-width: 0;
+}
+#contact_card .big_date{
+	font-size: 22pt;
+	text-align: center;
+	padding: 5px;
+}
+
+#contact_card .price{
+	text-align: center;
+	font-size: 22pt;
+	margin-top: 5px;
+}
+
+h3{
+	text-transform: uppercase;
+	color: #AAA;
+	font-size: 11pt;
+	font-weight: 700;
+	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+	text-align: center;
+	
+}
+
+#property_body > div > h1, #property_booking > div > h1, #property_moreinfo > div > h1, .renter > h1, h1.calendar{
+	text-align: left;
+	text-transform: uppercase;
+	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+	font-weight: 700;
+	font-size: 11pt;
+	border-style: solid;
+	border-width: 0 0 3px 0;
+	border-color: #2c7dbc;
+	color: #AAA;
+	padding-bottom: 4px;
+	margin-bottom: 7px;
+}
+
+#property_moreinfo .fees{
+	text-align: right;
+	margin-top: 15px;
+	border-style: solid;
+	border-width: 1px 0;
+	border-color: #ffd0d0;
+	padding: 5px;
+	display: inline;
+	float: right;
+	max-width: 500px;
+}
+
+#property_moreinfo section > h1{
+	float: left;
+	padding: 10px;
+	text-align: left;
+	text-transform: uppercase;
+	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+	font-weight: 700;
+	font-size: 9pt;
+}
+
+#property_moreinfo section > table{
+	width: 100%;
+	text-align: center;
+	margin-top: 25px;
+	border-style: solid;
+	border-width: 1px 0;
+	border-color: #ECECEC;
+}
+
+#property_moreinfo section > table td{
+	border-style: solid;
+	border-width: 0 1px 0 0;
+	border-color: #ECECEC;
+	padding: 15px;
+}
+
+#property_moreinfo section > table td:last-child{
+	border-width: 0;
+}
+#property_moreinfo section > table tr.prices{
+	font-size: 22pt;
+	text-align: center;
+	height: 35px;
+}
+#property_moreinfo section > table tr.time{
+	text-transform: uppercase;
+	color: #AAA;
+}
+.amenities > img{
+	float: left;
+	width: 70px;
+	height: 70px;
+	display: block;
+	margin-top: 25px;
+}
+
+.amenities > .amenities_list{
+	width: 100%;
+	padding: 25px 25px 25px 125px;
+	border-style: solid;
+	border-width: 1px 0 1px 0;
+	border-color: #ECECEC;
+}
+
+.amenities_list li{
+	background-color: #f18a2f;
+	padding:  4px 10px;
+	margin-bottom: 5px;
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	border-radius: 9px;
+	font-size: 9pt;
+	color: #FFFFFF;
+	font-family: "ProximaNovaLtBold", "Helvetica", "Arial", sans-serif;
+}
+
+.bed_type.amenities_list li{
+	background-color: #2faff1;
+}
+
+.kitchen.amenities_list li{
+	background-color: #b6d646;
+}
+
+.renter > div{
+	background-color: #5fb9ff;
+	padding: 25px;
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	border-radius: 9px;
+	color: #FFFFFF;
+}

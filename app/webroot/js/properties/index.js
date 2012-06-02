@@ -1,11 +1,7 @@
-
 $(document).ready(function(){
+
 jQuery.fx.interval = 0;
-Shadowbox.init({
-    // let's skip the automatic setup because we don't have any
-    // properly configured link elements on the page
-    skipSetup: true
-});
+
 var myOptions = {
           center: new google.maps.LatLng(1, 1),
           zoom: 2,
@@ -21,7 +17,7 @@ var autocomplete = new google.maps.places.Autocomplete(elementId);
 google.maps.event.addListener(autocomplete, 'place_changed', function() {
 	
 	var place = autocomplete.getPlace();
-	updateMap(place.geometry.location.lat(), place.geometry.location.lng(), 13);
+	updateMap(place.geometry.location.lat(), place.geometry.location.lng(), 16);
 
 	
 	$(elementId).val(place.formatted_address);
@@ -141,34 +137,3 @@ function updateMap(lati, longi, zoom){
 	  markersArray[0] = marker;
 }
 });
-//check login status to determine if they should log in or proceed as normal
-function checkLoginStatus(){
-var auth;
-	$.ajax({
-		type:"POST",
-		url:"http://localhost/cakephp/users/checkloginstatus",
-		dataType:"json",
-		async: false,//we set async to false, usually defeats purpose of js but we need to make sure the auth variable gets set
-		success:function(data){
-			if(data.success == false){//user is not logged in
-				auth = data.success
-					Shadowbox.open({
-						content:    $("#registrationForm").html(),
-						player:     "html",
-						title:      "Please signup or Login",
-						height:     $(window).height(),
-						width:      $(window).width()
-					});
-				
-				
-			}
-			else{//user is logged in
-				auth =  data.success
-			}
-		}
-		
-		
-	});
-return auth;
-
-}

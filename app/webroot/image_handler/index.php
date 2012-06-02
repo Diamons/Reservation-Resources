@@ -69,7 +69,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         }
         break;
     case 'DELETE':
-		$options = array( 'upload_dir' => '../images/'.$uid.'/'.$pid.'/','upload_url'=>'http://localhost/cakephp/images/'.$uid.'/'.$pid.'/','image_versions'=>array('thumbnail'=>array('upload_dir' => '../images/'.$uid.'/'.$pid.'/thumbnails/','upload_url'=>'http://localhost/cakephp/images/'.$uid.'/'.$pid.'/thumbnails/')));
+		$options = array('upload_dir' => '../images/'.$uid.'/'.$pid.'/','upload_url'=>'http://localhost/cakephp/images/'.$uid.'/'.$pid.'/','image_versions'=>array('thumbnail'=>array('upload_dir' => '../images/'.$uid.'/'.$pid.'/thumbnails/','upload_url'=>'http://localhost/cakephp/images/'.$uid.'/'.$pid.'/thumbnails/')));
 		//var_dump($options);
 		$upload_edit =   new UploadHandler($options);
         $upload_edit->delete();

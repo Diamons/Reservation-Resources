@@ -6,7 +6,7 @@
 			
 		}
 		public function beforeFilter() {
-			$this->Auth->allow('register','index','login','checkloginstatus');
+			$this->Auth->allow('register','index','login','checkloginstatus', 'getloginpage');
 			$this->AjaxHandler->handle('login','register','checkloginstatus');
 		}
 		public function index(){
@@ -69,6 +69,15 @@
 					
 			}
 			return $this->AjaxHandler->respond('json',$response);
+	
+		}
+		
+		public function getloginpage(){
+			$this->autoLayout = FALSE;
+			$this->layout = 'ajax';
+			if(!$this->Auth->loggedIn()){
+				$this->render('/elements/login_register');
+			}
 	
 		}
 

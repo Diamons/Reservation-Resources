@@ -15,6 +15,26 @@
   text-align:left;
   margin:1%;
 }
+.property_info {
+  -moz-border-radius:4px 4px 4px 4px;
+  -webkit-border-radius:4px 4px 4px 4px;
+  border-radius:4px 4px 4px 4px;
+}
+.book_now {
+  -moz-border-radius:0 0 4px 4px;
+  -webkit-border-radius:0 0 4px 4px;
+  border-radius:0 0 4px 4px;
+}
+.contact_me {
+  -moz-border-radius:2px 2px 2px 2px;
+  -webkit-border-radius:2px 2px 2px 2px;
+  border-radius:2px 2px 2px 2px;
+}
+#contact_card {
+  -moz-border-radius:4px 4px 4px 4px;
+  -webkit-border-radius:4px 4px 4px 4px;
+  border-radius:4px 4px 4px 4px;
+}
 #features h1.letter {
   -moz-border-radius:9px 9px 0 0;
   -webkit-border-radius:9px 9px 0 0;

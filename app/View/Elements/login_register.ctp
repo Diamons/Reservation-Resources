@@ -1,6 +1,4 @@
-<?php echo $this->Html->script('users/index', array('block' => 'scriptBottom'));?>
-
-<div id = "body" role = "main">
+<div class = "inner" id = "body" role = "main">
 	<div class = "row-fluid">
 		<div class = "span6">
 			<div class = "features_block blue"><h1>Hi there! <span class = "highlight">Login</span> with your user details!</h1></div>
@@ -26,7 +24,7 @@
 				    <?php echo $this->Form->checkbox('Subscribe', array('value' => 'subscribe')); ?>  Allow Reservation Resources to send me important email about my properties, bookings, reservatons, and more.
 				</label>
 				<label class = "label_check">
-				   <?php echo $this->Form->checkbox('TermsofService'); ?>  I have read agree to the Terms of Service listed below. 
+				   <?php echo $this->Form->checkbox('TermsofService'); ?>  I have read and agree to the Terms of Service listed below. 
 				</label>
 				<div class="termsofservice">
 					<?php 

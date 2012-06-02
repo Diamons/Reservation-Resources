@@ -508,11 +508,15 @@
         },
 
         _deleteHandler: function (e) {
+			//modified
+			var uid = $("#fileupload").data("uid");
+			var pid = $("#fileupload").data("pid");
+			
             e.preventDefault();
             var button = $(this);
             e.data.fileupload._trigger('destroy', e, {
                 context: button.closest('.template-download'),
-                url: button.attr('data-url'),
+                url: button.attr('data-url')+"&uid="+uid+"&pid="+pid,
                 type: button.attr('data-type') || 'DELETE',
                 dataType: e.data.fileupload.options.dataType
             });

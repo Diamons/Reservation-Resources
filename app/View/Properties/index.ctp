@@ -1,13 +1,14 @@
 <?php
 	$this->start('scriptBottom');
-		echo $this->Html->script(array('../lightbox/shadowbox', 'properties/index')); 
+		echo $this->Html->script('properties/index'); 
 	$this->end();
 ?>
 <?php 
 	$this->start('cssTop');
-	echo $this->Html->css(array('../lightbox/shadowbox', 'properties/index'));
+	echo $this->Html->css('properties/index');
 	$this->end();
 ?>
+<<<<<<< HEAD
 <?php /*	<div class = "row-fluid">
 		<div class = "span7">
 			<div class = "features_block blue">
@@ -71,6 +72,9 @@
 	</div>
 */ ?>
 <div id = "body" class = "row-fluid" role = "main">
+=======
+<div id = "body" class = "inner row-fluid" role = "main">
+>>>>>>> 147b934928c4d18e07f0ef341dae92088aae8133
 	<div class = "panel_info span6">
 		<div class = "formee">
 			<h1 style = "color:#3a3a3a; text-transform: uppercase; font-size: 10pt;">List your Location</h1>
@@ -125,12 +129,5 @@
 		</div>
 	</div>
 	<div class = "formee"><?php echo $this->Form->end('Save and List My Property'); ?></div>
-<?php if($auth == false){?>
-		<div id = "registrationForm">
-			<?php
-				echo $this->element('login_register');
-			?>
-		</div>
-		<?php }?>
 </div>
 

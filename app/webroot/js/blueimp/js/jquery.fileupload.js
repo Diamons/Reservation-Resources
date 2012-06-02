@@ -121,7 +121,7 @@
             // The form of the first fileInput is given as parameter to the function:
             formData: function (form) {
                 return form.serializeArray();
-            }
+            },
 
             // The add callback is invoked as soon as files are added to the fileupload
             // widget (via file input selection, drag & drop, paste or add API call).

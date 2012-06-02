@@ -55,6 +55,8 @@
 					else{
 						$this->Session->setFlash('Sorry, we could not update your propety at this time. Please double check for any information error');
 					}
+					$this->set('propertyid',$property_id);
+					
 				}
 				
 		
