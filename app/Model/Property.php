@@ -4,6 +4,8 @@ App::uses('Folder', 'Utility');
 App::uses('File', 'Utility'); 
 	class Property extends AppModel{
 	public $name = 'Property';
+	public $belongsTo = 'User';
+	public $hasOne = 'Amenity';
 	public $validate = array(
 		'address'=>array(
 			'address_not_empty'=>array(
@@ -137,7 +139,16 @@ App::uses('File', 'Utility');
 		}
 	
 		}
-	
+	public function findPropertyImages($uid,$pid){
+			$big = new Folder(WWW_ROOT.'images'.DS.$uid.DS.$pid);
+			$small = new Folder(WWW_ROOT.'images'.DS.$uid.DS.$pid.DS.'thumbnails');
+			$big_images = $big->find('.*',true);
+			$small_images = $small_images = $small->find('.*',true);
+			$images['big'] = $big_images;
+			$images['small'] = $small_images;
+			return $images; 
+		}	
+
 	}
 
 ?>

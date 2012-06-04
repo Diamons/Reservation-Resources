@@ -28,7 +28,7 @@
 	echo $this->Form->input('rent_once',array('label'=>'Is this a one time rental?'));
 	echo $this->Form->input('price_per_night');
 	echo $this->Form->input('price_per_week');
-	echo $this->Form->input('price_per_week');
+	echo $this->Form->input('price_per_month');
 	echo $this->Form->input('currency_code',array('options'=>$currency_options,'default'=>'USD'));
 	echo $this->Form->input('payment_method',array('options'=>$payment_method));
 	echo $this->Form->input('type',array('options'=>$property_type));

@@ -8,7 +8,6 @@
 	echo $this->Html->css('properties/index');
 	$this->end();
 ?>
-<<<<<<< HEAD
 <?php /*	<div class = "row-fluid">
 		<div class = "span7">
 			<div class = "features_block blue">
@@ -71,30 +70,19 @@
 	</div>
 	</div>
 */ ?>
-<div id = "body" class = "row-fluid" role = "main">
-=======
 <div id = "body" class = "inner row-fluid" role = "main">
-<<<<<<< HEAD
->>>>>>> 147b934928c4d18e07f0ef341dae92088aae8133
-	<div class = "panel_info span6">
-		<div class = "formee">
-			<h1 style = "color:#3a3a3a; text-transform: uppercase; font-size: 10pt;">List your Location</h1>
-=======
 	<div class = "span6">
-		<h1 class = "heading">List Your Property</h1>
+	<h1 class = "heading">List Your Property<span class = "arrow-right"></span></h1>
 		<div class = "panel_info formee">
->>>>>>> ccc84959319fd0e3bc93e6b5a24046b246d7a26d
 			<input type = "text" id = "address" placeholder = "Where is your property located?" />
 		</div>
 		<div id="map_canvas" style="width:100%; height:100%"></div>
-		<div class = "panel">
 			<?php
 				echo $this->element('file_upload');
 			?>
-		</div>
 	</div>
 	<div class = "span6">
-	<h1 class = "heading">Property Details</h1>
+	<h1 class = "heading">Property Details <span class = "arrow-right"></span></h1>
 		<?php
 				//currency code options
 				$currency_options = array('USD'=>'USD','AUD'=>'AUD','CAD'=>'CAD','EUR'=>'EUR','GBP'=>'GBP','JPY'=>'JPY','ZAR'=>'ZAR');
@@ -118,25 +106,13 @@
 			echo $this->Form->input('city');
 			echo $this->Form->input('state');
 			echo $this->Form->input('zip_code');
-			echo $this->Form->input('Country');
+			echo $this->Form->input('country');
 			echo $this->Form->input('latitude',array('type'=>'hidden'));
 			echo $this->Form->input('longtitude',array('type'=>'hidden')); ?>
 		</div>
 		<?php
-<<<<<<< HEAD
-				echo $this->Form->input('address');
-				echo $this->Form->input('city');
-				echo $this->Form->input('state');
-				echo $this->Form->input('zip_code');
-				echo $this->Form->input('country');
-				echo $this->Form->input('latitude',array('type'=>'hidden'));
-				echo $this->Form->input('longtitude',array('type'=>'hidden'));
-				echo $this->Form->input('title',array('placeholder'=>'Enter the title of your listing, this is what others will see when they are searching'));
-				echo $this->Form->input('description');
-=======
 			echo $this->Form->input('title',array('placeholder'=>'Enter the title of your listing, this is what others will see when they are searching'));
 			echo $this->Form->input('description');
->>>>>>> ccc84959319fd0e3bc93e6b5a24046b246d7a26d
 		?>
 		<div class = "row-fluid">
 			<div class = "span4">
@@ -146,10 +122,10 @@
 				<?php echo $this->Form->input('price_per_week', array('placeholder' => 'Without currency symbols')); ?>
 			</div>
 			<div class = "span4">
-				<?php echo $this->Form->input('price_per_month', array('placeholder' => 'Without  currency symbols')); ?>
+				<?php echo $this->Form->input('price_per_month', array('placeholder' => 'Without currency symbols')); ?>
 			</div>
 		</div>
 	</div>
 	<div class = "formee"><?php echo $this->Form->end('Save and List My Property'); ?></div>
+	</div>
 </div>
-

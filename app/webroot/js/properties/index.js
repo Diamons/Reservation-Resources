@@ -110,17 +110,10 @@ $('.fieldError').effect('pulsate');
 
  });
 //end google autocomplete
-<<<<<<< HEAD
 if(!$('.error-message')[0]){
-	$("#PropertyAddress").parent().hide();
-	$("#PropertyCity").parent().hide();
-	$("#PropertyState").parent().hide();
-	$("#PropertyZipCode").parent().hide();
-	$("#PropertyCountry").parent().hide();
+	$("#propertyAddressSection").hide();
 }
-=======
 $("#propertyAddressSection").hide();
->>>>>>> ccc84959319fd0e3bc93e6b5a24046b246d7a26d
 
 function updateMap(lati, longi, zoom){
 	if(markersArray[0]!=undefined){
