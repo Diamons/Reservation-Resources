@@ -36,7 +36,12 @@
 	
 		}
 		
-		public function viewproperty(){
+		public function viewproperty($property_id = null){
+			$this->Property->id = $property_id;
+			$property = $this->Property->read();
+			$this->set('property',$property);
+			$this->set('images',$this->Property->findPropertyImages($property['User']['id'],$property['Property']['id']));
+			debug($property);
 		
 		}
 		public function edit($property_id = null){

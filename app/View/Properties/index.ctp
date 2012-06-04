@@ -74,13 +74,14 @@
 	<div class = "span6">
 	<h1 class = "heading">List Your Property<span class = "arrow-right"></span></h1>
 		<div class = "panel_info formee">
-			<input type = "text" id = "address" placeholder = "Where is your property located?" />
+		<input type = "text" id = "address" placeholder = "Where is your property located?" />
 		</div>
 		<div id="map_canvas" style="width:100%; height:100%"></div>
 	</div>
-	<div class = "span6"><?php
-				echo $this->element('file_upload');
-			?>
+	<div class = "span6">
+		<?php
+			echo $this->element('file_upload');
+		?>
 	<h1 class = "heading">Property Details <span class = "arrow-right"></span></h1>
 		<?php
 				//currency code options
@@ -105,13 +106,13 @@
 			echo $this->Form->input('city');
 			echo $this->Form->input('state');
 			echo $this->Form->input('zip_code');
-			echo $this->Form->input('Country');
+			echo $this->Form->input('country');
 			echo $this->Form->input('latitude',array('type'=>'hidden'));
 			echo $this->Form->input('longtitude',array('type'=>'hidden')); ?>
 		</div>
 		<?php
-			echo $this->Form->input('title');
-			echo $this->Form->input('description');
+				echo $this->Form->input('title');
+				echo $this->Form->input('description');
 		?>
 		<div class = "row-fluid">
 			<div class = "span4">
