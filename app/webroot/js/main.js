@@ -8,6 +8,9 @@ $(document).ready(function(){
 		handleOversize: "drag",
 		modal: true
 	});	
+	$("#sb-overlay").live("click", function(){
+		Shadowbox.close();
+	});
 });
 
 function checkLoginStatus(){
@@ -28,8 +31,8 @@ function checkLoginStatus(){
 								content:    responseHtml,
 								player:     "html",
 								title:      "Please Signup or Login",
-								height:     $(window).height(),
-								width:      $(window).width()
+								height:     $(window).height()- 120,
+								width:      $(window).width() - 120
 							});
 							eval($("#sb-player"));
 						}

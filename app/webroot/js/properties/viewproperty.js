@@ -14,12 +14,21 @@ $(document).ready(function(){
 	var myOptions = {
           center: new google.maps.LatLng(1, 1),
           zoom: 2,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+		  scrollwheel:false
         };
         var map = new google.maps.Map(document.getElementById("map_canvas"),
             myOptions);
 		var markersArray = [];
 		//updateMap(100, 250, 16);
+		$("#map_canvas").live("mouseover", function(){
+			options = { scrollwheel: true };
+			setTimeout(function(){map.setOptions(options);}, 800);
+		});
+		$("#map_canvas").live("mouseout", function (){
+			options = { scrollwheel: false };
+			map.setOptions(options);
+		});
 	function updateMap(lati, longi, zoom){
 		if(markersArray[0]!=undefined){
 			markersArray[0].setMap(null);
