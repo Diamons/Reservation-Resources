@@ -49,7 +49,7 @@
 				if($this->request->is('get')){
 					$this->request->data = $this->Property->read();
 					$this->set('propertyid',$property_id);
-					debug($this->request->data);
+					
 				}
 				else{
 					
