@@ -1,5 +1,8 @@
 $(document).ready(function(){
 // Load existing files:
+	if($("#PropertyRentOnce").is(":checked")){
+		prompt("A");
+	}
     $('#fileupload').each(function () {
         var that = this;
 	
@@ -19,4 +22,5 @@ $(document).ready(function(){
 			//var del = $("input").attr("data-delete",data.url);
 			$("[data-delete*='"+data.url+"']").remove();
 		});
+	$("#PropertyEditForm").formToWizard();
 });

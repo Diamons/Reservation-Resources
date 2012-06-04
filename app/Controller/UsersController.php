@@ -10,7 +10,6 @@
 			$this->AjaxHandler->handle('login','register','checkloginstatus');
 		}
 		public function index(){
-		
 		}
 		public function login(){
 			$this->autoLayout = FALSE;

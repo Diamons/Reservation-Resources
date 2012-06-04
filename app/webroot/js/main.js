@@ -3,14 +3,18 @@ $(document).ready(function(){
 	$('a#search').click(function(){
 		$("#searchBar").stop(true,true).slideToggle(400);
 	});
-	$("select, input:checkbox, input:radio, input:file").uniform();
 	Shadowbox.init({
 		handleOversize: "drag",
 		modal: true
 	});	
-	$("#sb-overlay").live("click", function(){
+	$("#sb-overlay").on("click", function(){
 		Shadowbox.close();
 	});
+	
+	$("form.formee div.input.textarea label, form.formee div.input.text label").livequery(function(){
+		$("form.formee div.input.textarea label, form.formee div.input.text label").inFieldLabels();
+	});
+	$("input:checkbox, input:radio, input:file").uniform();
 });
 
 function checkLoginStatus(){
@@ -52,7 +56,7 @@ function getDomain(){
 	return "http://localhost/cakephp/";
 }
 
-$("form#UserLoginForm").live("submit", function(event){
+$("form#UserLoginForm").on("submit", function(event){
 	event.preventDefault();
 	$("form#UserLoginForm .fieldError").remove();
 	$.ajax({
@@ -68,7 +72,7 @@ $("form#UserLoginForm").live("submit", function(event){
 		}
 	});
 });
-$("form#UserRegisterForm").live("submit", function(event){
+$("form#UserRegisterForm").on("submit", function(event){
 	event.preventDefault();
 	$("form#UserRegisterForm .fieldError").remove();
 	$.ajax({
@@ -80,7 +84,6 @@ $("form#UserRegisterForm").live("submit", function(event){
 			
 			if(data.success == false){
 				$.each(data.data,function(field,value){
-					prompt(data.data);
 					$("#UserRegisterForm input[name$='data[User]["+field+"]']").css('border-color','red');
 					$("#UserRegisterForm input[name$='data[User]["+field+"]']").after("<div style = 'color:red;'class = 'fieldError'>"+value+"</div");
 					

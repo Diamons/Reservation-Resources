@@ -22,13 +22,13 @@
 	<?php }?>
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
         <div class="row-fluid fileupload-buttonbar">
-            <div class="span12">
-				<h1 class = "heading">Add Property Photos</h1>
+		<h1 class = "heading">Property Images<span class = "arrow-right"></span></h1>
+            <div style = "margin: auto; text-align: center;">
                 <!-- The fileinput-button span is used to style the file input field as button -->
                 <span class="btn btn-success fileinput-button">
                     <i class="icon-plus icon-white"></i>
                     <span>Add Images</span>
-                    <input type="file" name="files[]" size="96" multiple>
+                    <input type="file" name="files[]" size="104" multiple>
                 </span>
                 <button type="submit" class="btn btn-primary start">
                     <i class="icon-upload icon-white"></i>

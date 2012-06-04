@@ -6,7 +6,7 @@
 		}
 		public function beforeFilter(){
 			parent::beforeFilter();
-			$this->Auth->allow('index', 'viewproperty');
+				$this->Auth->allow('index', 'viewproperty');
 			}
 		public function index(){
 			if($this->request->is('post')&&$this->Auth->loggedIn()){

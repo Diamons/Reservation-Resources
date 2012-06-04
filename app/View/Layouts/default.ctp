@@ -39,7 +39,7 @@
 <?php echo $this->element('sql_dump'); ?>
 
 
-<?php echo $this->Html->script(array('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js', 'bootstrap.min', 'formee', 'jquery.uniform.min', '../lightbox/shadowbox', 'main')); ?>
+<?php echo $this->Html->script(array('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js', 'bootstrap.min', 'jquery.livequery', 'formee', 'jquery.uniform.min', 'jquery.infieldlabel.min', '../lightbox/shadowbox', 'main')); ?>
 <?php echo $this->fetch('scriptBottom'); ?>
 <!-- end scripts-->
 <script>
