@@ -41,6 +41,10 @@
 	echo $this->Form->input('check_out_time');
 	echo $this->Form->input('house_rules');
 	echo $this->Form->input('minimum_stay',array('options'=>$minimum_stay));
+	echo $this->Form->input('Amenity.bedroom_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>array('King'=>'King','Queen'=>'Queen','Single'=>'Single','Double'=>'Double')));
+	echo $this->Form->input('Amenity.electronic_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>array('WiFi'=>'WiFi','Internet'=>'Internet','Television'=>'Television','Cable'=>'Cable','Washer'=>'Washer')));
+	echo $this->Form->input('Amenity.kitchen_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>array('Refrigerator'=>'Refrigerator','Stove'=>'Stove','Microwave'=>'Microwave','Coffee Maker'=>'Coffee Maker','Toaster'=>'Toaster')));
+	echo $this->Form->input('Amenity.id',array('type'=>'hidden'));
 	echo $this->Form->input('id',array('type'=>'hidden'));
 	echo $this->Form->end('Update Listing');
 ?>
