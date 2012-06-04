@@ -393,7 +393,6 @@ div.button span {
 
 /* Select */
 div.selector {
-  width: 190px;
   font-size: 12px;
 }
 
@@ -615,8 +614,15 @@ div.uploader input {
 	top: 0;
 	opacity: 0;
 	filter:alpha(opacity=0); /* For IE8 and earlier */
-	width: 96px;
+	width: 105px;
+}
+div.uploader input:hover, div.uploader:hover, #uniform-undefined:hover{
+	cursor: pointer;
 }
 #fileupload .btn-success{
+	position: relative;
+}
+
+.fileinput-button{
 	position: relative;
 }

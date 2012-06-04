@@ -112,11 +112,12 @@ h3{
 	font-weight: 700;
 	font-size: 11pt;
 	border-style: solid;
-	border-width: 0 0 3px 0;
-	border-color: #2c7dbc;
+	border-bottom-width: 3px;
+	border-bottom-color: #2c7dbc;
 	color: #AAA;
-	padding-bottom: 4px;
+	padding: 8px;
 	margin-bottom: 7px;
+	background-color: #F4F4F4;
 }
 
 #property_moreinfo .fees{

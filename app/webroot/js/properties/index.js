@@ -111,11 +111,7 @@ $('.fieldError').effect('pulsate');
  });
 //end google autocomplete
 if(!$('.error-message')[0]){
-	$("#PropertyAddress").parent().hide();
-	$("#PropertyCity").parent().hide();
-	$("#PropertyState").parent().hide();
-	$("#PropertyZipCode").parent().hide();
-	$("#PropertyCountry").parent().hide();
+	$("#propertyAddressSection").hide();
 }
 $("#propertyAddressSection").hide();
 

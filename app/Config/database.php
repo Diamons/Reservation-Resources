@@ -65,7 +65,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'test',
+		'database' => 'newrr',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
@@ -74,9 +74,9 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'root',
-		'password' => '',
-		'database' => 'test',
+		'login' => 'user',
+		'password' => 'password',
+		'database' => 'test_database_name',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
