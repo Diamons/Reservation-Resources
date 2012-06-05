@@ -32,7 +32,7 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	var $components = array('Session','Auth'=>array( 'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')),'AjaxHandler');
+	var $components = array('Session','Auth'=>array( 'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')), 'Twilio.Twilio');
 	var $helpers = array('Form','Html','Session');
 	public function beforeRender()
 	{

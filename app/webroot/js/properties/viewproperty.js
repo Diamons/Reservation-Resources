@@ -1,5 +1,7 @@
 $(document).ready(function(){
-	$("#gallery").css("height", $(".property_info").height());
+	if($("#gallery").height() < $(".property_info").height()){
+		$("#gallery").css("height", $(".property_info").height());
+	}
 	Galleria.loadTheme(getDomain()+'slider/themes/classic/galleria.classic.js');
     Galleria.run('#gallery');
 	$('#gallery').data('galleria').play(4000);
