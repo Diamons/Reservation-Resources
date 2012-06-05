@@ -48,9 +48,11 @@
 				if($this->request->is('get')){
 					$this->request->data = $this->Property->read();
 					$this->set('propertyid',$property_id);
+					
 				}
 				else{
-					if($this->Property->save($this->request->data)){
+					
+					if($this->Property->saveAssociated($this->request->data)){
 						if(isset($this->data['Image'])){
 							$this->Property->handleImage($property_id,$this->Auth->user('id'),$this->data['Image']);
 						}

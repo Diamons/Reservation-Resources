@@ -7,6 +7,7 @@
 		echo $this->Html->script(array('formwizard', 'properties/edit')); 
 	$this->end();
 ?>
+
 <div id = "body" class = "inner row-fluid" role = "main">
 	<div class = "span7">
 	<?php
@@ -67,6 +68,7 @@
 			<div class = "span6">
 				<?php echo $this->Form->input('payment_method',array('options'=>$payment_method)); ?>
 			</div>
+
 		</div>
 		<div class = "row-fluid">
 			<div class = "span4">
@@ -102,9 +104,13 @@
 			</div>
 		<?php 
 		echo $this->Form->input('minimum_stay',array('options'=>$minimum_stay));
+		echo $this->Form->input('Amenity.bedroom_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>array('King'=>'King','Queen'=>'Queen','Single'=>'Single','Double'=>'Double')));
+		echo $this->Form->input('Amenity.electronic_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>array('WiFi'=>'WiFi','Internet'=>'Internet','Television'=>'Television','Cable'=>'Cable','Washer'=>'Washer')));
+		echo $this->Form->input('Amenity.kitchen_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>array('Refrigerator'=>'Refrigerator','Stove'=>'Stove','Microwave'=>'Microwave','Coffee Maker'=>'Coffee Maker','Toaster'=>'Toaster')));
+		echo $this->Form->input('Amenity.id',array('type'=>'hidden'));
 		echo $this->Form->input('id',array('type'=>'hidden'));
 		echo $this->Form->end('Update Listing');
-	?>
+		?>
 	</fieldset>
 	</div>
 	<div class = "span5">
