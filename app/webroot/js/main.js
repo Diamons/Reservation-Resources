@@ -3,6 +3,9 @@ $(document).ready(function(){
 	$('a#search').click(function(){
 		$("#searchBar").stop(true,true).slideToggle(400);
 	});
+	$(".dashboard > ul > li a").click(function(){
+		$(this).parent().find("ul li").stop(true,true).slideToggle();
+	});
 	Shadowbox.init({
 		handleOversize: "drag",
 		modal: true
@@ -11,10 +14,27 @@ $(document).ready(function(){
 		Shadowbox.close();
 	});
 	
+	$.ajax({
+		type:"POST",
+		url:getDomain()+"calendar.php",
+		success:function(responseHtml){
+			$("#calendar").html(responseHtml);
+		}
+	});
+	
+	if($(".content").height() < $(".dashboard").height()){
+		$(".content").css({'height': $(".dashboard").height()});
+	}
+	else if($(".content").height() > $(".dashboard").height()){
+		$(".dashboard").css({'height': $(".content").height()});
+	}
 	$("form.formee div.input.textarea label, form.formee div.input.text label").livequery(function(){
 		$("form.formee div.input.textarea label, form.formee div.input.text label").inFieldLabels();
 	});
 	$("input:checkbox, input:radio, input:file").uniform();
+	$("#calendar_button").on("click", function(){
+		$("#calendar").stop(true,true).slideToggle();
+	});
 });
 
 function checkLoginStatus(){
@@ -51,7 +71,15 @@ function checkLoginStatus(){
 		});
 	return auth;
 }
-
+function updateCalendar(x, y){
+	$.ajax({
+		type:"POST",
+		url:getDomain()+"calendar.php?x="+x+"&y="+y,
+		success:function(responseHtml){
+			$("#calendar").html(responseHtml);
+		}
+	});
+}
 function getDomain(){
 	return "http://localhost/cakephp/";
 }

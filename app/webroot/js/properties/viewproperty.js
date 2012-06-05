@@ -5,13 +5,6 @@ $(document).ready(function(){
 	Galleria.loadTheme(getDomain()+'slider/themes/classic/galleria.classic.js');
     Galleria.run('#gallery');
 	$('#gallery').data('galleria').play(4000);
-	$.ajax({
-		type:"POST",
-		url:getDomain()+"calendar.php",
-		success:function(responseHtml){
-			$("#calendar").html(responseHtml);
-		}
-	});
 	
 	var myOptions = {
           center: new google.maps.LatLng(1, 1),
@@ -47,13 +40,3 @@ $(document).ready(function(){
 	}
 	
 });
-
-function updateCalendar(x, y){
-	$.ajax({
-		type:"POST",
-		url:getDomain()+"calendar.php?x="+x+"&y="+y,
-		success:function(responseHtml){
-			$("#calendar").html(responseHtml);
-		}
-	});
-}

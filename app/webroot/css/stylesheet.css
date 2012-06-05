@@ -120,7 +120,7 @@ body{
 }
 
 header{
-	background-color: #f0f0f0;
+	background-color: #ECECEC;
 	width: 100%;
 	-moz-box-shadow: 0 0 5px #888;
 	-webkit-box-shadow: 0 0 5px#888;
@@ -557,6 +557,152 @@ footer nav ul{
 	position: absolute;
 	right: -13px;
 	bottom: -0px;
+}
+
+.dashboard{
+	background: #ECECEC;
+	float: left;
+	width: 25%;
+	margin-top: 0;
+}	
+
+.dashboard li{
+	position: relative;
+}
+
+span.arrow{
+	text-indent: -9999em;
+	width: 10px;
+	height: 10px;
+	display: block;
+	background: url(../img/arrow.png) no-repeat right 0;
+	position: absolute;
+	top: 34px;
+	right: 10px;
+}
+
+.dashboard > h1{
+	color: #FFFFFF;
+}
+
+.dashboard li ul li a:hover{
+	background: #333;
+	padding-bottom: 5px;
+}
+.dashboard li ul li a{
+	background: #222;
+	padding: 8px 22px;
+}
+.dashboard li > a{
+	font-family: "Arial", sans-serif;
+	font-size: 9pt;
+	line-height: 1.2em;
+	display: block;
+	padding: 5px 15px;
+	text-transform: uppercase;
+	color: #CCC;
+	background: #111;
+	border-bottom: 1px solid #252525;
+	transition: background .5s, color .5s;
+	-moz-transition: background .5s, color .5s; /* Firefox 4 */
+	-webkit-transition: background .5s, color .5s; /* Safari and Chrome */
+	-o-transition: background .5s, color .5s; /* Opera */
+}
+
+.dashboard li > a:hover{
+	color: white;
+	background: black;
+	border-style: solid;
+	border-width: 0 0 4px 0;
+	border-color: #676666;
+	padding-bottom: 2px;
+}
+
+.dashboard li a img{
+	float: left;
+	width: 32px;
+	height: 32px;
+	margin: 10px;
+}
+
+.dashboard li a > div{
+	padding: 15px;
+	margin-left: 80px;
+}
+
+.dashboard > ul li > ul li{
+	display: none;
+}
+.dashboard li > ul, .dashboard li > ul > li{
+	text-transform: none;
+	text-decoration: underline;
+	text-align: right;
+}
+
+.profile_bar{
+	background-color: #F7F7F7;
+	position: relative;
+	border-style: solid;
+	border-width: 1px 0 1px;
+	border-color: #ECECEC;
+}
+
+.profile_bar .profile_picture{
+	width: 64px;
+	height: 64px;
+	float: left;
+
+}
+
+.profile_bar h1{
+	text-align: left;
+}
+
+.profile_bar div > section{
+	float: left;
+	padding: 15px;
+}
+
+.profile_bar > div{
+	padding: 15px;
+}
+
+.quick_links {
+	float: right;
+}
+
+.profile_bar #calendar{
+	display: none;
+	background: #F1F1F1;
+	padding: 25px;
+}
+
+.quick_links li{
+	margin: 5px 25px;
+	float: left;
+}
+
+.profile_bar #calendar  h1{
+	text-align: center;
+}
+
+.quick_links input{
+	margin-left: 15px;
+}
+
+.content{
+	padding: 10px 2px;
+	float: left;
+	background-color: #FFFFFF;
+	width: 75%;
+}
+
+.content > div{
+	margin-left: 1px;
+	border-style: solid;
+	border-width: 0 0 0 1px;
+	border-color: #ECECEC;
+	padding: 0 20px;
 }
 /* == FORMS == */
 
