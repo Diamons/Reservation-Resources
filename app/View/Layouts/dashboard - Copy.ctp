@@ -31,46 +31,47 @@
 		} else {
 			echo $this->element('Layout\Guest\header');
 		} ?>
-	
-		<div class = "inner row-fluid" id = "body">
+		<div class = "row-fluid profile_bar">
+			<div class = "span12">
+				<nav class = "quick_links">
+					<ul>
+						<?php if(!isset($email)) { ?>
+							<li><input class="btn btn-large btn-info" type="button" value="Verify Your E-mail" /></li> 
+						<?php } else { ?>
+							<li><b>Email <i class="icon-envelope"></i> </b><input class="btn btn-large" disabled="disabled" type="button" value="shahruksemail@gmail.com" /></li> 
+						<?php } ?>
+						
+						<?php if(isset($email)) { ?>
+							<li><input class="btn btn-large btn-info" type="button" value="Add Your Cellphone" /></li> 
+						<?php } else { ?>
+							<li><b>Cellphone <i class="icon-envelope"></i> </b><input class="btn btn-large" disabled="disabled" type="button" value="+19174355533" /></li> 
+						<?php } ?>
+						
+						<?php if(isset($email)) { ?>
+							<li><input class="btn btn-large" type="button" value="Verify Your E-mail" /></li> 
+						<?php } else { ?>
+							<li><b>Email <i class="icon-envelope"></i> </b><input class="btn btn-large" disabled="disabled" type="button" value="shahruksemail@gmail.com" /></li> 
+						<?php } ?>
+					</ul>
+					<div style = "float:right; margin: 25px;">
+						<input class="btn btn-large" type="button" id = "calendar_button" value="Show / Hide Calendar" />
+					</div>
+				</nav>
+				<?php echo $this->Html->image('http://www.almostsavvy.com/wp-content/uploads/2011/04/profile-photo.jpg', array('class' => 'profile_picture')); ?> <section><h1>Welcome Back, Shahruk</h1>
+				</section>
+			</div>
+			<div id = "calendar">
+			<hr />
+			</div>
+		</div>
+		<div class = "row-fluid">
 			<div class = "span3">
-				<div id = "dashboard" class = "well">
-					<h1>Navigation</h1>
-					<ul class="nav nav-list">
-					  <li><a href="#"><i class="icon-home"></i> Home</a></li>
-					  <li><a href="#"><i class="icon-info-sign"></i> About</a></li>
-					  <li><a href="#"><i class="icon-comment"></i> Blog</a></li>
-					</ul>
-					<h1>Messages & Notifications</h1>
-					<ul class="nav nav-list">
-					  <li class = "active"><a href="#inbox"><i class="icon-inbox icon-white"></i> Inbox</a></li>
-					  <li><a href="#deleted"><i class="icon-circle-arrow-right"></i> Deleted Messages</a></li>
-					  <li><a href="#notifications"><i class="icon-exclamation-sign"></i> Notifications</a></li>
-					</ul>
-					<h1>My Properties</h1>
-					<ul class="nav nav-list">
-					  <li><a href="#listproperty"><i class="icon-plus"></i> List My Property</a></li>
-					  <li><a href="#manageproperties"><i class="icon-edit"></i> Manage Properties</a></li>
-					</ul>
-					<h1>My Bookings</h1>
-					<ul class="nav nav-list">
-					  <li><a href="#managebookings"><i class="icon-calendar"></i> Manage Upcoming Bookings</a></li>
-					   <li><a href="#pastbookings"><i class="icon-"></i> View Past Bookings</a></li>
-					</ul>
-					<h1>My Trips / Reservations</h1>
-					<ul class="nav nav-list">
-					  <li><a href="#"><i class="icon-flag"></i> Manage Upcoming Reservations</a></li>
-					  <li><a href="#"><i class="icon-"></i> View Past Reservations</a></li>
-					</ul>
-					<h1>My Account</h1>
-					<ul class="nav nav-list">
-					  <li><a href="#"><i class="icon-user"></i>Edit Account</a></li>
-					  <li><a href="#"><i class="icon-ok-circle"></i>Trusts & Verifications</a></li>
-					</ul>
-					<h1>Marketing / Promotion</h1>
-					<ul class="nav nav-list">
-					  <li><a href="#"><i class="icon-share-alt"></i>Post to Craigslist</a></li>
-					</ul>
+				<?php echo $this->element('Layout\Dashboard\dashboard'); ?>
+			</div>
+			<div class = "span9">
+				<div id = "body">
+					<?php echo $this->Session->flash(); ?>
+					<?php echo $this->fetch('content'); ?>
 				</div>
 			</div>
 		</div>

@@ -36,7 +36,6 @@ class AppController extends Controller {
 	var $helpers = array('Form','Html','Session');
 	public function beforeRender()
 	{
-		$this->layout = "dashboard";
 		// only compile it on development mode
 		if (Configure::read('debug') > 0)
 		{
@@ -55,7 +54,6 @@ class AppController extends Controller {
 		parent::beforeRender();
 	}
 	public function beforeFilter(){
-		echo "A";
 		$this->Auth->allow('display');
 			if($this->Auth->loggedIn()){
 				$this->set('auth',true);
