@@ -3,6 +3,7 @@ App::uses('CakeEmail', 'Network/Email');
 App::uses('Folder', 'Utility');
 	class User extends  AppModel{
 	public $name = 'User';
+	public $hasMany  = 'Property';
 	public $validate = array(
 		'username'=>array(
 				'username_must_be_email'=>array(

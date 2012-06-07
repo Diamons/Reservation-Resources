@@ -4,7 +4,7 @@ App::uses('Folder', 'Utility');
 App::uses('File', 'Utility'); 
 	class Property extends AppModel{
 	public $name = 'Property';
-	public $belongsTo = 'User';
+	public $belongsTo = array('User'=>array('counterCache'=>true));
 	public $hasOne = 'Amenity';
 	public $validate = array(
 		'address'=>array(
