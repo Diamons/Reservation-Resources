@@ -38,5 +38,36 @@ $(document).ready(function(){
 		  map.setZoom(zoom);
 		  markersArray[0] = marker;
 	}
-	
+
+
 });
+function quickbook(){
+		
+		var checkout = new Date($("#ReservationCheckOut").val());
+		var checkin = new Date($("#ReservationCheckIn").val());
+		var guest = $("#ReservationGuest").val();
+		if((checkin != null) &&(checkout != null) && (checkout >= checkin)){
+			//alert('pass');
+			$.ajax({
+				type:"POST",
+				data:"checkin="+$("#ReservationCheckIn").val()+"&checkout="+$("#ReservationCheckOut").val()+"&guest="+guest+'&pid='+$('#ReservationPid').val(),
+				url:getDomain()+"properties/quickbook",
+				success:function(data){
+					$("#price").text("$"+data.data);
+					}
+			});
+		}
+	
+	}
+function updateCalendar(x, y){
+	$.ajax({
+		type:"POST",
+		url:getDomain()+"calendar.php?x="+x+"&y="+y,
+		success:function(responseHtml){
+			$("#calendar").html(responseHtml);
+		}
+	});
+}
+=======
+});
+

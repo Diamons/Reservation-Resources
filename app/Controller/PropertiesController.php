@@ -1,11 +1,13 @@
 <?php
+
 	class PropertiesController extends AppController{
 		public function beforeRender(){
 			parent::beforeRender();
 		}
 		public function beforeFilter(){
 			parent::beforeFilter();
-				$this->Auth->allow('index', 'viewproperty');
+				$this->Auth->allow('index', 'viewproperty','quickbook');
+				$this->AjaxHandler->handle('quickbook');
 			}
 		public function index(){
 			if($this->request->is('post')&&$this->Auth->loggedIn()){
@@ -40,7 +42,7 @@
 			$property = $this->Property->read();
 			$this->set('property',$property);
 			$this->set('images',$this->Property->findPropertyImages($property['User']['id'],$property['Property']['id']));
-			//debug($property);
+
 		
 		}
 		public function edit($property_id = null){
@@ -66,6 +68,26 @@
 				}
 				
 		
+		}
+		public function quickbook(){
+			$this->loadModel('Reservation');//since model are lazy loaded we need to load the reservation model at this point
+			$this->autoLayout = FALSE;
+			$this->layout = 'ajax';
+			$response = array('success'=>false);
+			//lets access our post data from ajax
+			$checkin = $this->request->data['checkin'];
+			$checkout = $this->request->data['checkout'];
+			$this->Property->id = $this->request->data['pid'];
+			if(!empty($checkin)&&!empty($checkout)&&!empty($this->request->data['pid'])){
+				$property = $this->Property->read();//need to retrieve price information
+				$guest = $this->request->data['guest'];
+				$response['data'] = $this->Reservation->quickbook($checkin,$checkout,$guest,$property['Property']['price_per_night'],$property['Property']['price_per_week'],$property['Property']['price_per_month']);
+				$response['success'] = true;
+				return $this->AjaxHandler->respond('json',$response);
+			}
+			else{
+				return $this->AjaxHandler->respond('json',$response);
+			}
 		}
 	}
 ?>

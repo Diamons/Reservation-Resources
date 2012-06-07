@@ -42,7 +42,21 @@
 				</div>
 				<a href = "#"><div class = "book_now">
 					Book Now
-					<h2>(Starting at $79 a night)</h2>
+					<h2>(Starting at <?php if(!empty($property['Property']['price_per_night'])){
+						echo "$".$property['Property']['price_per_night']." per night";
+					}
+					else{
+						if(!empty($property['Property']['price_per_week'])){
+							echo "$".$property['Property']['price_per_week']." per week";
+						}
+						else{
+							 if(!empty($property['Property']['price_per_month'])){
+								echo "$".$property['Property']['price_per_month']." per month";
+							}
+						}
+					}
+					
+					?>)</h2>
 				</div></a>
 			</div>
 		</div>
@@ -51,14 +65,15 @@
 				<?php echo $this->Html->image('icons/calendar.png'); ?> 
 				<h3>Quick Book</h3> 
 				<div class = "big_date"><?php echo $this->Form->create('Reservation', array('inputDefaults' => array('div' => false, 'label' => false)));
-					echo $this->Form->input('Check In', array('class' => 'checkin', 'placeholder' => 'Check In Date'));
-					echo $this->Form->input('Check Out', array('class' => 'checkout', 'placeholder' => 'Check Out Date'));
-						$guestsCount = array(1 => '1 Guest', 2 => '2 Guests', 3 => '3 Guests', 4 => '4 Guests', 5 => '5 Guests');
-					echo $this->Form->input('Guests',array('options'=>$guestsCount,'default'=>1));
+					echo $this->Form->input('check_in', array('type'=>'text','onChange'=>'javscript:quickbook();','class' => 'checkin', 'placeholder' => 'Check In Date'));
+					echo $this->Form->input('check_out', array('type'=>'text','onChange'=>'javascript:quickbook();','class' => 'checkout', 'placeholder' => 'Check Out Date'));
+						$guestsCount = array(0 => '0 Guest', 1 => '1 Guest', 2 => '2 Guests', 3 => '3 Guests', 4 => '4 Guests', 5 => '5 Guests');
+					echo $this->Form->input('guest',array('options'=>$guestsCount,'default'=>0));
+					echo $this->Form->input('pid',array('type'=>'hidden','value'=>$property['Property']['id']));
 				?>
 				</div>
 				<div class = "big_date">
-					<span id = "price">$179</span>
+					<span id = "price"></span>
 				</div>
 				<div class = "small">
 					Reservation Resources fee not included
@@ -71,12 +86,12 @@
 			</div>
 			<div class = "profile span6">
 			<a name = "hostprofile"></a>
-				<h3>Shahruk Khan Profile</h3> 
+				<h3><?php echo $property['User']['first_name']." ".$property['User']['last_name']; ?> Profile</h3> 
 				<div class = "row-fluid">
 					<div class = "span4"><?php echo $this->Html->image('http://a2.muscache.com/users/30990/profile_pic/1337535972/square_225.jpg'); ?> </div>
 					<div class = "span4">
 						<div>99% Approval</div>
-						<div>55 Other Listings</div>
+						<div><?php echo $property['User']['property_count'] - 1; ?> Other Listings</div>
 						<div>100% Response Rate</div>
 					</div>
 					<div class = "span4">
@@ -126,28 +141,37 @@
 		<div class = "amenities span4">
 		<a name = "amenities"></a>
 			<h1>Amenities and Other Accommodations</h1>
-			<?php echo $this->Html->image('icons/bed.png'); ?>
+			<?php
+			if(!empty($property['Amenity']['bedroom_amenities'])){
+				echo $this->Html->image('icons/bed.png');
+			?>
 			<ul class = "bed_type amenities_list">
-				<li>Single</li>
-				<li>Double</li>
-				<li>Twin</li>
+				<?php foreach($property['Amenity']['bedroom_amenities'] as $key => $value ){?>
+				<li><?php echo $property['Amenity']['bedroom_amenities'][$key];?> </li>
+					<?php }?>
 			</ul>
-			<?php echo $this->Html->image('icons/service.png'); ?>
+			<?php }?>
+			<?php
+			if(!empty($property['Amenity']['electronic_amenities'][0])){
+				echo $this->Html->image('icons/service.png'); 
+			
+			?>
 			<ul class = "amenities_list">
-				<li>WiFI</li>
-				<li>Internet</li>
-				<li>Television</li>
-				<li>Cable</li>
-				<li>Washer</li>
+				<?php foreach($property['Amenity']['electronic_amenities'] as $key => $value){?>
+				<li><?php echo $property['Amenity']['electronic_amenities'][$key]; ?></li>
+				<?php }?>
 			</ul>
-			<?php echo $this->Html->image('icons/kitchen.png'); ?>
+			<?php } ?>
+			<?php 
+			if(!empty($property['Amenity']['kitchen_amenities'][0])){
+				echo $this->Html->image('icons/kitchen.png'); 
+				?>
 			<ul class = "kitchen amenities_list">
-				<li>Refrigerator</li>
-				<li>Stove</li>
-				<li>Microwave</li>
-				<li>Coffee Maker</li>
-				<li>Toaster</li>
+				<?php foreach ($property['Amenity']['kitchen_amenities'] as $key => $value){?>
+				<li><?php echo $property['Amenity']['kitchen_amenities'][$key]; ?></li>
+				<?php }?>
 			</ul>
+			<?php }?>
 		</div>
 	</div>
 	<div id = "property_booking" class = "row-fluid inner">

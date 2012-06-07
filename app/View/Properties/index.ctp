@@ -97,8 +97,18 @@
 			<?php echo $this->Form->input('rent_once',array('label'=>array('text'=>'Is this a one time sublet? ','style'=>'display:inline'),'format'=>array('before', 'label', 'between', 'input', 'after', 'error' )));?>
 		</div>
 		<div class = "span4">
-			<?php echo $this->Form->input('currency_code',array('options'=>$currency_options,'default'=>'USD')); ?>
+		
+		 <?php 
+		 $minimum_stay = array();
+		//loop for minimum stay
+		for($i = 0; $i <= 31; $i++ ){
+			$minimum_stay[$i] = $i; 
+		}
+		 echo $this->Form->input('minimum_stay',array('options'=>$minimum_stay,'default'=>1)); ?>
 		</div>
+		<!--<div class = "span4">
+			<?php echo $this->Form->input('currency_code',array('options'=>$currency_options,'default'=>'USD')); ?>
+		</div>-->
 		</section>
 		<div id = "propertyAddressSection">
 		<?php
