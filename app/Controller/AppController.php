@@ -32,10 +32,11 @@ App::uses('Controller','Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	var $components = array('Session','Auth'=>array( 'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')),'AjaxHandler');
+	var $components = array('Session','Auth'=>array( 'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')), 'AjaxHandler', 'Twilio.Twilio');
 	var $helpers = array('Form','Html','Session');
 	public function beforeRender()
 	{
+		$this->layout = "dashboard";
 		// only compile it on development mode
 		if (Configure::read('debug') > 0)
 		{
@@ -54,6 +55,7 @@ class AppController extends Controller {
 		parent::beforeRender();
 	}
 	public function beforeFilter(){
+		echo "A";
 		$this->Auth->allow('display');
 			if($this->Auth->loggedIn()){
 				$this->set('auth',true);

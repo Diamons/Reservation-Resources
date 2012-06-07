@@ -1,5 +1,5 @@
 <?php
-	
+
 	class PropertiesController extends AppController{
 		public function beforeRender(){
 			parent::beforeRender();
@@ -42,6 +42,7 @@
 			$property = $this->Property->read();
 			$this->set('property',$property);
 			$this->set('images',$this->Property->findPropertyImages($property['User']['id'],$property['Property']['id']));
+
 		
 		}
 		public function edit($property_id = null){

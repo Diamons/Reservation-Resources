@@ -123,4 +123,4 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
  
-CakePlugin::load(array('Minify' => array('routes' => true)));
+CakePlugin::load(array('Minify' => array('routes' => true), 'Twilio'));
