@@ -116,7 +116,7 @@
 		<div name = "location" class = "renter span4">
 		<a name = "location"></a>
 			<h1>Location Details</h1>
-			<div id = "map_canvas"></div>
+			<div id = "map_canvas" data-lat = "<?php echo  $property['Property']['latitude']; ?>" data-long = "<?php echo  $property['Property']['longtitude']; ?>"></div>
 		</div>
 	</div>
 	<div id = "property_moreinfo" class = "row-fluid inner">

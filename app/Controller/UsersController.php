@@ -6,7 +6,7 @@
 			
 		}
 		public function beforeFilter() {
-			$this->Auth->allow('register','index','login','checkloginstatus', 'getloginpage');
+			$this->Auth->allow('register','login','checkloginstatus', 'getloginpage');
 			$this->AjaxHandler->handle('login','register','checkloginstatus');
 		}
 		public function index(){
