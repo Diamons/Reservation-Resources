@@ -37,7 +37,7 @@
 			
 			switch($type){
 				case "day":
-				Debugger::log($interval);
+				
 					if($check == true){
 					return $interval->d ;
 					}
@@ -53,7 +53,9 @@
 				
 				case "week":
 					return  floor($interval->days / 7); //only want whole number of week so we take the floor number;
-					
+					break;
+				case "interval":
+					return $interval->days;
 					break;
 			
 			}

@@ -14,14 +14,6 @@ $(document).ready(function(){
 		Shadowbox.close();
 	});
 	
-	$.ajax({
-		type:"POST",
-		url:getDomain()+"calendar.php",
-		success:function(responseHtml){
-			$("#calendar").html(responseHtml);
-		}
-	});
-	
 	if($(".content").height() < $(".dashboard").height()){
 		$(".content").css({'height': $(".dashboard").height()});
 	}
@@ -73,11 +65,14 @@ function checkLoginStatus(){
 		});
 	return auth;
 }
-function updateCalendar(x, y){
+function updateCalendar(x,y,z){
+
 	$.ajax({
 		type:"POST",
-		url:getDomain()+"calendar.php?x="+x+"&y="+y,
+		url:getDomain()+"bookings/calendar",//?x="+x+"&y="+y,
+		data:"x="+x+"&y="+y+"&pid="+z,
 		success:function(responseHtml){
+			
 			$("#calendar").html(responseHtml);
 		}
 	});

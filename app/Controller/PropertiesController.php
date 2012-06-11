@@ -42,6 +42,7 @@
 			$property = $this->Property->read();
 			$this->set('property',$property);
 			$this->set('images',$this->Property->findPropertyImages($property['User']['id'],$property['Property']['id']));
+			
 
 		
 		}
@@ -77,13 +78,20 @@
 			//lets access our post data from ajax
 			$checkin = $this->request->data['checkin'];
 			$checkout = $this->request->data['checkout'];
-			$this->Property->id = $this->request->data['pid'];
 			if(!empty($checkin)&&!empty($checkout)&&!empty($this->request->data['pid'])){
+				$this->Property->id = $this->request->data['pid'];
 				$property = $this->Property->read();//need to retrieve price information
 				$guest = $this->request->data['guest'];
-				$response['data'] = $this->Reservation->quickbook($checkin,$checkout,$guest,$property['Property']['price_per_night'],$property['Property']['price_per_week'],$property['Property']['price_per_month']);
-				$response['success'] = true;
-				return $this->AjaxHandler->respond('json',$response);
+				if($property['Property']['minimum_stay'] <= $this->Reservation->getDates($checkin,$checkout,"interval",null)){
+					$response['data'] = $this->Reservation->quickbook($checkin,$checkout,$guest,$property['Property']['price_per_night'],$property['Property']['price_per_week'],$property['Property']['price_per_month']);
+					$response['success'] = true;
+					return $this->AjaxHandler->respond('json',$response);
+				}
+				else{
+					$response['success'] = false;
+					$response['data'] = $property['Property']['minimum_stay'];
+					return $this->AjaxHandler->respond('json',$response);
+				}
 			}
 			else{
 				return $this->AjaxHandler->respond('json',$response);

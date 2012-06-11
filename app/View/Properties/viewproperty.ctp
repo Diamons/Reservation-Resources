@@ -107,7 +107,10 @@
 		<div class = "span8">
 		<a name = "availability"></a>
 			<h1 class = "calendar">Availability Calendar</h1>
-			<div id = "calendar">
+			<div id = "calendar" style = "display:block;">
+					<?php
+						echo $this->element('calendar',array('dates'=>$property['Booking'],'pid'=>$property['Property']['id']));
+					?>
 			</div>
 		</div>
 		<div name = "location" class = "renter span4">

@@ -1,15 +1,27 @@
  <?php 
- if(isset($_GET['x']))
+//$vars =  $this->requestAction('/bookings/calendar');
+
+
+ $timestamps = array();
+foreach($dates as $key => $value){
+	$timestamps[$key]['start_date'] = strtotime($dates[$key]['start_date']);
+	$timestamps[$key]['end_date']= strtotime($dates[$key]['end_date']);
+	$timestamps[$key]['status'] = $dates[$key]['status'];
+ }
+
+
+
+ if(isset($x))
  {
- $month=$_GET['x']; 
+ $month=$x; 
  }
  else
  {
-$month = date('n'); 
+$month =  date('n'); 
 }
-if(isset($_GET['y']))
+if(isset($y))
 {
- $year=$_GET['y'];
+ $year=$y;
 }
 else
 {
@@ -35,7 +47,7 @@ $day = date("D",$date);
 $m = date("F",$date); 
 $totaldays = date("t",$date); //get the total day of specified date 
 ?>
-<div style = "float: left;"><a style='color:#5A5AA3' onclick='updateCalendar(<?php echo $prev.",". $yprev ?>)' href = 'javascript:void(0)'><b>Previous</a></b></div><div style = "float:right;"><b> <a style='color:#5A5AA3' onclick='updateCalendar(<?php echo $next.",". $ynext ?>);' href = 'javascript:void(0)'>Next</a></b> </div>
+<div style = "float: left;"><a style='color:#5A5AA3' onclick='updateCalendar(<?php echo $prev.",". $yprev.",".$pid; ?>)' href = 'javascript:void(0)'><b>Previous</a></b></div><div style = "float:right;"><b> <a style='color:#5A5AA3' onclick='updateCalendar(<?php echo $next.",". $ynext.",".$pid; ?>);' href = 'javascript:void(0)'>Next</a></b> </div>
 
 <div style = "text-align: center;"><h1 style = "font-size: 26pt; padding-bottom: 15px;"><?php echo $m ." ". $year; ?></h1></div>
 <?php 
@@ -71,14 +83,36 @@ $tl = 35;
 $ctr = 1; 
 $d=1; 
 
+$k = 0;//this will be key of timestamp
 for($i=1;$i<=$tl;$i++){ 
-
+$currenttimestamp = strtotime("$year/$month/$d");
 if($ctr==1) echo "<tr>"; 
 
-if($i >= $st && $d <= $totaldays){ 
-echo "<td id = '$d' style = 'text-align: center; padding: 25px; height: 80px; width: 80px; background-color: #c5ff5f;'><font size = '4' face = 'tahoma'>$d</font></td>"; 
-$d++;
-} 
+if($i >= $st && $d <= $totaldays){  
+	
+		
+		if(inDateRange($currenttimestamp,$timestamps)){
+			
+			echo "<td  style = 'text-align: center; padding: 25px; height: 80px; width: 80px; background-color: red;'><font size = '4' face = 'tahoma'>$d</font></td>";
+			$d++;
+				
+		}
+		else{
+			echo "<td  style = 'text-align: center; padding: 25px; height: 80px; width: 80px; background-color: #c5ff5f;'><font size = '4' face = 'tahoma'>$d</font></td>";
+			$d++;
+		}
+		
+
+
+
+
+
+
+	
+
+
+}
+
 else{ 
 echo "<td>&nbsp</td>"; 
 } 
@@ -90,7 +124,18 @@ $ctr=1;
 echo "</tr>"; 
 } 
 
-} 
+ 
+}
+echo "</table>"; 
 
-echo "</table>";  
+ function inDateRange($currenttime,$times){
+	
+	for($i =0;$i < count($times); $i++){
+		if($currenttime >= $times[$i]['start_date'] && $currenttime <= $times[$i]['end_date'] && $times[$i]['status'] == 1 ){
+			return true;
+		}
+		
+	}
+	return false;
+} 
  ?>
