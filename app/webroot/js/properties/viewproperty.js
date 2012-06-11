@@ -5,7 +5,7 @@ $(document).ready(function(){
 	Galleria.loadTheme(getDomain()+'slider/themes/classic/galleria.classic.js');
     Galleria.run('#gallery');
 	$('#gallery').data('galleria').play(4000);
-	
+
 	var myOptions = {
           center: new google.maps.LatLng(1, 1),
           zoom: 2,
@@ -53,21 +53,18 @@ function quickbook(){
 				data:"checkin="+$("#ReservationCheckIn").val()+"&checkout="+$("#ReservationCheckOut").val()+"&guest="+guest+'&pid='+$('#ReservationPid').val(),
 				url:getDomain()+"properties/quickbook",
 				success:function(data){
-					$("#price").text("$"+data.data);
+					if(data.success == true){
+						$("#price").text("$"+data.data).css('color','green');
 					}
+					else{
+						$("#price").text("The minimum stay restrictions is "+data.data+" days").effect('pulsate').css('color','red');
+					}
+				}
 			});
 		}
 	
 	}
-function updateCalendar(x, y){
-	$.ajax({
-		type:"POST",
-		url:getDomain()+"calendar.php?x="+x+"&y="+y,
-		success:function(responseHtml){
-			$("#calendar").html(responseHtml);
-		}
-	});
-}
-=======
-});
+
+
+
 
