@@ -31,7 +31,9 @@ $(document).ready(function(){
 	$("form.formee div.input.textarea label, form.formee div.input.text label").livequery(function(){
 		$("form.formee div.input.textarea label, form.formee div.input.text label").inFieldLabels();
 	});
-	$("input:checkbox, input:radio, input:file").uniform();
+	$("input:checkbox, input:radio, input:file").livequery(function(){
+		$("input:checkbox, input:radio, input:file").uniform();
+	});
 	$("#calendar_button").on("click", function(){
 		$("#calendar").stop(true,true).slideToggle();
 	});

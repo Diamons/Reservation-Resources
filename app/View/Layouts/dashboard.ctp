@@ -43,13 +43,13 @@
 					</ul>
 					<h1>Messages & Notifications</h1>
 					<ul class="nav nav-list">
-					  <li class = "active"><a href="#inbox"><i class="icon-inbox icon-white"></i> Inbox</a></li>
+					  <li><a href="#inbox"><i class="icon-inbox"></i> Inbox</a></li>
 					  <li><a href="#deleted"><i class="icon-circle-arrow-right"></i> Deleted Messages</a></li>
-					  <li><a href="#notifications"><i class="icon-exclamation-sign"></i> Notifications</a></li>
+					  <li class = "active"><a href="#notifications"><i class="icon-exclamation-sign icon-white"></i> Notifications</a></li>
 					</ul>
 					<h1>My Properties</h1>
 					<ul class="nav nav-list">
-					  <li><a href="#listproperty"><i class="icon-plus"></i> List My Property</a></li>
+					  <li><a href="../properties/"><i class="icon-plus"></i> List My Property</a></li>
 					  <li><a href="#manageproperties"><i class="icon-edit"></i> Manage Properties</a></li>
 					</ul>
 					<h1>My Bookings</h1>
@@ -59,19 +59,23 @@
 					</ul>
 					<h1>My Trips / Reservations</h1>
 					<ul class="nav nav-list">
-					  <li><a href="#"><i class="icon-flag"></i> Manage Upcoming Reservations</a></li>
-					  <li><a href="#"><i class="icon-"></i> View Past Reservations</a></li>
+					  <li><a href="#managereservations"><i class="icon-flag"></i> Manage Upcoming Reservations</a></li>
+					  <li><a href="#pastreservations"><i class="icon-"></i> View Past Reservations</a></li>
 					</ul>
 					<h1>My Account</h1>
 					<ul class="nav nav-list">
-					  <li><a href="#"><i class="icon-user"></i>Edit Account</a></li>
-					  <li><a href="#"><i class="icon-ok-circle"></i>Trusts & Verifications</a></li>
+					  <li><a href="#editaccount"><i class="icon-user"></i>Edit Account</a></li>
+					  <li><a href="#trustsandverifications"><i class="icon-ok-circle"></i>Trusts & Verifications</a></li>
 					</ul>
 					<h1>Marketing / Promotion</h1>
 					<ul class="nav nav-list">
-					  <li><a href="#"><i class="icon-share-alt"></i>Post to Craigslist</a></li>
+					  <li><a href="#postcraigslist"><i class="icon-share-alt"></i>Post to Craigslist</a></li>
 					</ul>
 				</div>
+			</div>
+			<div id = "content" class = "span9">
+				<?php echo $this->Session->flash(); ?>
+				<?php echo $this->fetch('content'); ?>
 			</div>
 		</div>
 		<?php echo $this->element('Layout\footer'); ?>
@@ -80,7 +84,7 @@
 <?php echo $this->element('sql_dump'); ?>
 
 
-<?php echo $this->Html->script(array('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js', 'bootstrap.min', 'jquery.livequery', 'formee', 'jquery.uniform.min', 'jquery.infieldlabel.min', '../lightbox/shadowbox', 'main')); ?>
+<?php echo $this->Html->script(array('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js', 'bootstrap.min', 'jquery.livequery', 'formee', 'jquery.uniform.min', 'jquery.infieldlabel.min', '../lightbox/shadowbox', 'main', 'dashboard')); ?>
 <?php echo $this->fetch('scriptBottom'); ?>
 <!-- end scripts-->
 <script>
