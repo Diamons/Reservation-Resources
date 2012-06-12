@@ -6,7 +6,7 @@ App::uses('File', 'Utility');
 	public $name = 'Property';
 	public $belongsTo = array('User'=>array('counterCache'=>true));
 	public $hasOne = 'Amenity';
-	public $hasMany = 'Booking';
+	public $hasMany = array('Booking','Fee','Review');
 	public $validate = array(
 		'address'=>array(
 			'address_not_empty'=>array(

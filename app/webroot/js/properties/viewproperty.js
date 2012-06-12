@@ -5,7 +5,8 @@ $(document).ready(function(){
 	Galleria.loadTheme(getDomain()+'slider/themes/classic/galleria.classic.js');
     Galleria.run('#gallery');
 	$('#gallery').data('galleria').play(4000);
-
+	var latitude = $("#map_canvas").data("lat");
+	var longtitude = $("#map_canvas").data("long");
 	var myOptions = {
           center: new google.maps.LatLng(1, 1),
           zoom: 2,
@@ -15,7 +16,7 @@ $(document).ready(function(){
         var map = new google.maps.Map(document.getElementById("map_canvas"),
             myOptions);
 		var markersArray = [];
-		//updateMap(100, 250, 16);
+		updateMap(latitude, longtitude, 16);
 		$("#map_canvas").live("mouseover", function(){
 			options = { scrollwheel: true };
 			setTimeout(function(){map.setOptions(options);}, 800);
