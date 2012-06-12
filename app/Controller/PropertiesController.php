@@ -38,8 +38,12 @@
 		}
 		
 		public function viewproperty($property_id = null){
+			$this->loadModel('Amenity');
 			$this->Property->id = $property_id;
+			$this->Property->Behaviors->attach('Containable', array('recursivet' => false));
+			$this->Property->contain(array('Review'=>array('User'),'User','Fee','Amenity','Booking'));
 			$property = $this->Property->read();
+			$property['Amenity'] = $this->Amenity->parseAmenity($property['Amenity'],true);
 			$this->set('property',$property);
 			$this->set('images',$this->Property->findPropertyImages($property['User']['id'],$property['Property']['id']));
 			

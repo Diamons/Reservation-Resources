@@ -1,6 +1,7 @@
 <?php
 	class Amenity extends AppModel{
 	public $name = 'Amenity';
+//	public $belongsTo = 'Property';
 	
 	
 	public function beforeSave(){
@@ -18,13 +19,14 @@
 		}
 	
 	}
-	public function afterFind($results,$primary){//primary should be false since we are querying by association 
-		if($results[0]['Amenity']){
+	public function parseAmenity($results,$primary){//primary should be false since we are querying by association 
+		if($results){
 			
-			$results[0]['Amenity']['bedroom_amenities'] = explode(';',$results[0]['Amenity']['bedroom_amenities']);
-			$results[0]['Amenity']['kitchen_amenities'] = explode(';',$results[0]['Amenity']['kitchen_amenities']);
-			$results[0]['Amenity']['electronic_amenities'] = explode(';',$results[0]['Amenity']['electronic_amenities']);
+			$results['bedroom_amenities'] = explode(';',$results['bedroom_amenities']);
+			$results['kitchen_amenities'] = explode(';',$results['kitchen_amenities']);
+			$results['electronic_amenities'] = explode(';',$results['electronic_amenities']);
 		}
+		
 		return  $results;
 	}
 	
