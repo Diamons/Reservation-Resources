@@ -113,7 +113,7 @@ em, b{
 }
 
 body{
-	font-family: "ProximaNovaLtRegular", "Helvetica", "Arial", sans-serif;
+	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 	font-size: 12pt;
 	background-color: #F7F7F7;
 }
@@ -833,6 +833,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	padding-right: 15px;
 	font-size: 24px;
 }
+
+.booking_person{
+	background: rgb(244,244,244); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(244,244,244,1) 0%, rgba(241,241,241,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(244,244,244,1)), color-stop(100%,rgba(241,241,241,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(244,244,244,1) 0%,rgba(241,241,241,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(244,244,244,1) 0%,rgba(241,241,241,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(244,244,244,1) 0%,rgba(241,241,241,1) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(244,244,244,1) 0%,rgba(241,241,241,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#f1f1f1',GradientType=0 ); /* IE6-9 */
+	padding: 6px 6px 0;
+}
+
+.booking_person, .booking_person img{
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+
+.booking_person .dates{
+	padding-top: 5px;
+}
+
+.booking_person .accept_or_decline{
+	padding: 5px;
+	text-align: center;
+}
 /* == FORMS == */
 
 form.formee > div, form.formee > section > div, .panel_info, form.formee > div[id*="step"] > fieldset div.input{
@@ -922,6 +949,48 @@ form.formee div.input.date select, form.formee div.input.time select{
 }
 #contact_card  img{
 	display: block;
+}
+.person_card{
+	padding: 8px;
+	color: #F7F7F7;
+}
+
+.person_card .social_media{
+	margin-top: 25px;
+}
+
+.person_card .social_media img{
+	width: 32px;
+	height: 32px;
+	float: left;
+}
+.person_card .social_media > div > div > div{
+	padding-left: 35px;
+	margin-top: 5px;
+}
+.person_card .social_media > div > div{
+	margin-top: 5px;
+}
+
+.person_card .score_card{
+	padding: 10px;
+	text-align: center;
+}
+.person_card .score{
+	font-size: 48px;
+	color: #a1e400;
+	line-height: 52px;
+}
+.person_card > div{
+	float: left;
+	width: 140px;
+	margin-right: 10px;
+}
+
+.person_card > div:nth-child(2){
+	border-left: 1px solid #EAEAEA;
+	width: 290px;
+	padding-left: 10px;
 }
 #map_canvas { min-height: 475px; height: 540px !important; }
 #map_canvas img{ max-width: none; }
@@ -1117,4 +1186,97 @@ h1.ribbon:before
 	border-width: 0 10px 10px 0;
 	border-right-color: #222;
 	left: 0;
+}
+
+#calendar tr.dates td, #calendar tr.days td{
+	color: #788082;
+}
+
+#calendar tr.days td{
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+#calendar{
+	background-color: #1a2020;
+	margin: 0 5px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	padding: 10px;
+}
+
+#calendar .calendar{
+	font-size: 9pt;
+	color: #90989a;
+}
+
+#calendar .calendar .month{
+	text-align: center;
+}
+
+#calendar .calendar .month > h1{
+	font-size: 26pt;
+	padding-bottom: 16px;
+}
+
+#calendar .calendar .days{
+	text-transform: uppercase;
+	font-weight: 700;	
+}
+
+#calendar .calendar .dates > div{
+	float: left;
+	width: 14.28571428571429%;
+	padding: 4px;
+}
+#calendar .calendar .dates > div > div{
+	background: rgb(211,241,94); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(211,241,94,1) 0%, rgba(150,210,88,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(211,241,94,1)), color-stop(100%,rgba(150,210,88,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(211,241,94,1) 0%,rgba(150,210,88,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(211,241,94,1) 0%,rgba(150,210,88,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(211,241,94,1) 0%,rgba(150,210,88,1) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(211,241,94,1) 0%,rgba(150,210,88,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3f15e', endColorstr='#96d258',GradientType=0 ); /* IE6-9 */
+	text-align: center;
+	font-size: 24px;
+	font-weight: 700;
+	width: 100%;
+	padding: 13px 0;
+	border-radius: 5px;
+	color: #669533;
+}
+#calendar .calendar .dates > div > div .date{
+	font-family: "Open Sans", "Arial", sans-serif;
+	font-size: 11pt;
+}
+#calendar .calendar .dates > div > div.inactive{
+	background: #2e3638;
+}
+#calendar .calendar .dates > div > div.pending_hover{
+background: rgb(78,180,228); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(78,180,228,1) 0%, rgba(63,159,203,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(78,180,228,1)), color-stop(100%,rgba(63,159,203,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(78,180,228,1) 0%,rgba(63,159,203,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(78,180,228,1) 0%,rgba(63,159,203,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(78,180,228,1) 0%,rgba(63,159,203,1) 100%); /* IE10+ */
+background: linear-gradient(top, rgba(78,180,228,1) 0%,rgba(63,159,203,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4eb4e4', endColorstr='#3f9fcb',GradientType=0 ); /* IE6-9 */
+color: #125089;
+}
+#calendar .calendar .dates > div > div.booked{
+	background: rgb(228,78,78); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(228,78,78,1) 0%, rgba(201,64,61,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(228,78,78,1)), color-stop(100%,rgba(201,64,61,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(228,78,78,1) 0%,rgba(201,64,61,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(228,78,78,1) 0%,rgba(201,64,61,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(228,78,78,1) 0%,rgba(201,64,61,1) 100%); /* IE10+ */
+background: linear-gradient(top, rgba(228,78,78,1) 0%,rgba(201,64,61,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e44e4e', endColorstr='#c9403d',GradientType=0 ); /* IE6-9 */
+color: #6b2523;
+}
+
+.quickinfo:hover{
+	cursor: pointer;
 }

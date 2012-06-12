@@ -42,9 +42,6 @@
 			$property = $this->Property->read();
 			$this->set('property',$property);
 			$this->set('images',$this->Property->findPropertyImages($property['User']['id'],$property['Property']['id']));
-			
-
-		
 		}
 		public function edit($property_id = null){
 			$this->Property->id = $property_id;
@@ -62,7 +59,7 @@
 						$this->Session->setFlash('Congrats! Your property has been updated');
 					}
 					else{
-						$this->Session->setFlash('Sorry, we could not update your propety at this time. Please double check for any information error');
+						$this->Session->setFlash('Sorry, we could not update your property at this time. Please double check for any information error');
 					}
 					$this->set('propertyid',$property_id);
 					

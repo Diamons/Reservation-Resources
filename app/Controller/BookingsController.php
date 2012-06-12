@@ -29,9 +29,6 @@
 			}
 			return $this->AjaxHandler->respond('html',$response);
 		}
-	
-	
-	
 	}
 
 ?>

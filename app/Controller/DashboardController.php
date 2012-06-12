@@ -32,6 +32,10 @@
 			$this->render('manageproperties');
 		}
 		private function __manageBookings(){
+			$this->loadModel('Property');
+			$this->Property->id = 1;
+			$property = $this->Property->find();
+			$this->set("property", $property);
 			$this->render('managebookings');
 		}
 	}

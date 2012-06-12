@@ -1,14 +1,12 @@
  <?php 
 //$vars =  $this->requestAction('/bookings/calendar');
-
-
- $timestamps = array();
+$timestamps = array();
 foreach($dates as $key => $value){
 	$timestamps[$key]['start_date'] = strtotime($dates[$key]['start_date']);
 	$timestamps[$key]['end_date']= strtotime($dates[$key]['end_date']);
 	$timestamps[$key]['status'] = $dates[$key]['status'];
- }
-
+	$timestamps[$key]['user_id'] = $dates[$key]['user_id'];
+}
 
 
  if(isset($x))
@@ -46,23 +44,6 @@ $date = strtotime("$year/$month/1");
 $day = date("D",$date); 
 $m = date("F",$date); 
 $totaldays = date("t",$date); //get the total day of specified date 
-?>
-<div style = "float: left;"><a style='color:#5A5AA3' onclick='updateCalendar(<?php echo $prev.",". $yprev.",".$pid; ?>)' href = 'javascript:void(0)'><b>Previous</a></b></div><div style = "float:right;"><b> <a style='color:#5A5AA3' onclick='updateCalendar(<?php echo $next.",". $ynext.",".$pid; ?>);' href = 'javascript:void(0)'>Next</a></b> </div>
-
-<div style = "text-align: center;"><h1 style = "font-size: 26pt; padding-bottom: 15px;"><?php echo $m ." ". $year; ?></h1></div>
-<?php 
-echo "<table style='width: 100%;' border = '1' cellspacing = '3' bordercolor='white' cellpadding ='2'><tr> 
-<td colspan='7'></td></tr> 
-<tr> 
-<td width='80'><font size = '3' face = 'tahoma'>Sunday</font></td> 
-<td width='80'><font size = '3' face = 'tahoma'>Monday</font></td> 
-<td width='80'><font size = '3' face = 'tahoma'>Tueday</font></td> 
-<td width='80'><font size = '3' face = 'tahoma'>Wednesday</font></td> 
-<td width='80'><font size = '3' face = 'tahoma'>Thursday</font></td> 
-<td width='80'><font size = '3' face = 'tahoma'>Friday</font></td> 
-<td width='80'><font size = '3' face = 'tahoma'>Saturday</font></td> 
-</tr> 
-"; 
 
 if($day=="Sun") $st=1; 
 if($day=="Mon") $st=2; 
@@ -84,58 +65,81 @@ $ctr = 1;
 $d=1; 
 
 $k = 0;//this will be key of timestamp
-for($i=1;$i<=$tl;$i++){ 
-$currenttimestamp = strtotime("$year/$month/$d");
-if($ctr==1) echo "<tr>"; 
+?>
 
-if($i >= $st && $d <= $totaldays){  
-	
-		
-		if(inDateRange($currenttimestamp,$timestamps)){
-			
-			echo "<td  style = 'text-align: center; padding: 25px; height: 80px; width: 80px; background-color: red;'><font size = '4' face = 'tahoma'>$d</font></td>";
-			$d++;
+<div class = "calendar">
+	<div style = "float: left;"><a style='color:#6b7577; font-size: 22px;' onclick='updateCalendar(<?php echo $prev.",". $yprev.",".$pid; ?>)' href = 'javascript:void(0)'><b>Previous</a></b></div><div style = "float:right;"><b> <a style='color:#6b7577; font-size: 22px;' onclick='updateCalendar(<?php echo $next.",". $ynext.",".$pid; ?>);' href = 'javascript:void(0)'>Next</a></b> </div>
+	<div class = "month"><h1 style = "font-size: 26pt; padding-bottom: 15px;"><?php echo $m ." ". $year; ?></h1></div>
+	<div class = "clearfix days dates">
+		<div>
+			Sun.
+		</div>
+		<div>
+			Mon.
+		</div>
+		<div>
+			Tues.
+		</div>
+		<div>
+			Wedn.
+		</div>
+		<div>
+			Thur.
+		</div>
+		<div>
+			Fri.
+		</div>
+		<div>
+			Sat.
+		</div>
+	</div>
+	<?php for($i=1;$i<=$tl;$i++){ 
+			$currenttimestamp = strtotime("$year/$month/$d");
+			if($ctr==1) echo "<div class ='clearfix dates'>"; 
+
+			if($i >= $st && $d <= $totaldays){  
 				
-		}
-		else{
-			echo "<td  style = 'text-align: center; padding: 25px; height: 80px; width: 80px; background-color: #c5ff5f;'><font size = '4' face = 'tahoma'>$d</font></td>";
-			$d++;
-		}
-		
+					$response = dayStatus($currenttimestamp,$timestamps);
+				//	Debugger::log($currenttimestamp);
+				//	Debugger::log( $timestamps );
+					if($response['status'] === 1){
+						
+						echo "<div><div class = 'booked'><span class = 'date'>$d</span></div></div>";
+						$d++;
+							
+					} else if($response['status'] === 0){
+						echo "<div><div data-user-id = '".$response['user_id']."' class = 'pending'><span class = 'date'>$d</span></div></div>";
+						$d++;
+					}else{
+						echo "<div><div><span class = 'date'>$d</span></div></div>";
+						$d++;
+					}
+			}
 
+			else{ 
+			echo "<div><div class = 'inactive'>&nbsp</div></div>"; 
+			} 
 
+			$ctr++; 
 
+			if($ctr > 7) { 
+			$ctr=1; 
+			echo "</div>"; 
+			} 
 
+			 
+			}
 
-
-	
-
-
-}
-
-else{ 
-echo "<td>&nbsp</td>"; 
-} 
-
-$ctr++; 
-
-if($ctr > 7) { 
-$ctr=1; 
-echo "</tr>"; 
-} 
-
- 
-}
-echo "</table>"; 
-
- function inDateRange($currenttime,$times){
-	
-	for($i =0;$i < count($times); $i++){
-		if($currenttime >= $times[$i]['start_date'] && $currenttime <= $times[$i]['end_date'] && $times[$i]['status'] == 1 ){
-			return true;
-		}
-		
-	}
-	return false;
-} 
- ?>
+			 function dayStatus($currentTime,$times){
+				for($i =0;$i < count($times); $i++){
+					if($currentTime >= $times[$i]['start_date'] && $currentTime <= $times[$i]['end_date'] && $times[$i]['status'] == 1 ){
+						return array('status' => 1, 'user_id' => $times[$i]['user_id']);
+					}
+					else if($currentTime >= $times[$i]['start_date'] && $currentTime <= $times[$i]['end_date'] && $times[$i]['status'] == 0 ){
+						return array('status' => 0, 'user_id' => $times[$i]['user_id']);
+					}
+				}
+				return array('status' => 100, 'user_id' => 0);
+			} 
+			 ?>
+</div>

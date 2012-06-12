@@ -6,7 +6,7 @@
 			
 		}
 		public function beforeFilter() {
-			$this->Auth->allow('register','index','login','checkloginstatus', 'getloginpage');
+			$this->Auth->allow('register','index','login','checkloginstatus', 'getloginpage', 'viewuser');
 			$this->AjaxHandler->handle('login','register','checkloginstatus');
 		}
 		public function index(){
@@ -78,6 +78,14 @@
 				$this->render('/elements/login_register');
 			}
 	
+		}
+		
+		public function viewuser($userid = NULL){
+			$this->autoLayout = FALSE;
+			$this->layout = 'ajax';
+			$this->User->id = $userid;
+			$this->set('user', $this->User->read());
+			$this->render('/elements/users/viewuser');
 		}
 
 	}

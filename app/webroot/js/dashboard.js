@@ -14,6 +14,18 @@ $(document).ready(function(){
 		updatePage($(this).attr('href').replace(/\#/, ""));
 	});
 	
+	$("#content").on("hover", ".booking_person", function(event){
+		userId = $(this).data('id');
+		$("#calendar .dates div.pending").each(function(){
+			if($(this).data('user-id') == userId)
+				$(this).addClass("pending_hover");
+		});
+	});
+	$("#content").on("mouseout", function(){
+		$("#calendar .dates div.pending_hover").each(function(){
+			$(this).removeClass("pending_hover");
+		});
+	});
 	$("#content").on("click", '#questions > ul > li > a', function(event){
 		if($("#answer").data('question-id') == $(this).data('question-id')){
 			$("#answer").data('question-id', '0');
