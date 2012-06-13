@@ -43,15 +43,15 @@ $(document).ready(function(){
 
 });
 function quickbook(){
-		
-		var checkout = new Date($("#ReservationCheckOut").val());
-		var checkin = new Date($("#ReservationCheckIn").val());
-		var guest = $("#ReservationGuest").val();
+	
+		var checkout = new Date($("#BookingEndDate").val());
+		var checkin = new Date($("#BookingStartDate").val());
+		var guest = $("#BookingGuest").val();
 		if((checkin != null) &&(checkout != null) && (checkout >= checkin)){
-			//alert('pass');
+		
 			$.ajax({
 				type:"POST",
-				data:"checkin="+$("#ReservationCheckIn").val()+"&checkout="+$("#ReservationCheckOut").val()+"&guest="+guest+'&pid='+$('#ReservationPid').val(),
+				data:"checkin="+$("#BookingStartDate").val()+"&checkout="+$("#BookingEndDate").val()+"&guest="+guest+'&pid='+$('#BookingPropertyId').val(),
 				url:getDomain()+"properties/quickbook",
 				success:function(data){
 					if(data.success == true){
@@ -65,6 +65,29 @@ function quickbook(){
 		}
 	
 	}
+$('#easybook').on('click',function(){
+	var status = checkLoginStatus();
+	if(status == true ){
+		$.ajax({
+			type:"POST",
+			data:$("#BookingEasybookForm").serialize(),
+			url:getDomain()+"bookings/easybook",
+			success:function(data){
+				if(data.success == true){
+					alert('Dates successfully saved');
+				}
+				else{
+					alert('Dates not saved!!!!!');
+				}
+		
+			}
+		})
+	
+	}
+
+
+});
+
 
 
 

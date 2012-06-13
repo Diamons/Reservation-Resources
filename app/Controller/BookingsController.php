@@ -8,7 +8,7 @@
 		public function beforeFilter(){
 			parent::beforeFilter();
 				$this->Auth->allow('calendar');
-				$this->AjaxHandler->handle('calendar');			
+				$this->AjaxHandler->handle('calendar','easybook');			
 		}
 		public function calendar(){
 			$this->loadModel('Property');
@@ -28,6 +28,21 @@
 				
 			}
 			return $this->AjaxHandler->respond('html',$response);
+		}
+		public function easybook(){
+			$this->autoLayout = FALSE;
+			$this->layout = 'ajax';
+			$response = array('success'=>false);
+			$this->Booking->set('user_id',$this->Auth->user('id'));
+			if($this->Booking->save($this->request->data)){
+				$response['success'] = true;
+				
+			}
+			else{
+				$response['data'] = 0;
+				
+			}
+			return $this->AjaxHandler->respond('json',$response);
 		}
 	}
 

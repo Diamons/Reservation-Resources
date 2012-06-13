@@ -4,10 +4,12 @@
 	$this->end();
 ?>
 <?php 
+	
 	$this->start('cssTop');
 	echo $this->Html->css(array('properties/viewproperty'));
 	$this->end();
-	debug($property);
+	
+
 ?>
 <div id = "body" role = "main">
 	<nav class = "internal">
@@ -65,12 +67,13 @@
 			<div class = "span6">
 				<?php echo $this->Html->image('icons/calendar.png'); ?> 
 				<h3>Quick Book</h3> 
-				<div class = "big_date"><?php echo $this->Form->create('Reservation', array('inputDefaults' => array('div' => false, 'label' => false)));
-					echo $this->Form->input('check_in', array('type'=>'text','onChange'=>'javscript:quickbook();','class' => 'checkin', 'placeholder' => 'Check In Date'));
-					echo $this->Form->input('check_out', array('type'=>'text','onChange'=>'javascript:quickbook();','class' => 'checkout', 'placeholder' => 'Check Out Date'));
+				<div class = "big_date"><?php echo $this->Form->create('Booking', array('inputDefaults' => array('div' => false, 'label' => false),'action'=>'easybook'));
+					echo $this->Form->input('start_date', array('type'=>'text','onChange'=>'javscript:quickbook();','class' => 'checkin', 'placeholder' => 'Check In Date'));
+					echo $this->Form->input('end_date', array('type'=>'text','onChange'=>'javascript:quickbook();','class' => 'checkout', 'placeholder' => 'Check Out Date'));
 						$guestsCount = array(0 => '0 Guest', 1 => '1 Guest', 2 => '2 Guests', 3 => '3 Guests', 4 => '4 Guests', 5 => '5 Guests');
 					echo $this->Form->input('guest',array('options'=>$guestsCount,'default'=>0,'onChange'=>'quickbook()'));
-					echo $this->Form->input('pid',array('type'=>'hidden','value'=>$property['Property']['id']));
+					echo $this->Form->input('property_id',array('type'=>'hidden','value'=>$property['Property']['id']));
+					echo $this->Form->end();
 				?>
 				</div>
 				<div class = "big_date">
@@ -80,7 +83,7 @@
 					Subtotal
 				</div>
 				<a href = "#">
-					<div class = "book_now small_book">
+					<div id = "easybook" class = "book_now small_book">
 						Book Now
 					</div>
 				</a>

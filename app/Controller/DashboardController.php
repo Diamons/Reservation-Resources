@@ -1,8 +1,7 @@
 <?php
 	class DashboardController extends AppController{
 		public function beforeFilter() {
-			$this->Auth->allow('*');
-			$this->AjaxHandler->handle('login','register','checkloginstatus');
+			
 			$this->layout = "ajax";
 		}
 		
@@ -29,6 +28,9 @@
 			$this->render('index');
 		}
 		private function __manageproperties(){
+			$this->loadModel('Property');
+			$properties = $this->Property->find('all',array('conditions'=>array('Property.user_id'=>$this->Auth->user('id'))));
+			$this->set('properties',$properties);
 			$this->render('manageproperties');
 		}
 		private function __manageBookings(){

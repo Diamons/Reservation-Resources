@@ -6,7 +6,7 @@
 				echo $this->Form->create('User', array('class' => 'formee','action'=>'login'));
 				echo $this->Form->input('username', array('id' => 'UsernameLogin'));
 				echo $this->Form->input('password', array('type' => 'password', 'id' => 'UserPassword'));
-				echo $this->Form->end('Login');
+				echo $this->Form->end(array('label'=>'Login','id'=>'loginbutton'));
 				
 			?>
 		</div><div class = "span6">
@@ -34,7 +34,7 @@
 				
 			<?php 
 			
-			echo $this->Form->end('Register');
+				echo $this->Form->end(array('label'=>'Register','id'=>'registerbutton'));
 			?>
 			
 		</div>

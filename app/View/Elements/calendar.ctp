@@ -102,12 +102,12 @@ $k = 0;//this will be key of timestamp
 					$response = dayStatus($currenttimestamp,$timestamps);
 				//	Debugger::log($currenttimestamp);
 				//	Debugger::log( $timestamps );
-					if($response['status'] === 1){
+					if($response['status'] == 1){
 						
 						echo "<div><div class = 'booked'><span class = 'date'>$d</span></div></div>";
 						$d++;
 							
-					} else if($response['status'] === 0){
+					} else if($response['status'] == 0){
 						echo "<div><div data-user-id = '".$response['user_id']."' class = 'pending'><span class = 'date'>$d</span></div></div>";
 						$d++;
 					}else{

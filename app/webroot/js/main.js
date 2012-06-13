@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	$( "input[name='checkin'], input[name='checkout'], input.checkin, input.checkout" ).datepicker();
 	$('a#search').click(function(){
 		$("#searchBar").stop(true,true).slideToggle(400);
@@ -85,43 +86,48 @@ function updateCalendar(x,y,z){
 function getDomain(){
 	return "http://localhost/cakephp/";
 }
+/*$("#loginbutton").live('click',function(event){
+	event.preventDefault();
+});*/
+$(document).on('click','#loginbutton',null,function(event){
 
-$("form#UserLoginForm").on("submit", function(event){
 	event.preventDefault();
 	$("form#UserLoginForm .fieldError").remove();
 	$.ajax({
 		type:"POST",
 		url:$("form#UserLoginForm").attr('action'),
-		data:$(this).serialize(),
+		data:$("form#UserLoginForm").serialize(),
 		success: function (data){
 			if(data.success == false){
-				$("#UserLoginForm #UserUsername ").css('border-color','red').after("<div style = 'color:red;'class = 'fieldError'>"+data.data+"</div");
+				$("#UserLoginForm #UsernameLogin ").css('border-color','red').after("<div style = 'color:red;'class = 'fieldError'>"+data.data+"</div");
 				$("#UserLoginForm #UserPassword ").css('border-color','red');
 			
 			}
 		}
 	});
 });
-$("form#UserRegisterForm").on("submit", function(event){
+$(document).on("click","#registerbutton", function(event){
 	event.preventDefault();
-	$("form#UserRegisterForm .fieldError").remove();
+	$("form#UserRegister .fieldError").remove();
 	$.ajax({
 		type:"POST",
-		url:$("form#UserRegisterForm").attr('action'),
+		url:$("form#UserRegister").attr('action'),
 		dataType:"json",
-		data:$(this).serialize(),
+		data:$("form#UserRegister").serialize(),
 		success: function (data){
 			
 			if(data.success == false){
 				$.each(data.data,function(field,value){
-					$("#UserRegisterForm input[name$='data[User]["+field+"]']").css('border-color','red');
-					$("#UserRegisterForm input[name$='data[User]["+field+"]']").after("<div style = 'color:red;'class = 'fieldError'>"+value+"</div");
+					$("#UserRegister input[name$='data[User]["+field+"]']").css('border-color','red');
+					$("#UserRegister input[name$='data[User]["+field+"]']").after("<div style = 'color:red;'class = 'fieldError'>"+value+"</div");
 					
 				});
-			$(".fieldError").effect("pulsate", {times: 1});
+			
+				$('.fieldError').effect("pulsate", { times:5 }, 200000000);
+			
 			}
 			else{	//alert(data.success);
-				$("form#UserRegisterForm").slideUp();
+				$("form#UserRegister").slideUp();
 				
 			}
 		}

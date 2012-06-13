@@ -7,14 +7,13 @@
 		}
 		public function beforeFilter() {
 			$this->Auth->allow('register','index','login','checkloginstatus', 'getloginpage', 'viewuser');
-			$this->Auth->allow('register','login','checkloginstatus', 'getloginpage');
+			$this->AjaxHandler->handle('register','login','checkloginstatus', 'getloginpage');
 		}
 		public function index(){
 		}
 		public function login(){
 			$this->autoLayout = FALSE;
 			$this->layout = 'ajax';
-			 $this->request->data['User']['Password'] = $this->User->hashPassword();
 			$response = array('success' => false);
 			if($this->Auth->login()){
 				$response['success'] = true;

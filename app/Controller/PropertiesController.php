@@ -8,6 +8,7 @@
 			parent::beforeFilter();
 				$this->Auth->allow('index', 'viewproperty','quickbook');
 				$this->AjaxHandler->handle('quickbook');
+				$this->Cookie->time = 31536000; // cookie valid for one year before expiration  
 			}
 		public function index(){
 			if($this->request->is('post')&&$this->Auth->loggedIn()){
@@ -39,13 +40,18 @@
 		
 		public function viewproperty($property_id = null){
 			$this->loadModel('Amenity');
+			$this->Cookie->path = '/properties/viewproperty/'.$property_id;//set path for cookie to update count
 			$this->Property->id = $property_id;
-			$this->Property->Behaviors->attach('Containable', array('recursivet' => false));
 			$this->Property->contain(array('Review'=>array('User'),'User','Fee','Amenity','Booking'));
 			$property = $this->Property->read();
 			$property['Amenity'] = $this->Amenity->parseAmenity($property['Amenity'],true);
 			$this->set('property',$property);
 			$this->set('images',$this->Property->findPropertyImages($property['User']['id'],$property['Property']['id']));
+			if(!$this->Cookie->read('viewed')){
+				$this->Property->updateAll(array('Property.viewcount'=>'Property.viewcount+1'), array('Property.id'=>$property_id));
+				$this->Cookie->write('viewed', 'true',false);
+				
+			}
 		}
 		public function edit($property_id = null){
 			$this->Property->id = $property_id;
