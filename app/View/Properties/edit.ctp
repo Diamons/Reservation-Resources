@@ -138,6 +138,7 @@
 			echo $this->Form->input('Fee.'.$key.'.fee_name',array('label'=>'Fee Name'));
 			echo $this->Form->input('Fee.'.$key.'.fee_price',array('value'=>$this->request->data['Fee'][$key]['fee_price']));
 			echo $this->Form->input('Fee.'.$key.'.id',array('type'=>'hidden','value'=>$this->request->data['Fee'][$key]['id']));
+			echo $this->Form->input('Fee.'.$key.'.required',array('label'=>'Is this fee required for guests?'));
 		}
 	?>
 	<a href = "#" id = "customFee" >Add Custom Fee</a>
