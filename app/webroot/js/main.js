@@ -11,7 +11,7 @@ $(document).ready(function(){
 		handleOversize: "drag",
 		modal: true
 	});	
-	$("#sb-overlay").on("click", function(){
+	$(document).on("click", "#sb-overlay", function(){
 		Shadowbox.close();
 	});
 	
@@ -38,100 +38,38 @@ $(document).ready(function(){
 	});
 });
 
-function checkLoginStatus(){
+function checkLoginStatus(event){
 	var auth;
-		$.ajax({
-			type:"POST",
-			url:getDomain()+"users/checkloginstatus",
-			dataType:"json",
-			async: false,//we set async to false, usually defeats purpose of js but we need to make sure the auth variable gets set
-			success:function(data){
-				if(data.success == false){//user is not logged in
-					auth = data.success;
-					$.ajax({
-						type:"POST",
-						url:getDomain()+"users/getloginpage",
-						success:function(responseHtml){
-							Shadowbox.open({
-								content:    responseHtml,
-								player:     "html",
-								title:      "Please Signup or Login",
-								height:     $(window).height()- 120,
-								width:      $(window).width() - 120
-							});
-							eval($("#sb-player"));
-						}
-					});						
-				}
-				else{//user is logged in
-					auth =  data.success
-				}
-			}
-			
-			
-		});
-	return auth;
-}
-function updateCalendar(x,y,z){
-
 	$.ajax({
 		type:"POST",
-		url:getDomain()+"bookings/calendar",//?x="+x+"&y="+y,
-		data:"x="+x+"&y="+y+"&pid="+z,
-		success:function(responseHtml){
-			$("#calendar").html(responseHtml);
-		}
-	});
-}
-function getDomain(){
-	return "http://localhost/cakephp/";
-}
-/*$("#loginbutton").live('click',function(event){
-	event.preventDefault();
-});*/
-$(document).on('click','#loginbutton',null,function(event){
-
-	event.preventDefault();
-	$("form#UserLoginForm .fieldError").remove();
-	$.ajax({
-		type:"POST",
-		url:$("form#UserLoginForm").attr('action'),
-		data:$("form#UserLoginForm").serialize(),
-		success: function (data){
-			if(data.success == false){
-				$("#UserLoginForm #UsernameLogin ").css('border-color','red').after("<div style = 'color:red;'class = 'fieldError'>"+data.data+"</div");
-				$("#UserLoginForm #UserPassword ").css('border-color','red');
-			
-			}
-		}
-	});
-});
-$(document).on("click","#registerbutton", function(event){
-	event.preventDefault();
-	$("form#UserRegister .fieldError").remove();
-	$.ajax({
-		type:"POST",
-		url:$("form#UserRegister").attr('action'),
+		url:getDomain()+"users/checkloginstatus",
 		dataType:"json",
-		data:$("form#UserRegister").serialize(),
-		success: function (data){
-			
+		success:function(data){
+			auth = data.success;
 			if(data.success == false){
-				$.each(data.data,function(field,value){
-					$("#UserRegister input[name$='data[User]["+field+"]']").css('border-color','red');
-					$("#UserRegister input[name$='data[User]["+field+"]']").after("<div style = 'color:red;'class = 'fieldError'>"+value+"</div");
-					
-				});
-			
-				$('.fieldError').effect("pulsate", { times:5 }, 200000000);
-			
-			}
-			else{	//alert(data.success);
-				$("form#UserRegister").slideUp();
-				
+				//user is not logged in
+				openLightBox(getDomain()+ "users/checkloginstatus", "Please login or signup to use this feature", 980, 700);
+			} else {
+				$(event).submit();
 			}
 		}
 	});
-});
 
-	
+}
+
+function openLightBox(url, title, width, height){
+	$.ajax({
+		type:"POST",
+		url:url,
+		success:function(responseHtml){
+			Shadowbox.open({
+				content:    responseHtml,
+				player:     "html",
+				title:      title,
+				height:     height,
+				width:      width
+			});
+			eval($("#sb-player"));
+		} 
+	});	
+}

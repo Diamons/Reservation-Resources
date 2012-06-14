@@ -84,7 +84,7 @@
 			$this->layout = 'ajax';
 			$this->User->id = $userid;
 			$this->set('user', $this->User->read());
-			$this->render('/elements/users/viewuser');
+			$this->render('/elements/User/viewuser');
 		}
 
 	}

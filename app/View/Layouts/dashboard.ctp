@@ -14,8 +14,8 @@
 	<?php 
 		echo $this->Html->meta('icon');
 		echo $this->Html->css(array('bootstrap', 'bootstrap-responsive.min', 'formee-style', 'formee-structure', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/blitzer/jquery-ui.css', 'uniform.default', '../lightbox/shadowbox', '../tooltip/css/tooltip', 'main', 'stylesheet'));
-		echo $this->Html->css(array('fonts/proxima/stylesheet'));
 	?>
+	<?php echo $this->Html->script(array('//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', 'global')); ?>
 	<?php echo $this->fetch('cssTop'); ?>
 	<?php echo $this->fetch('scriptTop'); ?>
 
@@ -74,6 +74,13 @@
 				</div>
 			</div>
 			<div id = "content" class = "span9">
+			<div id="breadcrumb">
+					<?php
+						  $this->Html->addCrumb('Menu',  '/menus') ; 
+						  $this->Html->addCrumb('SubMenu' ,  '/menus/submenu' , array('class' => 'breadcrumblast')); 
+						  echo $this->Html->getCrumbs('  > ', 'Home');
+					 ?>
+			</div>
 				<?php echo $this->Session->flash(); ?>
 				<?php echo $this->fetch('content'); ?>
 			</div>
@@ -84,7 +91,7 @@
 <?php echo $this->element('sql_dump'); ?>
 
 
-<?php echo $this->Html->script(array('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', 'jquery.ui.min', 'bootstrap.min', 'jquery.livequery', 'formee', 'jquery.uniform.min', '../tooltip/js/spinners/spinners.min', '../tooltip/js/tooltip/tooltip', 'jquery.infieldlabel.min', '../lightbox/shadowbox', 'main', 'dashboard')); ?>
+<?php echo $this->Html->script(array('jquery.ui.min', 'bootstrap.min', 'jquery.livequery', 'formee', 'jquery.uniform.min', '../tooltip/js/spinners/spinners.min', '../tooltip/js/tooltip/tooltip', 'jquery.infieldlabel.min', '../lightbox/shadowbox', 'main', 'dashboard')); ?>
 <?php echo $this->fetch('scriptBottom'); ?>
 <!-- end scripts-->
 <script>

@@ -106,7 +106,7 @@ if(!$("#PropertyCountry").val()){
 
 
 $("#propertyAddressSection").slideDown();
-$('.fieldError').effect('pulsate');
+$('.fieldError').stop(true,true).fadeIn(100).delay(200).fadeOut(100).delay(200).fadeIn(100);
 
  });
 //end google autocomplete

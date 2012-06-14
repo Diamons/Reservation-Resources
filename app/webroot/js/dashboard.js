@@ -14,14 +14,14 @@ $(document).ready(function(){
 		updatePage($(this).attr('href').replace(/\#/, ""));
 	});
 	
-	$("#content").on("hover", ".booking_person", function(event){
+	$("#content").on("mouseover", ".person", function(event){
 		userId = $(this).data('id');
 		$("#calendar .dates div.pending").each(function(){
 			if($(this).data('user-id') == userId)
 				$(this).addClass("pending_hover");
 		});
 	});
-	$("#content").on("mouseout", function(){
+	$("#content").on("mouseout", ".person", function(){
 		$("#calendar .dates div.pending_hover").each(function(){
 			$(this).removeClass("pending_hover");
 		});
@@ -39,6 +39,7 @@ $(document).ready(function(){
 });
 
 function updatePage(url){
+	$("#content").html("<img id = 'loading' src = '"+getDomain()+"img/loading.gif' />");
 	$.ajax({
 	  url: getDomain()+'dashboard/view/'+url,
 	  success: function(data) {

@@ -116,6 +116,7 @@ body{
 	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 	font-size: 12pt;
 	background-color: #F7F7F7;
+	line-height: 1.4em;
 }
 
 header{
@@ -164,11 +165,10 @@ fieldset a.next, fieldset a.prev{
 }
 
 h1{
-	text-transform: uppercase;
 	font-weight: 700;
 	text-align: left;
-	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
-	font-size: 10pt;
+	font-family: "Arial", sans-serif;
+	font-size: 9pt;
 	text-align: center;
 }
 
@@ -753,6 +753,7 @@ span.arrow{
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
+	position: relative;
 }
 
 #content > section{
@@ -835,28 +836,48 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .booking_person{
-	background: rgb(244,244,244); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(244,244,244,1) 0%, rgba(241,241,241,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(244,244,244,1)), color-stop(100%,rgba(241,241,241,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(244,244,244,1) 0%,rgba(241,241,241,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(244,244,244,1) 0%,rgba(241,241,241,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(244,244,244,1) 0%,rgba(241,241,241,1) 100%); /* IE10+ */
-	background: linear-gradient(top, rgba(244,244,244,1) 0%,rgba(241,241,241,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#f1f1f1',GradientType=0 ); /* IE6-9 */
-	padding: 6px 6px 0;
+	background: rgb(254,254,254); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(254,254,254,1) 0%, rgba(247,247,247,1) 99%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,254,254,1)), color-stop(99%,rgba(247,247,247,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(254,254,254,1) 0%,rgba(247,247,247,1) 99%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(254,254,254,1) 0%,rgba(247,247,247,1) 99%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(254,254,254,1) 0%,rgba(247,247,247,1) 99%); /* IE10+ */
+	background: linear-gradient(top, rgba(254,254,254,1) 0%,rgba(247,247,247,1) 99%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#f7f7f7',GradientType=0 ); /* IE6-9 */
+	-moz-box-shadow: 0 0 1px #888;
+	-webkit-box-shadow: 0 0 1px#888;
+	box-shadow: 0 0 1px #888;
+	padding: 10px 16px 0;
+	margin-bottom: 1px;
+}
+.booking_person + .sub_info{
+	background-color: #F4F4F4;
+}
+.booking_person img{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #DDD;
+	width: 34px;
+	height: 34px;
 }
 
-.booking_person, .booking_person img{
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	border-radius: 8px;
+.person{
+	margin-bottom: 15px;
 }
-
-.booking_person .dates{
-	padding-top: 5px;
+.sub_info .dates{
+	padding: 5px;
+	text-transform: uppercase;
+	color: #cecece;
+	font-size: 8pt;
+	text-align: center;
 }
-
-.booking_person .accept_or_decline{
+.sub_info .dates > div > b{
+	display: block;
+	font-weight: 400;
+	font-size: 14px;
+	color: #333;
+}
+.accept_or_decline{
 	padding: 5px;
 	text-align: center;
 }
@@ -992,6 +1013,52 @@ form.formee div.input.date select, form.formee div.input.time select{
 	width: 290px;
 	padding-left: 10px;
 }
+
+.booking_card{
+	background-color: #ececec;
+}
+
+.booking_card .person_card > div{
+	float: none;
+	width: auto;
+	margin-top: 5px;
+}
+
+.booking_card .person_card img{
+	margin-right: 15px;
+}
+
+.booking_card .person_card .social_media{
+	padding: 7px;
+		border: 1px solid #1E2021;
+	color: #B1B1B1;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6);
+	background: #313334;
+	background: -webkit-gradient(linear, center top, center bottom, from(
+	#565A5B), to(#313334));
+	background: -moz-linear-gradient(top, #565A5B, #313334);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff565a5b', endColorstr='#ff313334', GradientType=0);
+	-moz-box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+	-webkit-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
+	font-size: 9pt;
+	
+}
+
+.booking_card textarea{
+	width: 100%;
+	margin-top: 38px;
+}
+.booking_card label{
+	display: none;
+}
+.booking_card .social_media > div{
+	margin-top: 7px;
+}
+
 #map_canvas { min-height: 475px; height: 540px !important; }
 #map_canvas img{ max-width: none; }
 .book_now, .contact_me{
@@ -1198,72 +1265,104 @@ h1.ribbon:before
 }
 
 #calendar{
-	background-color: #1a2020;
+	background-color: #dadada;
 	margin: 0 5px;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
 	border-radius: 7px;
-	padding: 10px;
+	
 }
-
 #calendar .calendar{
 	font-size: 9pt;
 	color: #90989a;
+	background: rgb(245,245,245); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(245,245,245,1) 0%, rgba(249,249,249,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(245,245,245,1)), color-stop(100%,rgba(249,249,249,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(245,245,245,1) 0%,rgba(249,249,249,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(245,245,245,1) 0%,rgba(249,249,249,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(245,245,245,1) 0%,rgba(249,249,249,1) 100%); /* IE10+ */
+background: linear-gradient(top, rgba(245,245,245,1) 0%,rgba(249,249,249,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#f9f9f9',GradientType=0 ); /* IE6-9 */
 }
 
 #calendar .calendar .month{
 	text-align: center;
+	background: rgb(41,142,186); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(41,142,186,1) 0%, rgba(20,137,180,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(41,142,186,1)), color-stop(100%,rgba(20,137,180,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(41,142,186,1) 0%,rgba(20,137,180,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(41,142,186,1) 0%,rgba(20,137,180,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(41,142,186,1) 0%,rgba(20,137,180,1) 100%); /* IE10+ */
+background: linear-gradient(top, rgba(41,142,186,1) 0%,rgba(20,137,180,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#298eba', endColorstr='#1489b4',GradientType=0 ); /* IE6-9 */
+border-style: solid;
+border-width: 1px;
+border-color: #25789a;
+border-radius: 9px 9px 0 0;
+padding: 5px 15px;
+color: #fffdff;
+width: 100%;
+-moz-box-shadow: 0 0 5px #888;
+-webkit-box-shadow: 0 0 5px#888;
+box-shadow: 0 0 5px #888;
 }
 
-#calendar .calendar .month > h1{
-	font-size: 26pt;
-	padding-bottom: 16px;
+#calendar .calendar .month img{
+	width: 24px;
+	height: 24px;
+	margin-top: 5px;
 }
 
-#calendar .calendar .days{
-	text-transform: uppercase;
-	font-weight: 700;	
+#calendar .calendar .month  h1{
+	font-size: 26px;
+	margin-top: 6px;
 }
 
 #calendar .calendar .dates > div{
 	float: left;
 	width: 14.28571428571429%;
-	padding: 4px;
 }
+
+#calendar .calendar .days > div{
+	text-transform: uppercase;
+	font-weight: 700;	
+	border: none;
+	text-align: center;
+	padding: 20px 0;
+}
+
 #calendar .calendar .dates > div > div{
-	background: rgb(211,241,94); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(211,241,94,1) 0%, rgba(150,210,88,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(211,241,94,1)), color-stop(100%,rgba(150,210,88,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(211,241,94,1) 0%,rgba(150,210,88,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(211,241,94,1) 0%,rgba(150,210,88,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(211,241,94,1) 0%,rgba(150,210,88,1) 100%); /* IE10+ */
-	background: linear-gradient(top, rgba(211,241,94,1) 0%,rgba(150,210,88,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3f15e', endColorstr='#96d258',GradientType=0 ); /* IE6-9 */
+	background: #fefefe;
 	text-align: center;
 	font-size: 24px;
 	font-weight: 700;
 	width: 100%;
 	padding: 13px 0;
-	border-radius: 5px;
-	color: #669533;
+	color: #686868;
+	border-style: solid;
+	border-width: 0 0 1px 1px;
+	border-color: #dcdcdc;
+}
+
+#calendar .calendar .dates > div:last-child  div{
+	border-width: 0 1px 1px 1px;
 }
 #calendar .calendar .dates > div > div .date{
-	font-family: "Open Sans", "Arial", sans-serif;
 	font-size: 11pt;
 }
 #calendar .calendar .dates > div > div.inactive{
-	background: #2e3638;
+	background: #fefefe;
 }
 #calendar .calendar .dates > div > div.pending_hover{
-background: rgb(78,180,228); /* Old browsers */
-background: -moz-linear-gradient(top, rgba(78,180,228,1) 0%, rgba(63,159,203,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(78,180,228,1)), color-stop(100%,rgba(63,159,203,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, rgba(78,180,228,1) 0%,rgba(63,159,203,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, rgba(78,180,228,1) 0%,rgba(63,159,203,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, rgba(78,180,228,1) 0%,rgba(63,159,203,1) 100%); /* IE10+ */
-background: linear-gradient(top, rgba(78,180,228,1) 0%,rgba(63,159,203,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4eb4e4', endColorstr='#3f9fcb',GradientType=0 ); /* IE6-9 */
-color: #125089;
+background: rgb(78,152,227); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(78,152,227,1) 1%, rgba(61,124,201,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(78,152,227,1)), color-stop(100%,rgba(61,124,201,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(78,152,227,1) 1%,rgba(61,124,201,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(78,152,227,1) 1%,rgba(61,124,201,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(78,152,227,1) 1%,rgba(61,124,201,1) 100%); /* IE10+ */
+background: linear-gradient(top, rgba(78,152,227,1) 1%,rgba(61,124,201,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4e98e3', endColorstr='#3d7cc9',GradientType=0 ); /* IE6-9 */
+color: #FEFEFE;
 }
 #calendar .calendar .dates > div > div.booked{
 	background: rgb(228,78,78); /* Old browsers */
@@ -1274,9 +1373,17 @@ background: -o-linear-gradient(top, rgba(228,78,78,1) 0%,rgba(201,64,61,1) 100%)
 background: -ms-linear-gradient(top, rgba(228,78,78,1) 0%,rgba(201,64,61,1) 100%); /* IE10+ */
 background: linear-gradient(top, rgba(228,78,78,1) 0%,rgba(201,64,61,1) 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e44e4e', endColorstr='#c9403d',GradientType=0 ); /* IE6-9 */
-color: #6b2523;
+color: #F1F1F1;
 }
 
 .quickinfo:hover{
 	cursor: pointer;
+}
+
+#loading{
+	padding: 100px;
+}
+
+#sb-player > div{
+	height: 100%;
 }

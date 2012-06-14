@@ -68,8 +68,12 @@ $k = 0;//this will be key of timestamp
 ?>
 
 <div class = "calendar">
-	<div style = "float: left;"><a style='color:#6b7577; font-size: 22px;' onclick='updateCalendar(<?php echo $prev.",". $yprev.",".$pid; ?>)' href = 'javascript:void(0)'><b>Previous</a></b></div><div style = "float:right;"><b> <a style='color:#6b7577; font-size: 22px;' onclick='updateCalendar(<?php echo $next.",". $ynext.",".$pid; ?>);' href = 'javascript:void(0)'>Next</a></b> </div>
-	<div class = "month"><h1 style = "font-size: 26pt; padding-bottom: 15px;"><?php echo $m ." ". $year; ?></h1></div>
+	<div style = "float: left;"></b></div><div style = "float:right;"><b> </b> </div>
+	<div class = "row-fluid month">
+		<div class = "span2"><a onclick='updateCalendar(<?php echo $prev.",". $yprev.",".$pid; ?>)' href = 'javascript:void(0)'><?php echo $this->Html->image('icons/calendar-left.png'); ?></a></div>
+		<div class = "span8"><h1><?php echo $m ." ". $year; ?></h1></div>
+		<div class = "span2"><a  onclick='updateCalendar(<?php echo $next.",". $ynext.",".$pid; ?>);' href = 'javascript:void(0)'><?php echo $this->Html->image('icons/calendar-right.png'); ?></a></div>
+	</div>
 	<div class = "clearfix days dates">
 		<div>
 			Sun.
