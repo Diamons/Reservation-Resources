@@ -55,8 +55,11 @@
 		}
 		public function edit($property_id = null){
 			$this->Property->id = $property_id;
+			
 				if($this->request->is('get')){
+					$this->loadModel('Amenity');//need to load this model since i need to modify the amenity results
 					$this->request->data = $this->Property->read();
+					$this->request->data['Amenity'] = $this->Amenity->parseAmenity($this->request->data['Amenity'],false);
 					$this->set('propertyid',$property_id);
 					
 				}

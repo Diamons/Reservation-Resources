@@ -15,6 +15,9 @@
 			if(!empty($this->data['Amenity']['kitchen_amenities'])){
 				$this->data['Amenity']['kitchen_amenities'] = implode(';',$this->data['Amenity']['kitchen_amenities']);
 			}
+			if(!empty($this->data['Amenity']['additional_amenities'])){
+				$this->data['Amenity']['additional_amenities'] = implode(';',$this->data['Amenity']['additional_amenities']);
+			}
 			
 		}
 	
@@ -25,6 +28,7 @@
 			$results['bedroom_amenities'] = explode(';',$results['bedroom_amenities']);
 			$results['kitchen_amenities'] = explode(';',$results['kitchen_amenities']);
 			$results['electronic_amenities'] = explode(';',$results['electronic_amenities']);
+			$results['additional_amenities'] = explode(';',$results['additional_amenities']);
 		}
 		
 		return  $results;

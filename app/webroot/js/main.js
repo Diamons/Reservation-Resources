@@ -86,9 +86,7 @@ function updateCalendar(x,y,z){
 function getDomain(){
 	return "http://localhost/cakephp/";
 }
-/*$("#loginbutton").live('click',function(event){
-	event.preventDefault();
-});*/
+
 $(document).on('click','#loginbutton',null,function(event){
 
 	event.preventDefault();

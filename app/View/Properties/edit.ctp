@@ -6,6 +6,7 @@
 	$this->start('scriptBottom');
 		echo $this->Html->script(array('formwizard', 'properties/edit')); 
 	$this->end();
+
 ?>
 
 <div id = "body" class = "inner row-fluid" role = "main">
@@ -102,16 +103,49 @@
 					<?php echo $this->Form->input('check_out_time'); ?>
 				</div>
 			</div>
+		</fieldset>
+
+	
+	<fieldset>
+		<legend>Amenities/Minimum Stay</legend>
+		
 		<?php 
 		echo $this->Form->input('minimum_stay',array('options'=>$minimum_stay));
 		echo $this->Form->input('Amenity.bedroom_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>array('King'=>'King','Queen'=>'Queen','Single'=>'Single','Double'=>'Double')));
 		echo $this->Form->input('Amenity.electronic_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>array('WiFi'=>'WiFi','Internet'=>'Internet','Television'=>'Television','Cable'=>'Cable','Washer'=>'Washer')));
 		echo $this->Form->input('Amenity.kitchen_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>array('Refrigerator'=>'Refrigerator','Stove'=>'Stove','Microwave'=>'Microwave','Coffee Maker'=>'Coffee Maker','Toaster'=>'Toaster')));
+		if(!empty($this->request->data['Amenity']['additional_amenities'])){
+			//build options
+			$options = array();
+			foreach($this->request->data['Amenity']['additional_amenities'] as $key => $value){
+				$options[$value]= $value;
+			}
+			echo $this->Form->input('Amenity.additional_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>$options));
+		}
+		else{
+			echo $this->Form->input('Amenity.additional_amenities',array('type'=>'select','multiple'=>'checkbox'));
+		}
 		echo $this->Form->input('Amenity.id',array('type'=>'hidden'));
 		echo $this->Form->input('id',array('type'=>'hidden'));
-		echo $this->Form->end('Update Listing');
 		?>
+		<a href = "#" id = "customAmenity">Add Custom Amenity</a> 
 	</fieldset>
+	<fieldset id = "additionalFees">
+		<legend>Additional Fees</legend>
+	<?php
+		//debug($this->request->data); 
+		foreach($this->request->data['Fee'] as $key => $value){
+			echo $this->Form->input('Fee.'.$key.'.fee_name',array('label'=>'Fee Name'));
+			echo $this->Form->input('Fee.'.$key.'.fee_price',array('value'=>$this->request->data['Fee'][$key]['fee_price']));
+			echo $this->Form->input('Fee.'.$key.'.id',array('type'=>'hidden','value'=>$this->request->data['Fee'][$key]['id']));
+		}
+	?>
+	<a href = "#" id = "customFee" >Add Custom Fee</a>
+	</fieldset>
+	<?php
+		echo $this->Form->end('Update Listing');
+	?>
+	
 	</div>
 	<div class = "span5">
 			<?php
