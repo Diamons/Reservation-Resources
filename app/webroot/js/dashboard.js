@@ -13,6 +13,11 @@ $(document).ready(function(){
 		$(this).parent("li").addClass("active").find("i").addClass("icon-white");
 		updatePage($(this).attr('href').replace(/\#/, ""));
 	});
+	$("#container").on("click",'.manageBookingsButton',null,function(){
+		
+		pid = $(this).data('pid')
+		updatePage('managebookings',pid);
+	});
 	
 	$("#content").on("mouseover", ".person", function(event){
 		userId = $(this).data('id');
@@ -38,12 +43,22 @@ $(document).ready(function(){
 	});
 });
 
-function updatePage(url){
+function updatePage(url,data){
 	$("#content").html("<img id = 'loading' src = '"+getDomain()+"img/loading.gif' />");
+	if(data != null){
+	$.ajax({
+	  url: getDomain()+'dashboard/view/'+url+"/"+data,
+	  success: function(data) {
+		$("#content").html(data);
+	  }
+	});
+	}
+	else{
 	$.ajax({
 	  url: getDomain()+'dashboard/view/'+url,
 	  success: function(data) {
 		$("#content").html(data);
 	  }
-	})
+	});
+	}
 }

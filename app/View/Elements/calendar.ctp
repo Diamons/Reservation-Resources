@@ -1,6 +1,8 @@
  <?php 
 //$vars =  $this->requestAction('/bookings/calendar');
+
 $timestamps = array();
+
 foreach($dates as $key => $value){
 	$timestamps[$key]['start_date'] = strtotime($dates[$key]['start_date']);
 	$timestamps[$key]['end_date']= strtotime($dates[$key]['end_date']);

@@ -1,7 +1,6 @@
 
 <section class = "clearfix inner">
-<?php Debugger::log($properties[9]); ?>
-<?php Debugger::log($properties[8]); ?>
+
 
 	<h1>Manage Properties</h1>
 	<div>
@@ -53,6 +52,7 @@
 				<div class = "inner" style = "text-align: center;">
 					<a href = "<?php echo $this->webroot."properties/edit/".$properties[$key]['Property']['id']; ?>"><input type = "button" class = "btn" value = "Edit Property" /></a>
 					<a href = "#"><input type = "button" class = "btn btn-info" value = "Promote on Craigslist" /></a>
+					<a href = "#" class = "manageBookingsButton" data-pid = "<?php echo $properties[$key]['Property']['id']; ?>" ><input type = "button" class = "btn btn-small btn-primary" value = "Manage Upcoming Bookings" /></a>
 				</div>
 			</div>
 			<div class = "span3">

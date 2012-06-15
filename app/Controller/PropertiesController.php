@@ -81,7 +81,7 @@
 		
 		}
 		public function quickbook(){
-			$this->loadModel('Reservation');//since model are lazy loaded we need to load the reservation model at this point
+			$this->loadModel('Booking');//since model are lazy loaded we need to load the reservation model at this point
 			$this->autoLayout = FALSE;
 			$this->layout = 'ajax';
 			$response = array('success'=>false);
@@ -92,8 +92,8 @@
 				$this->Property->id = $this->request->data['pid'];
 				$property = $this->Property->read();//need to retrieve price information
 				$guest = $this->request->data['guest'];
-				if($property['Property']['minimum_stay'] <= $this->Reservation->getDates($checkin,$checkout,"interval",null)){
-					$response['data'] = $this->Reservation->quickbook($checkin,$checkout,$guest,$property['Property']['price_per_night'],$property['Property']['price_per_week'],$property['Property']['price_per_month']);
+				if($property['Property']['minimum_stay'] <= $this->Booking->getDates($checkin,$checkout,"interval",null)){
+					$response['data'] = $this->Booking->quickbook($checkin,$checkout,$guest,$property['Property']['price_per_night'],$property['Property']['price_per_week'],$property['Property']['price_per_month']);
 					$response['success'] = true;
 					return $this->AjaxHandler->respond('json',$response);
 				}

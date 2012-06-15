@@ -9,11 +9,11 @@
 			$this->layout = "dashboard";
 		}
 		
-		public function view($page = NULL){
+		public function view($page = NULL,$data = NULL){
 			$this->autoRender = false;
 			if($this->request->is('ajax')){
 				$functionname = "__".$page;
-				$this->$functionname();
+				$this->$functionname($data);
 			}else{
 				$this->redirect($this->referer());
 			}
@@ -33,12 +33,18 @@
 			$this->set('properties',$properties);
 			$this->render('manageproperties');
 		}
-		private function __manageBookings(){
-			$this->loadModel('Property');
-			$this->Property->id = 1;
-			$property = $this->Property->find();
-			$this->set("property", $property);
-			$this->render('managebookings');
+		private function __manageBookings($pid = null){
+			if($pid != null){
+				$this->loadModel('Property');
+				$this->Property->contain(array('Booking'=>array('User')));
+				$this->Property->id = $pid;
+				$properties = $this->Property->read();
+				$this->set("property", $properties);
+				$this->render('managebookings');
+			}
+			else{
+				$this->__manageproperties();
+			}
 		}
 	}
 ?>
