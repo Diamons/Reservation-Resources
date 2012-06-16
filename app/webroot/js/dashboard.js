@@ -21,10 +21,38 @@ $(document).ready(function(){
 	
 	$("#content").on("mouseover", ".person", function(event){
 		userId = $(this).data('id');
-		$("#calendar .dates div.pending").each(function(){
-			if($(this).data('user-id') == userId)
+		start = new Date($(this).data('startdate'));
+		end = new Date($(this).data('enddate'));
+		startDay = start.getDate()+1; //the day of the start date
+		endDay = end.getDate()+1;//the end day from 1-31
+		startMonth = start.getMonth()+1;
+		endMonth = end.getMonth()+1;//end month
+		calendarMonth = $('.calendar').data('month'); 
+		calendarYear = $('.calendar').data('year');
+		end = new Date(end.getFullYear(),end.getMonth(),endDay);
+		//alert(calendarMonth);
+		//alert(startDay);
+		//alert(endDay);
+		//alert(startMonth);
+		//alert(endMonth);
+		//alert(start);
+		//alert(end);
+		if(calendarMonth == startMonth || calendarMonth == endMonth){
+			
+			$(".pending").each(function(){
+				currentDate = new Date(calendarYear,calendarMonth-1,parseInt($(this).find("span").text()));
+				//alert(currentDate);
+				if(currentDate >= start && currentDate <= end ){
+					$(this).addClass("pending_hover");
+				}
+			});
+		}
+		/*$("#calendar .dates div.pending").each(function(){
+			if($(this).data('user-id') == userId){
 				$(this).addClass("pending_hover");
-		});
+				}
+				
+		});*/
 	});
 	$("#content").on("mouseout", ".person", function(){
 		$("#calendar .dates div.pending_hover").each(function(){

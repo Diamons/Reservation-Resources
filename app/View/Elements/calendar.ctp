@@ -69,7 +69,7 @@ $d=1;
 $k = 0;//this will be key of timestamp
 ?>
 
-<div class = "calendar">
+<div data-month = "<?php echo $month; ?>" data-year = "<?php echo $year; ?>"  class = "calendar">
 	<div style = "float: left;"></b></div><div style = "float:right;"><b> </b> </div>
 	<div class = "row-fluid month">
 		<div class = "span2"><a onclick='updateCalendar(<?php echo $prev.",". $yprev.",".$pid; ?>)' href = 'javascript:void(0)'><?php echo $this->Html->image('icons/calendar-left.png'); ?></a></div>
@@ -117,7 +117,7 @@ $k = 0;//this will be key of timestamp
 						echo "<div><div data-user-id = '".$response['user_id']."' class = 'pending'><span class = 'date'>$d</span></div></div>";
 						$d++;
 					}else{
-						echo "<div><div><span class = 'date'>$d</span></div></div>";
+						echo "<div><div class = 'pending'><span class = 'date'>$d</span></div></div>";
 						$d++;
 					}
 			}

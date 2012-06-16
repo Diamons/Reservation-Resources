@@ -7,7 +7,7 @@
 		<?php foreach($property['Booking'] as $key => $value){?>
 		<?php// Debugger::log($property['Booking'][8]['start_date']); ?>
 		<div>
-		<div data-id = "<?php echo $property['Booking'][$key]['User']['id']; ?>" class = "person">
+		<div data-id = "<?php echo $property['Booking'][$key]['User']['id']; ?>" class = "person" data-startDate = "<?php echo $property['Booking'][$key]['start_date']; ?>" data-endDate = "<?php echo $property['Booking'][$key]['end_date']; ?>"> 
 			<div class = "row-fluid booking_person">
 				<div class = "span3">
 				
@@ -18,7 +18,7 @@
 					<img class = "quickinfo ajax" title = "./users/viewuser/33" src = "http://placehold.it/64x64" />
 				</div>
 				<div class = "span8">
-					<h1><?php echo $property['Booking'][$key]['User']['first_name']." ".$property['Booking'][$key]['User']['last_name']; ?>(+2 Guests)</h1>
+					<h1><?php echo $property['Booking'][$key]['User']['first_name']." ".$property['Booking'][$key]['User']['last_name']; ?>(+<?php echo $property['Booking'][$key]['guests']; ?> Guests)</h1>
 				</div>
 			</div>
 			<div class = "sub_info">
