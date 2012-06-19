@@ -1,7 +1,7 @@
 <?php
 	class DashboardController extends AppController{
 		public function beforeFilter() {
-			
+			parent::beforeFilter();
 			$this->layout = "ajax";
 		}
 		
@@ -45,6 +45,13 @@
 			else{
 				$this->__manageproperties();
 			}
+		}
+		
+		private function __allBookings(){
+			$this->render('allbookings');
+		}
+		private function __managereservations(){
+			$this->render('managereservations');
 		}
 	}
 ?>

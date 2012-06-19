@@ -38,6 +38,13 @@
 	
 		}
 		
+		public function viewpropertyajax($property_id = NULL){
+			$this->autoLayout = FALSE;
+			$this->layout = 'ajax';
+			$this->Property->id = $property_id;
+			$this->set('property', $this->Property->read());
+			$this->render('/elements/Property/viewpropertyajax');
+		}
 		public function viewproperty($property_id = null){
 			$this->loadModel('Amenity');
 			$this->Cookie->path = '/properties/viewproperty/'.$property_id;//set path for cookie to update count
