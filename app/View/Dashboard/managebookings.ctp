@@ -33,7 +33,7 @@
 					</div>
 					<div class = "span4">
 						Total Price
-						<b>$500</b>
+						<b><?php echo "$".$property['Booking'][$key]['subtotal'];?></b>
 					</div>
 				</div>
 				<div class = "accept_or_decline">

@@ -8,7 +8,7 @@
 		public function beforeFilter(){
 			parent::beforeFilter();
 				$this->Auth->allow('calendar');
-				$this->AjaxHandler->handle('calendar','easybook');			
+				$this->AjaxHandler->handle('calendar','easybook','comment');			
 		}
 		public function calendar(){
 			$this->loadModel('Property');
@@ -43,6 +43,20 @@
 				
 			}
 			return $this->AjaxHandler->respond('json',$response);
+		}
+		public function comment(){
+			$this->autoLayout = FALSE;
+			$this->layout = 'ajax';
+			$response = array('success'=>false);
+			if($this->Booking->save($this->request->data)){
+				$response['success'] = true;
+				$response['data'] = 'Successfully saved!';
+			}
+			else{
+				$response['data'] = 'Error!Not saved';
+			}
+			return $this->AjaxHandler->respond('json',$response);
+			
 		}
 	}
 

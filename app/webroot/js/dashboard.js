@@ -18,6 +18,19 @@ $(document).ready(function(){
 		pid = $(this).data('pid')
 		updatePage('managebookings',pid);
 	});
+	$(document).on("click",'.submitQuickMessage',null,function(event){
+		event.preventDefault();
+		$.ajax({
+			type:"POST",
+			data:$("#BookingSendmessageForm").serialize(),
+			url: getDomain()+"bookings/comment/",
+			success:function(data){
+				alert(data.success);
+				Shadowbox.close();
+			}
+			
+		});
+	});
 	
 	$("#content").on("mouseover", ".person", function(event){
 		userId = $(this).data('id');
@@ -30,13 +43,7 @@ $(document).ready(function(){
 		calendarMonth = $('.calendar').data('month'); 
 		calendarYear = $('.calendar').data('year');
 		end = new Date(end.getFullYear(),end.getMonth(),endDay);
-		//alert(calendarMonth);
-		//alert(startDay);
-		//alert(endDay);
-		//alert(startMonth);
-		//alert(endMonth);
-		//alert(start);
-		//alert(end);
+	
 		if(calendarMonth == startMonth || calendarMonth == endMonth){
 			
 			$(".pending").each(function(){
@@ -47,12 +54,7 @@ $(document).ready(function(){
 				}
 			});
 		}
-		/*$("#calendar .dates div.pending").each(function(){
-			if($(this).data('user-id') == userId){
-				$(this).addClass("pending_hover");
-				}
-				
-		});*/
+
 	});
 	$("#content").on("mouseout", ".person", function(){
 		$("#calendar .dates div.pending_hover").each(function(){
