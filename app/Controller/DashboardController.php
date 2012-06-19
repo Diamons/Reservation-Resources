@@ -53,5 +53,8 @@
 		private function __managereservations(){
 			$this->render('managereservations');
 		}
+		private function __editaccount(){
+			$this->render('editaccount');
+		}
 	}
 ?>
