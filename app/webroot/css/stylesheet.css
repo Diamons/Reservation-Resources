@@ -443,8 +443,7 @@ div#container {
 }
 
 #body{
-	width: 100%;
-	max-width: 1600px;
+	width: 980px;
 	margin: 1px auto 0 auto;
 	background-color: #FFFFFF;
 }
@@ -899,6 +898,95 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	text-decoration: underline;
 	text-align: left;
 }
+
+.cart{
+	background-color: #F7F7F7;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ECECEC;
+	font-size: 10px;
+	text-transform: uppercase;
+	position: relative;
+	overflow: hidden;
+}
+
+.all_fees{
+	text-align: right;
+}
+
+.booking_labels{
+	text-align: center;
+	font-size: 9px;
+	color: #666;
+	margin-top: 15px;
+}
+.booking_dates{
+	text-transform: uppercase;
+	font-size: 13px;
+	text-align: center;
+	color: #0396b6;
+}
+.all_fees > div{
+	border-style: dotted;
+	border-width: 0 0 1px 0;
+	border-color: #E8E8E8;
+}
+.booking_info{
+	padding: 8px;
+}
+.booking_pricing{
+	text-align: right;
+}
+
+.price{
+	font-size: 12px;
+}
+
+.booking_pricing_final{
+	border-style: solid;
+	border-width: 0 0 2px 0;
+	border-color: #8ab603;
+}
+
+#paypal_checkout{
+	width: 240px;
+	height: 48px;
+	background-image: url('../img/icons/paypal.png');
+	background-position: 0 0;
+	margin:  25px auto 0 auto;
+}
+
+#paypal_checkout:hover{
+	background-position: 0 48px;
+}
+
+#finalPrice{
+	font-size: 24px;
+}
+
+#checkout{
+	position: absolute;
+	top: -10px;
+	left: -40px;
+}
+
+.cart_info{
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-align: left;
+	text-transform: none;
+	padding: 4px 10px;
+}
+.checkout_dates{
+	text-align: center;
+}
+.property_image{
+	border-style: dashed;
+	padding-bottom: 15px;
+	border-width: 0 0 1px;
+	border-color: #CECECE;
+}
 /* == FORMS == */
 .form_label > div, .form_label > h1{
 	background-color: #F7F7F7;
@@ -1293,6 +1381,47 @@ h1.ribbon:before
 	left: 0;
 }
 
+h1.full_ribbon{
+        text-align: center;
+        position: relative;
+        color: #fff;    
+        margin: 0 -30px 30px -30px;
+        padding: 10px 0; 
+        text-shadow: 0 1px rgba(0,0,0,.8);background: #63b6db; /* Old browsers */
+background: -moz-linear-gradient(top, #63b6db 0%, #309dcf 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#63b6db), color-stop(100%,#309dcf)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #63b6db 0%,#309dcf 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #63b6db 0%,#309dcf 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #63b6db 0%,#309dcf 100%); /* IE10+ */
+background: linear-gradient(top, #63b6db 0%,#309dcf 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63b6db', endColorstr='#309dcf',GradientType=0 ); /* IE6-9 */
+        -moz-box-shadow: 0 2px 0 rgba(0,0,0,.3);
+        -webkit-box-shadow: 0 2px 0 rgba(0,0,0,.3);
+        box-shadow: 0 2px 0 rgba(0,0,0,.3);
+    }
+    
+    h1.full_ribbon:before, h1.full_ribbon:after
+    {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-color: transparent;
+        bottom: -10px;
+    }
+    
+    h1.full_ribbon:before
+    {
+        border-width: 0 10px 10px 0;
+        border-right-color: #222;
+        left: 0;
+    }
+    
+    h1.full_ribbon:after
+    {
+        border-width: 0 0 10px 10px;
+        border-left-color: #222;
+        right: 0;
+    }
 #calendar tr.dates td, #calendar tr.days td{
 	color: #788082;
 }

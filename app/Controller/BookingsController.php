@@ -10,6 +10,9 @@
 				$this->Auth->allow('calendar');
 				$this->AjaxHandler->handle('calendar','easybook','comment');			
 		}
+		public function bookRoom($propertyid = NULL){
+			
+		}
 		public function calendar(){
 			$this->loadModel('Property');
 			$this->autoLayout = FALSE;
