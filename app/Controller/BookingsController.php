@@ -29,6 +29,25 @@
 			}
 			return $this->AjaxHandler->respond('html',$response);
 		}
+		
+		public function fullcalendar(){
+			$this->loadModel('Property');
+			$this->autoLayout = FALSE;
+			$this->layout = 'ajax';
+			$response = array('success'=>false);
+			//if(!empty($this->request->data['x'])&&!empty($this->request->data['y'])){
+				$properties = $this->Property->find("all", array("conditions" => array("Property.user_id" => $this->Auth->user("id"))));
+				debug($properties);
+				$this->set('properties',$properties);
+				$this->set('x',$this->request->data['x']);
+				$this->set('y',$this->request->data['y']);
+				$response['success'] = true;
+				$returnhtml = $this->render('/elements/fullcalendar');
+				$response['data'] =  $returnhtml->body();
+				
+			//}
+			return $this->AjaxHandler->respond('html',$response);
+		}
 		public function easybook(){
 			$this->autoLayout = FALSE;
 			$this->layout = 'ajax';

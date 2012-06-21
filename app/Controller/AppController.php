@@ -61,5 +61,6 @@ class AppController extends Controller {
 			else{
 				$this->set('auth',false);
 			}
-	}
+			
+  	}
 }

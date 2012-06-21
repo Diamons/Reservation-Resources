@@ -12,6 +12,17 @@ function updateCalendar(x,y,z){
 			}
 		});
 }
+function updateFullCalendar(x,y,z){
+
+		$.ajax({
+			type:"POST",
+			url:getDomain()+"bookings/fullcalendar",//?x="+x+"&y="+y,
+			data:"x="+x+"&y="+y+"&pid="+z,
+			success:function(responseHtml){
+				$("#calendar").html(responseHtml);
+			}
+		});
+}
 function leaveMessage(uid, pid, status, rid){
 	openLightBox(getDomain()+"messages/sendmessage/"+uid+"/"+pid+"/"+status+"/"+rid, "Send your message below", 740, 480);
 }

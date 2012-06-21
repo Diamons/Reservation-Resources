@@ -850,6 +850,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	padding: 10px 16px 0;
 	margin-bottom: 1px;
 }
+
+.booking_person .person_name h1{
+	text-align: right;
+	font-size: 16px;
+}
+
+.sub_info .dates > div.big_dates > b {
+	font-size: 28px;
+}
+
 .booking_person + .sub_info{
 	background-color: #F4F4F4;
 }
@@ -865,13 +875,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	margin-bottom: 15px;
 }
 .sub_info .dates{
-	padding: 5px;
+	padding: 5px 0 20px 0;
 	text-transform: uppercase;
 	color: #cecece;
 	font-size: 8pt;
 	text-align: center;
 }
-.sub_info .dates > div > b{
+.sub_info .dates > div > b, .big_date b{
 	display: block;
 	font-weight: 400;
 	font-size: 14px;
@@ -881,8 +891,36 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	padding: 5px;
 	text-align: center;
 }
-/* == FORMS == */
 
+.booking_bookmark > h1{
+	margin-top: 10px;
+	padding-bottom: 5px;
+	line-height: 1em;
+	text-decoration: underline;
+	text-align: left;
+}
+/* == FORMS == */
+.form_label > div, .form_label > h1{
+	background-color: #F7F7F7;
+	padding-top: 15px;
+}
+
+.form_label > h1{
+	margin-top: 5px;
+	font-size: 18px;
+	color: #AAA;
+	display: inline-block;
+	text-align: left;
+	padding: 10px 35px;
+	-moz-border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+}
+
+.form_label .h1 h1{
+	font-size: 14px;
+	margin-top: 13px;
+}
 form.formee > div, form.formee > section > div, .panel_info, form.formee > div[id*="step"] > fieldset div.input{
 	margin: 0 0 15px 0;
 	background-color: #ECECEC;

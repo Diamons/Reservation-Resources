@@ -54,23 +54,21 @@
 					</ul>
 					<h1>My Bookings</h1>
 					<ul class="nav nav-list">
-					  <li><a href="#managebookings"><i class="icon-calendar"></i> Manage Upcoming Bookings</a></li>
-					   <li><a href="#pastbookings"><i class="icon-"></i> View Past Bookings</a></li>
+					   <li><a href="#allbookings"><i class="icon-calendar"></i> View All Bookings</a></li>
 					</ul>
 					<h1>My Trips / Reservations</h1>
 					<ul class="nav nav-list">
 					  <li><a href="#managereservations"><i class="icon-flag"></i> Manage Upcoming Reservations</a></li>
-					  <li><a href="#pastreservations"><i class="icon-"></i> View Past Reservations</a></li>
 					</ul>
 					<h1>My Account</h1>
 					<ul class="nav nav-list">
 					  <li><a href="#editaccount"><i class="icon-user"></i>Edit Account</a></li>
-					  <li><a href="#trustsandverifications"><i class="icon-ok-circle"></i>Trusts & Verifications</a></li>
+					 <!-- <li><a href="#trustsandverifications"><i class="icon-ok-circle"></i>Trusts & Verifications</a></li> -->
 					</ul>
-					<h1>Marketing / Promotion</h1>
+					<!-- <h1>Marketing / Promotion</h1>
 					<ul class="nav nav-list">
 					  <li><a href="#postcraigslist"><i class="icon-share-alt"></i>Post to Craigslist</a></li>
-					</ul>
+					</ul> -->
 				</div>
 			</div>
 			<div id = "content" class = "span9">
