@@ -28,10 +28,6 @@ function leaveMessage(uid, pid, status, rid){
 }
 	
 $(document).ready(function(){
-	$("#body").on("submit", ".allowForm", function(event){
-		event.preventDefault();
-		checkLoginStatus($(".allowForm"));
-	});
 
 	$(document).on('click','#loginbutton',function(event){
 		event.preventDefault();

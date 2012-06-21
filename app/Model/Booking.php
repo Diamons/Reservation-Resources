@@ -74,9 +74,17 @@
 			}
 			
 		}
-		public function getPrice($daily = 0,$weekly = 0,$monthly = 0,$days = 0,$weeks = 0,$months = 0,$guest = null){
+	public function getPrice($daily = 0,$weekly = 0,$monthly = 0,$days = 0,$weeks = 0,$months = 0,$guest = null){
 			$price = ($monthly*$months)+($weekly*$weeks)+($daily*$days);
 			return $price;
+		}
+	public function updateBooking($status){
+		if($status == 'accept'){
+			return 1;//booking accepted so those dates become unavailable
+		}
+		else{
+			return 2;//booking declined those dates are available
+			}
 		}
 }
 	

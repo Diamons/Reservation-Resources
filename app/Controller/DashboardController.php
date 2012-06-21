@@ -19,9 +19,22 @@
 			}
 		}
 		private function __inbox(){
+			$this->loadModel('Topic');
+			$this->loadModel('Message');//need to load this model to temprorary bind user so we can get the last message;
+			$this->Topic->contain(array('Property','Topic','Message'=>array('User')));
+
+			$topics = $this->Topic->find('all',array('conditions'=>array('OR'=>array('Topic.from_user_id'=>$this->Auth->user('id'),array('Topic.to_user_id'=>$this->Auth->user('id')))),'order'=>array('Topic.modified DESC')));
+			//Debugger::log($topics);
+			//Debugger::log($this->Auth->user('id'));
+			$this->set('topics',$topics);
 			$this->render('inbox');
 		}
 		private function __deleted(){
+			$this->loadModel('Topic');
+			$this->loadModel('Message');//need to load this model to temprorary bind user so we can get the last message;
+			$this->Topic->contain(array('Property','Topic','Message'=>array('User')));
+			$topics = $this->Topic->find('all',array('conditions'=>array('OR'=>array('Topic.from_user_id'=>$this->Auth->user('id'),array('Topic.to_user_id'=>$this->Auth->user('id')))),'order'=>array('Topic.modified DESC')));
+			$this->set('topics',$topics);
 			$this->render('deleted');
 		}
 		private function __notifications(){

@@ -71,6 +71,33 @@ $(document).ready(function(){
 			$("#answer > div").html($(this).data('answer'));
 		}
 	});
+$(document).on("click",'a.btn.btn-large.btn-danger',function(){
+		var topics = {};
+		//var counter = 0;
+		$(":checkbox").each(function(index){
+			if($(this).is(":checked")){
+				
+				id =  $(this).attr('id');
+				topics[id] =  $(this).data('message');
+				$(this).parent().parent().addClass('deleted');
+			}
+			
+		});
+	 $.ajax({
+			url: getDomain()+"topics/delete",
+			data: topics,
+			type:"POST",
+			success: function(data){
+				if(data.success == true){
+					$('.deleted').slideUp(400,'linear');
+				}
+				else{
+					alert("We could not delete your messages at this time please contact support");
+				}
+			}
+	 
+		});
+	});
 });
 
 function updatePage(url,data){

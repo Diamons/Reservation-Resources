@@ -99,7 +99,7 @@
 						<div>100% Response Rate</div>
 					</div>
 					<div class = "span4">
-						<a href = "#"><div class = "contact_me">
+						<a href = "#"><div class = "contact_me" data-pid = "<?php echo $property['Property']['id']; ?> ">
 							Contact
 						</div></a>
 					</div>
