@@ -24,7 +24,7 @@
 <div class = "inner">
 	<div class = "clearfix">
 		<div style = "float:right;">
-			<a class="btn btn-large btn-danger" href="#"><i class="icon-trash icon-white"></i> Delete Selected</a>
+			<a class="btn btn-large btn-danger" href="javascript:void(0);"><i class="icon-trash icon-white"></i> Delete Selected</a>
 		</div>
 		<b>My Inbox</b>
 	</div>
