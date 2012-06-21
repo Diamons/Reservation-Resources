@@ -61,6 +61,7 @@ class DATABASE_CONFIG {
 
 	public $default = array(
 		'datasource' => 'Database/Mysql',
+		'driver'=>'mysql_with_log',
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',

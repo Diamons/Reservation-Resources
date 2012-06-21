@@ -9,7 +9,7 @@
 				$this->Auth->allow('index', 'viewproperty','quickbook');
 				$this->AjaxHandler->handle('quickbook');
 				$this->Cookie->time = 31536000; // cookie valid for one year before expiration  
-			}
+		}
 		public function index(){
 			if($this->request->is('post')&&$this->Auth->loggedIn()){
 				$this->Property->set('user_id',$this->Auth->user('id'));
@@ -107,5 +107,6 @@
 				return $this->AjaxHandler->respond('json',$response);
 			}
 		}
+
 	}
 ?>

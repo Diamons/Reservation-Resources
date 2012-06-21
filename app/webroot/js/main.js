@@ -38,22 +38,26 @@ $(document).ready(function(){
 	});
 });
 
-function checkLoginStatus(event){
+function checkLoginStatus(){
 	var auth;
-	$.ajax({
+		$.ajax({
 		type:"POST",
 		url:getDomain()+"users/checkloginstatus",
 		dataType:"json",
+		async: false,
 		success:function(data){
 			auth = data.success;
 			if(data.success == false){
 				//user is not logged in
-				openLightBox(getDomain()+ "users/checkloginstatus", "Please login or signup to use this feature", 980, 700);
-			} else {
-				$(event).submit();
-			}
+				openLightBox(getDomain()+ "users/getloginpage", "Please login or signup to use this feature", 980, 700);
+				
+			
+			} 
 		}
+
 	});
+	return auth;
+
 
 }
 
