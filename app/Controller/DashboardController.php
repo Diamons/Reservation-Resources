@@ -21,7 +21,7 @@
 		private function __inbox(){
 			$this->loadModel('Topic');
 			$this->loadModel('Message');//need to load this model to temprorary bind user so we can get the last message;
-			$this->Topic->contain(array('Property','Topic','Message'=>array('User')));
+			$this->Topic->contain(array('Property','Message'=>array('User')));
 
 			$topics = $this->Topic->find('all',array('conditions'=>array('OR'=>array('Topic.from_user_id'=>$this->Auth->user('id'),array('Topic.to_user_id'=>$this->Auth->user('id')))),'order'=>array('Topic.modified DESC')));
 			//Debugger::log($topics);
@@ -61,12 +61,28 @@
 		}
 		
 		private function __allBookings(){
+			$this->loadModel('Reservation');
+			$this->Reservation->contain(array('Booking'=>array('User')));
+			$paidbookings = $this->Reservation->find('all',array('conditions'=>array('Reservation.host_id ='=>$this->Auth->user('id'),'Reservation.status = '=> 2,'Booking.status ='=>1)));//this will select paid all bookings paid for a particular host that has accpeted the reservation
+			$this->set('confirmedbooking',$paidbookings);
+			//Debugger::log($paidbookings);
 			$this->render('allbookings');
 		}
 		private function __managereservations(){
+			$this->loadModel('Reservation');
+			$this->Reservation->contain(array('Booking'=>array('User','Property')));
+			$paidbookings = $this->Reservation->find('all',array('conditions'=>array('Reservation.host_id ='=>$this->Auth->user('id'),'Reservation.status = '=> 2)));//this will select paid all bookings paid for a particular host if it was declined or accepted will be checked in view file
+			$this->set('confirmedbooking',$paidbookings);
+			//Debugger::log($paidbookings[0]['Booking']);
 			$this->render('managereservations');
 		}
 		private function __editaccount(){
+			$this->loadModel('User');
+			$this->User->contain(array());
+			$this->User->id = $this->Auth->user('id');
+			$user = $this->User->read();
+			$this->set('user',$user);
+			//Debugger::log($user);
 			$this->render('editaccount');
 		}
 	}

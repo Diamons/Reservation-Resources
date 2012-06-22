@@ -1,32 +1,40 @@
 <div style = "background-color: transparent;" id = "calendar" class = "inner">
 	<?php //echo $this->element('fullCalendar', array('bookings' => $bookings)); ?>
-	<b> My Bookings </b>
+	<b> My Property Bookings </b>
 	<div class = "booking_bookmark row-fluid">
-		<h1>Saturday May 25th, 2012</h1>
+		<h1>This is where you can view all confirmed bookings after the guest has successfully completed the transaction</h1>
 	</div>
-	<?php for($i = 0; $i < 5; $i++){ ?>
+	<?php foreach($confirmedbooking as $key => $value){ ?>
 		<div class="sub-info alert alert-success">
 		<div class="row-fluid dates">
 			<div class="span1">
-				<img class = "quickinfo ajax" title = "./users/viewuser/33" src="http://placehold.it/32x32" />
+				<?php if(isset($confirmedbooking[$key]['Booking']['User']['profile_picture'])){ 
+							echo $this->Html->image($confirmedbooking[$key]['Booking']['User']['profile_picture'],array('class'=>'quickinfo ajax','title'=>'./users/viewuser/'.$confirmedbooking[$key]['Booking']['User']['id']));
+						}
+						else{
+							echo $this->Html->image('anonymous.jpg',array('class'=>'quickinfo ajax'));
+						}
+				?>
+					
 			</div>
 			<div class="span2">
-				Shahruk Khan<br />
-				(+1 Guests)
+				<?php echo $confirmedbooking[$key]['Booking']['User']['first_name']." ".$confirmedbooking[$key]['Booking']['User']['last_name']; ?><br />
+				(+<?php echo $confirmedbooking[$key]['Booking']['guests']; ?> Guests)
 			</div>
 			<div class="big_dates span3">
 				Check In<br>
-				<b>01/01/12</b>
+				<b><?php echo date('m/d/y',strtotime($confirmedbooking[$key]['Booking']['start_date']));?></b>
 			</div>
 			<div class="big_dates span3">
 				Check Out<br>
-				<b>01/01/12</b>
+				<b><?php echo date('m/d/y',strtotime($confirmedbooking[$key]['Booking']['end_date']));?></b>
 			</div>
 			<div class="big_dates span3">
 				Total Price<br>
-				<b>$500</b>
+				<b>$<?php echo $confirmedbooking[$key]['Reservation']['landlord_amount']; ?> </b>
 			</div>
 		</div>
 	</div>
-	<?php } ?>
+	<?php } 
+	?>
 </div>

@@ -92,7 +92,14 @@
 			<a name = "hostprofile"></a>
 				<h3><?php echo $property['User']['first_name']." ".$property['User']['last_name']; ?> Profile</h3> 
 				<div class = "row-fluid">
-					<div class = "span4"><?php echo $this->Html->image('http://a2.muscache.com/users/30990/profile_pic/1337535972/square_225.jpg'); ?> </div>
+					<div class = "span4"><?php
+					if(isset($property['User']['profile_picture'])){
+						echo $this->Html->image($property['User']['profile_picture']);
+					}
+					else{
+						echo $this->Html->image('anonymous.jpg');
+					}
+					?> </div>
 					<div class = "span4">
 						<div>99% Approval</div>
 						<div><?php echo $property['User']['property_count'] - 1; ?> Other Listings</div>
@@ -192,7 +199,16 @@
 			<?php foreach ($property['Review'] as $key => $value ){?>
 			<div class = "row-fluid comment">
 				<div class = "span4">
-					<?php echo $this->Html->image('http://a2.muscache.com/users/30990/profile_pic/1337535972/square_225.jpg'); ?> 
+					<?php 
+					if(isset($property['Review'][$key]['User']['profile_picture'])){
+							echo $this->Html->image($property['Review'][$key]['User']['profile_picture']); 
+						}
+						else{
+						
+							echo $this->Html->image('anonymous.jpg');
+						}
+					
+					?> 
 					<h1><?php echo $property['Review'][$key]['User']['first_name']. " ".$property['Review'][$key]['User']['last_name']; ?></h1>
 					<div class = "text">
 						Posted <?php echo date('F d Y',strtotime($property['Review'][$key]['created'])) ?><br />

@@ -52,7 +52,7 @@
 					  <li><a href="../properties/"><i class="icon-plus"></i> List My Property</a></li>
 					  <li><a href="#manageproperties"><i class="icon-edit"></i> Manage Properties</a></li>
 					</ul>
-					<h1>My Bookings</h1>
+					<h1>My Property Bookings</h1>
 					<ul class="nav nav-list">
 					   <li><a href="#allbookings"><i class="icon-calendar"></i> View All Bookings</a></li>
 					</ul>

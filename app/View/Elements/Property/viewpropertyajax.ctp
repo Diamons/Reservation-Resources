@@ -1,10 +1,15 @@
+<?php //Debugger::log($property) ?>
 <div class = "clearfix person_card">
 	<div>
-		<img src ="http://placehold.it/140x162" />
+	<?php if (isset($property['Property']['default_image'])){ ?>
+		<img  class = 'profile_picture' src ="<?php echo $this->webroot."images/".$property['Property']['user_id']."/".$property['Property']['id']."/".$property['Property']['default_image']; ?>" />
+		<?php } else{ ?>
+		<img  class = 'profile_picture' src ="<?php echo $this->webroot."img/no_picture_available.jpg"; ?>" />
+		<?php } ?>
 	</div>
 	<div>
-		<h1>The Epic Bonanza</h1>
-		Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc Etc etc 
+		<h1><?php echo $property['Property']['title']; ?></h1>
+		<?php echo $property['Property']['description']; ?>
 		<div class = "row-fluid social_media">
 			<div class = "span6">
 				<div class = "clearfix">
