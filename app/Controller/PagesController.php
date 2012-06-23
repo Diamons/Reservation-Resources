@@ -63,6 +63,7 @@ class PagesController extends AppController {
  
  
 	public function display() {
+		$this->layout = "blank";
 		$path = func_get_args();
 
 		$count = count($path);

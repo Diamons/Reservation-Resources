@@ -1,45 +1,23 @@
-<header>
-	<div class = "float_right">
-		<input class="btn btn-small btn-warning" type = "button" value = "List my Property" />
-		<input class="btn btn-small btn-primary" type = "button" value = "Register" />
-		<input class="btn btn-small btn-success" type = "button" value = "Login" />		
-	</div>	
-	<a href = "<?php echo $this->Html->root; ?>"><?php echo $this->Html->image('logo-light.png', array('id' => 'topLogo')); ?></a>
-	<?php if(!isset($this->viewVars['page']) || $this->viewVars['page'] !== 'home'){ ?>
-		<div id = "searchBar">
-			<form class = "formee">
-				<div class = "grid-2-12">
-					<label>Check In Date</label>						
-					<input type = "text" name = "checkin" placeholder = "mm/dd/yyyy" />
+<div id="header" class="row-fluid">
+	<div class="span4"><a href="#"><?php echo $this->Html->image('logo.png', array( 'id' => 'logo')); ?></a></div>
+	<div class="span4">
+		<?php echo $this->Form->input('Search', array('id' => 'searchStart', 'placeholder' => 'Start your search here...')); ?>
+	</div>
+	<div class="span4">
+	
+		<div id="menu">	
+			<a class="clearfix" href="#"><?php echo $this->Html->image('icons/Support.png', array('class' => 'sub_icon')); ?><div>Support</div></a>
+			
+			<a id="dashboard_container" class="clearfix" href="#"><?php echo $this->Html->image('icons/dashboard.png', array('class' => 'sub_icon')); ?><div>Dashboard <span class="notification">55</span>
+			</div>
+			</a>
+			<a class="clearfix" href="#"><?php echo $this->Html->image('icons/home-icon.png', array('class' => 'sub_icon')); ?><div>Home</div></a>
+		
+				<div id="dashboard_notifications" class="row-fluid dashboard">
+					<div>Shahruk just left you a comment on your property. <a href="#">(view)</a></div>
+					<div>You have one new booking request. <a href="#">(view)</a></div>
+					<div>Shahruk just sent you a message! <a href="#">(view)</a></div>
 				</div>
-				<div class = "grid-2-12">
-					<label>Check Out Date</label>
-					<input type = "text" name = "checkout" placeholder = "mm/dd/yyyy" />
-				</div>
-				<div class="grid-4-12">
-					<label>Search Properties <em class="formee-req">*</em></label>
-					<input type = "text" placeholder = "Search by Location " />
-				</div>
-				<div class="grid-2-12">
-					<label>Number of People</label>
-					<select name="guests">
-						<option value="1" selected="selected">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10+</option>
-					</select>
-				</div>
-				<div class = "grid-1-12">
-					<label>Search</label>
-					<input type = "submit" title = "search" value = "search" />
-				</div>
-			</form>
 		</div>
-	<?php } ?>
-</header>
+	</div>
+</div>
