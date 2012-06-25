@@ -26,7 +26,7 @@
 		<?php 
 		echo $this->Form->create('Property', array('class' => 'formee')); ?>
 		<fieldset>
-		<legend>Property Location</legend>
+		<legend>Location</legend>
 		<?php 
 			echo $this->Form->input('address');
 			echo $this->Form->input('city');
@@ -35,7 +35,7 @@
 			echo $this->Form->input('country'); ?>
 		</fieldset>
 		<fieldset>
-		<legend>Basic Details</legend>
+		<legend>Details</legend>
 		<?php 
 			echo $this->Form->input('title');
 			echo $this->Form->input('description'); ?>
@@ -61,7 +61,7 @@
 			
 		</fieldset>
 		<fieldset>
-		<legend>Pricing and Booking Options</legend>
+		<legend>Booking</legend>
 		<div class = "row-fluid">
 			<div class = "span6">
 				<?php echo $this->Form->input('currency_code',array('options'=>$currency_options,'default'=>'USD')); ?>
@@ -86,7 +86,7 @@
 				echo $this->Form->input('rent_once',array('label'=>array('text' => 'Is this a one time rental? ', 'style' => 'display: inline-block;'),'format'=>array('before', 'label', 'between', 'input', 'after', 'error'))); ?>
 		</fieldset>
 		<fieldset>
-		<legend>Property Availability and Scheduling </legend>
+		<legend>Availability</legend>
 			<div class = "row-fluid">
 				<div class = "span6">
 					<?php echo $this->Form->input('available_from'); ?>
@@ -103,14 +103,14 @@
 					<?php echo $this->Form->input('check_out_time'); ?>
 				</div>
 			</div>
+			<?php echo $this->Form->input('minimum_stay',array('options'=>$minimum_stay)); ?>
 		</fieldset>
 
 	
-	<fieldset>
-		<legend>Amenities/Minimum Stay</legend>
+	<fieldset id="amenities">
+		<legend>Amenities</legend>
 		
 		<?php 
-		echo $this->Form->input('minimum_stay',array('options'=>$minimum_stay));
 		echo $this->Form->input('Amenity.bedroom_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>array('King'=>'King','Queen'=>'Queen','Single'=>'Single','Double'=>'Double')));
 		echo $this->Form->input('Amenity.electronic_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>array('WiFi'=>'WiFi','Internet'=>'Internet','Television'=>'Television','Cable'=>'Cable','Washer'=>'Washer')));
 		echo $this->Form->input('Amenity.kitchen_amenities',array('type'=>'select','multiple'=>'checkbox','options'=>array('Refrigerator'=>'Refrigerator','Stove'=>'Stove','Microwave'=>'Microwave','Coffee Maker'=>'Coffee Maker','Toaster'=>'Toaster')));
@@ -131,7 +131,7 @@
 		<a href = "#" id = "customAmenity">Add Custom Amenity</a> 
 	</fieldset>
 	<fieldset id = "additionalFees">
-		<legend>Additional Fees</legend>
+		<legend>Fees</legend>
 	<?php
 		//debug($this->request->data); 
 		foreach($this->request->data['Fee'] as $key => $value){

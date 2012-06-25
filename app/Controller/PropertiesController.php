@@ -79,7 +79,7 @@
 						$this->Session->setFlash('Congrats! Your property has been updated');
 					}
 					else{
-						$this->Session->setFlash('Sorry, we could not update your property at this time. Please double check for any information error');
+						$this->Session->setFlash('Sorry, we could not update your property at this time. Please double check for any information error', "flash_success");
 					}
 					$this->set('propertyid',$property_id);
 					
