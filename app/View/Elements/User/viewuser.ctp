@@ -1,6 +1,13 @@
 <div class = "clearfix person_card">
 	<div>
-		<img src ="http://placehold.it/140x162" />
+	<?php if(isset($user['User']['profile_picture'])){
+			echo $this->Html->image($user['User']['profile_picture'],array('class'=>'profile_picture'));
+	} else{
+			echo $this->Html->image('anonymous.jpg',array('class'=>'profile_picture'));
+	}
+	
+	?>
+		
 	</div>
 	<div>
 		<h1><?php echo $user['User']['first_name']." ".$user['User']['last_name']; ?></h1>

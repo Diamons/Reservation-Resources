@@ -88,6 +88,19 @@
 			$this->set('user', $this->User->read());
 			$this->render('/elements/User/viewuser');
 		}
+		public function edit(){
+			if($this->request->data){
+				if($this->User->save($this->request->data)){
+					$this->Session->setFlash('Sweet! Your profile has been updated');
+					$this->redirect($this->referer(),null,true);
+				}
+				else{
+					$this->Session->setFlash('Sorry! We could not update your profile at this time');
+					$this->redirect($this->referer(),null,true);
+				}
+			}
+		
+		}
 
 	}
 ?>

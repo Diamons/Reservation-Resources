@@ -1,9 +1,28 @@
 <?php
+CakePlugin::load('Uploader');
 App::uses('CakeEmail', 'Network/Email');
 App::uses('Folder', 'Utility');
+App::import('Vendor', 'Uploader.Uploader');
 	class User extends  AppModel{
 	public $name = 'User';
 	public $hasMany  =  array('Property');
+	public $actsAs = array( 
+	"Uploader.Attachment" => array(
+		'profile_picture' => array(
+			'baseDir'	=> '',			// See UploaderComponent::$baseDir
+			'uploadDir'	=> 'profile_pictures/' ,		// See UploaderComponent::$uploadDir
+			'dbColumn'	=> 'profile_picture',	// The database column name to save the path to
+			'importFrom'	=> '',			// Path or URL to import file
+			'defaultPath'	=> '',			// Default file path if no upload present
+			'maxNameLength'	=> 30,			// Max file name length
+			'overwrite'	=> true,		// Overwrite file with same name if it exists
+			'stopSave'	=> true,		// Stop the model save() if upload fails
+			'allowEmpty'	=> true,		// Allow an empty file upload to continue
+			'transforms'	=> array()		// What transformations to do on images: scale, resize, etc
+		)
+	)
+);
+
 	public $validate = array(
 		'username'=>array(
 				'username_must_be_email'=>array(

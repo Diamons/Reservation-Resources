@@ -1,3 +1,4 @@
+
 <div class = "inner content">
 	<div>
 	<div class="alert alert-block alert-error fade in">
@@ -18,5 +19,6 @@
           </div>
 		<h1 class = "heading">Dashboard</h1>
 			asdasdasdasdasdasdas
+			
 	</div>
 </div>
