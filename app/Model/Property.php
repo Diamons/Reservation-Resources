@@ -4,6 +4,7 @@ App::uses('Folder', 'Utility');
 App::uses('File', 'Utility'); 
 	class Property extends AppModel{
 	public $name = 'Property';
+	public $findMethods = array('nearest' => true);
 	public $belongsTo = array('User'=>array('counterCache'=>true));
 	public $hasOne = 'Amenity';
 	public $hasMany = array('Booking','Fee','Review','Topic');
@@ -148,8 +149,17 @@ App::uses('File', 'Utility');
 			$images['big'] = $big_images;
 			$images['small'] = $small_images;
 			return $images; 
-		}	
-
 	}
 
+	protected function _findNearest($currentStatus, $query, $results=array()){
+		if($currentStatus=="before"){
+			$coordinates = $query['coordinates'];
+			$query['conditions'] = "(3959 * acos(cos(radians(".$coordinates['lat'].")) * cos(radians(Property.latitude)) * cos(radians(Property.longitude) - radians(".$coordinates['long'].")) + sin(radians(".$coordinates['lat'].")) * sin(radians(Property.latitude)))) <=".$coordinates['miles'];
+			return $query;
+			
+		} elseif($currentStatus=="after"){
+			return $results;
+		}
+	}
+}
 ?>
