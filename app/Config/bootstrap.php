@@ -124,3 +124,6 @@ Cache::config('default', array('engine' => 'File'));
  */
  
 CakePlugin::load(array('Minify' => array('routes' => true), 'Twilio'));
+CakePlugin::load('PaypalIpn', array('bootstrap' => array('paypal_ipn_config'), 'routes' => true));
+//reservation resources fee
+define('FEE',.12);

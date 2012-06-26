@@ -42,3 +42,16 @@
  * the built-in default routes.
  */
 	require CAKE . 'Config' . DS . 'routes.php';
+
+	
+	
+	
+	
+	
+	
+Router::connect('/paypal_ipn/process', array('plugin' => 'paypal_ipn', 'controller' => 'instant_payment_notifications', 'action' => 'process'));
+Router::connect('/paypal_ipn/:action/*', array('admin' => 'true', 'plugin' => 'paypal_ipn', 'controller' => 'instant_payment_notifications', 'action' => 'index'));
+Router::connect('/paypal_ipn', array('admin' => 'true', 'plugin' =>
+'paypal_ipn', 'controller' => 'instant_payment_notifications',
+'action' => 'index'));
+/* End Paypal IPN plugin */

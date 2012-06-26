@@ -97,7 +97,7 @@ App::uses('File', 'Utility');
 	public function afterSave($created){
 		if($created){
 			$email = new CakeEmail('smtp');
-			$email->viewVars(array('title' =>$this->data['Property']['title']));
+			$email->viewVars(array('first' => 12345));
 			$email->template('new_property', 'email_layout')->emailFormat('html');
 			$email->sender('noreply@reservationresources.com')->to(AuthComponent::user('username'))->subject('Your property has been listed!')->send(); 
 		

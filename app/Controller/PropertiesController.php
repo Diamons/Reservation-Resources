@@ -114,6 +114,11 @@
 				return $this->AjaxHandler->respond('json',$response);
 			}
 		}
+		
+		public function testbooking(){
+		
+		
+		}
 
 	}
 ?>

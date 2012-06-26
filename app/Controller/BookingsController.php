@@ -8,7 +8,7 @@
 		public function beforeFilter(){
 			parent::beforeFilter();
 				$this->Auth->allow('calendar');
-				$this->AjaxHandler->handle('calendar','easybook','comment');			
+				$this->AjaxHandler->handle('calendar','easybook','comment','blackbook','hostconfirm');			
 		}
 		public function bookRoom($propertyid = NULL){
 			
@@ -79,6 +79,47 @@
 			}
 			return $this->AjaxHandler->respond('json',$response);
 			
+		}
+		public function hostconfirm(){//this function gets called soon as host hits accepts. reason for this is beacuase host may not want to leave a commment. if they do leave a comment then the comment function get called
+			$this->autoLayout = FALSE;
+			$this->layout = 'ajax';
+			$response = array('success'=>false);
+			if(isset($this->request->data)){
+				$this->Booking->id = $this->request->data('bid');//we only need to save the status field so we know if host accepts or declines reservation
+				$this->Booking->set('status',$this->Booking->updateBooking($this->request->data['status']));
+				if($this->Booking->save()){
+					$response['success'] = true;
+					//lets update the reservation at this point
+					
+				}
+				return $this->AjaxHandler->respond('json',$response);
+			}
+		}
+		public function blackbook($pid = null){
+			$this->autoLayout = FALSE;
+			$this->layout = 'ajax';
+			$response = array('success'=>false);
+			//if request data is set then save if not then render blackbooking element
+			if(isset($pid)){
+				$this->set('pid',$pid);
+				$returnhtml = $this->render('/elements/Booking/blackbook');
+				$response['success'] = true;
+				$response['data'] =  $returnhtml->body();
+				return $this->AjaxHandler->respond('html',$response);
+			}
+			else{
+				if($this->request->data){
+					$this->Booking->set('user_id',$this->Auth->user('id'));
+					if($this->Booking->save($this->request->data)){
+						//Debugger::log($this->request->data['Booking']['start_date']);
+						$response['success'] = true;
+						
+						}
+					return $this->AjaxHandler->respond('json',$response);
+				
+				}
+			
+			}
 		}
 	}
 

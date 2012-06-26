@@ -1,6 +1,14 @@
 <div class = "row-fluid inner booking_card">
 	<div class = "span4">
-		<img class = "quickinfo ajax" title = "./users/viewuser/<?php echo $bookinginformation['User']['id'];?>" src = "http://placehold.it/340x362" />
+		<!--<img class = "quickinfo ajax" title = "./users/viewuser/<?php echo $bookinginformation['User']['id'];?>" src = "http://placehold.it/340x362" />-->
+		<?php if(isset($bookinginformation['User']['profile_picture'])){?>
+				<img class = "quickinfo ajax" title = "./users/viewuser/<?php echo $bookinginformation['User']['id']; ?>" src = "<?php echo $bookinginformation['User']['profile_picture']; ?>" />
+					<?php } else{
+							echo $this->Html->image('anonymous.jpg',array('class'=>'quickinfo ajax','title'=>'./users/viewuser/'.$bookinginformation['User']['id']));
+						}
+			?>
+		
+		
 		<h1><?php echo $bookinginformation['User']['first_name']." ".$bookinginformation['User']['last_name'];  ?></h1>
 		<div class = "person_card">
 			<div class="social_media">
