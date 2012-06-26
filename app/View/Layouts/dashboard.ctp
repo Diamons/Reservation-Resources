@@ -23,6 +23,9 @@
 	<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+	<!--[if IE]><
+		<?php echo $this->Html->script('excanvas.compiled'); ?>
+	<![endif -->
 </head>
 <body>
 	<div id = "container">

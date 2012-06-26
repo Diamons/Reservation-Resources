@@ -15,6 +15,13 @@ $(document).ready(function(){
 		Shadowbox.close();
 	});
 	
+	$("#dashboard_container").hover(function(){
+		$("#dashboard_notifications").fadeIn();
+	});
+	$("#dashboard_notifications").hover(function(){
+	}, function(){
+		$(this).fadeOut();
+	});
 	if($(".content").height() < $(".dashboard").height()){
 		$(".content").css({'height': $(".dashboard").height()});
 	}

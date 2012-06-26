@@ -1,8 +1,5 @@
 $(document).ready(function(){
 // Load existing files:
-	if($("#PropertyRentOnce").is(":checked")){
-		prompt("A");
-	}
     $('#fileupload').each(function () {
         var that = this;
 	
@@ -25,16 +22,9 @@ $(document).ready(function(){
 	$("#PropertyEditForm").formToWizard();
 	
 	$("#customAmenity").on("click",function(){
+			$("#AmenityAdditionalAmenities").after("<input name='data[Amenity][additional_amenities][]' type='text' value='' />");
 		
-		var name = prompt('What is the amenity name?');
-		if(name != null){
-			name = name.charAt(0).toUpperCase() + name.slice(1);
-				//alert(name);
-			$("#AmenityAdditionalAmenities").after("<div class = 'checkbox'><div class='checker' id='uniform-AmenityAdditionalAmenities"+name+"'><span class = 'checked' ><input type='checkbox' checked = 'checked' id='AmenityAdditionalAmenities"+name+"' value='"+name+"' name='data[Amenity][additional_amenities][]' style='opacity: 0;'></span></div><label for='AmenityAdditionalAmenities"+name+"'>"+name+"</label></div>");
-		
-		}
-		
-	});
+		});
 	
 	$("#customFee").on("click",function(){
 		var feeName = prompt("What is the fee name?");

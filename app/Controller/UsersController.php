@@ -101,6 +101,10 @@
 			}
 		
 		}
+		
+		public function profile($id=NULL){
+			$user=$this->User->read(NULL, $id);
+		}
 
 	}
 ?>
