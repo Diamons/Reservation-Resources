@@ -1,4 +1,12 @@
 $(document).ready(function(){
+	$('.score').raty({
+		readOnly: true,
+		path: getDomain()+'img/',
+		score: function() {
+		return $(this).attr('data-rating');
+	  }
+	});
+	$("#star_rating").raty();
 
 	$( "input[name='checkin'], input[name='checkout'], input.checkin, input.checkout" ).datepicker();
 	$('a#search').click(function(){

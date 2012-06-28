@@ -7,15 +7,15 @@
 	}
 	public $uses = array('Property');
 	public function searchresults(){
-		//Third parameter is the number of miles
-		debug($this->request);
-		if($this->request->is('get')){	
-			$properties = $this->Property->find('nearest', array('coordinates' => $coordinates));
-		}
-		//In whichever view, send coordinates in hidden input elements
-		//Use custom find Calculus rule to find nearest and limit results
-	
-		debug($properties);
-		
+		//parameters passed via URL
+		//Example: http://localhost/cakephp/search/searchresults?lat=40.664191&long=-73.950712004100001&miles=5
+		$coordinates = $this->request->query;
+	//Distance parameter MUST be passed
+		if(empty($coordinates['miles']))
+			$coordinates['miles'] = 10;
+		if($this->request->is('get')){
+			//Calculus function. Returns based on shape of Earth and ARCTAN
+			$this->set("properties", $this->Property->find('nearest', array('coordinates' => $coordinates)));
+		}		
 	}
 }
