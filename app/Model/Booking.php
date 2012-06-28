@@ -1,7 +1,11 @@
 <?php 
+App::uses('CakeEmail', 'Network/Email');
+App::import('model','Property');
+
 	class Booking extends AppModel{
 		public $name = 'Booking';
 		public $belongsTo =  array('Property','User');
+		public $hasOne = array('Reservation');
 		
 	public function beforeSave() {
 		if (!empty($this->data['Booking']['start_date']) && !empty($this->data['Booking']['end_date'])) {
@@ -86,6 +90,17 @@
 			return 2;//booking declined those dates are available
 			}
 		}
+	public function sendNotification($pid,$template,$subject){//this will send notification to property Owner
+			$property = new Property();
+			$owner = $property->read(null,$pid);
+			$email = new CakeEmail('smtp');
+			$email->viewVars(array('first' => $owner['User']['first_name'],'last' => $owner['User']['last_name']));
+			$email->template($template, 'email_layout')->emailFormat('html');
+			$email->sender('noreply@reservationresources.com')->to($owner['User']['username'])->subject($subject)->send(); 
+
+	
+	
+	}
 }
 	
 

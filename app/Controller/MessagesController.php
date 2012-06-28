@@ -6,7 +6,7 @@
 		$this->AjaxHandler->handle('submitMessage');
 	} 
 	
-	function sendMessage($uid, $pid, $status, $rid){//this function would update the booking data
+	function sendMessage($rid,$status){//this function retrieves booking send message element. All updating wll be done in booking controller
 		$this->loadModel('Booking');
 		$this->autoRender = false;
 		$this->layout = "ajax";
@@ -16,10 +16,8 @@
 			$this->Booking->id = $rid;
 			$this->Booking->contain(array('User'));
 			$booking = $this->Booking->read();
-			$this->set('status', $status);
 			$this->set('bookinginformation', $booking);
-			$this->Booking->set('status',$this->Booking->updateBooking($status));
-			$this->Booking->save();
+			$this->set('status',$status);
 			//In the view we'll decide what to do if they're accepting or declining
 			$this->render('../Elements/Message/sendmessage');
 		//Otherwise it's a regular contact message

@@ -23,8 +23,8 @@ function updateFullCalendar(x,y,z){
 			}
 		});
 }
-function leaveMessage(uid, pid, status, rid){
-	openLightBox(getDomain()+"messages/sendmessage/"+uid+"/"+pid+"/"+status+"/"+rid, "Send your message below", 740, 480);
+function leaveMessage(rid,status){
+	openLightBox(getDomain()+"messages/sendmessage/"+rid+"/"+status, "Send your message below", 740, 480);
 }
 	
 $(document).ready(function(){
@@ -70,7 +70,5 @@ $(document).ready(function(){
 		});
 	});
 
-	$(document).on("click", ".sendmessage", function(event){
-		leaveMessage($(this).data('uid'), $(this).data('pid'), $(this).data('status'), $(this).data('bid'));
-	});
+
 });

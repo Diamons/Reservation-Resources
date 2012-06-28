@@ -56,6 +56,30 @@ $(document).ready(function(){
 		}
 
 	});
+	$(document).on("click","#blackbook",function(event){
+		openLightBox(getDomain()+"bookings/blackbook/"+$(this).data('pid'), "Mark dates as available or unavailable", 700,500);
+	
+	});
+	$(document).on("click",".availability",function(event){
+		$("#BookingStatus").val($(this).data('status'));
+		//alert($(this).data('status'));
+		$.ajax({
+			url:getDomain()+"bookings/blackbook",
+			type:"POST",
+			data:$("#BookingBlackbookForm").serialize(),
+			success:function(data){
+				if(data.success == true){
+					Shadowbox.close();
+					alert('Calendar Successfully Updated');
+				}
+				else{
+					Shadowbox.close();
+					alert('Sorry we could not update your property calendar at this time');
+				}
+			}
+		
+		})
+	});
 	$("#content").on("mouseout", ".person", function(){
 		$("#calendar .dates div.pending_hover").each(function(){
 			$(this).removeClass("pending_hover");
@@ -119,3 +143,25 @@ function updatePage(url,data){
 	});
 	}
 }
+$(document).on("click", ".sendmessage", function(event){
+	var bid = $(this).data('bid');
+	var status = $(this).data('status');
+	$.ajax({
+		
+		type:"POST",
+		url:getDomain()+"bookings/hostconfirm",
+		data:"bid="+$(this).data('bid')+"&status="+$(this).data('status'),
+		success:function(data){
+		
+			if(data.success == true){
+				leaveMessage(bid,status);
+			
+			}
+			else{
+				alert("Sorry and error has occured our team is currently working on a fix. In the meantime you can contact tech support so they can update your booking manually");
+			}
+		}
+		
+	});
+	
+});

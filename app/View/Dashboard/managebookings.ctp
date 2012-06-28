@@ -5,17 +5,21 @@
 		<!-- START FOR LOOP -->
 		<!-- DATA-ID = USER ID OF THE PERSON BOOKING -->
 		<?php foreach($property['Booking'] as $key => $value){?>
-		<?php// Debugger::log($property['Booking'][8]['start_date']); ?>
+		<?php 	if($property['Booking'][$key]['user_id'] != AuthComponent::user('id')){ ?>
 		<div>
 		<div data-id = "<?php echo $property['Booking'][$key]['User']['id']; ?>" class = "person" data-startDate = "<?php echo $property['Booking'][$key]['start_date']; ?>" data-endDate = "<?php echo $property['Booking'][$key]['end_date']; ?>"> 
 			<div class = "row-fluid booking_person">
 				<div class = "span3">
 				
-				
 					<!-- REPLACE TITLE "33" WITH USER ID -->
-					
-					
-					<img class = "quickinfo ajax" title = "./users/viewuser/33" src = "http://placehold.it/64x64" />
+					<?php if(isset($property['Booking'][$key]['User']['profile_picture'])){?>
+					<img class = "quickinfo ajax" title = "./users/viewuser/<?php echo $property['Booking'][$key]['User']['id']; ?>" src = "<?php echo $property['Booking'][$key]['User']['profile_picture']; ?>" />
+					<?php } else{
+							echo $this->Html->image('anonymous.jpg',array('class'=>'quickinfo ajax','title'=>'./users/viewuser/'.$property['Booking'][$key]['User']['id']));
+						}
+					?>
+
+		
 				</div>
 				<div class = "span8">
 					<h1><?php echo $property['Booking'][$key]['User']['first_name']." ".$property['Booking'][$key]['User']['last_name']; ?>(+<?php echo $property['Booking'][$key]['guests']; ?> Guests)</h1>
@@ -48,13 +52,17 @@
 			</div>
 		</div>
 	</div>
-		<?php }?>
+		<?php }}?>
 		<!-- END FOR LOOP -->
 		
 		
 	</div>
 	<div class = "span7">
 		<div id = "calendar"><?php  echo $this->element('calendar', array('cache' => false, 'dates' => $property['Booking'],'pid' => $property['Property']['id']));?></div>
+	</div>
+	<div style = "float:right;padding-top:25px;">
+	<input id = "blackbook" class = "btn btn-large btn-danger" data-pid = '<?php echo $property['Property']['id'];  ?>' type = "button" value = "Manage Availability">
+	</input>
 	</div>
 </div>
 
