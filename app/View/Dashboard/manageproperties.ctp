@@ -51,7 +51,7 @@
 				<div class = "alert"><a href ="<?php echo $this->webroot."properties/viewproperty/".$properties[$key]['Property']['id']; ?>"><?php echo $properties[$key]['Property']['title']; ?></a> <span class = "small"><?php echo $properties[$key]['Property']['city'].",". $properties[$key]['Property']['state']; ?></span></div>
 				<div class = "inner" style = "text-align: center;">
 					<a href = "<?php echo $this->webroot."properties/edit/".$properties[$key]['Property']['id']; ?>"><input type = "button" class = "btn" value = "Edit Property" /></a>
-					<a href = "#"><input type = "button" class = "btn btn-info" value = "Promote on Craigslist" /></a>
+					<a href = "#" class = "craigslistPostButton" data-pid =  "<?php echo $properties[$key]['Property']['id']; ?>"><input type = "button" class = "btn btn-info" value = "Promote on Craigslist" /></a>
 					<a href = "#" class = "manageBookingsButton" data-pid = "<?php echo $properties[$key]['Property']['id']; ?>" ><input type = "button" class = "btn btn-small btn-primary" value = "Manage Upcoming Bookings" /></a>
 				</div>
 			</div>

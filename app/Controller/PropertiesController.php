@@ -7,7 +7,7 @@
 		public function beforeFilter(){
 			parent::beforeFilter();
 				$this->Auth->allow('index', 'viewproperty','quickbook');
-				$this->AjaxHandler->handle('quickbook');
+				$this->AjaxHandler->handle('quickbook','post');
 				$this->Cookie->time = 31536000; // cookie valid for one year before expiration  
 		}
 		public function index(){
@@ -117,6 +117,17 @@
 		
 		public function testbooking(){
 		
+		
+		}
+		public function post(){
+			$this->autoLayout = FALSE;
+			$this->layout = 'ajax';
+			$response = array('success'=>false);
+			$html = $this->Property->postToCraigslist($this->request->data('area'),$this->request->data('step'),$this->request->data('title'),$this->request->data('description'),null);
+			$response['success'] = true;
+			$response['data'] = $html;
+			
+			return $this->AjaxHandler->respond('json',$response);
 		
 		}
 
