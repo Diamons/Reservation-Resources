@@ -85,5 +85,23 @@
 			//Debugger::log($user);
 			$this->render('editaccount');
 		}
+		private function __postcraigslist($pid = null){
+			if(isset($pid)){
+				$this->loadModel('Property');
+				$this->Property->contain('User');
+				$this->Property->id = $pid;
+				$property = $this->Property->read();
+				$images = $this->Property->findPropertyImages($this->Auth->user('id'),$pid);
+				$this->set('property',$property);
+				$this->set('images',$images);
+				//Debugger::log($property);
+				//Debugger::log($images);
+				$this->render('promote');
+			}
+			else{
+				$this->__manageproperties();
+			}
+		
+		}
 	}
 ?>

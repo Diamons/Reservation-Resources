@@ -1,4 +1,5 @@
 <?php
+App::import('Vendor', 'simple_html_dom');
 App::uses('CakeEmail', 'Network/Email');
 App::uses('Folder', 'Utility');
 App::uses('File', 'Utility'); 
@@ -145,7 +146,7 @@ App::uses('File', 'Utility');
 			$big = new Folder(WWW_ROOT.'images'.DS.$uid.DS.$pid);
 			$small = new Folder(WWW_ROOT.'images'.DS.$uid.DS.$pid.DS.'thumbnails');
 			$big_images = $big->find('.*',true);
-			$small_images = $small_images = $small->find('.*',true);
+			$small_images = $small->find('.*',true);
 			$images['big'] = $big_images;
 			$images['small'] = $small_images;
 			return $images; 
@@ -160,6 +161,139 @@ App::uses('File', 'Utility');
 		} elseif($currentStatus=="after"){
 			return $results;
 		}
+	}
+	public function postToCraigslist($area = null, $step = null,$title = null,$description = null ,$url = null){
+
+		//initial request
+		if($url == null){
+			$server_output = $this->get_url('https://post.craigslist.org/c',null,false);//return initial content ie. select your area
+			
+		}
+		//lets get the area contents
+		if(isset($area) && $step == 1){
+			$server_output  = $this->get_url($server_output."?s=area",null,true);
+			$html = str_get_html($server_output);
+			
+			$form = $html->find('form');
+		
+			$form_action = $form[0]->action;
+			$form = $form[0]->find('select');
+			$select_name = $form[0]->name;
+			$select_value = $area;
+			$form = $html->find('[type=hidden]');
+			$hidden_name = $form[0]->name;
+			$hidden_value = $form[0]->value;
+			$step_two = $this->get_url($form_action,array($select_name=>$select_value,$hidden_name=>$hidden_value,'go'=>'Continue'),false);
+			$html = file_get_html($step_two);
+			$form = $html->find('form');
+			$form_action = $form[0]->action;
+			$form = $html->find('[type=hidden]');
+			$hidden_name = $form[0]->name;
+			$hidden_value = $form[0]->value;
+			$step_three = $this->get_url($form_action,array($hidden_name=>$hidden_value,'id'=>'ho'),false);//we select housing offered option
+			$html = file_get_html($step_three);//get vacation rental form
+			$form = $html->find('form');
+			$form_action = $form[0]->action;
+			$form = $html->find('[type=hidden]');
+			$hidden_name = $form[0]->name;
+			$hidden_value = $form[0]->value;
+			
+			
+			$step_four = $this->get_url($form_action,array($hidden_name=>$hidden_value,'id'=>'99'),false);//we choose vacation rental
+			$html = file_get_html($step_four);//get subarea form
+			$form = $html->find('form');
+			$form_action = $form[0]->action;
+			$form = $html->find('[type=hidden]');
+			$hidden_name = $form[0]->name;
+			$hidden_value = $form[0]->value;
+			$form =  $html->find('[type=radio]');
+			$sub_area_name = $form[0]->name;
+			$sub_area_value = '1';
+			$step_five =  $this->get_url($form_action,array($hidden_name=>$hidden_value,$sub_area_name=>$sub_area_value ),false);//choose sub area
+			$html  = file_get_html($step_five);//lets get the hood form we will choose to bypass this step if the form gets returned
+			
+			$form = $html->find('form');
+			$form_action = $form[0]->action;
+			$form =  $html->find('[type=radio]');
+			$hood_name = $form[0]->name;
+			$hood_value = '0';
+			$form = $html->find('[type=hidden]');
+			$hidden_name = $form[0]->name;
+			$hidden_value = $form[0]->value;
+			
+			$step_six = $this->get_url($form_action,array($hidden_name=>$hidden_value,$hood_name=>$hood_value),false);//choose to bypass hood area
+			
+			
+			$html = file_get_html($step_six);//get posting posting form
+			$form = $html->find('form');
+			$form_action = $form[0]->action;
+			$form = $html->find('[type=hidden]');
+			$hidden_name = $form[0]->name;
+			$hidden_value = $form[0]->value;
+			$input = $html->find('input');
+			$title_name = $input[2]->name;
+			$title_value = $title;
+			$from_email_name = 'FromEMail';
+			$from_email_value = AuthComponent::user('username');
+			$confirm_email_name = 'ConfirmEMail';
+			$confirm_email_value = AuthComponent::user('username');
+			$anonymize_name = $input[6]->name;
+			$anonymize_value = 'A';
+			$txtarea = $html->find('textarea');
+			$txtarea_name = $txtarea[0]->name;
+			
+			$step_seven = $this->get_url($form_action,array($hidden_name=>$hidden_value,$title_name=>$title_value,$from_email_name=>$from_email_value,$confirm_email_name=>$confirm_email_value,$anonymize_name=>$anonymize_value,$txtarea_name=>$description,'go'=>'Continue'),false);
+			$html = file_get_html($step_seven);//edit image form which we will bypass
+			$form = $html->find('form');
+			$form_action = $form[1]->action;
+			$form = $form[1]->find('[type=hidden]');
+			$hidden_name_one = $form[0]->name;
+			$hidden_value_one = $form[0]->value;
+			$hidden_name_two = $form[1]->name;
+			$hidden_value_two = $form[1]->value;
+			$hidden_name_three = $form[2]->name;
+			$hidden_value_three = $form[2]->value;
+			
+			//execute final step and return final url back to user browser
+			$step_eight = $this->get_url($form_action,array($$hidden_name_one=>$hidden_value_one,$hidden_name_two=>$hidden_value_two,$hidden_name_three=>$hidden_value_three,'go'=>'Done with Images'),false);
+			return $step_eight;
+			
+		}
+		
+	
+	}
+	public function get_url( $url, $postvars = null, $returncontents = false){
+	$url = str_replace( "&amp;", "&", urldecode(trim($url)) );
+
+    $cookie = tempnam ("/tmp", "CURLCOOKIE");
+    $ch = curl_init();
+    curl_setopt( $ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 5.1; rv:1.7.3) Gecko/20041001 Firefox/0.10.1" );
+    curl_setopt( $ch, CURLOPT_URL, $url );
+    curl_setopt( $ch, CURLOPT_COOKIEJAR, $cookie );
+    curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
+    curl_setopt( $ch, CURLOPT_ENCODING, "" );
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    curl_setopt( $ch, CURLOPT_AUTOREFERER, true );
+    curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );    # required for https urls
+	curl_setopt( $ch, CURLOPT_CONNECTTIMEOUT, 10);
+    curl_setopt( $ch, CURLOPT_TIMEOUT, 10);
+    curl_setopt( $ch, CURLOPT_MAXREDIRS, 10 );
+	if($postvars != null){
+			$data = http_build_query($postvars);
+			;
+		curl_setopt($ch,CURLOPT_POST,true);
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
+	}
+    $content = curl_exec( $ch );
+    $response = curl_getinfo( $ch );
+    curl_close ( $ch );
+	if($returncontents == false){
+		return $response['url'];
+	}
+	else{
+		return $content;
+	}
+	
 	}
 }
 ?>

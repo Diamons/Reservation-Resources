@@ -68,10 +68,10 @@
 					  <li><a href="#editaccount"><i class="icon-user"></i>Edit Account</a></li>
 					 <!-- <li><a href="#trustsandverifications"><i class="icon-ok-circle"></i>Trusts & Verifications</a></li> -->
 					</ul>
-					<!-- <h1>Marketing / Promotion</h1>
+				 <h1>Marketing / Promotion</h1>
 					<ul class="nav nav-list">
 					  <li><a href="#postcraigslist"><i class="icon-share-alt"></i>Post to Craigslist</a></li>
-					</ul> -->
+					</ul> 
 				</div>
 			</div>
 			<div id = "content" class = "span9">

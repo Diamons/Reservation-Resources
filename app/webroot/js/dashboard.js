@@ -18,6 +18,40 @@ $(document).ready(function(){
 		pid = $(this).data('pid')
 		updatePage('managebookings',pid);
 	});
+	
+	$("#container").on("click",'.craigslistPostButton',null,function(){
+		
+		pid = $(this).data('pid');
+	
+		updatePage('postcraigslist',pid);
+	
+	});
+	$("#container").on("click",'#postNowButton',null,function(){
+		var confirmpost = confirm("Please note that it may take up to two minutes to finish the submission process. Please by patient while our servers communicate with craigslist");
+		if(confirmpost){
+		$.ajax({
+			url:getDomain()+"properties/post",
+			data:"area="+$("#cl_locationselect").val()+"&step=1"+"&title="+$("#PropertyTitle").val()+"&description="+$("#PropertyDescription").val(),
+			type:"POST",
+			success:function(html){
+				if(html.success == true){
+					window.open(html.data,'_newtab');
+
+				
+				}
+				else{
+					alert('Something went wrong trying to post to craigslist, however you may finish the submission process');
+					window.open(html.data,'_newtab');
+				}
+			}
+		
+		});
+		}
+	
+	
+	});
+	
+
 	$(document).on("click",'.submitQuickMessage',null,function(event){
 		event.preventDefault();
 		$.ajax({
