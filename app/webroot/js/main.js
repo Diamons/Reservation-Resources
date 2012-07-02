@@ -1,13 +1,7 @@
 $(document).ready(function(){
-	$('.score').raty({
-		readOnly: true,
-		path: getDomain()+'img/',
-		score: function() {
-		return $(this).attr('data-rating');
-	  }
-	});
-	$("#star_rating").raty();
-
+	var highestCol = Math.max($('#header').height(),$('#menu > a').height());
+	$('#header, #menu > a.clearfix').height(highestCol);
+	
 	$( "input[name='checkin'], input[name='checkout'], input.checkin, input.checkout" ).datepicker();
 	$('a#search').click(function(){
 		$("#searchBar").stop(true,true).slideToggle(400);
