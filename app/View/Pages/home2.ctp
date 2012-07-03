@@ -1,60 +1,63 @@
-<div id = "main_slider">
-	<div id = "captions">
-		<span class = "caption">Landlords and Hosts list <em>properties</em></span><br />
-		 <span style = "margin-top: 22px;" class = "caption">Tenants book places to <em>stay</em></span><br /> 
+<?php $this->start('cssTop');
+	echo $this->Html->css('fonts/fontawesome/css/font-awesome');
+$this->end();
+$this->start('scriptBottom');
+		echo $this->Html->script('main_page'); 
+	$this->end();
+?>
+<div id="myCarousel" class="carousel slide">
+	<div class="carousel-inner">
+	  <div class="item">
+		<img src="http://www.zastavki.com/pictures/1280x800/2009/Interior_Design_of_rooms_with_a_fireplace_012365_.jpg" alt="">
+		<div class="carousel-caption">
+		  <h4>First Thumbnail label</h4>
+		  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		</div>
+	  </div>
+	  <div class="item active">
+		<img src="http://www.zastavki.com/pictures/1280x800/2009/Interior_Design_of_rooms_with_a_fireplace_012365_.jpg" alt="">
+		<div class="carousel-caption">
+		  <h4>Second Thumbnail label</h4>
+		  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		</div>
+	  </div>
+	  <div class="item">
+		<img src="http://www.smoothdivscroll.com/images/demo/gnome.jpg" alt="">
+		<div class="carousel-caption">
+		  <h4>Third Thumbnail label</h4>
+		  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		</div>
+	  </div>
 	</div>
-</div>
-<div id = "banners">
-	<a href = "#">
-		<?php echo  $this->Html->image('icons/explore_world.png', array('class' => 'banner')); ?>
-		<?php echo  $this->Html->image('icons/absolutely_free.png', array('class' => 'banner')); ?>
-		<?php echo  $this->Html->image('icons/new_experience.png', array('class' => 'banner')); ?>
-	</a>
+	<a class="left carousel-control" href="#myCarousel" data-slide="prev"><img src="../img/icons/arrow_left.gif" /></a>
+	<a class="right carousel-control" href="#myCarousel" data-slide="next"><img src="../img/icons/arrow_right.gif" /></a>
+  </div>
+<div class="inner" id = "banners">
+	<h2> As Seen on </h2>
+	<img src="../img/press/cnn-bw.png" />
+	<img src="../img/press/nbc-bw.png" />
+	<img src="../img/press/newsweek-bw.png" />
+	<img src="../img/press/tech-crunch-bw.png" />
+	<img src="../img/press/the-new-york-times.png" />
+	<img src="../img/press/wall-street-journal.png" />
 </div>
 <div class = "full" id = "body" role="main">
-	<div id = "features">
-		<div>
-				<h1 class = "letter">How it Works</h1>
-				<div class = "feature_individual">
-					<p>
-						<ul>
-							<li>Search for where you want to stay</li>
-							<p>Start off with a simple search query for where you're looking for a place to stay! Reservation Resources allows you to search over <span class = "important">10,000</span> listings all from one site! </p>
-							<li>Browse, explore, and communicate</li>
-							<p>View various listings in locations from all over the world posted by members like you! Send messages with questions, search by property type and price, and view stunning pictures for rentals all in your budget.</p>
-							<li>Rent and manage your vacation online</li>
-							<p>With a few clicks, you can rent out the places you see online straight from your computer. Await confirmation from the landlord and you're all set!</p>
-						</ul>
-					</p>
+	<div class="inner row-fluid" id = "features">
+		<a href="#">
+			<div class="row-fluid span4">
+				<div class="span4">
+					<i class="image-globe"></i>
 				</div>
-		</div><div>
-			<h1 class = "letter">Features</h1>
-			<div class = "feature_individual">
-				<p>
-					<ul>
-						<li>Search for where you want to stay</li>
-						<p>Start off with a simple search query for where you're looking for a place to stay! Reservation Resources allows you to search over <span class = "important">10,000</span> listings all from one site! </p>
-						<li>Browse, explore, and communicate</li>
-						<p>View various listings in locations from all over the world posted by members like you! Send messages with questions, search by property type and price, and view stunning pictures for rentals all in your budget.</p>
-						<li>Rent and manage your vacation online</li>
-						<p>With a few clicks, you can rent out the places you see online straight from your computer. Await confirmation from the landlord and you're all set!</p>
-					</ul>
-				</p>
+				<div class="text span8">
+					Travel Anywhere, Explore Everywhere
+				</div>
 			</div>
-		</div><div>
-			<h1 class = "letter">Benefits</h1>
-			<div class = "feature_individual">
-				<p>
-					<ul>
-						<li>Search for where you want to stay</li>
-						<p>Start off with a simple search query for where you're looking for a place to stay! Reservation Resources allows you to search over <span class = "important">10,000</span> listings all from one site! </p>
-						<li>Browse, explore, and communicate</li>
-						<p>View various listings in locations from all over the world posted by members like you! Send messages with questions, search by property type and price, and view stunning pictures for rentals all in your budget.</p>
-						<li>Rent and manage your vacation online</li>
-						<p>With a few clicks, you can rent out the places you see online straight from your computer. Await confirmation from the landlord and you're all set!</p>
-					</ul>
-				</p>
-			</div>
+		</a>
+		<div class="span4">
+		
+		</div>
+		<div class="span4">
+		
 		</div>
 	</div>
 </div>

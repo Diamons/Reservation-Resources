@@ -95,7 +95,7 @@ html,body {
 	padding:0;
 	height:100%; /* needed for container min-height */	
 	width: 100%;
-	min-width: 1000px;
+	min-width: 960px;
 	word-wrap: break-word;
 }
 
@@ -327,6 +327,9 @@ div.submit{
 	height: 45px;
 }
 
+body{
+	background-color: #F4F4F4;
+}
 div#container {
 	position:relative; 
 	margin:0 auto;
@@ -336,6 +339,13 @@ div#container {
 	width: 100%;
 	background-color: #F7F7F7;
 	/* background-image:url('../img/xv_pattern.png'); */
+-moz-box-shadow: 0 0 2px #888;
+-webkit-box-shadow: 0 0 2px#888;
+box-shadow: 0 0 2px #888;}
+
+div#container, div#header_container, div#footer_container{
+	max-width: 1600px;
+	margin: auto;
 }
 
 #main_slider{
@@ -389,13 +399,20 @@ div#container {
 
 #banners{
 	text-align: center;
+	border: solid 1px #DCDCDC;
+	border-width: 0 0 1px 0;
+	background: #f1f1f1;
+}
+
+.carousel{
+	margin-bottom: 0;
 }
 
 #banners img{
-	width: 33%;
 	display: inline-block;
 	height: auto;
 	margin-top: -10px;
+	margin-right: 25px;
 }
 #features{
 	text-align: center;
@@ -438,6 +455,33 @@ div#container {
 	float: right;
 }
 
+#features i{
+	font-size: 102px;
+	line-height: 114px;
+	color: #FFF;
+}
+#features > a > div{
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	padding: 5px 20px;
+	background: rgb(157,213,58); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(157,213,58,1) 0%, rgba(161,213,79,1) 50%, rgba(128,194,23,1) 51%, rgba(124,188,10,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(157,213,58,1)), color-stop(50%,rgba(161,213,79,1)), color-stop(51%,rgba(128,194,23,1)), color-stop(100%,rgba(124,188,10,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(157,213,58,1) 0%,rgba(161,213,79,1) 50%,rgba(128,194,23,1) 51%,rgba(124,188,10,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(157,213,58,1) 0%,rgba(161,213,79,1) 50%,rgba(128,194,23,1) 51%,rgba(124,188,10,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(157,213,58,1) 0%,rgba(161,213,79,1) 50%,rgba(128,194,23,1) 51%,rgba(124,188,10,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(157,213,58,1) 0%,rgba(161,213,79,1) 50%,rgba(128,194,23,1) 51%,rgba(124,188,10,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd53a', endColorstr='#7cbc0a',GradientType=0 ); /* IE6-9 */ /* IE6-9 */
+	
+	color: black;
+}
+
+#features .text{
+	padding:7% 0;
+	font-style: italic;
+	font-size: 24px;
+	line-height: 1.5em;
+}
 .notification{
 	color: red;
 	font-weight: bold;
@@ -446,7 +490,6 @@ div#container {
 #body{
 	padding: 25px;
 	width: 100%;
-	max-width: 1140px;
 	margin: 1px auto 0 auto;
 }
 
@@ -521,6 +564,7 @@ footer nav ul{
 }
 
 .full{
+	padding: 0 !important;
 	width: 100% !important;
 	margin: 0 auto 0 auto!important;
 }
@@ -1564,11 +1608,10 @@ color: #F1F1F1;
 
 #header{
 	background-color: #2e353f;
-	-moz-box-shadow: 0 0 5px #888;
-	-webkit-box-shadow: 0 0 5px#888;
-	box-shadow: 0 0 5px #888;
-	height: 65px;
 	background-image: url('../img/header.png');
+	-moz-box-shadow: 0 0 5px #888;
+-webkit-box-shadow: 0 0 5px#888;
+box-shadow: 0 0 5px #888;
 }
 
 #main_body > div{
@@ -1579,7 +1622,7 @@ color: #F1F1F1;
 #logo{
 	width: 200px;
 	height: 45px;
-	display: block;
+	display: inline-block;
 	margin: 10px;
 }
 
@@ -1960,4 +2003,48 @@ border-radius: 2px;
 .search_property .rating{
 	float: right;
 	margin-left: 10px;
+}
+
+.listmyspace{
+	display: block;
+	text-align: center;
+	width: 100%;
+	margin-top: 10px;
+}
+
+html,body{
+	height: 100%;
+}
+
+#container{
+	position:relative; /* needed for footer positioning*/
+	margin:0 auto; /* center, not in IE5 */
+	
+	height:auto !important; /* real browsers */
+	height:100%; /* IE6: treaded as min-height*/
+	padding-bottom: 200px;
+	min-height:100%; /* real browsers */
+}
+
+footer {
+	position:absolute;
+	width:100%;
+	bottom:0; /* stick to bottom */
+}
+
+.carousel-control img{
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	width: 12px;
+	height: 16px;
+	margin-bottom: 14px;
+}
+
+.carousel .item > img {
+	margin: auto;
+	height: 550px;
+	width: 100%;
+}
+
+.carousel .item{
+	background-color: #F5F5F5;
 }

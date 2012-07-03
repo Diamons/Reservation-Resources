@@ -28,12 +28,13 @@
 	<![endif -->
 </head>
 <body>
-	<div id = "container">
+	
 		<?php if(isset($auth) && $auth == true){
 			echo $this->element('Layout\User\header');
 		} else {
 			echo $this->element('Layout\Guest\header');
 		} ?>
+	<div id = "container">
 		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>
 		<?php echo $this->element('Layout\footer'); ?>

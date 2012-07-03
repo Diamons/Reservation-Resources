@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	/*$('.score').raty({
 		readOnly: true,
 		path: getDomain()+'img/',
@@ -7,6 +8,11 @@ $(document).ready(function(){
 	  }
 	});
 	$("#star_rating").raty();*/
+
+
+	var highestCol = Math.max($('#header').height(),$('#menu > a').height());
+	$('#header, #menu > a.clearfix').height(highestCol);
+	
 
 	$( "input[name='checkin'], input[name='checkout'], input.checkin, input.checkout" ).datepicker();
 	$('a#search').click(function(){
