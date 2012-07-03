@@ -20,7 +20,7 @@ App::import('model','Property');
 	}
 	
 	
-	public function quickbook($checkin,$checkout,$guests,$daily,$weekly,$monthly){
+	public function quickbook($checkin,$checkout,$guests,$daily,$weekly,$monthly,$guestprice,$fees = null){
 		
 			$weeks = $this->getDates($checkin,$checkout,"week");
 			$months = $this->getDates($checkin,$checkout,"month");
@@ -43,8 +43,10 @@ App::import('model','Property');
 					}
 		
 			}
-			
-				return $this->getPrice($daily,$weekly,$monthly,$days,$weeks,$months);
+				$totals['subtotal'] = number_format($this->getPrice($daily,$weekly,$monthly,$days,$weeks,$months)+($guests*$guestprice)+ $this->hostFeesRequired($fees),2);
+				$totals['fee'] = number_format($this->rrfee($totals['subtotal']),2);
+				$totals['total'] = number_format($totals['subtotal']+$totals['fee'],2);
+				return $totals;
 			
 		}
 		public function getDates($checkin,$checkout,$type,$check = null){
@@ -82,6 +84,19 @@ App::import('model','Property');
 			$price = ($monthly*$months)+($weekly*$weeks)+($daily*$days);
 			return $price;
 		}
+	public function rrfee($subtotal = null){
+		return $subtotal * FEE;
+	}
+	public function hostFeesRequired($fee = null){
+		$totalfees = 0;
+		foreach($fee as $key => $value){//lets add up all all fee totals except the first fee since that is the guest fee price
+			if($key != 0 && $fee[$key]['required'] == true){
+				$totalfees += $fee[$key]['fee_price'];
+			}
+		}
+		
+		return $totalfees;
+	}
 	public function updateBooking($status){
 		if($status == 'accept'){
 			return 1;//booking accepted so those dates become unavailable
@@ -99,6 +114,13 @@ App::import('model','Property');
 			$email->sender('noreply@reservationresources.com')->to($owner['User']['username'])->subject($subject)->send(); 
 
 	
+	
+	}
+	public function notifyGuest($username,$template,$subject){
+			$email = new CakeEmail('smtp');
+			//$email->viewVars(array('first' => $owner['User']['first_name'],'last' => $owner['User']['last_name']));
+			$email->template($template, 'email_layout')->emailFormat('html');
+			$email->sender('noreply@reservationresources.com')->to($username)->subject($subject)->send(); 
 	
 	}
 }

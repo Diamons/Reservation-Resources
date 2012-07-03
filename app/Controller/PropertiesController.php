@@ -15,9 +15,16 @@
 				$this->Property->set('user_id',$this->Auth->user('id'));
 				$this->Property->set('status','0');
 				if($this->data['Image']){
+					$this->Property->set('default_image',$this->data['Image'][0]);
 					$property_pictures = $this->data['Image'];//set property pictures array
 				}
 				if($this->Property->save($this->request->data)){
+					$this->loadModel('Fee');//lets set the default extra guest fee for saving
+					$this->Fee->set('property_id',$this->Property->id);
+					$this->Fee->set('fee_name','fee per extra guest');
+					$this->Fee->set('fee_price','0.00');
+					$this->Fee->set('required','0');
+					$this->Fee->save();
 					$this->Property->createPropertyFolder($this->Property->id,$this->Auth->user('id'),$property_pictures);
 					if($property_pictures){
 						if($this->Property->handleImage($this->Property->id,$this->Auth->user('id'),$property_pictures)){
@@ -71,9 +78,13 @@
 					
 				}
 				else{
-					
+					if(isset($this->data['Image'])){
+						//Debugger::log($this->data['Image']);
+						$this->request->data['Property']['default_image'] = $this->data['Image'][0] ;//we will set it to index 0 for now until we add default image functionality
+					}
 					if($this->Property->saveAssociated($this->request->data)){
 						if(isset($this->data['Image'])){
+							//Debugger::log($this->data['Image']);
 							$this->Property->handleImage($property_id,$this->Auth->user('id'),$this->data['Image']);
 						}
 						$this->Session->setFlash('Congrats! Your property has been updated');
@@ -88,7 +99,7 @@
 		
 		}
 		public function quickbook(){
-			$this->loadModel('Booking');//since model are lazy loaded we need to load the reservation model at this point
+			$this->loadModel('Booking');//since model are lazy loaded we need to load the booking model at this point
 			$this->autoLayout = FALSE;
 			$this->layout = 'ajax';
 			$response = array('success'=>false);
@@ -100,7 +111,7 @@
 				$property = $this->Property->read();//need to retrieve price information
 				$guest = $this->request->data['guest'];
 				if($property['Property']['minimum_stay'] <= $this->Booking->getDates($checkin,$checkout,"interval",null)){
-					$response['data'] = $this->Booking->quickbook($checkin,$checkout,$guest,$property['Property']['price_per_night'],$property['Property']['price_per_week'],$property['Property']['price_per_month']);
+					$response['data'] = $this->Booking->quickbook($checkin,$checkout,$guest,$property['Property']['price_per_night'],$property['Property']['price_per_week'],$property['Property']['price_per_month'],$property['Fee'][0]['fee_price'],$property['Fee']);
 					$response['success'] = true;
 					return $this->AjaxHandler->respond('json',$response);
 				}
@@ -115,10 +126,7 @@
 			}
 		}
 		
-		public function testbooking(){
-		
-		
-		}
+
 		public function post(){
 			$this->autoLayout = FALSE;
 			$this->layout = 'ajax';

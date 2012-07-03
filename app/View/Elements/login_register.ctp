@@ -13,8 +13,8 @@
 			<div class = "features_block"><h1>Don't have an account? <span class = "highlight">Register</span> today! It's free!</h1></div>
 			<?php 
 				echo $this->Form->create('User', array('id' => 'UserRegister', 'class' => 'formee','action' =>'register'));
-				echo $this->Form->input('username');
-				echo $this->Form->input('confirm_username');
+				echo $this->Form->input('username',array('label'=>'Email'));
+				echo $this->Form->input('confirm_username',array('label'=>'Confirm Email'));
 				echo $this->Form->input('first_name');
 				echo $this->Form->input('last_name');
 				echo $this->Form->input('password', array('type' => 'password'));

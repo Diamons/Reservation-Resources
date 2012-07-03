@@ -146,7 +146,9 @@ class PaypalHelper extends AppHelper {
    * @return Html form button and close form
    */
   private function __submitButton($text){
-    return "</div>" . $this->Form->end(array('label' => $text));
+  //set label false back to $text to return to original text
+  //array('label' => false,'id'=>'paypal_checkout')
+    return "</div>" . $this->Form->end();
   }
 
   /**

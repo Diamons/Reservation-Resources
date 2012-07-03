@@ -27,7 +27,7 @@ class PaypalIpnConfig {
   var $testSettings = array(
     'business' => 'elliot_1321458499_biz@reservationresources.com', //'sandbox_email@paypal.com',
     'server' => 'https://www.sandbox.paypal.com',
-    'notify_url' => 'http://108.54.179.101/cakephp/paypal_ipn/process', //'http://www.yoursite.com/paypal_ipn/process',
+    'notify_url' => 'http://108.6.2.67/cakephp/paypal_ipn/process', //'http://www.yoursite.com/paypal_ipn/process',
     'currency_code' => 'USD',
     'lc' => 'US',
     'item_name' => 'Paypal_IPN',

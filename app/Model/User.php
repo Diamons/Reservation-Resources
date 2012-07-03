@@ -66,6 +66,48 @@ App::import('Vendor', 'Uploader.Uploader');
 				'rule' => 'notEmpty',
 				'message' => 'Ooops! I think you forgot your last name'
 			)
+		),
+		'phone' => array(
+			'phone_mus_be_valid' =>array(
+				'rule' => array('phone', null, 'us'),
+				'message' => 'Please provide a valid contact number in case of an emergency'
+			)
+		
+		),
+		'address' => array(
+			'address_not_empty' =>array(
+				'rule' => 'notEmpty',
+				'message' => 'Please provide and address in case we need to contact you'
+			)
+		
+		),
+		'city' => array(
+			'city_not_empty' =>array(
+				'rule' => 'notEmpty',
+				'message' => 'Please provide your current city'
+			)
+		
+		),
+		'state' => array(
+			'state_not_empty' =>array(
+				'rule' => 'notEmpty',
+				'message' => 'Please provide your state'
+			)
+		
+		),
+		'zip' => array(
+			'state_not_empty' =>array(
+				'rule' => array('postal', null, 'us'),
+				'message' => 'Please enter a valid US zipcode'
+			)
+		
+		),
+		'country' => array(
+			'country_not_empty' =>array(
+				'rule' => 'notEmpty',
+				'message' => 'Please provide your country'
+			)
+		
 		)
 	);
 	

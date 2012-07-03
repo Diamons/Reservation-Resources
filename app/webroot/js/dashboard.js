@@ -35,7 +35,7 @@ $(document).ready(function(){
 			type:"POST",
 			success:function(html){
 				if(html.success == true){
-					window.open(html.data,'_newtab');
+					window.open(html.data,'_blank');
 
 				
 				}
@@ -189,6 +189,7 @@ $(document).on("click", ".sendmessage", function(event){
 		
 			if(data.success == true){
 				leaveMessage(bid,status);
+				
 			
 			}
 			else{

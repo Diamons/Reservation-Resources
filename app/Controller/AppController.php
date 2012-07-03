@@ -79,15 +79,16 @@ class AppController extends Controller {
 		$this->InstantPaymentNotification->save();
 		$this->Booking->id = $transaction['InstantPaymentNotification']['custom'];
 		$this->Booking->set('status',0);
+		$this->Booking->set('subtotal',$transaction['InstantPaymentNotification']['mc_gross']-($transaction['InstantPaymentNotification']['mc_gross'] * FEE));
 		$this->Booking->set('instant_payment_notification_id',$transaction['InstantPaymentNotification']['id']);
 		if($this->Booking->save()){
 			$this->Booking->sendNotification($transaction['InstantPaymentNotification']['item_number'],'new_booking','Congrats! Your space has been booked!');//lets email landlord letting them know that they just received a booking on their property
 		}
 		
     }
-    else {
-		$this->Booking->sendNotification($transaction['InstantPaymentNotification']['item_number'],'declined','Your transaction has been declined');
+    //else {
+		//$this->Booking->sendNotification($transaction['InstantPaymentNotification']['item_number'],'declined','Your transaction has been declined');
         //Oh no, better look at this transaction to determine what to do; like email a decline letter.
-    }
+    //}
 } 
 }

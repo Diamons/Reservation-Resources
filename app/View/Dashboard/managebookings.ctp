@@ -6,7 +6,7 @@
 		<!-- DATA-ID = USER ID OF THE PERSON BOOKING -->
 		<?php foreach($property['Booking'] as $key => $value){?>
 		<?php 	if($property['Booking'][$key]['user_id'] != AuthComponent::user('id')){ ?>
-		<div>
+		<div class = 'personDiv'>
 		<div data-id = "<?php echo $property['Booking'][$key]['User']['id']; ?>" class = "person" data-startDate = "<?php echo $property['Booking'][$key]['start_date']; ?>" data-endDate = "<?php echo $property['Booking'][$key]['end_date']; ?>"> 
 			<div class = "row-fluid booking_person">
 				<div class = "span3">

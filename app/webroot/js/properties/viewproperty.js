@@ -42,51 +42,7 @@ $(document).ready(function(){
 
 
 });
-function quickbook(){
-	
-		var checkout = new Date($("#BookingEndDate").val());
-		var checkin = new Date($("#BookingStartDate").val());
-		var guest = $("#BookingGuest").val();
-		if((checkin != null) &&(checkout != null) && (checkout >= checkin)){
-		
-			$.ajax({
-				type:"POST",
-				data:"checkin="+$("#BookingStartDate").val()+"&checkout="+$("#BookingEndDate").val()+"&guest="+guest+'&pid='+$('#BookingPropertyId').val(),
-				url:getDomain()+"properties/quickbook",
-				success:function(data){
-					if(data.success == true){
-						$("#price").text("$"+data.data).css('color','green');
-					}
-					else{
-						$("#price").text("The minimum stay restrictions is "+data.data+" days").effect('pulsate').css('color','red');
-					}
-				}
-			});
-		}
-	
-	}
-$('#easybook').on('click',function(){
-	var status = checkLoginStatus();
-	if(status == true ){
-		$.ajax({
-			type:"POST",
-			data:$("#BookingEasybookForm").serialize(),
-			url:getDomain()+"bookings/easybook",
-			success:function(data){
-				if(data.success == true){
-					alert('Dates successfully saved');
-				}
-				else{
-					alert('Dates not saved!!!!!');
-				}
-		
-			}
-		})
-	
-	}
 
-
-});
 $('.contact_me').on('click',function(){
 	status = checkLoginStatus();
 	if(status == true){
@@ -110,7 +66,29 @@ $(document).on('submit','#MessageSubmitMessageForm',null,function(event){
 		});
 });
 
-
+function quickbook(){
+	
+		var checkout = new Date($("#BookingEndDate").val());
+		var checkin = new Date($("#BookingStartDate").val());
+		var guest = $("#BookingGuest").val();
+		if((checkin != null) &&(checkout != null) && (checkout >= checkin)){
+		
+			$.ajax({
+				type:"POST",
+				data:"checkin="+$("#BookingStartDate").val()+"&checkout="+$("#BookingEndDate").val()+"&guest="+guest+'&pid='+$('#BookingPropertyId').val(),
+				url:getDomain()+"properties/quickbook",
+				success:function(data){
+					if(data.success == true){
+						$("#price").text("$"+data.data).css('color','green');
+					}
+					else{
+						$("#price").text("The minimum stay restrictions is "+data.data+" days").effect('pulsate').css('color','red');
+					}
+				}
+			});
+		}
+	
+	}
 
 
 

@@ -152,16 +152,7 @@ App::uses('File', 'Utility');
 			return $images; 
 	}
 
-	protected function _findNearest($currentStatus, $query, $results=array()){
-		if($currentStatus=="before"){
-			$coordinates = $query['coordinates'];
-			$query['conditions'] = "(3959 * acos(cos(radians(".$coordinates['lat'].")) * cos(radians(Property.latitude)) * cos(radians(Property.longitude) - radians(".$coordinates['long'].")) + sin(radians(".$coordinates['lat'].")) * sin(radians(Property.latitude)))) <=".$coordinates['miles'];
-			return $query;
-			
-		} elseif($currentStatus=="after"){
-			return $results;
-		}
-	}
+
 	public function postToCraigslist($area = null, $step = null,$title = null,$description = null ,$url = null){
 
 		//initial request
@@ -213,9 +204,12 @@ App::uses('File', 'Utility');
 			$html  = file_get_html($step_five);//lets get the hood form we will choose to bypass this step if the form gets returned
 			
 			$form = $html->find('form');
+			
 			$form_action = $form[0]->action;
 			$form =  $html->find('[type=radio]');
+			
 			$hood_name = $form[0]->name;
+		
 			$hood_value = '0';
 			$form = $html->find('[type=hidden]');
 			$hidden_name = $form[0]->name;

@@ -24,15 +24,6 @@ $(document).ready(function(){
 		$("#captions #location").text(location);
 		count++;
 	}
-//google autocomplete
-var elementId= document.getElementById("searchField")
-var autocomplete = new google.maps.places.Autocomplete(elementId);
-google.maps.event.addListener(autocomplete, 'place_changed', function() {
- var place = autocomplete.getPlace();
-		
-		$(elementId).val(place.formatted_address);
 
 
- });
-//end google autocomplete
 });
