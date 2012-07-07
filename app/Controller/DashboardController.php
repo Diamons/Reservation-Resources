@@ -5,6 +5,9 @@
 			$this->layout = "ajax";
 		}
 		
+		public function testemail(){
+			$this->layout = "Emails\html\email_layout";
+		}
 		public function index(){
 			$this->layout = "dashboard";
 		}

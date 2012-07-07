@@ -29,9 +29,10 @@ $(document).ready(function(){
 	$("#container").on("click",'#postNowButton',null,function(){
 		var confirmpost = confirm("Please note that it may take up to two minutes to finish the submission process. Please by patient while our servers communicate with craigslist");
 		if(confirmpost){
+			$("#content").html("<img id = 'loading' src = '"+getDomain()+"img/loading.gif' />");
 		$.ajax({
 			url:getDomain()+"properties/post",
-			data:"area="+$("#cl_locationselect").val()+"&step=1"+"&title="+$("#PropertyTitle").val()+"&description="+$("#PropertyDescription").val(),
+			data:"area="+$("#cl_locationselect").val()+"&step=1"+"&title="+$("#PropertyTitle").val()+"&description="+$("#PropertyDescription").val()+"&pid="+$("#PropertyId").val(),
 			type:"POST",
 			success:function(html){
 				if(html.success == true){

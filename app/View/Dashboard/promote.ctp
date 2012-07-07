@@ -2,10 +2,11 @@
 //Debugger::log($property);
 //Debugger::log($images);
 ?>
-<div id = "craigslistForm">
+<div class="inner" id = "craigslistForm">
 
 <?php 
-echo $this->Form->create('Property',array('action'=>'posttocraigslist'));
+echo $this->Form->create('Property',array('class' => 'formee', 'action'=>'posttocraigslist'));
+echo $this->Form->input("Property.id", array('type' => 'hidden', 'value' => $property['Property']['id']));
 echo $this->Html->image('../images/'.AuthComponent::user('id').'/'.$property['Property']['id'].'/'.$images['big']['0'],array('class'=>'profile_picture'));
 echo $this->Form->input('title',array('value'=>$property['Property']['title']));
 echo $this->Form->input('description',array('value'=>$property['Property']['description'],'type'=>'textarea'));
@@ -767,7 +768,7 @@ echo $this->Form->input('description',array('value'=>$property['Property']['desc
 <option value="702">zanesville / cambridge
 <option value="112">zurich
 </select>
-<input type = "button" class = 'btn btn-large btn-success' value = 'Post Now!' id= "postNowButton">
+<input style="float: right; " type = "button" class = 'btn btn-large btn-success' value = 'Post Now!' id= "postNowButton">
 
 
 </div>
