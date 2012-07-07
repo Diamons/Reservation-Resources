@@ -5,6 +5,7 @@
 			<?php echo $this->Form->input('Search', array('id' => 'searchStart', 'placeholder' => 'Start your search here...')); ?>
 		</div>
 		<div class="span4">
+
 		
 			<div id="menu">	
 				<a class="clearfix" href="#"><?php echo $this->Html->image('icons/Support.png', array('class' => 'sub_icon')); ?><div>Support</div></a>

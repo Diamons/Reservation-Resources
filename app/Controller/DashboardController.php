@@ -74,9 +74,9 @@
 		private function __managereservations(){
 			$this->loadModel('Reservation');
 			$this->Reservation->contain(array('Booking'=>array('User','Property')));
-			$paidbookings = $this->Reservation->find('all',array('conditions'=>array('Reservation.host_id ='=>$this->Auth->user('id'),'Reservation.status = '=> 2)));//this will select paid all bookings paid for a particular host if it was declined or accepted will be checked in view file
+			$paidbookings = $this->Reservation->find('all',array('conditions'=>array('Reservation.user_id ='=>$this->Auth->user('id'),'Reservation.status = '=> 2)));//this will select paid all bookings paid for a particular host if it was declined or accepted will be checked in view file
 			$this->set('confirmedbooking',$paidbookings);
-			//Debugger::log($paidbookings[0]['Booking']);
+			Debugger::log($paidbookings);
 			$this->render('managereservations');
 		}
 		private function __editaccount(){

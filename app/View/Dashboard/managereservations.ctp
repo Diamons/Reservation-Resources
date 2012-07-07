@@ -33,7 +33,7 @@
 			</div>
 			<div class="big_dates span3">
 				Total Payment<br>
-				<b><?php echo "$".$confirmedbooking[$key]['Reservation']['total_amount']; ?></b>
+				<b><?php echo "$".$confirmedbooking[$key]['Booking']['subtotal']; ?></b>
 			</div>
 		</div>
 		<br />

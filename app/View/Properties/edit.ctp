@@ -133,6 +133,7 @@
 	<fieldset id = "additionalFees">
 		<legend>Fees</legend>
 	<?php
+	
 		//debug($this->request->data); 
 		foreach($this->request->data['Fee'] as $key => $value){
 			echo $this->Form->input('Fee.'.$key.'.fee_name',array('label'=>'Fee Name'));

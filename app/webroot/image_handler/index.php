@@ -23,7 +23,7 @@ header('X-Content-Type-Options: nosniff');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: OPTIONS, HEAD, GET, POST, PUT, DELETE');
 header('Access-Control-Allow-Headers: X-File-Name, X-File-Type, X-File-Size');
-if($_SERVER['HTTP_REFERER'] == "http://localhost/cakephp/properties" ){
+if($_SERVER['HTTP_REFERER'] == "http://localhost/cakephp/properties/" ){
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'OPTIONS':
         break;
