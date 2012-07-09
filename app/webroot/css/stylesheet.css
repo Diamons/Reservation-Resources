@@ -2048,3 +2048,7 @@ footer {
 .carousel .item{
 	background-color: #F5F5F5;
 }
+
+#pageName{
+	display: none;
+}

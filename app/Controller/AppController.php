@@ -90,5 +90,20 @@ class AppController extends Controller {
 		//$this->Booking->sendNotification($transaction['InstantPaymentNotification']['item_number'],'declined','Your transaction has been declined');
         //Oh no, better look at this transaction to determine what to do; like email a decline letter.
     //}
-} 
+	}
+
+	function abTest($path){
+		App::uses('Folder', 'Utility');
+		App::uses('File', 'Utility');
+		$path = $path->request->params;
+		$Folder = new Folder('../View/'.$path['controller']);
+		
+		//If home, gets tricky. Manually set action to home.
+		if($path['action'] == "display")
+			$path['action'] = "home";
+		
+		//Find all with the name of the action, return a random entry.
+		$files = $Folder->find("^(".$path['action'].").*", true);
+		return str_replace(".ctp", "", $files[array_rand($files, 1)]);
+	}
 }

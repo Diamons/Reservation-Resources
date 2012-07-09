@@ -1,15 +1,4 @@
 $(document).ready(function(){
-
-
-	function changeImage(index){
-		$(cur[index]).fadeIn().delay(delayTime-200).fadeOut(400);
-		var price = $(cur[index]).data('price');
-		var location = $(cur[index]).data('location');
-		$("#captions #price").text(price);
-		$("#captions #location").text(location);
-		count++;
-	}
-
 	var highestCol = Math.max($('#features > div').height());
 	$('#features > div').height(highestCol);
 	
@@ -81,4 +70,6 @@ $("#longtitude").val( place.geometry.location.lng());
 	$("#searchresultsForm").submit();
  
  });
+});
+
 });

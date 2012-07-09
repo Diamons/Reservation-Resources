@@ -135,7 +135,7 @@
 			$this->autoLayout = FALSE;
 			$this->layout = 'ajax';
 			$response = array('success'=>false);
-			$html = $this->Property->postToCraigslist($this->request->data('area'),$this->request->data('step'),$this->request->data('title'),$this->request->data('description'),null);
+			$html = $this->Property->postToCraigslist($this->request->data('area'),$this->request->data('step'),$this->request->data('title'),$this->request->data('description'),null, $this->request->data('pid'));
 			$response['success'] = true;
 			$response['data'] = $html;
 			

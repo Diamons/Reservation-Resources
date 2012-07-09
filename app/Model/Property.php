@@ -152,13 +152,21 @@ App::uses('File', 'Utility');
 			return $images; 
 	}
 
-
+	protected function _findNearest($currentStatus, $query, $results=array()){
+		if($currentStatus=="before"){
+			$coordinates = $query['coordinates'];
+			$query['conditions'] = "(3959 * acos(cos(radians(".$coordinates['lat'].")) * cos(radians(Property.latitude)) * cos(radians(Property.longitude) - radians(".$coordinates['long'].")) + sin(radians(".$coordinates['lat'].")) * sin(radians(Property.latitude)))) <=".$coordinates['miles'];
+			return $query;
+			
+		} elseif($currentStatus=="after"){
+			return $results;
+		}
+	}
 	public function postToCraigslist($area = null, $step = null,$title = null,$description = null ,$url = null){
 
 		//initial request
 		if($url == null){
 			$server_output = $this->get_url('https://post.craigslist.org/c',null,false);//return initial content ie. select your area
-			
 		}
 		//lets get the area contents
 		if(isset($area) && $step == 1){
@@ -183,6 +191,7 @@ App::uses('File', 'Utility');
 			$hidden_value = $form[0]->value;
 			$step_three = $this->get_url($form_action,array($hidden_name=>$hidden_value,'id'=>'ho'),false);//we select housing offered option
 			$html = file_get_html($step_three);//get vacation rental form
+			
 			$form = $html->find('form');
 			$form_action = $form[0]->action;
 			$form = $html->find('[type=hidden]');
@@ -197,6 +206,7 @@ App::uses('File', 'Utility');
 			$form = $html->find('[type=hidden]');
 			$hidden_name = $form[0]->name;
 			$hidden_value = $form[0]->value;
+			Debugger::log($html->plaintext);
 			$form =  $html->find('[type=radio]');
 			$sub_area_name = $form[0]->name;
 			$sub_area_value = '1';
@@ -255,6 +265,11 @@ App::uses('File', 'Utility');
 		}
 		
 	
+	
+	}
+	
+	private function __getViewHtml($page, $variables){
+		
 	}
 	public function get_url( $url, $postvars = null, $returncontents = false){
 	$url = str_replace( "&amp;", "&", urldecode(trim($url)) );
