@@ -9,7 +9,13 @@ $(document).ready(function(){
 	});
 	$("#star_rating").raty();*/
 
-
+	/* ANALYTICS */
+		mixpanel.track("Page loaded", {"page name" : document.title, "url" : window.location.pathname, "pageVariation" : $("#pageName").text()});
+		$("#listmyspace").click(function(){
+			mixpanel.track("List My Space Clicked", {"page name" : document.title, "url" : window.location.pathname, "pageVariation" : $("#pageName").text()});
+		});
+	/* END ANALYTICS */
+	
 	var highestCol = Math.max($('#header').height(),$('#menu > a').height());
 	$('#header, #menu > a.clearfix').height(highestCol);
 	

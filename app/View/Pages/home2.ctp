@@ -5,6 +5,8 @@ $this->start('scriptBottom');
 		echo $this->Html->script('main_page'); 
 	$this->end();
 ?>
+<div id="pageName">home2</div>
+
 <div id="myCarousel" class="carousel slide">
 	<div class="carousel-inner">
 	  <div class="item">
@@ -29,17 +31,17 @@ $this->start('scriptBottom');
 		</div>
 	  </div>
 	</div>
-	<a class="left carousel-control" href="#myCarousel" data-slide="prev"><img src="../img/icons/arrow_left.gif" /></a>
-	<a class="right carousel-control" href="#myCarousel" data-slide="next"><img src="../img/icons/arrow_right.gif" /></a>
+	   <a class="left carousel-control" href="#myCarousel" data-slide="prev"><?php echo $this->Html->image('icons/arrow_left.gif'); ?></a>
+       <a class="right carousel-control" href="#myCarousel" data-slide="next"><?php echo $this->Html->image('icons/arrow_right.gif'); ?></a>
   </div>
 <div class="inner" id = "banners">
 	<h2> As Seen on </h2>
-	<img src="../img/press/cnn-bw.png" />
-	<img src="../img/press/nbc-bw.png" />
-	<img src="../img/press/newsweek-bw.png" />
-	<img src="../img/press/tech-crunch-bw.png" />
-	<img src="../img/press/the-new-york-times.png" />
-	<img src="../img/press/wall-street-journal.png" />
+	<?php echo $this->Html->image('press/cnn-bw.png'); ?>
+	<?php echo $this->Html->image('press/newsweek-bw.png'); ?>
+	<?php echo $this->Html->image('press/tech-crunch-bw.png'); ?>
+	<?php echo $this->Html->image('press/the-new-york-times.png'); ?>
+	<?php echo $this->Html->image('press/wall-street-journal.png'); ?>
+
 </div>
 <div class = "full" id = "body" role="main">
 	<div class="inner row-fluid" id = "features">

@@ -6,6 +6,8 @@
 		echo $this->Html->css('main_page');
 	$this->end();
 ?>
+<div id="pageName">home1</div>
+
 <div class="row-fluid main_search inner">
 	<div style="padding-top:15px;" class="span9">
 		<h1>Search for Places to Stay: </h1>
@@ -45,8 +47,8 @@
                 </div>
               </div>
             </div>
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><img src="img/icons/arrow_left.gif" /></a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next"><img src="img/icons/arrow_right.gif" /></a>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><?php echo $this->Html->image('icons/arrow_left.gif'); ?></a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next"><?php echo $this->Html->image('icons/arrow_right.gif'); ?></a>
           </div>
 	</div>
 	<div class="action span3">
