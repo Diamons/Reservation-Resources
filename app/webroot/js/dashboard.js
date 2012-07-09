@@ -31,7 +31,7 @@ $(document).ready(function(){
 		if(confirmpost){
 		$.ajax({
 			url:getDomain()+"properties/post",
-			data:"area="+$("#cl_locationselect").val()+"&step=1"+"&title="+$("#PropertyTitle").val()+"&description="+$("#PropertyDescription").val(),
+			data:"area="+$("#cl_locationselect").val()+"&step=1"+"&title=test"+"&description="+$("#userbody").html(),
 			type:"POST",
 			success:function(html){
 				if(html.success == true){

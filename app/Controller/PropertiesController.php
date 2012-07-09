@@ -7,7 +7,7 @@
 		public function beforeFilter(){
 			parent::beforeFilter();
 				$this->Auth->allow('index', 'viewproperty','quickbook');
-				$this->AjaxHandler->handle('quickbook','post');
+				$this->AjaxHandler->handle('quickbook','post','comment');
 				$this->Cookie->time = 31536000; // cookie valid for one year before expiration  
 		}
 		public function index(){
@@ -28,18 +28,18 @@
 					$this->Property->createPropertyFolder($this->Property->id,$this->Auth->user('id'),$property_pictures);
 					if($property_pictures){
 						if($this->Property->handleImage($this->Property->id,$this->Auth->user('id'),$property_pictures)){
-							$this->Session->setFlash('Awesome! Your property is live! :)');
+							$this->Session->setFlash('Awesome! Your property is live! :)','flash_success');
 						}
 						else{
-							$this->Session->setFlash('Your property is live, but we could not upload your images at this time. Sorry for the inconvenience. You can add images by clicking on edit in your property information page');
+							$this->Session->setFlash('Your property is live, but we could not upload your images at this time. Sorry for the inconvenience. You can add images by clicking on edit in your property information page','flash_success');
 						}
 					}
 					else{
-						$this->Session->setFlash('Awesome! Your property is live!. You can add pictures later if you like in your property page.');
+						$this->Session->setFlash('Awesome! Your property is live!. You can add pictures later if you like in your property page.','flash_success');
 					}
 				}
 				else{
-						$this->Session->setFlash('Oops! It seems you may have some incorrect fields');
+						$this->Session->setFlash('Oops! It seems you may have some incorrect fields','flash_error');
 				}
 			}
 	
@@ -65,7 +65,11 @@
 				$this->Property->updateAll(array('Property.viewcount'=>'Property.viewcount+1'), array('Property.id'=>$property_id));
 				$this->Cookie->write('viewed', 'true',false);
 				
-			}
+			}//lets set if the review button should be generated or not
+			//the button gets displayed if a reservation is created and todays date is > than booking start date and they have not left a review before.
+			$this->loadModel('Reservation');
+			$reservations = $this->Reservation->find('all',array('conditions'=>array('Reservation.user_id'=>$this->Auth->user('id'),'Reservation.property_id'=>$property_id)));
+			Debugger::log($reservations);
 		}
 		public function edit($property_id = null){
 			$this->Property->id = $property_id;
@@ -136,6 +140,36 @@
 			$response['data'] = $html;
 			
 			return $this->AjaxHandler->respond('json',$response);
+		
+		}
+		public function comment($pid = null){
+			$this->autoLayout = false;
+			$this->layout = 'ajax';
+			if($this->request->data){
+				$this->loadModel('Review');
+				$this->Review->set('review',$this->request->data['comment']);
+				
+				if($this->Review->save($this->request->data)){
+				//we save the comment first along with rating then requery database to get an updated avg then save the property model with the updated avg
+					$avg = $this->Review->find( 'all',array('conditions' => array( 'Review.property_id' => $this->request->data['Review']['property_id'] ),'recursive' => 0,'fields'=> array( 'AVG( Review.rating) AS average')));
+					$response['success'] = true;
+					$this->Property->id = $this->request->data['Review']['property_id'];
+					//Debugger::log($avg[0][0]['average']);
+					
+					$this->Property->set('rating',$avg[0][0]['average']);
+					$this->Property->save();
+					//$response['data'] = $avg;
+					
+				}
+				else{
+					$response['success'] = false;
+				}
+				return $this->AjaxHandler->respond('json',$response);
+			}
+			else{
+				$this->set('pid',$pid);
+				$this->render('/elements/comment');
+			}
 		
 		}
 

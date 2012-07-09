@@ -1,6 +1,7 @@
 <?php
 	$this->start('scriptBottom');
-		echo $this->Html->script(array('../slider/slider.min', 'properties/viewproperty', 'smoothscroll')); 
+		echo $this->Html->script(array('../slider/slider.min','jquery.raty.min', 'properties/viewproperty', 'smoothscroll')); 
+	
 	$this->end();
 ?>
 <?php 
@@ -43,7 +44,7 @@
 
 					<p><?php echo nl2br($property['Property']['description']); ?></p>
 				</div>
-				<a href = "#"><div class = "book_now">
+				<a href = "<?php echo $this->webroot.'bookings/bookroom/'.$property['Property']['id']; ?>"><div class = "book_now">
 					Book Now
 					<h2>(Starting at <?php if(!empty($property['Property']['price_per_night'])){
 						echo "$".$property['Property']['price_per_night']." per night";
@@ -67,7 +68,7 @@
 			<div class = "span6">
 				<?php echo $this->Html->image('icons/calendar.png'); ?> 
 				<h3>Quick Book</h3> 
-				<div class = "big_date"><?php echo $this->Form->create('Booking', array('inputDefaults' => array('div' => false, 'label' => false),'action'=>'easybook'));
+				<div class = "big_date"><?php echo $this->Form->create('Booking', array('inputDefaults' => array('div' => false, 'label' => false),'action'=>'bookroom/'.$property['Property']['id'],'id'=>'easyBookForm'));
 					echo $this->Form->input('start_date', array('type'=>'text','onChange'=>'javscript:quickbook();','class' => 'checkin', 'placeholder' => 'Check In Date'));
 					echo $this->Form->input('end_date', array('type'=>'text','onChange'=>'javascript:quickbook();','class' => 'checkout', 'placeholder' => 'Check Out Date'));
 						$guestsCount = array(0 => '0 Guest', 1 => '1 Guest', 2 => '2 Guests', 3 => '3 Guests', 4 => '4 Guests', 5 => '5 Guests');
@@ -195,29 +196,38 @@
 		</div>
 		<div class = "span8">
 		<a name = "reviews"></a>
+		
 			<h1>User Reviews</h1>
+			<div>
+			
+			<div style = "float:right;width:250px;" class="book_now small_book" id="comment"  data-pid = "<?php echo $property['Property']['id']; ?>" >Leave a  Review</div>
+			
+			</div>
 			<?php foreach ($property['Review'] as $key => $value ){?>
 			<div class = "row-fluid comment">
 				<div class = "span4">
 					<?php 
 					if(isset($property['Review'][$key]['User']['profile_picture'])){
-							echo $this->Html->image($property['Review'][$key]['User']['profile_picture']); 
+							echo $this->Html->image($property['Review'][$key]['User']['profile_picture'],array('class'=>'commenter')); 
 						}
 						else{
 						
-							echo $this->Html->image('anonymous.jpg');
+							echo $this->Html->image('anonymous.jpg',array('class'=>'commenter'));
 						}
 					
 					?> 
 					<h1><?php echo $property['Review'][$key]['User']['first_name']. " ".$property['Review'][$key]['User']['last_name']; ?></h1>
 					<div class = "text">
 						Posted <?php echo date('F d Y',strtotime($property['Review'][$key]['created'])) ?><br />
-						Rating: <?php  echo $property['Review'][$key]['rating']; ?>
+						Rating: <div class = "score" data-rating= '<?php  echo $property['Review'][$key]['rating']; ?>' > </div> 
+						
+						
+
 					</div>
 				</div>
 				<div class = "span8">
-					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+					<p><?php  echo $property['Review'][$key]['review']; ?>'</p>
+	
 				</div>
 			</div>
 			<?php }?>

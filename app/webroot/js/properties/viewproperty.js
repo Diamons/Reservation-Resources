@@ -53,6 +53,48 @@ $('.contact_me').on('click',function(){
 
 
 });
+$('#easybook').on('click',function(){
+	status = checkLoginStatus();
+	if(status == true){
+		$("#easyBookForm").submit();
+	}
+
+});
+$(document).on('click','#comment',null,function(){
+	var pid = $(this).data('pid');
+	status = checkLoginStatus();
+	if(status == true){
+		openLightBox(getDomain()+"properties/comment/"+pid, "Leave Property Review", 980,350);
+	
+	
+	}
+
+});
+$(document).on('click','#submitCommentButton',null,function(){
+	var  html = $('pre').html();
+	var comment = $(html).text();
+//	var rating = $('#rating').val();
+	//alert(comment);
+	//alert(rating);
+	$.ajax({
+		url:getDomain()+"properties/comment/",
+		data: $("#PropertyCommentForm").serialize()+'&comment='+comment,
+		type:'POST',
+		success:function(data){
+			if(data.success == true){
+				
+				Shadowbox.close();
+				alert('Review submitted');
+			}
+			else{
+				Shadowbox.close();
+				alert('We could not submitt your review at this time.');
+			}
+		}
+	
+	});
+
+});
 $(document).on('submit','#MessageSubmitMessageForm',null,function(event){
 	event.preventDefault();
 		$.ajax({
@@ -79,7 +121,7 @@ function quickbook(){
 				url:getDomain()+"properties/quickbook",
 				success:function(data){
 					if(data.success == true){
-						$("#price").text("$"+data.data).css('color','green');
+						$("#price").text("$"+data.data.subtotal).css('color','green');
 					}
 					else{
 						$("#price").text("The minimum stay restrictions is "+data.data+" days").effect('pulsate').css('color','red');
@@ -89,6 +131,21 @@ function quickbook(){
 		}
 	
 	}
+/*$('.score').raty({
+		readOnly: true,
+		
+		score: function() {
+		return $(this).attr('data-rating');
+	  }
+	});*/
+$('.score').raty({
+  readOnly : true,
+  score    :  function() {
+		return $(this).attr('data-rating');
+	  },
+  path: getDomain()+'img/',
+});
+//$('#star').raty();
 
 
 

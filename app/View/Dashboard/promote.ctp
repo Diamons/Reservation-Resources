@@ -1,20 +1,177 @@
 <?php 
 //Debugger::log($property);
 //Debugger::log($images);
+
 ?>
 <div id = "craigslistForm">
 
 <?php 
-echo $this->Form->create('Property',array('action'=>'posttocraigslist'));
-echo $this->Html->image('../images/'.AuthComponent::user('id').'/'.$property['Property']['id'].'/'.$images['big']['0'],array('class'=>'profile_picture'));
-echo $this->Form->input('title',array('value'=>$property['Property']['title']));
-echo $this->Form->input('description',array('value'=>$property['Property']['description'],'type'=>'textarea'));
+//echo $this->Form->create('Property',array('action'=>'posttocraigslist'));
+//echo $this->Html->image('../images/'.AuthComponent::user('id').'/'.$property['Property']['id'].'/'.$images['big']['0'],array('class'=>'profile_picture'));
+//echo $this->Form->input('title',array('value'=>$property['Property']['title']));
+//echo $this->Form->input('description',array('value'=>$property['Property']['description'],'type'=>'textarea'));
 
 
  ?>
 
 
 <?php echo $this->Form->end(); ?>
+
+
+
+
+
+
+
+ <div id="userbody">
+    <div>
+      <b><font size="4">Interested? Got a question? <a href=
+      "http://www.reservationresources.com/properties/viewproperty/<?php echo $property['Property']['id']; ?>" rel=
+      "nofollow">Contact me here</a></font></b>
+    </div>
+
+    <table width="100%">
+      <tr>
+        <td align="left">
+          <div>
+		  	   
+       
+          </div>
+        </td>
+      </tr>
+	    <tr>
+                <td valign="top">
+                  <div style = "height:400px;">
+                    <a href=
+                    "http://www.reservationresources.com/properties/viewproperty<?php echo $property['Property']['id']; ?>"
+                    rel="nofollow"><img alt="<?php echo $property['Property']['title']; ?> height="330"
+                    src=" <?php echo $this->webroot.'images/'.$property['Property']['user_id'].'/'.$property['Property']['id'].'/'.$property['Property']['default_image']; ?> " width=
+                    "445" /></a>
+					<div style = "position:relative;left:450px;bottom:360px;">
+							     <div>
+                    <b><font size="5">Description</font></b>
+                  </div>
+
+                  <div>
+                    <font size="2"><?php echo  nl2br(substr($property['Property']['description'],0,200)); ?> <a href=
+                    "http://www.reservationresources.com/properties/viewproperty/<?php echo $property['Property']['id']; ?>"
+                    rel="nofollow">Read full description</a>.</font>
+                  </div>
+				     <div>
+                    <b><font size="6"><?php echo $property['Property']['privacy']; ?></font></b>
+                  </div><br />
+				
+                  </div>
+				  <div style = "position:relative; left:820px; bottom:550px;">
+				    	  <?php if(!empty($property['Property']['price_per_night'])){ ?>
+                        <div>
+                          <b><font size="6">$<?php echo $property['Property']['price_per_night']; ?>/per night</font></b>
+                        </div>
+
+                  
+						<?php } else{
+									if(!empty($property['Property']['price_per_week'])){ ?>
+									<div>
+										<b><font size="6">$<?php echo $property['Property']['price_per_week']; ?>/per week</font></b>
+									</div>
+
+								
+						
+						<?php 	} else{ ?>
+								<div>
+									<b><font size="6">$<?php echo $property['Property']['price_per_month']; ?>/per month</font></b>
+								</div>
+
+						<?php } 
+						
+							} ?>
+					       <ul>
+                          <li style="list-style: none; display: inline">
+                            <div>
+                             <b> <font size="2">Includes:</font></b>
+                            </div>
+                          </li>
+						<?php if(!empty($property['Amenity']['bedroom_amenities'])){
+							$bedroom_amenities = explode(';',$property['Amenity']['bedroom_amenities']);
+							
+							foreach($bedroom_amenities as $key => $value){
+							
+						?>
+                         <li><?php echo $this->Html->image('success-amenity-icon.png'); ?><font size="2"><?php echo $value." bed"; ?></font></li>
+						<?php }} ?>
+                         	<?php if(!empty($property['Amenity']['kitchen_amenities'])){
+							$kitchen_amenities = explode(';',$property['Amenity']['kitchen_amenities']);
+							
+							foreach($kitchen_amenities as $key => $value){
+							
+						?>
+                         <li><?php echo $this->Html->image('success-amenity-icon.png'); ?><font size="2"><?php echo $value; ?></font></li>
+						<?php }} ?>
+
+                       <?php if(!empty($property['Amenity']['electronic_amenities'])){
+							$electronic_amenities = explode(';',$property['Amenity']['electronic_amenities']);
+							
+							foreach($electronic_amenities as $key => $value){
+							
+						?>
+                         <li><?php echo $this->Html->image('success-amenity-icon.png'); ?><font size="2"><?php echo $value; ?></font></li>
+						<?php }} ?>
+					 <?php if(!empty($property['Amenity']['service_amenities'])){
+							$service_amenities = explode(';',$property['Amenity']['service_amenities']);
+							
+							foreach($service_amenities as $key => $value){
+							
+						?>
+                         <li><?php echo $this->Html->image('success-amenity-icon.png'); ?><font size="2"><?php echo $value; ?></font></li>
+						<?php }} ?>
+					 <?php if(!empty($property['Amenity']['additional_amenities'])){
+							$additional_amenities = explode(';',$property['Amenity']['additional_amenities']);
+							
+							foreach($additional_amenities as $key => $value){
+							
+						?>
+                         <li><?php echo $this->Html->image('success-amenity-icon.png'); ?><font size="2"><?php echo $value; ?></font></li>
+						<?php }} ?>
+                        </ul>
+						</div>
+				</div>
+		
+			
+				  <br />
+		
+				  <br />
+                </td>
+				
+ 
+            
+              </tr>
+	  
+	
+    </table>
+	
+	  	<?php
+		$counter = 1;//this will keep track of the inner for loop to interate of the pictures where we last left off
+		for($i = 0; $i < 4; $i++){
+		if($i % 2 == 0){
+		?>
+                    
+		<?php for ($x = 1; $x <=2; $x++){?>
+					
+        <a href=
+          "http://reservationresources.com/properties/viewproperty/<?php echo $property['Property']['id']; ?>"
+           rel="nofollow"><img alt="Large" height="144" src=
+           "<?php echo $this->webroot.'images/'.$property['Property']['user_id'].'/'.$property['Property']['id'].'/'.$images['big'][$counter]; ?>" width=
+              "216" /></a>
+			<?php 
+			$counter++;
+						
+			} 
+		?>
+				
+                
+	<?php } }?>
+  </div>
+
 <b>Area</b>: 
 
 <select id ="cl_locationselect">
@@ -767,7 +924,11 @@ echo $this->Form->input('description',array('value'=>$property['Property']['desc
 <option value="702">zanesville / cambridge
 <option value="112">zurich
 </select>
+
+
+
 <input type = "button" class = 'btn btn-large btn-success' value = 'Post Now!' id= "postNowButton">
 
 
 </div>
+

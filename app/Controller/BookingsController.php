@@ -16,11 +16,7 @@
 			$this->Property->id = $propertyid;
 			$property = $this->Property->read();
 			$this->set('property',$property);
-			/*$this->User->id = $this->Auth->user('id');
-			$this->User->contain(array());
-			$user = $this->User->read();
-			$this->set('user',$user);*/
-			//Debugger::log($property);
+		
 		}
 		public function calendar(){
 			$this->loadModel('Property');

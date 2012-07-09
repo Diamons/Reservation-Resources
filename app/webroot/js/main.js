@@ -1,13 +1,6 @@
 $(document).ready(function(){
 
-	/*$('.score').raty({
-		readOnly: true,
-		path: getDomain()+'img/',
-		score: function() {
-		return $(this).attr('data-rating');
-	  }
-	});
-	$("#star_rating").raty();*/
+
 
 
 	var highestCol = Math.max($('#header').height(),$('#menu > a').height());
@@ -23,7 +16,8 @@ $(document).ready(function(){
 	});
 	Shadowbox.init({
 		handleOversize: "drag",
-		modal: true
+		modal: true,
+		enableKeys:false
 	});	
 	$(document).on("click", "#sb-overlay", function(){
 		Shadowbox.close();

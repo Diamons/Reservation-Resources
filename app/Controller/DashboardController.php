@@ -88,7 +88,7 @@
 		private function __postcraigslist($pid = null){
 			if(isset($pid)){
 				$this->loadModel('Property');
-				$this->Property->contain('User');
+				$this->Property->contain('User','Amenity');
 				$this->Property->id = $pid;
 				$property = $this->Property->read();
 				$images = $this->Property->findPropertyImages($this->Auth->user('id'),$pid);

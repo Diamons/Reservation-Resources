@@ -10,7 +10,7 @@
 	<div style="padding-top:15px;" class="span9">
 		<h1>Search for Places to Stay: </h1>
 		<input id="searchMain" placeholder="Start searching by zip code, city, or country here..." type="text" />
-		<input type="button" class="search_button btn btn-large btn-success" value="Search Places to Stay" />
+		<input type="button" id = "bigGreenSearchButton" class="search_button btn btn-large btn-success" value="Search Places to Stay" />
 	</div>
 	<div class="action span3">
 		<h1>List your Space</h1>
