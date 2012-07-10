@@ -1,12 +1,13 @@
 <?php
 	class UsersController extends AppController{
+	 public $components = array('Password');
 		public function beforeRender()
 		{
 			parent::beforeRender();
 			
 		}
 		public function beforeFilter() {
-			$this->Auth->allow('register','index','login','checkloginstatus', 'getloginpage', 'viewuser');
+			$this->Auth->allow('register','index','login','checkloginstatus', 'getloginpage', 'viewuser','forgotpassword');
 			$this->AjaxHandler->handle('register','login','checkloginstatus', 'getloginpage');
 		}
 		public function index(){
@@ -91,11 +92,11 @@
 		public function edit(){
 			if($this->request->data){
 				if($this->User->save($this->request->data)){
-					$this->Session->setFlash('Sweet! Your profile has been updated');
+					$this->Session->setFlash('Sweet! Your profile has been updated','flash_success');
 					$this->redirect($this->referer(),null,true);
 				}
 				else{
-					$this->Session->setFlash('Sorry! We could not update your profile at this time');
+					$this->Session->setFlash('Sorry! We could not update your profile at this time','flash_error');
 					$this->redirect($this->referer(),null,true);
 				}
 			}
@@ -104,6 +105,28 @@
 		
 		public function profile($id=NULL){
 			$user=$this->User->read(NULL, $id);
+		}
+		
+		public function forgotpassword(){
+			if($this->request->is('post')){
+				$exists = $this->User->find('first', array('conditions' => array('User.username' => $this->request->data['User']['username'])));
+				if(!empty($exists)){
+					// generate random password then email
+					$password = $this->Password->generatePassword();
+					$this->User->id = $exists['User']['id'];
+					if($this->User->saveField('password',$this->Auth->password($password),false)){
+						//send email
+						$this->User->passwordReset($exists['User']['username'],$exists['User']['first_name'],$password);
+						$this->Session->setFlash('Your temporary password has been emailed to you. We recommend that you log into your account immediately and change your password','flash_success');
+						$this->redirect(array('action'=>'index'));
+					}
+				
+				}
+				else{
+					$this->Session->setFlash('That username was not found on our system','flash_error');
+				}
+			}
+		
 		}
 
 	}

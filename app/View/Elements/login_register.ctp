@@ -6,6 +6,10 @@
 				echo $this->Form->create('User', array('class' => 'formee','action'=>'login'));
 				echo $this->Form->input('username', array('id' => 'UsernameLogin'));
 				echo $this->Form->input('password', array('type' => 'password', 'id' => 'UserPassword'));
+			?>
+	
+			<?php
+				echo $this->Html->link('Forgot Password',array('controller'=>'users','action'=>'forgotpassword'));
 				echo $this->Form->end(array('label'=>'Login','id'=>'loginbutton'));
 				
 			?>

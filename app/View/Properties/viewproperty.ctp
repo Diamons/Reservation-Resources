@@ -83,8 +83,8 @@
 				<div class = "small">
 					Subtotal
 				</div>
-				<a href = "#">
-					<div id = "easybook" class = "book_now small_book">
+				<a  id = "easybook">
+					<div  class = "book_now small_book">
 						Book Now
 					</div>
 				</a>
@@ -157,8 +157,9 @@
 		<a name = "amenities"></a>
 			<h1>Amenities and Other Accommodations</h1>
 			<?php
-			if(!empty($property['Amenity']['bedroom_amenities'])){
+			if(!empty($property['Amenity']['bedroom_amenities'][0])){
 				echo $this->Html->image('icons/bed.png');
+				Debugger::log($property['Amenity']);
 			?>
 			<ul class = "bed_type amenities_list">
 				<?php foreach($property['Amenity']['bedroom_amenities'] as $key => $value ){?>
@@ -197,11 +198,11 @@
 		<div class = "span8">
 		<a name = "reviews"></a>
 		
-			<h1>User Reviews</h1>
+			<h1>(<?php echo count($property['Review']); ?>) User Reviews</h1>
 			<div>
-			
-			<div style = "float:right;width:250px;" class="book_now small_book" id="comment"  data-pid = "<?php echo $property['Property']['id']; ?>" >Leave a  Review</div>
-			
+			<?php if($reviewButton == true && $auth == true){ ?>
+				<div style = "float:right;width:250px;" class="book_now small_book" id="comment"  data-pid = "<?php echo $property['Property']['id']; ?>" >Leave a  Review</div>
+			<?php } ?>
 			</div>
 			<?php foreach ($property['Review'] as $key => $value ){?>
 			<div class = "row-fluid comment">

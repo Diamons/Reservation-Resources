@@ -8,7 +8,7 @@ App::uses('File', 'Utility');
 	public $findMethods = array('nearest' => true);
 	public $belongsTo = array('User'=>array('counterCache'=>true));
 	public $hasOne = 'Amenity';
-	public $hasMany = array('Booking','Fee','Review','Topic');
+	public $hasMany = array('Booking','Fee','Review'=>array('order'=>'id DESC'),'Topic');
 	public $validate = array(
 		'address'=>array(
 			'address_not_empty'=>array(

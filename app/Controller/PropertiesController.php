@@ -69,7 +69,21 @@
 			//the button gets displayed if a reservation is created and todays date is > than booking start date and they have not left a review before.
 			$this->loadModel('Reservation');
 			$reservations = $this->Reservation->find('all',array('conditions'=>array('Reservation.user_id'=>$this->Auth->user('id'),'Reservation.property_id'=>$property_id)));
-			Debugger::log($reservations);
+			if(!empty($reservations)){
+				$last_booking = end($reservations);
+				$date = strtotime($last_booking['Booking']['start_date']);
+				$today = strtotime('now');
+					if($today > $date){
+						$this->set('reviewButton',true);
+					}
+					else{
+						$this->set('reviewButton',false);
+					}
+			}
+			else{
+				$this->set('reviewButton',false);
+			}
+		
 		}
 		public function edit($property_id = null){
 			$this->Property->id = $property_id;

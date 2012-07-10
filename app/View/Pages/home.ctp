@@ -6,7 +6,7 @@
 		echo $this->Html->css('main_page');
 	$this->end();
 ?>
-<div id="pageName">home1</div>
+
 
 <div class="row-fluid main_search inner">
 	<div style="padding-top:15px;" class="span9">

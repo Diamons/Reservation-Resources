@@ -6,7 +6,7 @@
 <div class="inner" id = "craigslistForm">
 
 <?php 
-<<<<<<< HEAD
+
 
 echo $this->Form->create('Property',array('class' => 'formee', 'action'=>'posttocraigslist'));
 echo $this->Form->input("Property.id", array('type' => 'hidden', 'value' => $property['Property']['id']));

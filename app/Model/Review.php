@@ -2,5 +2,6 @@
 	class Review extends AppModel{
 		public $name = 'Review';
 		public $belongsTo = 'User';
+		
 	}
 ?>

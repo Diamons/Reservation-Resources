@@ -48,6 +48,17 @@
 			</div>
 			<div class="inner row-fluid">
 				<div class="small h1 span6">
+					<h1>Change Password</h1>
+				</div>
+				<div class="span6">
+				<?php
+					echo $this->Form->input('password', array('type' => 'password'));
+					echo $this->Form->input('password_confirmation', array('type' => 'password'));
+				?>
+				</div>
+			</div>
+			<div class="inner row-fluid">
+				<div class="small h1 span6">
 					<h1>Profile Picture</h1>
 				</div>
 				<div class="span6">

@@ -5,7 +5,7 @@ $this->start('scriptBottom');
 		echo $this->Html->script('main_page'); 
 	$this->end();
 ?>
-<div id="pageName">home2</div>
+
 
 <div id="myCarousel" class="carousel slide">
 	<div class="carousel-inner">

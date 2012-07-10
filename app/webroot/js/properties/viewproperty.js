@@ -53,7 +53,7 @@ $('.contact_me').on('click',function(){
 
 
 });
-$('#easybook').on('click',function(){
+$(document).on('click','#easybook',function(){
 	status = checkLoginStatus();
 	if(status == true){
 		$("#easyBookForm").submit();

@@ -148,6 +148,12 @@ App::import('Vendor', 'Uploader.Uploader');
 		$dir = new Folder();//default constructor sets up a path to directory instance NOT create!
 		$dir->create(WWW_ROOT.'images'.DS.$id);
 	}
+	public function passwordReset($username,$first,$password){
+			$email = new CakeEmail('smtp');
+			$email->viewVars(array('first'=>$first,'password'=>$password));
+			$email->template('password_reset', 'email_layout')->emailFormat('html');
+			$email->sender('noreply@reservationresources.com')->to($username)->subject('Password Reset')->send(); 
+	}
 	
 
 }

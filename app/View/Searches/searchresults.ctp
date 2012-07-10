@@ -40,7 +40,7 @@ $this->end(); ?>
 				?>
 
 					<div class="rating">
-						<div class="score" data-rating=3"></div>
+						<div class="score" data-rating="<?php echo $property['Property']['rating']; ?>"></div>
 					</div>
 					<div class="inner name"><?php echo $this->Html->link($property['Property']['title'],array('controller'=>'properties','action'=>'viewproperty',$property['Property']['id']));?> </a>
 					<span class="small"><i class="icon-map-marker"></i><?php echo $property['Property']['city'].",".$property['Property']['state']; ?></span></div>
