@@ -18,6 +18,11 @@ $(document).ready(function(){
 		pid = $(this).data('pid')
 		updatePage('managebookings',pid);
 	});
+	/*$("#container").on("click",'.sendmessage',null,function(){
+		
+		tid = $(this).data('tid')
+		updatePage('sendMessage',tid);
+	});*/
 	
 	$("#container").on("click",'.craigslistPostButton',null,function(){
 		

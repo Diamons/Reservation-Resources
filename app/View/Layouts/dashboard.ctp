@@ -79,13 +79,7 @@ mixpanel.init("70faf422e52c65fa1676846b8ccfba19");</script><!-- end Mixpanel -->
 				</div>
 			</div>
 			<div id = "content" class = "span9">
-			<div id="breadcrumb">
-					<?php
-						  $this->Html->addCrumb('Menu',  '/menus') ; 
-						  $this->Html->addCrumb('SubMenu' ,  '/menus/submenu' , array('class' => 'breadcrumblast')); 
-						  echo $this->Html->getCrumbs('  > ', 'Home');
-					 ?>
-			</div>
+
 				<?php echo $this->Session->flash(); ?>
 				<?php echo $this->fetch('content'); ?>
 			</div>
