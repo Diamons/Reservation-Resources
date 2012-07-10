@@ -63,6 +63,10 @@
 			}
 		}
 		
+		private function __sendmessage(){
+			$this->render('sendmessage');
+		}
+		
 		private function __allBookings(){
 			$this->loadModel('Reservation');
 			$this->Reservation->contain(array('Booking'=>array('User')));
