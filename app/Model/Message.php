@@ -1,23 +1,43 @@
 <?php
 App::uses('CakeEmail', 'Network/Email');
-	class Message extends AppModel{
+App::uses('Topic', 'Model');
+
+
+class Message extends AppModel{
 		public $name = 'Message';
 		public $belongsTo = 'User';
 		
 		
-		/*public function afterSave($created){
+	public function afterSave($created){
 			if($created){
-			//$this->loadModel('ModelName');
-			Debugger::log($this->data);
-			//$email = new CakeEmail('smtp');
-			//$email->viewVars(array('title' =>$this->data['Property']['title']));
-			//$email->template('new_message', 'email_layout')->emailFormat('html');
-			//$email->sender('noreply@reservationresources.com')->to(AuthComponent::user('username'))->subject('You have a new message on Reservation Resources!')->send(); 
+			$topic = new Topic();
+			//Debugger::log($this->data);
+			$topic_id = $topic->read(null,$this->data['Message']['topic_id']);
+		
+			if($this->data['Message']['user_id'] == $topic_id['Topic']['from_user_id']){
+				//get from user email
+					
+				$useremail  = $this->User->read(null,$topic_id['Topic']['to_user_id']);
+			
+			}
+			else{
+				//get from user email
+				
+				$useremail  = $this->User->read(null,$topic_id['Topic']['from_user_id']);
+	
+		
+			}	
+			//Debugger::log($useremail);			
+			$email = new CakeEmail('smtp');
+			$email->viewVars(array('first' =>$useremail['User']['first_name']));
+			$email->template('message_reply', 'email_layout')->emailFormat('html');
+			$email->sender('noreply@reservationresources.com')->to($useremail['User']['username'])->subject('You have a new message on Reservation Resources!')->send(); 
+		
 		
 			}
 		
 		
-		}*/
+		}
 
 	
 	}

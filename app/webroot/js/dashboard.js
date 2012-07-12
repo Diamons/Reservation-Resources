@@ -18,11 +18,11 @@ $(document).ready(function(){
 		pid = $(this).data('pid')
 		updatePage('managebookings',pid);
 	});
-	/*$("#container").on("click",'.sendmessage',null,function(){
+	$("#container").on("click",'.viewthread',null,function(){
 		
 		tid = $(this).data('tid')
-		updatePage('sendMessage',tid);
-	});*/
+		updatePage('viewthread',tid);
+	});
 	
 	$("#container").on("click",'.craigslistPostButton',null,function(){
 		
@@ -71,6 +71,26 @@ $(document).ready(function(){
 				Shadowbox.close();
 			}
 			
+		});
+	});
+	$(document).on("click",'#reply',null,function(){
+	
+		//alert('hello');
+		$.ajax({
+			type:"POST",
+			data:$("#MessageReplyForm").serialize(),
+			url: getDomain()+"messages/reply/",
+			success:function(data){
+				if(data.success == true){
+					alert('Message Sent!');
+					
+				}
+				else{
+					alert('Something went wrong we could not deliver your message');
+				}
+			
+			}
+		
 		});
 	});
 	

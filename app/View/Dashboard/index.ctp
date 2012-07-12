@@ -4,9 +4,7 @@
 	<div class="alert alert-block alert-error fade in">
             <button type="button" class="close" data-dismiss="alert">x</button>
             <h4 class="alert-heading">Oh snap! You got an error!</h4>
-			<?php if($session->check('Message.flash'))
-					echo $session->flash(); 
-			?>
+
             <p>
               <a class="btn btn-danger" href="#">Take this action</a> <a class="btn" href="#">Or do this</a>
             </p>

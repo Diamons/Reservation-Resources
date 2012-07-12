@@ -60,14 +60,14 @@
 			?></a>
 		</div>
 		<div class = "topics span6">
-			<a href = "#">RE: <?php echo $topics[$key]['Property']['title']; ?> </a>
+			<a href = "#" class = 'viewthread' data-tid = "<?php echo $topics[$key]['Topic']['id']; ?>" >RE: <?php echo $topics[$key]['Property']['title']; ?> </a>
 			<a href = "#"><span class = "small">Last Message From: <?php  end($topics[$key]['Message']); $pointer = key($topics[$key]['Message']); echo $topics[$key]['Message'][$pointer]['User']['first_name']. " ". $topics[$key]['Message'][$pointer]['User']['last_name'] ; ?> </span></a>
 			<p class = "subtext">
 				<?php echo substr($topics[$key]['Message'][$pointer]['message'], 0, 70); ?>
 			</p>
 		</div>
 		<div class = "span3">
-			<b>Received: </b><?php echo $topics[$key]['Topic']['modified']; ?> 
+			<b>Received: </b><?php echo $topics[$key]['Message'][$pointer]['created']; ?> 
 		</div>
 	</div>
 	<?php 	}

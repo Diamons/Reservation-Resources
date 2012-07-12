@@ -3,7 +3,7 @@
 	
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->AjaxHandler->handle('submitMessage');
+		$this->AjaxHandler->handle('submitMessage','reply');
 	} 
 	
 	function sendMessage($rid,$status){//this function retrieves booking send message element. All updating wll be done in booking controller
@@ -62,5 +62,19 @@
 		
 	//	Debugger::log($this->request->data);
 	}
+	
+	public function reply(){
+		if($this->Message->save($this->request->data)){
+			$response['success'] = true;
+			$response['data'] = $this->request->data['Message']['message'];
+			$response['code'] = $this->request->data['Message']['user_id'];
+		}
+		else{
+			$response['success'] = false;
+		}
+		return $this->AjaxHandler->respond('json',$response);
+	
+	}
+
 }
 ?>

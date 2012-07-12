@@ -32,6 +32,15 @@
 			$this->set('topics',$topics);
 			$this->render('inbox');
 		}
+		private function __viewthread($tid = null){
+			$this->loadModel('Message');
+			$this->Message->bindModel(array('belongsTo'=>array('User')));
+			$message = $this->Message->find('all',array('conditions'=>array('Message.topic_id'=>$tid)));
+			$this->set('message',$message);
+			$this->set('topic_id',$tid);
+			//Debugger::log($message[0]['User']);
+			$this->render('viewthread');
+		}
 		private function __deleted(){
 			$this->loadModel('Topic');
 			$this->loadModel('Message');//need to load this model to temprorary bind user so we can get the last message;
@@ -63,10 +72,7 @@
 			}
 		}
 		
-		private function __sendmessage(){
-			$this->render('sendmessage');
-		}
-		
+
 		private function __allBookings(){
 			$this->loadModel('Reservation');
 			$this->Reservation->contain(array('Booking'=>array('User')));

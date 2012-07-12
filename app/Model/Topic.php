@@ -6,7 +6,7 @@ App::uses('User','User');
 	public $hasMany = 'Message';
 	public $belongsTo = 'Property';
 	
-	public function afterSave($created){
+	/*public function afterSave($created){
 		
 		if($created){
 			$user = new User();
@@ -18,6 +18,6 @@ App::uses('User','User');
 			$email->sender('noreply@reservationresources.com')->to($property_owner['User']['username'])->subject('You have a new message on Reservation Resources!')->send(); 
 		
 		}
-	}
+	}*/
 }
 ?>

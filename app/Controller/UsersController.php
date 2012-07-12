@@ -90,12 +90,14 @@
 			$this->render('/elements/User/viewuser');
 		}
 		public function edit(){
+			$this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password'] );
 			if($this->request->data){
-				if($this->User->save($this->request->data)){
+				if($this->User->save($this->request->data,false)){
 					$this->Session->setFlash('Sweet! Your profile has been updated','flash_success');
 					$this->redirect($this->referer(),null,true);
 				}
 				else{
+				//Debugger::log($this->User->validationErrors);
 					$this->Session->setFlash('Sorry! We could not update your profile at this time','flash_error');
 					$this->redirect($this->referer(),null,true);
 				}
