@@ -11,9 +11,11 @@ $(document).ready(function(){
 	var highestCol = Math.max($('.search_property > div > img').height(),$('.search_property .user_profile').height());
 	$('.search_property > div > img, .search_property .user_profile').height(highestCol);
 	
-$('.contact_me').on('click',function(){
+$('.contact_me').on('click',function(event){
 	status = checkLoginStatus();
-	if(status == true){
+	//alert(status);
+	if(status){
+	
 		var pid = $(this).data('pid');
 		openLightBox(getDomain()+"messages/contactform/"+pid, "Contact Host", 980,275);
 	}

@@ -9,8 +9,17 @@
 			echo $this->Form->input('search', array('id' => 'searchStart', 'placeholder' => 'Start your search here...'));
 			echo $this->Form->input('latitude',array('type'=>'hidden'));
 			echo $this->Form->input('longtitude',array('type'=>'hidden'));
+			if(isset($city)){
+			echo $this->Form->input('city',array('type'=>'hidden','value'=>$city));
+			}else{
 			echo $this->Form->input('city',array('type'=>'hidden'));
+			}
+			if(isset($state)){
+			echo $this->Form->input('state',array('type'=>'hidden','value'=>$state));
+			}
+			else{
 			echo $this->Form->input('state',array('type'=>'hidden'));
+			}
 			echo $this->Form->end();
 
 

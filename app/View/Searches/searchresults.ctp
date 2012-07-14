@@ -66,6 +66,8 @@ $this->end(); ?>
 				</div>
 			</div>
 		</div>
-		<?php } ?>
+		<?php } 
+			echo $this->element('/Search/cl_search_results',array('results'=>$clresults,'city'=>$city,'state'=>$state));
+		?>
 	</div>
 </div>

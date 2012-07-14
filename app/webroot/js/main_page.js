@@ -72,4 +72,3 @@ $("#longtitude").val( place.geometry.location.lng());
  });
 });
 
-});

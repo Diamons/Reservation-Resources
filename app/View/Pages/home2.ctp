@@ -10,24 +10,72 @@ $this->start('scriptBottom');
 <div id="myCarousel" class="carousel slide">
 	<div class="carousel-inner">
 	  <div class="item">
-		<img src="http://www.zastavki.com/pictures/1280x800/2009/Interior_Design_of_rooms_with_a_fireplace_012365_.jpg" alt="">
+		<?php echo $this->Html->image('/img/home/home1.jpg'); ?>
 		<div class="carousel-caption">
-		  <h4>First Thumbnail label</h4>
-		  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		  <h4>Beautiful vacation rental baja california</h4>
+		  <p>Luxury vacation rental in the heart of baja.</p>
 		</div>
 	  </div>
 	  <div class="item active">
-		<img src="http://www.zastavki.com/pictures/1280x800/2009/Interior_Design_of_rooms_with_a_fireplace_012365_.jpg" alt="">
+			<?php echo $this->Html->image('/img/home/home2.jpg'); ?>
 		<div class="carousel-caption">
-		  <h4>Second Thumbnail label</h4>
-		  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		  <h4>On the beach</h4>
+		  <p>Relax and enjoy our beautiful sunsets! Just one hour south of San Diego. </p>
 		</div>
 	  </div>
 	  <div class="item">
-		<img src="http://www.smoothdivscroll.com/images/demo/gnome.jpg" alt="">
+		<?php echo $this->Html->image('/img/home/home3.jpg'); ?>
 		<div class="carousel-caption">
-		  <h4>Third Thumbnail label</h4>
-		  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		  <h4>Private House</h4>
+		  <p>Family constructed home</p>
+		</div>
+	  </div>
+	  	  <div class="item">
+		<?php echo $this->Html->image('/img/home/home4.jpg'); ?>
+		<div class="carousel-caption">
+		  <h4>Private Retreat</h4>
+		  <p>Welcome to luxury</p>
+		</div>
+	  </div>
+	  	  <div class="item">
+		<?php echo $this->Html->image('/img/home/home5.jpg'); ?>
+		<div class="carousel-caption">
+		  <h4>The place to stay and enjoy</h4>
+		  <p>For the guest</p>
+		</div>
+	  </div>
+	  	  <div class="item">
+		<?php echo $this->Html->image('/img/home/home6.jpg'); ?>
+		<div class="carousel-caption">
+		  <h4>Cozy and modern</h4>
+		  <p>The kitchen is fully equipped, crockery and utensils are included. Continental breakfast is included too.</p>
+		</div>
+	  </div>	  <div class="item">
+		<?php echo $this->Html->image('/img/home/home7.jpg'); ?>
+		<div class="carousel-caption">
+		  <h4>Come relax</h4>
+		  <p>In the heart of brazil</p>
+		</div>
+	  </div>
+	  	  <div class="item">
+		<?php echo $this->Html->image('/img/home/home8.jpg'); ?>
+		<div class="carousel-caption">
+		  <h4>Enjoy your stay upstate NY</h4>
+		  <p>Lovely place to stay and keep warm when it gets cold</p>
+		</div>
+	  </div>
+	  	  <div class="item">
+		<?php echo $this->Html->image('/img/home/home9.jpg'); ?>
+		<div class="carousel-caption">
+		  <h4>Gorgous luxury villa</h4>
+		  <p>Coconut Grove,Fl</p>
+		</div>
+	  </div>
+	  	  <div class="item">
+		<?php echo $this->Html->image('/img/home/home10.jpg'); ?>
+		<div class="carousel-caption">
+		  <h4>Entire House</h4>
+		  <p>California</p>
 		</div>
 	  </div>
 	</div>
