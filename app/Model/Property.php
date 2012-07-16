@@ -121,7 +121,7 @@ App::uses('File', 'Utility');
 				$image = imagecreatefromjpeg('image_handler/files/'.$value);
 				$size = getimagesize('image_handler/files/'.$value);
 				$dest_x = $size[0] - $watermark_width - 5;
-				$dest_y = $size[1] - $watermark_height - 650;
+				$dest_y = $size[1] - $watermark_height - 400;
 				imagecopymerge($image, $watermark, $dest_x, $dest_y, 0, 0, $watermark_width, $watermark_height, 100);  
 				imagejpeg($image,'images/'.$userid.'/'.$propertyid.'/'.$value,100); //output new image with watermark
 				imagedestroy($image);//clear from ram

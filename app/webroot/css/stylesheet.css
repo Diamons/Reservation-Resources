@@ -328,11 +328,16 @@ div.submit{
 }
 
 body{
-	background-color: #F4F4F4;
+	background-color: #DDD;
 }
+div#container, div#header_container, div#footer_container, footer{
+	max-width: 1600px;
+	margin: auto;
+}
+
 div#container {
 	position:relative; 
-	margin:0 auto;
+	margin:2px auto;
 	/*height:auto !important; 
 	height:100%;
 	min-height:100%; */ 
@@ -343,10 +348,6 @@ div#container {
 -webkit-box-shadow: 0 0 2px#888;
 box-shadow: 0 0 2px #888;}
 
-div#container, div#header_container, div#footer_container{
-	max-width: 1600px;
-	margin: auto;
-}
 
 #main_slider{
 	text-align: center;
@@ -494,16 +495,9 @@ div#container, div#header_container, div#footer_container{
 }
 
 footer {
-	position:relative;
-	width:100%;
-	bottom:0; /* stick to bottom */
 	min-height: 200px;
-	/*background-color: #001D30;*/
-	color: #FFFFFF;
-	background-image:url('../img/dark_pattern.png');
-	border-style: solid;
-	border-width: 3px 0 0 0;
-	border-color: #ff8a00;
+	color: #777;
+
 }
 
 footer > div.inner_footer{
@@ -521,8 +515,7 @@ footer div > p{
 }
 
 footer .social_media{
-	position: absolute;
-	right: 0;
+	float: right;
 	padding: 10px 20px 0 0;
 }
 
@@ -1607,8 +1600,14 @@ color: #F1F1F1;
 }
 
 #header{
-	background-color: #2e353f;
-	background-image: url('../img/header.png');
+	background: rgb(7,157,200); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(7,157,200,1) 0%, rgba(0,118,191,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(7,157,200,1)), color-stop(100%,rgba(0,118,191,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(7,157,200,1) 0%,rgba(0,118,191,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(7,157,200,1) 0%,rgba(0,118,191,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(7,157,200,1) 0%,rgba(0,118,191,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(7,157,200,1) 0%,rgba(0,118,191,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#079dc8', endColorstr='#0076bf',GradientType=0 ); /* IE6-9 */
 	-moz-box-shadow: 0 0 5px #888;
 -webkit-box-shadow: 0 0 5px#888;
 box-shadow: 0 0 5px #888;
@@ -1688,8 +1687,18 @@ box-shadow: inner 0 0 26px #AAA;
 
 #menu{
 	text-align: right;
-	height: 65px;
 	position: relative;
+	background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(236,236,236,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(236,236,236,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(236,236,236,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(236,236,236,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(236,236,236,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(236,236,236,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ececec',GradientType=0 ); /* IE6-9 */
+box-shadow: 0 0 10px #000;
+-moz-box-shadow: 0 0 10px #000;
+-webkit-box-shadow: 0 0 10px #000;
 }
 
 #menu > .item{
@@ -1698,7 +1707,6 @@ box-shadow: inner 0 0 26px #AAA;
 }
 
 #menu > a{
-	height: 65px;
 	float: right;
 	font-size: 9pt;
 	padding: 10px 15px;
@@ -1716,6 +1724,9 @@ box-shadow: inner 0 0 26px #AAA;
 	background-color: #555b65;
 }
 
+#menu > a:last-child{
+	border: 0;
+}
 #menu .sub_icon{
 	width: 24px;
 	height: 24px;
@@ -1851,12 +1862,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdf869', end
 	-moz-box-shadow: 0 0 5px #FFF;
 -webkit-box-shadow: 0 0 5px#FFF;
 box-shadow: 0 0 5px #FFF;
-
+visibility: hidden;
 	border-style: solid;
 	border-width: 2px;
 	border-color: #eade78;
 	height: auto;
-	margin-top: 13px;
 	margin-right: 35px;
 	border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -1864,7 +1874,7 @@ box-shadow: 0 0 5px #FFF;
 	color: #54482e;
 	text-transform: uppercase;
 	font-weight: 700;
-	font-size: 16px;
+	font-size: 12px;
 	padding: 5px 25px;
 }
 
@@ -2018,17 +2028,12 @@ html,body{
 #container{
 	position:relative; /* needed for footer positioning*/
 	margin:0 auto; /* center, not in IE5 */
-	
-	height:auto !important; /* real browsers */
-	height:100%; /* IE6: treaded as min-height*/
-	padding-bottom: 200px;
-	min-height:100%; /* real browsers */
+	min-height: 74%;
+	padding-bottom: 10px;
 }
 
 footer {
-	position:absolute;
-	width:100%;
-	bottom:0; /* stick to bottom */
+	text-align: center;
 }
 
 .carousel-control img{
