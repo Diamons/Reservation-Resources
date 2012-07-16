@@ -64,9 +64,9 @@ class DATABASE_CONFIG {
 		'driver'=>'mysql_with_log',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'root',
-		'password' => '',
-		'database' => 'test',
+		'login' => 'rr_user',
+		'password' => '38XKvpSH',
+		'database' => 'reservation_resources_new',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
