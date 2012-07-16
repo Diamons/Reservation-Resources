@@ -77,7 +77,7 @@
 			$this->layout = 'ajax';
 			$response = array('success' => false);
 			if(!$this->Auth->loggedIn()){
-				$response['data'] = $this->render('/elements/login_register');
+				$response['data'] = $this->render('/Elements/login_register');
 			}
 			return $this->AjaxHandler->respond('html',$response);
 	
