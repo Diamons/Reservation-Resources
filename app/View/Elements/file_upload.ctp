@@ -18,7 +18,7 @@
 	<?php if (isset($userid) && isset($propertyid)){?>
     <form id="fileupload" data-uid = "<?php echo $userid ?>" data-pid =  "<?php echo $propertyid; ?>" action = "<?php echo "/cakephp/image_handler/index.php?uid=". $userid.'&amp;pid='.$propertyid; ?>" method="POST" enctype="multipart/form-data">
 	<?php } else{?>
-	<form id="fileupload" action="/cakephp/image_handler/" method="POST" enctype="multipart/form-data">
+	<form id="fileupload" action="/image_handler/" method="POST" enctype="multipart/form-data">
 	<?php }?>
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
         <div class="row-fluid fileupload-buttonbar">

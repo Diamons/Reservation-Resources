@@ -1,5 +1,5 @@
 function getDomain(){
-		return "http://localhost/cakephp/";
+		return "http://reservationresources.com/";
 }
 function updateCalendar(x,y,z){
 
