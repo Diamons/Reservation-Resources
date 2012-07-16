@@ -32,14 +32,15 @@ mixpanel.init("70faf422e52c65fa1676846b8ccfba19");</script><!-- end Mixpanel -->
 <body>
 	
 		<?php if(isset($auth) && $auth == true){
-			echo $this->element('Layout\User\header');
+			echo $this->element('Layout'.DS.'User'.DS.'header');
 		} else {
-			echo $this->element('Layout\Guest\header');
+			echo $this->element('Layout'.DS.'Guest'.DS.'header');
 		} ?>
 	<div id = "container">
 		<?php echo $this->Session->flash(); ?>
+		<?php echo $this->Session->flash('email'); ?>
 		<?php echo $this->fetch('content'); ?>
-		<?php echo $this->element('Layout\footer'); ?>
+		<?php echo $this->element('Layout'.DS.'footer'); ?>
 	</div>
 	
 <?php echo $this->element('sql_dump'); ?>
