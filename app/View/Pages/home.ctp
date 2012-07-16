@@ -18,7 +18,7 @@
 		<h1>List your Space</h1>
 		Have a spare room to rent? A couch laying around and gathering dust?
 		
-		<input type="button" class="listmyspace btn btn-large btn-danger" value="List my Space" />
+		<a href = "<?php echo $this->webroot."properties" ?>"><input type="button" class="listmyspace btn btn-large btn-danger" value="List my Space" /></a>
 	</div>
 </div>
 <div class="row-fluid inner">

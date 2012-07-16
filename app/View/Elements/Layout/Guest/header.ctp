@@ -28,9 +28,9 @@
 		<div class="span4">
 			
 			<div id="menu">	
-				<a class="clearfix" id="register" href="#">Register</a>
-				<a class="clearfix" id="login" href="#">Login</a>
-				<a id="listmyspace" href="#">List My Space</a>
+				<a class="clearfix" id="register" href="#" onClick = "javascript:checkLoginStatus();">Register</a>
+				<a class="clearfix" id="login" href="#" onClick = "javascript:checkLoginStatus();">Login</a>
+				<a id="listmyspace" href="<?php echo $this->webroot."properties" ?>">List My Space</a>
 			</div>
 
 		</div>

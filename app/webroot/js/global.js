@@ -42,6 +42,9 @@ $(document).ready(function(){
 					$("#UserLoginForm #UserPassword ").css('border-color','red');
 				
 				}
+				else{
+					Shadowbox.close();
+				}
 			}
 		});
 	});
