@@ -30,7 +30,6 @@
 	</div>
 	<!-- Start for Loop -->
 	<?php foreach($properties as $key => $value){?>
-	<?php Debugger::log($properties[$key]); ?>
 	<div class = "inner properties">
 	<!-- Different Ribbons Based on Status of Property (i.e. Deleted, Active, Expired, etc.); -->
 		<?php if ($properties[$key]['Property']['status'] == 0){?>

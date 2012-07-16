@@ -54,9 +54,7 @@
 		}
 		private function __manageproperties(){
 			$this->loadModel('Property');
-			$this->Property->contain(array('User'));
 			$properties = $this->Property->find('all',array('conditions'=>array('Property.user_id'=>$this->Auth->user('id'))));
-	
 			$this->set('properties',$properties);
 			$this->render('manageproperties');
 		}

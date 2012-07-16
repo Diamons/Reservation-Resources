@@ -159,7 +159,7 @@
 			<?php
 			if(!empty($property['Amenity']['bedroom_amenities'][0])){
 				echo $this->Html->image('icons/bed.png');
-			
+				Debugger::log($property['Amenity']);
 			?>
 			<ul class = "bed_type amenities_list">
 				<?php foreach($property['Amenity']['bedroom_amenities'] as $key => $value ){?>
