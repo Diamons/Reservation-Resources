@@ -8,22 +8,22 @@
 <?php foreach($results['results'] as $key => $value) { ?>
 <?php  	if(!empty($results['results'][$key]['accountName'])) { ?>
 <div class="row-fluid search_property">
-			<div class="span5">
-				<div style = "height:150px;" >
+			<div class="span2">
+				<div>
 				<?php if(isset($results['results'][$key]['images'])){ 
-					echo $this->Html->image($results['results'][$key]['images'][0],array('fullBase'=>true,'class'=>'property_search_image','style'=>'max-width:150px;'));
+					echo $this->Html->image($results['results'][$key]['images'][0],array('fullBase'=>true,'class'=>'property_search_image'));
 				}
 				else{
-					echo $this->Html->image('no_picture_available.jpg',array('class'=>'property_search_image','style'=>'max-width:200px;'));	
+					echo $this->Html->image('nopic.png',array('class'=>'property_search_image'));	
 				}
 
 				?>
-			<a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div   class="contact_me" style = "width:200px; float:right; position:relative; bottom:50px; left:25px;">	Contact Me</div></a>
-			<a href = "<?php echo $this->webroot.'properties/viewproperty/'.'1'; ?>"><input type = "button" class = 'btn btn-large btn-success' value = 'View Property Details'/></a>
+			<?php /*<a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div   class="contact_me" style = "width:200px; float:right; position:relative; bottom:50px; left:25px;">	Contact Me</div></a>
+			<a href = "<?php echo $this->webroot.'properties/viewproperty/'.'1'; ?>"><input type = "button" class = 'btn btn-large btn-success' value = 'View Property Details'/></a> */ ?>
 			</div>
 			</div>
 			
-			<div class="user_profile inner span7">
+			<div class="user_profile inner span10">
 				<div>
 				<?php 
 				//if(isset($property['User']['profile_picture'])){
@@ -34,18 +34,26 @@
 					//}
 				
 				?>
-
-					<div class="rating">
+						
+					<div class="rating actions_available">
+						<a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div><i class="icon-user"></i> Contact Host</div></a>
+						<div class="prices">
+						<?php if(!empty($results['results'][$key]['price'])){?>
+							<div><span>$<?php echo $results['results'][$key]['price']; ?></span> / Daily</div>
+						<?php }else{ ?>
+							<div><span>N/A</span> / Daily</div>
+						<?php } ?>
+					</div>
+						<!-- <a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div class="green"><i class="icon-calendar"></i> Book Now</div></a> -->
 						<div class="score" data-rating="<?php echo $results['results'][$key]['rating']; ?>"></div>
 					</div>
-					<div class="inner name"><?php echo $this->Html->link($results['results'][$key]['heading'],array('controller'=>'properties','action'=>'viewproperty','1'));?> </a>
-					<span class="small"><i class="icon-map-marker"></i><?php echo $city.",".$state; ?></span></div>
-				</div>
-				<div class="inner">
-					<?php echo substr($results['results'][$key]['body'], 0,100); ?> ...
+					<div class="clearfix inner name"><?php echo $this->Html->link($results['results'][$key]['heading'],array('controller'=>'properties','action'=>'viewproperty','1'));?> </a>
+					<span class="small"><i class="icon-map-marker"></i><?php echo $city.",".$state; ?></span>
+					</div>
 					
-					<div class="row-fluid prices">
-						<?php if(!empty($results['results'][$key]['price'])){?>
+					<?php //echo substr($results['results'][$key]['body'], 0,100); ?>
+					
+						<?php /* if(!empty($results['results'][$key]['price'])){?>
 						<div class="span4"><span>$<?php echo $results['results'][$key]['price']; ?></span> / Daily</div>
 						<?php }else{ ?>
 						<div class="span4"><span>N/A</span> / Daily</div>
@@ -57,9 +65,7 @@
 						<div class="span4"><span>$<?php echo $results['results'][$key]['price_per_month']; ?></span> / Monthly</div>
 						<?php } else { ?>
 						<div class="span4"><span>N/A</span> / Monthly</div>
-						<?php } ?>
-					</div>
-				</div>
-			</div>
+						<?php } */ ?>
+			</div></div>
 		</div>
 <?php }}} ?>
