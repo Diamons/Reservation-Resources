@@ -11,6 +11,7 @@
 			$this->AjaxHandler->handle('register','login','checkloginstatus', 'getloginpage');
 		}
 		public function index(){
+		
 		}
 		public function login(){
 			$this->autoLayout = FALSE;

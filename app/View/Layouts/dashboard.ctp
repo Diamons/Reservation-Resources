@@ -34,9 +34,9 @@ mixpanel.init("70faf422e52c65fa1676846b8ccfba19");</script><!-- end Mixpanel -->
 <body>
 	
 		<?php if(isset($auth) && $auth == true){
-			echo $this->element('Layout\User\header');
+			echo $this->element('Layout'.DS.'User'.DS.'header');
 		} else {
-			echo $this->element('Layout\Guest\header');
+			echo $this->element('Layout'.DS.'Guest'.DS.'header');
 		} ?>
 	<div id = "container">
 		<div class = "inner row-fluid" id = "body">
@@ -56,7 +56,7 @@ mixpanel.init("70faf422e52c65fa1676846b8ccfba19");</script><!-- end Mixpanel -->
 					</ul>
 					<h1>My Properties</h1>
 					<ul class="nav nav-list">
-					  <li><a href="<?php echo $this->webroot."properties"?>"><i class="icon-plus"></i> List My Property</a></li>
+					  <li><a href="../properties/"><i class="icon-plus"></i> List My Property</a></li>
 					  <li><a href="#manageproperties"><i class="icon-edit"></i> Manage Properties</a></li>
 					</ul>
 					<h1>My Property Bookings</h1>
@@ -84,7 +84,7 @@ mixpanel.init("70faf422e52c65fa1676846b8ccfba19");</script><!-- end Mixpanel -->
 				<?php echo $this->fetch('content'); ?>
 			</div>
 		</div>
-		<?php echo $this->element('Layout\footer'); ?>
+		<?php echo $this->element('Layout'.DS.'footer'); ?>
 	</div>
 	
 <?php echo $this->element('sql_dump'); ?>
