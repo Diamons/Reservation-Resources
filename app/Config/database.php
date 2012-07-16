@@ -63,9 +63,9 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'rr_user',
-		'password' => '38XKvpSH',
-		'database' => 'reservation_resources_new',
+		'login' => 'root',
+		'password' => '',
+		'database' => 'newrr',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
