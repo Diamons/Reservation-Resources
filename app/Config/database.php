@@ -63,7 +63,6 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-<<<<<<< HEAD
 		'login' => 'rr_user',
 		'password' => '38XKvpSH',
 		'database' => 'reservation_resources_new',
