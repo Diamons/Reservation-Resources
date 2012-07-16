@@ -6,7 +6,7 @@
 		}
 		public function beforeFilter(){
 			parent::beforeFilter();
-				$this->Auth->allow('index', 'viewproperty','quickbook');
+				$this->Auth->allow('index', 'viewproperty','quickbook','finalizeposting');
 				$this->AjaxHandler->handle('quickbook','post','comment');
 				$this->Cookie->time = 31536000; // cookie valid for one year before expiration  
 		}
@@ -14,6 +14,8 @@
 			if($this->request->is('post')&&$this->Auth->loggedIn()){
 				$this->Property->set('user_id',$this->Auth->user('id'));
 				$this->Property->set('status','0');
+				
+	
 				if($this->data['Image']){
 					$this->Property->set('default_image',$this->data['Image'][0]);
 					$property_pictures = $this->data['Image'];//set property pictures array
@@ -25,18 +27,34 @@
 					$this->Fee->set('fee_price','0.00');
 					$this->Fee->set('required','0');
 					$this->Fee->save();
+					if(!empty($this->request->data['Craigslist']) && isset($this->request->data['Craigslist'])){
+						$this->loadModel('Craigslist');
+						//since i kept the two models seperate and didnt bind assocation we need to update the craigslist table if this property was reffered by craigslist.
+						$this->Craigslist->id = $this->request->data['Craigslist']['id'];
+						$this->Craigslist->set('active',false);
+						$this->Craigslist->set('owner_id',$this->Auth->user('id'));
+						$this->Craigslist->save($this->request->data);//we still need to move the actual message to users inbox
+						//we will move the craigslist message to user inbox if any
+						$this->Craigslist->moveToInbox($this->Craigslist->id,$this->Property->id);
+					
+				}
+				
 					$this->Property->createPropertyFolder($this->Property->id,$this->Auth->user('id'),$property_pictures);
 					if($property_pictures){
 						if($this->Property->handleImage($this->Property->id,$this->Auth->user('id'),$property_pictures)){
 							$this->Session->setFlash('Awesome! Your property is live! :)','flash_success');
+							$this->redirect(array('controller'=>'dashboard','action'=>'index'));
 						}
 						else{
 							$this->Session->setFlash('Your property is live, but we could not upload your images at this time. Sorry for the inconvenience. You can add images by clicking on edit in your property information page','flash_success');
+							$this->redirect(array('controller'=>'dashboard','action'=>'index'));
 						}
 					}
 					else{
 						$this->Session->setFlash('Awesome! Your property is live!. You can add pictures later if you like in your property page.','flash_success');
+						$this->redirect(array('controller'=>'dashboard','action'=>'index'));
 					}
+					
 				}
 				else{
 						$this->Session->setFlash('Oops! It seems you may have some incorrect fields','flash_error');
@@ -44,6 +62,7 @@
 			}
 	
 		}
+		
 		
 		public function viewpropertyajax($property_id = NULL){
 			$this->autoLayout = FALSE;
@@ -183,6 +202,24 @@
 			else{
 				$this->set('pid',$pid);
 				$this->render('/elements/comment');
+			}
+		
+		}
+		public function finalizeposting($uuid = null){
+			if(!empty($uuid)){
+				$this->loadModel('Craigslist');
+				$this->Session->setFlash('Please finalize your property posting. Once complete you will be redirected to your dashboard where you can access your new message in your inbox on the left','flash_success');
+				$this->Craigslist->id = $uuid;
+				$posting = $this->Craigslist->read();
+				//Debugger::log($posting);
+				$this->set('title',$posting['Craigslist']['title']);
+				$this->set('description',$posting['Craigslist']['body']);
+				$this->set('uuid',$posting['Craigslist']['id']);
+				$this->render('index');
+			
+			}
+			else{
+				$this->redirect(array('controller'=>'properties','action'=>'index'));
 			}
 		
 		}

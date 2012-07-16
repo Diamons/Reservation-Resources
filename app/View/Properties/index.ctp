@@ -26,7 +26,7 @@
 				//currency code options
 				$currency_options = array('USD'=>'USD','AUD'=>'AUD','CAD'=>'CAD','EUR'=>'EUR','GBP'=>'GBP','JPY'=>'JPY','ZAR'=>'ZAR');
 				$property_type = array('Apartment'=>'Apartment','House'=>'House','Bed and Breakfast'=>'Bed and Breakfast','Cabin'=>'Cabin','Villa'=>'Villa','Guest Room'=>'Guest Room','Condo' => 'Condo');
-				echo $this->Form->create('Property',array('class'=>'formee','onSubmit'=>'return checkLoginStatus();'));
+				echo $this->Form->create('Property',array('controller'=>'properties','action'=>'index','class'=>'formee','onSubmit'=>'return checkLoginStatus();'));
 		?>
 		<section class = "row-fluid">
 		<div class = "span4">
@@ -51,17 +51,29 @@
 		</section>
 		<div id = "propertyAddressSection">
 		<?php
-			echo $this->Form->input('address');
-			echo $this->Form->input('city');
-			echo $this->Form->input('state');
-			echo $this->Form->input('zip_code');
-			echo $this->Form->input('country');
+			echo $this->Form->input('address',array('label'=>false,'placeholder'=>'address'));
+			echo $this->Form->input('city',array('label'=>false,'placeholder'=>'city'));
+			echo $this->Form->input('state',array('label'=>false,'placeholder'=>'state'));
+			echo $this->Form->input('zip_code',array('label'=>false,'placeholder'=>'zip or postal code'));
+			echo $this->Form->input('country',array('label'=>false,'placeholder'=>'country'));
 			echo $this->Form->input('latitude',array('type'=>'hidden'));
 			echo $this->Form->input('longtitude',array('type'=>'hidden')); ?>
 		</div>
 		<?php
+			if(isset($title)){
+				echo $this->Form->input('title',array('value'=>$title));
+			}
+			else{
 				echo $this->Form->input('title');
+			}
+			if(isset($description)){
+				echo $this->Form->input('description',array('value'=>$description));
+			}
+			else{
 				echo $this->Form->input('description');
+			}
+				
+			
 		?>
 		<div class = "row-fluid">
 			<div class = "span4">
@@ -75,6 +87,12 @@
 			</div>
 		</div>
 	</div>
+	<?php 
+	
+	if(isset($uuid)){
+		echo $this->Form->input('Craigslist.id',array('type'=>'hidden','value'=>$uuid)); 
+	}
+	?>
 	<div class = "formee"><?php echo $this->Form->end('Save and List My Property'); ?></div>
 	</div>
 </div>

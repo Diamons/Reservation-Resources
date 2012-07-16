@@ -99,7 +99,7 @@ App::uses('File', 'Utility');
 	public function afterSave($created){
 		if($created){
 			$email = new CakeEmail('smtp');
-			$email->viewVars(array('first' => 12345));
+			$email->viewVars(array('first' => AuthComponent::user('first_name')));
 			$email->template('new_property', 'email_layout')->emailFormat('html');
 			$email->sender('noreply@reservationresources.com')->to(AuthComponent::user('username'))->subject('Your property has been listed!')->send(); 
 		
@@ -115,13 +115,13 @@ App::uses('File', 'Utility');
 	public function handleImage($propertyid, $userid,$property_pictures){//this will apply gd watermark to uploaded property images and apply them to approperiate directory
 		if($property_pictures){
 			foreach($property_pictures as $key=>$value){
-				$watermark = imagecreatefromjpeg(Router::url('/img/watermark.jpg',true));//path to water mark image. true returns full base address
+				$watermark = imagecreatefrompng(Router::url('/img/watermark.png',true));//path to water mark image. true returns full base address
 				$watermark_width = imagesx($watermark);
 				$watermark_height = imagesy($watermark);
 				$image = imagecreatefromjpeg('image_handler/files/'.$value);
 				$size = getimagesize('image_handler/files/'.$value);
 				$dest_x = $size[0] - $watermark_width - 5;
-				$dest_y = $size[1] - $watermark_height - 5;
+				$dest_y = $size[1] - $watermark_height - 650;
 				imagecopymerge($image, $watermark, $dest_x, $dest_y, 0, 0, $watermark_width, $watermark_height, 100);  
 				imagejpeg($image,'images/'.$userid.'/'.$propertyid.'/'.$value,100); //output new image with watermark
 				imagedestroy($image);//clear from ram

@@ -23,7 +23,7 @@ $this->end(); ?>
 				}
 
 				?>
-			<a href = "javascript:void(0);"><div data-pid="<?php echo $property['Property']['id']; ?>" class="contact_me" style = "width:225px; float:right; position:relative; bottom:200px; left:25px;">	Contact Me</div></a>
+			<a  href = "javascript:void(0);"><div  data-pid="<?php echo $property['Property']['id']; ?>"  class="contact_me host" style = "width:225px; float:right; position:relative; bottom:200px; left:25px;">	Contact Me</div></a>
 			<a href = "<?php echo $this->webroot.'properties/viewproperty/'.$property['Property']['id']; ?>"><input type = "button" class = 'btn btn-large btn-success' value = 'View Property Details'/></a>
 			</div>
 			
