@@ -40,8 +40,8 @@ $(document).ready(function(){
 		});
 	/* END ANALYTICS */
 	
-	var highestCol = Math.max($('#header').height(),$('#menu > a').height());
-	$('#header, #menu > a.clearfix').height(highestCol);
+	/*var highestCol = Math.max($('#header').height(),$('#menu > a').height());
+	$('#header, #menu > a.clearfix').height(highestCol);*/
 	
 
 	$( "input[name='checkin'], input[name='checkout'], input.checkin, input.checkout" ).datepicker();
