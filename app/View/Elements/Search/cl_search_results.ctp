@@ -18,7 +18,7 @@
 				}
 
 				?>
-			<a href = "javascript:void(0);"><div data-email="<?php echo $results['results'][$key]['accountName']; ?>"  data-pid="<?php echo '1' ?>" class="contact_me" style = "width:200px; float:right; position:relative; bottom:50px; left:25px;">	Contact Me</div></a>
+			<a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div   class="contact_me" style = "width:200px; float:right; position:relative; bottom:50px; left:25px;">	Contact Me</div></a>
 			<a href = "<?php echo $this->webroot.'properties/viewproperty/'.'1'; ?>"><input type = "button" class = 'btn btn-large btn-success' value = 'View Property Details'/></a>
 			</div>
 			</div>

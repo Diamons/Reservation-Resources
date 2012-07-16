@@ -96,7 +96,7 @@ class AppController extends Controller {
 		App::uses('Folder', 'Utility');
 		App::uses('File', 'Utility');
 		$path = $path->request->params;
-		$Folder = new Folder('../View/'.$path['controller']);
+		$Folder = new Folder('..'.DS.'View'.DS.ucfirst($path['controller']));
 		
 		//If home, gets tricky. Manually set action to home.
 		if($path['action'] == "display")
