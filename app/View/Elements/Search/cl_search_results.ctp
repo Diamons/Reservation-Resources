@@ -37,18 +37,19 @@
 						
 					<div class="rating actions_available">
 						<a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div><i class="icon-user"></i> Contact Host</div></a>
-						<!-- <a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div class="green"><i class="icon-calendar"></i> Book Now</div></a> -->
-						<div class="score" data-rating="<?php echo $results['results'][$key]['rating']; ?>"></div>
-					</div>
-					<div class="clearfix inner name"><?php echo $this->Html->link($results['results'][$key]['heading'],array('controller'=>'properties','action'=>'viewproperty','1'));?> </a>
-					<span class="small"><i class="icon-map-marker"></i><?php echo $city.",".$state; ?></span>
-					<div class="prices">
+						<div class="prices">
 						<?php if(!empty($results['results'][$key]['price'])){?>
 							<div><span>$<?php echo $results['results'][$key]['price']; ?></span> / Daily</div>
 						<?php }else{ ?>
 							<div><span>N/A</span> / Daily</div>
 						<?php } ?>
-					</div></div>
+					</div>
+						<!-- <a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div class="green"><i class="icon-calendar"></i> Book Now</div></a> -->
+						<div class="score" data-rating="<?php echo $results['results'][$key]['rating']; ?>"></div>
+					</div>
+					<div class="clearfix inner name"><?php echo $this->Html->link($results['results'][$key]['heading'],array('controller'=>'properties','action'=>'viewproperty','1'));?> </a>
+					<span class="small"><i class="icon-map-marker"></i><?php echo $city.",".$state; ?></span>
+					</div>
 					
 					<?php //echo substr($results['results'][$key]['body'], 0,100); ?>
 					
