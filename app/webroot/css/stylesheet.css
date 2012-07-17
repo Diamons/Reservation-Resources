@@ -1680,9 +1680,9 @@ box-shadow: 0 0 5px #888;
 
 #searchStart:focus, #searchStart:hover{
 	outline: none;
-	-moz-box-shadow: inset 0 26px 26px #AAA;
--webkit-box-shadow: inset 0 26px 26px#AAA;
-box-shadow: inner 0 26px 26px #AAA;
+	-moz-box-shadow: inset 0 8px 8px #AAA;
+-webkit-box-shadow: inset 0 8px 8px#AAA;
+box-shadow: inner 0 8px 8px #AAA;
 }
 
 #menu{
