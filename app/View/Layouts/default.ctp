@@ -40,9 +40,9 @@ mixpanel.init("70faf422e52c65fa1676846b8ccfba19");</script><!-- end Mixpanel -->
 		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->Session->flash('email'); ?>
 		<?php echo $this->fetch('content'); ?>
-		<?php echo $this->element('Layout'.DS.'footer'); ?>
+		
 	</div>
-	
+	<?php echo $this->element('Layout'.DS.'footer'); ?>
 <?php echo $this->element('sql_dump'); ?>
 
 

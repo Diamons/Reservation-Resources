@@ -26,13 +26,11 @@
 			?>
 		</div>
 		<div class="span4">
-			
-			<div id="menu">	
+		</div>
+	</div>
+</div>
+<div class="clearfix" id="menu">	
 				<a class="clearfix" id="register" href="#" onClick = "javascript:checkLoginStatus();">Register</a>
 				<a class="clearfix" id="login" href="#" onClick = "javascript:checkLoginStatus();">Login</a>
 				<a id="listmyspace" href="<?php echo $this->webroot."properties" ?>">List My Space</a>
 			</div>
-
-		</div>
-	</div>
-</div>
