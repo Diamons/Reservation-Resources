@@ -45,8 +45,9 @@ $this->end(); ?>
 						<div class="score" data-rating="<?php echo $results['results'][$key]['rating']; ?>"></div>
 						<div class="score" data-rating="<?php echo $property['Property']['rating']; ?>"></div>
 					</div>
-					<div class="clearfix inner name"><?php echo $this->Html->link($property['Property']['title'],array('controller'=>'properties','action'=>'viewproperty',$property['Property']['id']));?> </a>
-					<span class="small"><i class="icon-map-marker"></i><?php echo $property['Property']['city'].",".$property['Property']['state']; ?></span>
+					<div class="clearfix inner name">
+						<?php echo $this->Html->link($property['Property']['title'],array('controller'=>'properties','action'=>'viewproperty',$property['Property']['id']));?> </a>
+						<span class="small"><i class="icon-map-marker"></i><?php echo $property['Property']['city'].",".$property['Property']['state']; ?></span>
 						<div class="prices">
 							<?php if(!empty($property['Property']['price_per_night'])){?>
 							<div class="span4"><span>$<?php echo $property['Property']['price_per_night']; ?></span> / Daily</div>
