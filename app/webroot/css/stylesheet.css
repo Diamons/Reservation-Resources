@@ -328,11 +328,16 @@ div.submit{
 }
 
 body{
-	background-color: #F4F4F4;
+	background-color: #DDD;
 }
+div#container, div#header_container, div#footer_container, footer{
+	max-width: 1600px;
+	margin: auto;
+}
+
 div#container {
 	position:relative; 
-	margin:0 auto;
+	margin:2px auto;
 	/*height:auto !important; 
 	height:100%;
 	min-height:100%; */ 
@@ -343,10 +348,6 @@ div#container {
 -webkit-box-shadow: 0 0 2px#888;
 box-shadow: 0 0 2px #888;}
 
-div#container, div#header_container, div#footer_container{
-	max-width: 1600px;
-	margin: auto;
-}
 
 #main_slider{
 	text-align: center;
@@ -495,11 +496,8 @@ div#container, div#header_container, div#footer_container{
 
 footer {
 	min-height: 200px;
-	color: #FFFFFF;
-	background-image:url('../img/dark_pattern.png');
-	border-style: solid;
-	border-width: 3px 0 0 0;
-	border-color: #ff8a00;
+	color: #777;
+
 }
 
 footer > div.inner_footer{
@@ -517,8 +515,7 @@ footer div > p{
 }
 
 footer .social_media{
-	position: absolute;
-	right: 0;
+	float: right;
 	padding: 10px 20px 0 0;
 }
 
@@ -1699,6 +1696,9 @@ background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(236,236,236,1) 1
 background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(236,236,236,1) 100%); /* IE10+ */
 background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(236,236,236,1) 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ececec',GradientType=0 ); /* IE6-9 */
+box-shadow: 0 0 10px #000;
+-moz-box-shadow: 0 0 10px #000;
+-webkit-box-shadow: 0 0 10px #000;
 }
 
 #menu > .item{
@@ -2033,8 +2033,7 @@ html,body{
 }
 
 footer {
-	width:100%;
-	bottom:0; /* stick to bottom */
+	text-align: center;
 }
 
 .carousel-control img{
