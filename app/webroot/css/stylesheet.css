@@ -337,7 +337,7 @@ div#container, div#header_container, div#footer_container, footer{
 
 div#container {
 	position:relative; 
-	margin:2px auto;
+	margin:0 auto;
 	/*height:auto !important; 
 	height:100%;
 	min-height:100%; */ 
@@ -1680,9 +1680,9 @@ box-shadow: 0 0 5px #888;
 
 #searchStart:focus, #searchStart:hover{
 	outline: none;
-	-moz-box-shadow: inset 0 0 26px #AAA;
--webkit-box-shadow: inset 0 0 26px#AAA;
-box-shadow: inner 0 0 26px #AAA;
+	-moz-box-shadow: inset 0 26px 26px #AAA;
+-webkit-box-shadow: inset 0 26px 26px#AAA;
+box-shadow: inner 0 26px 26px #AAA;
 }
 
 #menu{
