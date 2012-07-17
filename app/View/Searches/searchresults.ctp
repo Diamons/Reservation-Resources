@@ -42,19 +42,18 @@ $this->end(); ?>
 					<div class="rating actions_available">
 						<a href = "javascript:void(0);"><div data-pid="<?php echo $property['Property']['id']; ?>"  class="contact_me host"><i class="icon-user"></i> Contact Host</div></a>
 						<!-- <a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div class="green"><i class="icon-calendar"></i> Book Now</div></a> -->
-						<div class="score" data-rating="<?php echo $results['results'][$key]['rating']; ?>"></div>
+						<div class="prices">
+							<?php if(!empty($property['Property']['price_per_night'])){?>
+							<div><span>$<?php echo $property['Property']['price_per_night']; ?></span> / Daily</div>
+							<?php }else{ ?>
+							<div><span>N/A</span> / Daily</div>
+							<?php } ?>
+						</div>
 						<div class="score" data-rating="<?php echo $property['Property']['rating']; ?>"></div>
 					</div>
 					<div class="clearfix inner name">
 						<?php echo $this->Html->link($property['Property']['title'],array('controller'=>'properties','action'=>'viewproperty',$property['Property']['id']));?> </a>
 						<span class="small"><i class="icon-map-marker"></i><?php echo $property['Property']['city'].",".$property['Property']['state']; ?></span>
-						<div class="prices">
-							<?php if(!empty($property['Property']['price_per_night'])){?>
-							<div class="span4"><span>$<?php echo $property['Property']['price_per_night']; ?></span> / Daily</div>
-							<?php }else{ ?>
-							<div class="span4"><span>N/A</span> / Daily</div>
-							<?php } ?>
-						</div>
 					</div>
 				</div>
 					<?php //echo substr($property['Property']['description'], 0,100); ?>
