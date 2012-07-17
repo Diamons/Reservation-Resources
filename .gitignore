@@ -1,4 +1,4 @@
-app/config/
+app/config
 app/tmp
 app/webroot/images
 app/webroot/image_handler
