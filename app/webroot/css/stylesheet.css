@@ -1942,16 +1942,12 @@ border-radius: 2px;
 	height: 250px !important;
 }
 
-#search_entries{
-	background-color: #FFF;
-}
-
 .search_property{
-	background-color: #f1f1f1;
 	margin-bottom: 10px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #ECECEC;
+	background: #FEFEFE;
 }
 .search_property > img{
 	float: left;
@@ -1990,23 +1986,22 @@ border-radius: 2px;
 }
 .property_search_image{
 	display: block;
+	height: auto;
+	background: url('../img/icons/pictures_stack.png');
+	padding: 26px 6px 17px 20px;
+	background-size: 100% 100%;
 }
 .search_property .prices{
-	margin-top: 15px;
 	font-weight: 700;
-	text-align: center;
-	background-color: #f2b047;
-	padding: 10px 0;
-	border-radius: 50px;
-	-moz-border-radius: 50px;
-	-webkit-border-radius: 50px;
 	line-height: 24px;
-	color: #FAFAFA;
-	margin: 20px auto;
+	margin-top: 5px;
+	margin: 5px;
+	padding: 5px 10px;
+	float: left;
 }
 
 .search_property .prices span{
-	font-size: 16px;
+	font-size: 26px;
 	font-family: "Arial", sans-serif;
 	color: #333;
 }
@@ -2015,6 +2010,22 @@ border-radius: 2px;
 	margin-left: 10px;
 }
 
+.search_property .rating >a, .search_property .rating > div{
+	border-bottom: solid 1px #EEE;
+	padding: 2px 2px 2px 6px;
+	display: block; 
+	text-align: center;
+}
+
+.search_property .rating > a > div i{
+	margin-top: 2px;
+}
+
+.search_property .rating div.green{
+	background: #add200;
+	border-radius: 6px;
+	padding: 4px;
+}
 .listmyspace{
 	display: block;
 	text-align: center;

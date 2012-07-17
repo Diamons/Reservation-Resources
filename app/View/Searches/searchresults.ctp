@@ -14,20 +14,20 @@ $this->end(); ?>
 		<?php foreach($properties as $property){  ?>
 			
 		<div class="row-fluid search_property">
-			<div class="span5">
+			<div class="span2">
 				<?php if(isset($property['Property']['default_image'])){ 
-					echo $this->Html->image('/images/'.$property['Property']['user_id'].'/'.$property['Property']['id'].'/'.$property['Property']['default_image'],array('class'=>'property_search_image','width'=>'250'));
+					echo $this->Html->image('/images/'.$property['Property']['user_id'].'/'.$property['Property']['id'].'/'.$property['Property']['default_image'],array('class'=>'property_search_image'));
 				}
 				else{
-					echo $this->Html->image('no_picture_available.jpg',array('class'=>'property_search_image'));	
+					echo $this->Html->image('nopic.png',array('class'=>'property_search_image'));	
 				}
 
 				?>
-			<a  href = "javascript:void(0);"><div  data-pid="<?php echo $property['Property']['id']; ?>"  class="contact_me host" style = "width:225px; float:right; position:relative; bottom:200px; left:25px;">	Contact Me</div></a>
-			<a href = "<?php echo $this->webroot.'properties/viewproperty/'.$property['Property']['id']; ?>"><input type = "button" class = 'btn btn-large btn-success' value = 'View Property Details'/></a>
+			<?php /*<a  href = "javascript:void(0);"><div  data-pid="<?php echo $property['Property']['id']; ?>"  class="contact_me host" style = "width:225px; float:right; position:relative; bottom:200px; left:25px;">	Contact Me</div></a>
+			<a href = "<?php echo $this->webroot.'properties/viewproperty/'.$property['Property']['id']; ?>"><input type = "button" class = 'btn btn-large btn-success' value = 'View Property Details'/></a> */ ?>
 			</div>
 			
-			<div class="user_profile inner span7">
+			<div class="user_profile inner span10">
 				<div>
 				<?php 
 				if(isset($property['User']['profile_picture'])){
@@ -39,17 +39,26 @@ $this->end(); ?>
 				
 				?>
 
-					<div class="rating">
+					<div class="rating actions_available">
+						<a href = "javascript:void(0);"><div data-pid="<?php echo $property['Property']['id']; ?>"  class="contact_me host"><i class="icon-user"></i> Contact Host</div></a>
+						<!-- <a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div class="green"><i class="icon-calendar"></i> Book Now</div></a> -->
+						<div class="score" data-rating="<?php echo $results['results'][$key]['rating']; ?>"></div>
 						<div class="score" data-rating="<?php echo $property['Property']['rating']; ?>"></div>
 					</div>
 					<div class="inner name"><?php echo $this->Html->link($property['Property']['title'],array('controller'=>'properties','action'=>'viewproperty',$property['Property']['id']));?> </a>
-					<span class="small"><i class="icon-map-marker"></i><?php echo $property['Property']['city'].",".$property['Property']['state']; ?></span></div>
+					<span class="small"><i class="icon-map-marker"></i><?php echo $property['Property']['city'].",".$property['Property']['state']; ?></span>
+						<div class="prices">
+							<?php if(!empty($property['Property']['price_per_night'])){?>
+							<div class="span4"><span>$<?php echo $property['Property']['price_per_night']; ?></span> / Daily</div>
+							<?php }else{ ?>
+							<div class="span4"><span>N/A</span> / Daily</div>
+							<?php } ?>
+						</div>
+					</div>
 				</div>
-				<div class="inner">
-					<?php echo substr($property['Property']['description'], 0,100); ?> ...
+					<?php //echo substr($property['Property']['description'], 0,100); ?>
 					
-					<div class="row-fluid prices">
-						<?php if(!empty($property['Property']['price_per_night'])){?>
+						<?php /*if(!empty($property['Property']['price_per_night'])){?>
 						<div class="span4"><span>$<?php echo $property['Property']['price_per_night']; ?></span> / Daily</div>
 						<?php }else{ ?>
 						<div class="span4"><span>N/A</span> / Daily</div>
@@ -61,10 +70,8 @@ $this->end(); ?>
 						<div class="span4"><span>$<?php echo $property['Property']['price_per_month']; ?></span> / Monthly</div>
 						<?php } else { ?>
 						<div class="span4"><span>N/A</span> / Monthly</div>
-						<?php } ?>
-					</div>
-				</div>
-			</div>
+						<?php }*/ ?>
+			</div></div>
 		</div>
 		<?php } 
 			echo $this->element('/Search/cl_search_results',array('results'=>$clresults,'city'=>$city,'state'=>$state));
