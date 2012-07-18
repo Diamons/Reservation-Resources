@@ -11,7 +11,7 @@ $(document).ready(function(){
 	var highestCol = Math.max($('.search_property > div > img').height(),$('.search_property .user_profile').height());
 	$('.search_property > div > img, .search_property .user_profile').height(highestCol);
 	
-$(' div .contact_me.host').on('click',function(event){
+/*$('.contact_me_button').on('click',function(event){
 	status = checkLoginStatus();
 	//alert(status);
 	if(status){
@@ -22,16 +22,22 @@ $(' div .contact_me.host').on('click',function(event){
 		
 
 
-});
+});*/
 $('.guest_host').on('click',function(event){
 
 	status = checkLoginStatus();
 
 	if(status){
-	
-		var key = $(this).data('index');
+		if($(this).data('type') == 'reg'){
+			var pid = $(this).data('pid');
+			openLightBox(getDomain()+"messages/contactform/"+pid, "Contact Host", 980,275);
 		
-		openLightBox(getDomain()+"craigslists/contactform/"+key, "Contact Host", 980,275);
+		}
+		else{
+			var key = $(this).data('index');
+			openLightBox(getDomain()+"craigslists/contactform/"+key, "Contact Host", 980,275);
+		}
+	
 	}
 		
 

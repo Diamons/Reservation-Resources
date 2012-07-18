@@ -36,7 +36,7 @@
 				?>
 						
 					<div class="rating actions_available">
-						<a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div><i class="icon-user"></i> Contact Host</div></a>
+						<a href = "javascript:void(0);" class = "guest_host" data-type = 'cl' data-index = "<?php echo $key; ?>" ><div><i class="icon-user"></i> Contact Host</div></a>
 						<div class="prices">
 						<?php if(!empty($results['results'][$key]['price'])){?>
 							<div><span>$<?php echo $results['results'][$key]['price']; ?></span> / Daily</div>

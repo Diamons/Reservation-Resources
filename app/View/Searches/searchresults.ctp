@@ -23,6 +23,7 @@ $this->end(); ?>
 				}
 
 				?>
+			
 			<?php /*<a  href = "javascript:void(0);"><div  data-pid="<?php echo $property['Property']['id']; ?>"  class="contact_me host" style = "width:225px; float:right; position:relative; bottom:200px; left:25px;">	Contact Me</div></a>
 			<a href = "<?php echo $this->webroot.'properties/viewproperty/'.$property['Property']['id']; ?>"><input type = "button" class = 'btn btn-large btn-success' value = 'View Property Details'/></a> */ ?>
 			</div>
@@ -38,9 +39,9 @@ $this->end(); ?>
 					}
 				
 				?>
-
+			
 					<div class="rating actions_available">
-						<a href = "javascript:void(0);"><div data-pid="<?php echo $property['Property']['id']; ?>"  class="contact_me host"><i class="icon-user"></i> Contact Host</div></a>
+						<a   href = "javascript:void(0);" data-pid="<?php echo $property['Property']['id']; ?>"  class = 'guest_host' data-type='reg'><div  ><i class="icon-user"></i> Contact Host</div></a>
 						<!-- <a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div class="green"><i class="icon-calendar"></i> Book Now</div></a> -->
 						<div class="prices">
 							<?php if(!empty($property['Property']['price_per_night'])){?>
@@ -56,6 +57,7 @@ $this->end(); ?>
 						<span class="small"><i class="icon-map-marker"></i><?php echo $property['Property']['city'].",".$property['Property']['state']; ?></span>
 					</div>
 				</div>
+				
 					<?php //echo substr($property['Property']['description'], 0,100); ?>
 					
 						<?php /*if(!empty($property['Property']['price_per_night'])){?>
@@ -72,9 +74,9 @@ $this->end(); ?>
 						<div class="span4"><span>N/A</span> / Monthly</div>
 						<?php }*/ ?>
 			</div></div>
-		</div>
-		<?php } 
+					<?php } 
 			echo $this->element('/Search/cl_search_results',array('results'=>$clresults,'city'=>$city,'state'=>$state));
 		?>
+		</div>
+
 	</div>
-</div>
