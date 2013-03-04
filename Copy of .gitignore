@@ -4,7 +4,6 @@ app/tmp
 app/webroot/images
 app/webroot/image_handler
 app/webroot/blog
-app/webroot/phpmyadmin
 app/webroot/profile_pictures
 /lib/Cake/Console/Templates/skel/tmp/
 /plugins
