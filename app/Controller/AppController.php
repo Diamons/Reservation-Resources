@@ -45,7 +45,6 @@ class AppController extends Controller {
 	
 	public function beforeRender()
 	{
-		die();
 		// only compile it on development mode
 		if (Configure::read('debug') > 0)
 		{
