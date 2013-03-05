@@ -129,7 +129,7 @@
 				</div>
 			</div>
 			<a href = "javascript:void(0);"><div id = "paypal_checkout">
-			<?php echo $this->Paypal->button(null, array('test' => true, 'amount' => '12.00', 'item_name' => $property['Property']['title'],'item_number'=>$property['Property']['id'],'custom'=>2)); ?>
+			<?php echo $this->Paypal->button(null, array('amount' => '12.00', 'item_name' => $property['Property']['title'],'item_number'=>$property['Property']['id'],'custom'=>2)); ?>
 			</div></a>
 	</div>
 </div>

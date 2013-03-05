@@ -1,7 +1,8 @@
 $(document).ready(function(){
-	if($("#gallery").height() < $(".property_info").height()){
+	
+	/*if($("#gallery").height() < $(".property_info").height()){
 		$("#gallery").css("height", $(".property_info").height());
-	}
+	}*/
 	Galleria.loadTheme(getDomain()+'slider/themes/classic/galleria.classic.js');
     Galleria.run('#gallery');
 	$('#gallery').data('galleria').play(4000);
@@ -43,13 +44,20 @@ $(document).ready(function(){
 
 });
 
-$('.contact_me').on('click',function(){
+$('.contact_me').on('click',function(){//this corresponds to the viewproperty page
 	status = checkLoginStatus();
-	if(status == true){
-		var pid = $(this).data('pid');
-		openLightBox(getDomain()+"messages/contactform/"+pid, "Contact Host", 980,275);
-	}
+	if(status){
+		if($(this).data('type') == 'reg'){
+			var pid = $(this).data('pid');
+			openLightBox(getDomain()+"messages/contactform/"+pid, "Contact Host", 980,275);
 		
+		}
+		else{
+			var key = $(this).data('index');
+			openLightBox(getDomain()+"craigslists/contactform/"+key, "Contact Host", 980,275);
+		}
+	
+	}
 
 
 });
@@ -62,12 +70,12 @@ $(document).on('click','#easybook',function(){
 });
 $(document).on('click','#comment',null,function(){
 	var pid = $(this).data('pid');
-	status = checkLoginStatus();
-	if(status == true){
+	//status = checkLoginStatus();
+	//if(status == true){
 		openLightBox(getDomain()+"properties/comment/"+pid, "Leave Property Review", 980,350);
 	
 	
-	}
+	//}
 
 });
 $(document).on('click','#submitCommentButton',null,function(){
@@ -101,12 +109,41 @@ $(document).on('submit','#MessageSubmitMessageForm',null,function(event){
 			url:getDomain()+"messages/submitmessage",
 			type:"POST",
 			data:$('#MessageSubmitMessageForm').serialize(),
+			beforeSend: function(xhr){
+				Shadowbox.close();
+				$('.info.ajaxmessage').slideDown();
+			
+			},
+			success:function(data){
+				if(data.success == true){
+					$('.info.ajaxmessage').slideUp();
+					$('.success.ajaxmessage').slideDown();
+					setTimeout(function(){$('.success.ajaxmessage').slideUp();},5000);
+				
+				}
+				else{
+					$('.info.ajaxmessage').slideUp();
+					$('.error.ajaxmessage').slideDown();
+					setTimeout(function(){$('.error.ajaxmessage').slideUp();},5000);
+				
+				}
+			}
+		});
+});
+
+$(document).on('submit','#CraigslistSubmitMessageForm',null,function(event){
+	event.preventDefault();
+		$.ajax({
+			url:getDomain()+"craigslists/index",
+			type:"POST",
+			data:$('#CraigslistSubmitMessageForm').serialize(),
 			success:function(data){
 				Shadowbox.close();
 				alert(data.data);
 			}
 		});
 });
+
 
 function quickbook(){
 	

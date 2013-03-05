@@ -1,5 +1,10 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www.reservationresources.com [NC]
+RewriteRule ^(.*)$ http://reservationresources.com/$1 [L,R=301]
 <IfModule mod_rewrite.c>
    RewriteEngine on
    RewriteRule    ^$ app/webroot/    [L]
    RewriteRule    (.*) app/webroot/$1 [L]
 </IfModule>
+php_value upload_max_filesize 4M  

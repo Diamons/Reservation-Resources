@@ -96,10 +96,16 @@ App::uses('File', 'Utility');
 				return false;
 			}
 		}
+	public function beforeSave(){
+		 $this->data['Property']['price_per_night'] = preg_replace("/[^0-9\.]/", "", $this->data['Property']['price_per_night']);
+		 $this->data['Property']['price_per_week'] = preg_replace("/[^0-9\.]/", "", $this->data['Property']['price_per_week']);
+		  $this->data['Property']['price_per_month'] = preg_replace("/[^0-9\.]/", "", $this->data['Property']['price_per_month']);
+		
+	}
 	public function afterSave($created){
 		if($created){
 			$email = new CakeEmail('smtp');
-			$email->viewVars(array('first' => AuthComponent::user('first_name')));
+			$email->viewVars(array('first' => AuthComponent::user('first_name'),'messagetitle'=>'Your property has been created!','action'=>'http://reservationresources.com/properties/viewproperty/'.$this->id));
 			$email->template('new_property', 'email_layout')->emailFormat('html');
 			$email->sender('noreply@reservationresources.com')->to(AuthComponent::user('username'))->subject('Your property has been listed!')->send(); 
 		
@@ -121,8 +127,10 @@ App::uses('File', 'Utility');
 				$image = imagecreatefromjpeg('image_handler/files/'.$value);
 				$size = getimagesize('image_handler/files/'.$value);
 				$dest_x = $size[0] - $watermark_width - 5;
-				$dest_y = $size[1] - $watermark_height - 650;
-				imagecopymerge($image, $watermark, $dest_x, $dest_y, 0, 0, $watermark_width, $watermark_height, 100);  
+				$dest_y = $size[1] - $watermark_height - 450;
+				imagealphablending($image, true);
+				imagealphablending($watermark, true);
+				imagecopy($image, $watermark, $dest_x, $dest_y, 0, 0, $watermark_width, $watermark_height);  
 				imagejpeg($image,'images/'.$userid.'/'.$propertyid.'/'.$value,100); //output new image with watermark
 				imagedestroy($image);//clear from ram
 				imagedestroy($watermark);//clear from ram
@@ -162,7 +170,7 @@ App::uses('File', 'Utility');
 			return $results;
 		}
 	}
-	public function postToCraigslist($area = null, $step = null,$title = null,$description = null ,$url = null){
+	public function postToCraigslist($area = null, $step = null,$title = null,$description = null ,$url = null,$html = null){
 
 		//initial request
 		if($url == null){

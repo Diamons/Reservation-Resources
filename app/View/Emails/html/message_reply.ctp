@@ -1,2 +1,3 @@
-Hello <?php echo $first; ?>,<br/>
-You have received a new message on Reservation Resources.<br/>
+Hello <?php echo $first; ?> you have received an new message on Reservation Resources<br/>
+Please reply to all message promptly to increase your chances of bookings.<br/>
+You can click on the link below to log in and access your inbox.<br/>

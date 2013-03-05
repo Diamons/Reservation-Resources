@@ -1,5 +1,5 @@
-<div class = "inner" id = "body" role = "main">
-	<div class = "row-fluid">
+<div style="background-color: #FFF;" class = "inner" id = "body" role = "main">
+	<div style="background-color: #FFF;" class = "row-fluid">
 		<div class = "span6">
 			<div class = "features_block blue"><h1>Hi there! <span class = "highlight">Login</span> with your user details!</h1></div>
 			<?php 

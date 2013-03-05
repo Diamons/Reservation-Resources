@@ -1,6 +1,7 @@
 <?php 
 App::uses('CakeEmail', 'Network/Email');
 App::import('model','Property');
+App::import('model','Notification');
 
 	class Booking extends AppModel{
 		public $name = 'Booking';
@@ -44,8 +45,10 @@ App::import('model','Property');
 		
 			}
 				$totals['subtotal'] = number_format($this->getPrice($daily,$weekly,$monthly,$days,$weeks,$months)+($guests*$guestprice)+ $this->hostFeesRequired($fees),2);
-				$totals['fee'] = number_format($this->rrfee($totals['subtotal']),2);
-				$totals['total'] = number_format($totals['subtotal']+$totals['fee'],2);
+				$sub = $this->getPrice($daily,$weekly,$monthly,$days,$weeks,$months)+($guests*$guestprice)+ $this->hostFeesRequired($fees);
+				$totals['fee'] = number_format($this->rrfee($sub),2);
+				$fee = $this->rrfee($sub);
+				$totals['total'] = number_format($sub+$fee,2);
 				return $totals;
 			
 		}
@@ -107,18 +110,20 @@ App::import('model','Property');
 		}
 	public function sendNotification($pid,$template,$subject){//this will send notification to property Owner
 			$property = new Property();
+			$notification = new Notification();
 			$owner = $property->read(null,$pid);
 			$email = new CakeEmail('smtp');
-			$email->viewVars(array('first' => $owner['User']['first_name'],'last' => $owner['User']['last_name']));
+			$email->viewVars(array('first' => $owner['User']['first_name'],'last' => $owner['User']['last_name'],'messagetitle'=>'Your property has been booked','action'=>'http://reservationresources.com'));
 			$email->template($template, 'email_layout')->emailFormat('html');
 			$email->sender('noreply@reservationresources.com')->to($owner['User']['username'])->subject($subject)->send(); 
-
-	
+			//lets also send a notification to the landlords dashboard.
+			$notification->setNotification($owner['User']['id'],3,'#managebookings','You have a new paid booking request please respond promptly','New Booking','Click here to accept/reject booking');
+			$notification->save();
 	
 	}
 	public function notifyGuest($username,$template,$subject){
 			$email = new CakeEmail('smtp');
-			//$email->viewVars(array('first' => $owner['User']['first_name'],'last' => $owner['User']['last_name']));
+			$email->viewVars(array('messagetitle' =>'Host Booking Response','action'=>'http://reservationresources.com'));
 			$email->template($template, 'email_layout')->emailFormat('html');
 			$email->sender('noreply@reservationresources.com')->to($username)->subject($subject)->send(); 
 	

@@ -19,5 +19,19 @@ App::uses('User','User');
 		
 		}
 	}*/
+	
+	public function checkMessageUser($topicid = null,$uid = null){//function returns string indicating if the person is a from user or a to user
+		$this->id = $topicid;
+		$this->contain(array());
+		$topic = $this->read();
+		//Debugger::log($topic);
+		if($uid == $topic['Topic']['from_user_id']){
+			return array('from',$topic['Topic']['to_user_id']);//second key should be other user
+		}
+		elseif($uid == $topic['Topic']['to_user_id']){
+				return array('to',$topic['Topic']['from_user_id']);
+		}
+	
+	}
 }
 ?>

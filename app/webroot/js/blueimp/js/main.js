@@ -64,9 +64,9 @@ $(function () {
         }
     } else {
 		$('#fileupload').bind('fileuploaddone', function (e, data) {//this is the allback function after the image is successfully uploaded we dynamically add hidden input elements to form upload so we can water mark and move the images to correct directory
-		
-			$('#PropertyIndexForm').append("<input type = 'hidden' data-delete ='"+data.result[0].delete_url+"' name = 'data[Image][]' value = '"+data.result[0].name+"'></input>");
-			
+				if(data.result[0] != undefined){
+				$('#PropertyIndexForm').append("<input type = 'hidden' data-delete ='"+data.result[0].delete_url+"' name = 'data[Image][]' value = '"+data.result[0].name+"'></input>");
+			}
 		});
 		$('#fileupload').bind('fileuploaddestroy', function (e, data) {
 			//var del = $("input").attr("data-delete",data.url);

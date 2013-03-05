@@ -37,16 +37,23 @@
 			if(AuthComponent::user('id') == $topics[$key]['Topic']['from_user_id']){
 				$options = array('id' => $topics[$key]['Topic']['id'],'data-message'=>'from_user_deleted');
 				echo $this->Form->checkbox('delete', $options);
+				if($topics[$key]['Topic']['from_user_viewed'] == false){
+					echo "<span class = 'newMessage'>New</span>";
+				}
 			}
 			else{
 				if(AuthComponent::user('id') == $topics[$key]['Topic']['to_user_id']){
 					$options = array('id' => $topics[$key]['Topic']['id'],'data-message'=>'to_user_deleted');
 					echo $this->Form->checkbox('delete', $options);
+					if($topics[$key]['Topic']['to_user_viewed'] == false){
+					echo "<span class = 'newMessage'>New</span>";
+					}
 				}
 				
 			}
 
 			?>
+		
 		</div>
 		<div class = "span2">
 			<a href = "#"><?php 

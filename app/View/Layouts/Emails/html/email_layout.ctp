@@ -1,310 +1,118 @@
-<html>
-<head></head>
-<body>
-<h1>Reservation Resources Team</h1>
-<?php echo $this->fetch('content'); ?>
-</body>
 
-</html>
+	<style type="text/css">.ExternalClass{width:100% !important;}</style>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
-<html lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Campaign Monitor Newsletter</title>
-	<style>
-	a:hover {
-		text-decoration: underline !important;
-	}
-	td.promocell p { 
-		color:#e1d8c1;
-		font-size:16px;
-		line-height:26px;
-		font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
-		margin-top:0;
-		margin-bottom:0;
-		padding-top:0;
-		padding-bottom:14px;
-		font-weight:normal;
-	}
-	td.contentblock h4 {
-		color:#444444 !important;
-		font-size:16px;
-		line-height:24px;
-		font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
-		margin-top:0;
-		margin-bottom:10px;
-		padding-top:0;
-		padding-bottom:0;
-		font-weight:normal;
-	}
-	td.contentblock h4 a {
-		color:#444444;
-		text-decoration:none;
-	}
-	td.contentblock p { 
-	  	color:#888888;
-		font-size:13px;
-		line-height:19px;
-		font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
-		margin-top:0;
-		margin-bottom:12px;
-		padding-top:0;
-		padding-bottom:0;
-		font-weight:normal;
-	}
-	td.contentblock p a { 
-	  	color:#3ca7dd;
-		text-decoration:none;
-	}
-	@media only screen and (max-device-width: 480px) {
-	     div[class="header"] {
-	          font-size: 16px !important;
-	     }
-	     table[class="table"], td[class="cell"] {
-	          width: 300px !important;
-	     }
-		table[class="promotable"], td[class="promocell"] {
-	          width: 325px !important;
-	     }
-		td[class="footershow"] {
-	          width: 300px !important;
-	     }
-		table[class="hide"], img[class="hide"], td[class="hide"] {
-	          display: none !important;
-	     }
-	     img[class="divider"] {
-		      height: 1px !important;
-		 }
-		 td[class="logocell"] {
-			padding-top: 15px !important; 
-			padding-left: 15px !important;
-			width: 300px !important;
-		 }
-	     img[id="screenshot"] {
-	          width: 325px !important;
-	          height: 127px !important;
-	     }
-		img[class="galleryimage"] {
-			  width: 53px !important;
-	          height: 53px !important;
-		}
-		p[class="reminder"] {
-			font-size: 11px !important;
-		}
-		h4[class="secondary"] {
-			line-height: 22px !important;
-			margin-bottom: 15px !important;
-			font-size: 18px !important;
-		}
-	}
-	</style>
-</head>
-<body bgcolor="#e4e4e4" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="-webkit-font-smoothing: antialiased;width:100% !important;background:#e4e4e4;-webkit-text-size-adjust:none;">
-	
-<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#e4e4e4">
-<tr>
-	<td bgcolor="#e4e4e4" width="100%">
-
-	<table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="table">
-	<tr>
-		<td width="600" class="cell">
-		
-	   	<table width="600" cellpadding="0" cellspacing="0" border="0" class="table">
-		<tr>
-			<td width="250" bgcolor="#e4e4e4" class="logocell"><img border="0" src="images/spacer.gif" width="1" height="20" class="hide"><br class="hide"><img src="images/widget-logo4.png" width="178" height="76" alt="Campaign Monitor" style="-ms-interpolation-mode:bicubic;"><br><img border="0" src="images/spacer.gif" width="1" height="10" class="hide"><br class="hide"></td>
-			<td align="right" width="350" class="hide" style="color:#a6a6a6;font-size:12px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;text-shadow: 0 1px 0 #ffffff;" valign="top" bgcolor="#e4e4e4"><img border="0" src="images/spacer.gif" width="1" height="63"><br><span>WIDGET&nbsp;</span><strong><span style="text-transform:uppercase;"> <currentmonthname> <currentyear></span></strong> <span>NEWSLETTER&nbsp;</span></td>
-		</tr>
-		</table>
-	
-		<img border="0" src="images/widget-hero3.png" label="Hero image" editable="true" width="600" height="253" id="screenshot">
-	
-		<table width="600" cellpadding="25" cellspacing="0" border="0" class="promotable">
-		<tr>
-			<td bgcolor="#456265" width="600" class="promocell">                      
-			 
-				<multiline label="Main feature intro"><p>Main feature introduction</p></multiline>
-			
-			</td>
-		</tr>
-		</table>
-	
-		<img border="0" src="images/spacer.gif" width="1" height="15" class="divider"><br>
-	
-		<repeater>
-			<layout label="New feature">
-			<table width="100%" cellpadding="0" cellspacing="0" border="0">
-			<tr>
-				<td bgcolor="#85bdad" nowrap><img border="0" src="images/spacer.gif" width="5" height="1"></td>
-				<td width="100%" bgcolor="#ffffff">
-			
-					<table width="100%" cellpadding="20" cellspacing="0" border="0">
-					<tr>
-						<td bgcolor="#ffffff" class="contentblock">
-
-							<h4 class="secondary"><strong><singleline label="Title">Title of new feature</singleline></strong></h4>
-							<multiline label="Description"><p>A short explanation of the new feature</p></multiline>
-
-						</td>
-					</tr>
-					</table>
-			
-				</td>
-			</tr>
-			</table>  
-			<img border="0" src="images/spacer.gif" width="1" height="15" class="divider"><br>
-			</layout>
-			<layout label="Article, tip or resource">
-			<table width="100%" cellpadding="0" cellspacing="0" border="0">
-			<tr>
-				<td bgcolor="#ef3101" nowrap><img border="0" src="images/spacer.gif" width="5" height="1"></td>
-				<td width="100%" bgcolor="#ffffff">
-			
-					<table width="100%" cellpadding="20" cellspacing="0" border="0">
-					<tr>
-						<td bgcolor="#ffffff" class="contentblock">
-
-							<h4 class="secondary"><strong><singleline label="Title">Title of article/tip/resource</singleline></strong></h4>
-							<multiline label="Description"><p>Description</p></multiline>
-
-						</td>
-					</tr>
-					</table>
-			
-				</td>
-			</tr>
-			</table>  
-			<img border="0" src="images/spacer.gif" width="1" height="15" class="divider"><br>
-			</layout>
-			<layout label="Gallery highlights">
-			<table width="100%" cellpadding="0" cellspacing="0" border="0">
-			<tr>
-				<td bgcolor="#832701" nowrap><img border="0" src="images/spacer.gif" width="5" height="1"></td>
-				<td width="100%" bgcolor="#ffffff">
-
-					<table width="100%" cellpadding="20" cellspacing="0" border="0">
-					<tr>
-						<td bgcolor="#ffffff" class="contentblock">
-
-							<h4 class="secondary"><strong><singleline label="Gallery title">Title of gallery summary</singleline></strong></h4>
-							<multiline label="Gallery description"><p>Description of this month's gallery entries</p></multiline>
-
-						</td>
-					</tr>
-					</table>
-
-				</td>
-			</tr>
-			</table>
-
-			<table width="100%" cellpadding="0" cellspacing="0" border="0">
-			<tr>
-				<td bgcolor="#832701" nowrap><img border="0" src="images/spacer.gif" width="5" height="1"></td>
-				<td bgcolor="#ffffff" nowrap><img border="0" src="images/spacer.gif" width="5" height="1"></td> 
-				<td width="100%" bgcolor="#ffffff">
-
-					<table cellpadding="5" cellspacing="0" border="0">
-					<tr>
-						<td><img border="0" src="images/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 1"></td>
-						<td><img border="0" src="images/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 2"></td>
-						<td><img border="0" src="images/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 3"></td>
-						<td><img border="0" src="images/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 4"></td>
-						<td><img border="0" src="images/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 5"></td>
-					</tr>
-					<tr>
-						<td><img border="0" src="images/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 6"></td>
-						<td><img border="0" src="images/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 7"></td>
-						<td><img border="0" src="images/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 8"></td>
-						<td><img border="0" src="images/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 9"></td>
-						<td><img border="0" src="images/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 10"></td> 
-					</tr>
-					</table>
-
-					<img border="0" src="images/spacer.gif" width="1" height="5"><br>
-
-				</td>
-			</tr>
-			</table>  
-			<img border="0" src="images/spacer.gif" width="1" height="15" class="divider"><br>
-			</layout>
-			<layout label="Pull quote">
-						<table width="100%" cellpadding="0" cellspacing="0" border="0">
-						<tr>
-							<td bgcolor="#85bdad" nowrap><img border="0" src="images/spacer.gif" width="5" height="1"></td>
-							<td width="100%" bgcolor="#ffffff">
-						
-								<table width="100%" cellpadding="20" cellspacing="0" border="0">
-								<tr>
-									<td bgcolor="#ffffff" class="contentblock">
-			
-										<h4 class="secondary"><strong><singleline label="Pull quote">Enter the quote in full</singleline></strong></h4>
-			
-									</td>
-								</tr>
-								</table>
-						
-							</td>
-						</tr>
-						</table>  
-						<img border="0" src="images/spacer.gif" width="1" height="15" class="divider"><br>
-						</layout>
-		</repeater>           
-		
-		</td>
-	</tr>
-	</table>
-
-	<img border="0" src="images/spacer.gif" width="1" height="25" class="divider"><br>
-
-	<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f2f2f2">
+<body marginheight="0" marginwidth="0" leftmargin="0" topmargin="0" bgcolor="#f3f3f3">
+<table width="100%" align="center" cellspacing="0" cellpadding="0" border="0" bgcolor="#f3f3f3">
 	<tr>
 		<td>
-		
-			<img border="0" src="images/spacer.gif" width="1" height="30"><br>
-		
-			<table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="table">
-			<tr>
-				<td width="600" nowrap bgcolor="#f2f2f2" class="cell">
-				
-					<table width="600" cellpadding="0" cellspacing="0" border="0" class="table">
-					<tr>
-						<td width="380" valign="top" class="footershow">
-						
-							<img border="0" src="images/spacer.gif" width="1" height="8"><br>  
-						
-							<p style="color:#a6a6a6;font-size:12px;font-family:Helvetica,Arial,sans-serif;margin-top:0;margin-bottom:15px;padding-top:0;padding-bottom:0;line-height:18px;" class="reminder">You’re receiving this because you’re an awesome ABC Widgets customer or subscribed via <a href="http://www.abcwidgets.com/" style="color:#a6a6a6;text-decoration:underline;">our site</a>.</p>
-							<p style="color:#c9c9c9;font-size:12px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;"><preferences style="color:#3ca7dd;text-decoration:none;"><strong>Edit your subscription</strong></preferences>&nbsp;&nbsp;|&nbsp;&nbsp;<unsubscribe style="color:#3ca7dd;text-decoration:none;"><strong>Unsubscribe instantly</strong></unsubscribe></p>
-						
-						</td>
-						<td align="right" width="220" style="color:#a6a6a6;font-size:12px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;text-shadow: 0 1px 0 #ffffff;" valign="top" class="hide">
-						
-							<table cellpadding="0" cellspacing="0" border="0">
+			<table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
+				<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="20" vspace="0" hspace="0"></td></tr>
+
+				<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="22" vspace="0" hspace="0"></td></tr>
+
+				<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="10" vspace="0" hspace="0"></td></tr>
+				<tr>
+					<td width="600">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="ffffff">
+							<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="15" vspace="0" hspace="0"></td></tr>
 							<tr>
-								<td><a href="http://www.flickr.com/photos/freshview"><img border="0" src="images/flickr.gif" width="42" height="32" alt="See our photos on Flickr"></a></td>
-								<td><a href="http://twitter.com/campaignmonitor"><img border="0" src="images/twitter.gif" width="42" height="32" alt="Follow us on Twitter"></a></td>
-								<td><a href="http://www.facebook.com/campaignmonitor"><img border="0" src="images/facebook.gif" width="32" height="32" alt="Visit us on Facebook"></a></td>
+								<td>
+									<table width="100%" cellspacing="0" cellpadding="0" border="0">
+										<tr>
+											<td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="19" height="1" vspace="0" hspace="0"></td>
+											<td bgcolor="#ffffff" style="font-size:0; line-height:0;"><a href="#"><img width="227" vspace="0" hspace="0" border="0" height="63" align="left" src="http://reservationresources.com/img/logo.png" alt="reservation_resources_logo"></a></td>
+											<td valign="top" width="334" align="right" style="text-align=right;">
+												<table border="0" align="right" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+													<tr>
+														<td colspan="4" align="right" style="line-height:15px; text-align=right;">
+															<font face="Arial, Helvetica, sans-serif" size="2" color="#c5c5c5" style="line-height:15px; font-size:12px;">Share with friends:</font>
+														</td>
+													</tr>
+													<tr><td colspan="4" style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="7" vspace="0" hspace="0"></td></tr>
+													<tr>
+														<td colspan="4" align="right" style="font-size:0; line-height:0;">%SOCIALSHARE-FACEBOOK% &nbsp; %SOCIALSHARE-TWITTER%</td>
+													</tr>
+											  </table>
+											</td>
+											<td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="20" height="1" vspace="0" hspace="0"></td>
+										</tr>
+									</table>
+								</td>
 							</tr>
-							</table>
-						
-							<img border="0" src="images/spacer.gif" width="1" height="10"><br><p style="color:#b3b3b3;font-size:11px;line-height:15px;font-family:Helvetica,Arial,sans-serif;margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;font-weight:bold;">ABC Widgets</p><p style="color:#b3b3b3;font-size:11px;line-height:15px;font-family:Helvetica,Arial,sans-serif;margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;font-weight:normal;">87 Street Avenue, California, USA</p></td>
-					</tr>
-					</table>
-				
-				</td>
-			</tr>	
-	   		</table>
-
-			<?php echo $this->Html->image("email/spacer.gif", array("width" => 1, "height" => 25)); ?>
+							<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="19" vspace="0" hspace="0"></td></tr>
+							<tr><td bgcolor="#ececec" style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="1" vspace="0" hspace="0"></td></tr>
+							<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="19" vspace="0" hspace="0"></td></tr>
+							<tr><td style="font-size:0; line-height:0;"><img width="600" vspace="0" hspace="0" border="0" height="227" align="left" src="http://reservationresources.com/img/template/main_image_header.jpg" alt=""></td></tr>
+							<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="10" vspace="0" hspace="0"></td></tr>
+							<tr>
+								<td width="600">
+									<table width="100%" cellspacing="0" cellpadding="0" border="0">
+										<tr>
+											<td valign="middle" width="457" align="center" style="line-height:17px; text-align=center;">
+												<font face="Arial, Helvetica, sans-serif" size="2" color="#313131" style="line-height:17px; font-size:14px;"><strong><?php echo $messagetitle; ?></strong></font>
+											</td>
+			
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="8" vspace="0" hspace="0"></td></tr>
+							<tr><td bgcolor="#ececec" style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="1" vspace="0" hspace="0"></td></tr>
+							<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="19" vspace="0" hspace="0"></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td width="600">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#00a7ed">
+							<tr><td colspan="5" style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="16" vspace="0" hspace="0"></td></tr>
+							<tr>
+								<td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="20" height="1" vspace="0" hspace="0"></td>
+								<td width="274" valign="top">
+									<table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#00a7ed">
+										<tr>
+											<td style="line-height:19px;">
+												<font face="Arial, Helvetica, sans-serif" size="2" color="#ffffff" style="line-height:19px; font-size:14px;"><strong><?php echo $meesageheading; ?></strong></font>
+											</td>
+										</tr>
+										<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="2" vspace="0" hspace="0"></td></tr>
+										<tr>
+											<td style="line-height:18px;">
+												<font face="Arial, Helvetica, sans-serif" size="2" color="#ffffff" style="line-height:18px; font-size:12px;">  <?php echo $this->fetch('content'); ?> </font>
+											</td>
+										</tr>
+										<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="5" vspace="0" hspace="0"></td></tr>
+										<tr><td style="font-size:0; line-height:0;"><a href="<?php echo $action; ?>"><img width="124" vspace="0" hspace="0" border="0" height="31" align="left" src="http://reservationresources.com/img/template/email_html_button_green.gif" alt="Click here"></a></td></tr>
+										<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="3" vspace="0" hspace="0"></td></tr>
+									</table>
+								</td>
+								<td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="25" height="1" vspace="0" hspace="0"></td>
+								<td valign="middle" style="font-size:0; line-height:0;"><a href="#"><img width="261" vspace="0" hspace="0" border="0" height="142" align="left" src="http://reservationresources.com/img/template/email_html_image1.jpg" alt=""></a></td>
+								<td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="20" height="1" vspace="0" hspace="0"></td>
+							</tr>
+							<tr><td colspan="5" style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="17" vspace="0" hspace="0"></td></tr>
+						</table>
+					</td>
+				</tr>
+			
+				<tr><td bgcolor="#ececec" style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="1" vspace="0" hspace="0"></td></tr>
 		
-	   </td>
+							<tr><td bgcolor="#ececec" style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="1" vspace="0" hspace="0"></td></tr>
+			
+							<tr><td bgcolor="#ececec" style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="1" vspace="0" hspace="0"></td></tr>
+						</table>
+					</td>
+				</tr>
+			
+				<tr><td bgcolor="#ececec" style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="1" vspace="0" hspace="0"></td></tr>
+				<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="12" vspace="0" hspace="0"></td></tr>
+				<tr>
+				  <td align="center" style="line-height:18px; text-align=center;">
+					<font face="Arial, Helvetica, sans-serif" size="1" color="#959595" style="line-height:18px; font-size:11px;">You are receiving this email because your e-mail is subscribed to <a href="#"><font face="Arial, Helvetica, sans-serif" size="1" color="#468bd4" style="text-decoration:underline; line-height:18px; font-size:11px;">www.reservationresources.com</font></a>.</font></td>
+				</tr>
+				<tr><td style="font-size:0; line-height:0;"><img src="images/0ea5c802b4e9dc73e7bf1470a843261c.gif" width="1" height="12" vspace="0" hspace="0"></td></tr>
+			</table>
+		</td>
 	</tr>
-	</table>
-	
-	</td>
-</tr>
-</table>  	   			     	 
-
+</table>
 </body>
-</html>

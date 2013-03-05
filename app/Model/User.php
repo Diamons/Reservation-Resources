@@ -1,6 +1,7 @@
 <?php
 CakePlugin::load('Uploader');
 App::uses('CakeEmail', 'Network/Email');
+
 App::uses('Folder', 'Utility');
 App::import('Vendor', 'Uploader.Uploader');
 	class User extends  AppModel{
@@ -20,7 +21,8 @@ App::import('Vendor', 'Uploader.Uploader');
 			'allowEmpty'	=> true,		// Allow an empty file upload to continue
 			'transforms'	=> array()		// What transformations to do on images: scale, resize, etc
 		)
-	)
+	),
+
 );
 
 	public $validate = array(
@@ -108,6 +110,12 @@ App::import('Vendor', 'Uploader.Uploader');
 				'message' => 'Please provide your country'
 			)
 		
+		),
+		'TermsofService'=>array(
+			'must_be_true' =>array(
+				'rule'=>'mustBeTrue',
+				'message' => 'Please agree to the Terms of Service'
+			)
 		)
 	);
 	
@@ -120,7 +128,15 @@ App::import('Vendor', 'Uploader.Uploader');
 			return false;
 		}
 	}
+	public function mustBeTrue($data){
+		if($this->data['User']['TermsofService'] == true){
+			return true;
+		}
+		else{
+			return false;
+		}
 	
+	}
 	public function emailMustMatch($data){
 		if($this->data['User']['username'] == $this->data['User']['confirm_username']  ){
 			return true;
@@ -135,7 +151,7 @@ App::import('Vendor', 'Uploader.Uploader');
 	public function afterSave($created){
 		if($created){
 			$email = new CakeEmail('smtp');
-			$email->viewVars(array('first' =>$this->data['User']['first_name'],'last'=>$this->data['User']['last_name']));
+			$email->viewVars(array('first' =>$this->data['User']['first_name'],'last'=>$this->data['User']['last_name'],'messagetitle'=>'Dear Guest and Customer','action'=>'http://reservationresources.com/users'));
 			$email->template('welcome', 'email_layout')->emailFormat('html');
 			$email->sender('noreply@reservationresources.com')->to($this->data['User']['username'])->subject('Welcome to Reservation Resources')->send(); 
 		
@@ -150,7 +166,7 @@ App::import('Vendor', 'Uploader.Uploader');
 	}
 	public function passwordReset($username,$first,$password){
 			$email = new CakeEmail('smtp');
-			$email->viewVars(array('first'=>$first,'password'=>$password));
+			$email->viewVars(array('first'=>$first,'password'=>$password,'messagetitle'=>'Your new password','action'=>'http://reservationresources.com/users'));
 			$email->template('password_reset', 'email_layout')->emailFormat('html');
 			$email->sender('noreply@reservationresources.com')->to($username)->subject('Password Reset')->send(); 
 	}

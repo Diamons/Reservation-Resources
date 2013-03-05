@@ -1,4 +1,5 @@
 <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+<?php //Debugger::log($message); ?>
 <div class="inner">
 <?php foreach($message as $key => $value){ ?>
 	<div class="messages" data-uid = "<?php echo $message[$key]['Message']['user_id']; ?>" >
@@ -28,22 +29,30 @@
 		</div>
 	</div>
 <?php } ?>
-	<!--<div class="messages">
-		<div class="row-fluid person_message person_message_blue">
+<?php if(isset($owner)){?>
+	<div class="messages" style = "display:none;" data-uid = "<?php echo $owner['User']['id']; ?>" >
+		<div class="row-fluid person_message">
 			<div class="span1">
-				<img src="http://www.ucar.edu/communications/staffnotes/0609/images/Kyle.jpg" />
+			<?php if(isset($ownder['User']['profile_picture'])){
+						echo $this->Html->image($ownder['User']['profile_picture'],array('class'=>'profile_picture'));
+					} 
+					else{
+						echo $this->Html->image('anonymous.jpg',array('class'=>'profile_picture'));
+				}
+			?>
 			</div>
+				<div class="user_message_details"><?php echo $owner['User']['first_name']." ".$owner['User']['last_name']; ?></div>
 			<div style="position: relative;" class="span7">
-				<div class="user_message_details">Elliott James</div>
 			</div>
 			<div class="user_message_info span4">
-				<div>01/01/12</div>
+				<div>Moments ago</div>
 			</div>
 		</div>
 		<div class="inner">
 			asdasdasd
 		</div>
-	</div>-->
+	</div>
+<?php }?>
 </div>
 <hr />
 <div class="inner">

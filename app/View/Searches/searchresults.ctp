@@ -3,20 +3,25 @@ $this->start('scriptBottom');
 	echo $this->Html->script(array('jquery.raty.min', 'searchresults'));
 	//Debugger::log($properties);
 $this->end(); ?>
-
-<div class="inner row-fluid" id="content search_oontainer">
-	<div id="search_panel" class="span3">
+<?php if(isset($subscription)){
+	$this->start('scriptBottom');
+	echo $this->Html->script(array('ajaxValidation', 'subscribe'));
+	$this->end();
+}?>
+<div class="inner row-fluid" id="search_container">
+	<?php /*<div id="search_panel" class="span3">
 		<div id="map"></div>
 		
-		Refinement stuff goes here
-	</div>
-	<div id="search_entries" class="span9">
+		<!--Refinement stuff goes here-->
+	</div> 
+	<div id="search_entries" class="span9">*/ ?>
+	<div id="search_entries" class="span12">
 		<?php foreach($properties as $property){  ?>
 			
 		<div class="row-fluid search_property">
 			<div class="span2">
 				<?php if(isset($property['Property']['default_image'])){ 
-					echo $this->Html->image('/images/'.$property['Property']['user_id'].'/'.$property['Property']['id'].'/'.$property['Property']['default_image'],array('class'=>'property_search_image'));
+					echo $this->Html->image('/images/'.$property['Property']['user_id'].'/'.$property['Property']['id'].'/'.$property['Property']['default_image'],array('class'=>'property_search_image','fullBase'=>true));
 				}
 				else{
 					echo $this->Html->image('nopic.png',array('class'=>'property_search_image'));	
@@ -41,8 +46,8 @@ $this->end(); ?>
 				?>
 			
 					<div class="rating actions_available">
-						<a   href = "javascript:void(0);" data-pid="<?php echo $property['Property']['id']; ?>"  class = 'guest_host' data-type='reg'><div  ><i class="icon-user"></i> Contact Host</div></a>
-						<!-- <a href = "javascript:void(0);" class = "guest_host" data-index = "<?php echo $key; ?>" ><div class="green"><i class="icon-calendar"></i> Book Now</div></a> -->
+						<a   href = "#" data-pid="<?php echo $property['Property']['id']; ?>"  class = 'guest_host' data-type='reg'><div  ><i class="icon-user"></i> Contact Host</div></a>
+						
 						<div class="prices">
 							<?php if(!empty($property['Property']['price_per_night'])){?>
 							<div><span>$<?php echo $property['Property']['price_per_night']; ?></span> / Daily</div>
@@ -80,3 +85,6 @@ $this->end(); ?>
 		</div>
 
 	</div>
+	<p id="back-top">
+		<a href="#top"><span></span>Back to Top</a>
+	</p>

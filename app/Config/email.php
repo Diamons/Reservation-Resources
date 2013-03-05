@@ -51,7 +51,21 @@ class EmailConfig {
 
 	public $smtp = array(
 		'transport' => 'Smtp',
-		'from' => array('norepyl@reservationresources.com' => 'Reservation Resources Team'),
+		'from' => array('noreply@reservationresources.com' => 'Reservation Resources Team'),
+		'host' => 'ssl://smtp.gmail.com',
+		'port' => 465,
+		'timeout' => 30,
+		'username' => 'noreply@reservationresources.com',
+		'password' => 'hARRY1234%^',
+		'client' => null,
+		'log' => false
+		//'charset' => 'utf-8',
+		//'headerCharset' => 'utf-8',
+	);
+	
+	public $craigslist = array(
+		'transport' => 'Smtp',
+		'from' => array('noreply@reservationresources.com' => 'Reservation Resources Team'),
 		'host' => 'ssl://smtp.gmail.com',
 		'port' => 465,
 		'timeout' => 30,

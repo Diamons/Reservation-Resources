@@ -7,6 +7,7 @@ $(document).ready(function(){
 //google autocomplete
 //google autocomplete
 var elementId= document.getElementById("searchMain");
+
 var autocomplete = new google.maps.places.Autocomplete(elementId);
 google.maps.event.addListener(autocomplete, 'place_changed', function() {
  var place = autocomplete.getPlace();
@@ -61,6 +62,22 @@ $("#city").val(address["city"]);
 $("#state").val(address["state"]);
 $("#latitude").val( place.geometry.location.lat());
 $("#longtitude").val( place.geometry.location.lng());
+var geocoder =  new google.maps.Geocoder();
+var latlng = new google.maps.LatLng(place.geometry.location.lat(),place.geometry.location.lng());
+ geocoder.geocode({'latLng': latlng}, function(results, status){
+	if(status == google.maps.GeocoderStatus.OK){
+		
+		 for(i = 0; i < results[0].address_components.length;i++){
+		
+			if(results[0].address_components[i].types == "postal_code"){
+			
+			address["zipcode"] = results[0].address_components[i].long_name;
+			$("#zip").val(address["zipcode"]);
+			}
+		}
+	
+	}
+ });
 
 
  });

@@ -20,14 +20,26 @@ App::import('Vendor', '3taps');
 				
 			}
 		}
-		public function tapsgeolocation($city,$state){
+		public function tapsgeolocation($city,$state,$zip){
 			set_time_limit(0);	
-		 $client = new threeTapsGeocoderClient('gtntjmd4q5kdumhpmq44qtxb');
-		 $locations = array(array('text' =>$city.', '.$state));
-		$locationcode = $client->geocode($locations);
-		$searchclient = new threeTapsSearchClient('gtntjmd4q5kdumhpmq44qtxb');
-		$results = $searchclient->search(array('category'=>'RVAC','location'=>$locationcode[0][0],'source'=>'CRAIG'));
+		 $client = new threeTapsReferenceClient('26f77f9c5f73f446babab99d5d94d343');
+		 //$locations = array(array('text'=>$city.",".$state));
+		//$locationcode = $client->geocode($locations);
+		//Debugger::log($locationcode);
+		$searchclient = new threeTapsSearchClient('26f77f9c5f73f446babab99d5d94d343');
+		$results = $searchclient->search(array('source'=>'CRAIG','category'=>'RVAC','text'=>$zip));
+		if(empty($results['results'])){//if no results return then we search by city and state
+			$results = $searchclient->search(array('source'=>'CRAIG','category'=>'RVAC','text'=>$city));
+		
+		}
+		
 		return $results;
+		
+		}
+		public function previewproperty($postkey = null){
+				$searchclient = new threeTapsSearchClient('26f77f9c5f73f446babab99d5d94d343');
+				$results = $searchclient->search(array('postKey'=>$postkey));
+				return $results;
 		
 		}
 

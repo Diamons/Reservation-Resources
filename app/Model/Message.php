@@ -29,7 +29,7 @@ class Message extends AppModel{
 			}	
 			//Debugger::log($useremail);			
 			$email = new CakeEmail('smtp');
-			$email->viewVars(array('first' =>$useremail['User']['first_name']));
+			$email->viewVars(array('first' =>$useremail['User']['first_name'],'messagetitle'=>'New Message','action'=>'http://reservationresources.com/'));
 			$email->template('message_reply', 'email_layout')->emailFormat('html');
 			$email->sender('noreply@reservationresources.com')->to($useremail['User']['username'])->subject('You have a new message on Reservation Resources!')->send(); 
 		

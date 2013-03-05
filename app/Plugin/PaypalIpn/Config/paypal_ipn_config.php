@@ -12,9 +12,9 @@ class PaypalIpnConfig {
     * Each settings key coresponds to the Paypal API.  Review www.paypal.com for more. 
     */
   var $settings = array(
-    'business' => 'live_email@paypal.com', //'live_email@paypal.com', //Your Paypal email account
+    'business' => 'invoice@reservationresources.com', //'live_email@paypal.com', //Your Paypal email account
     'server' => 'https://www.paypal.com', //Main paypal server.
-    'notify_url' => 'http://yoursite.com/paypal_ipn/process', //'http://www.yoursite.com/paypal_ipn/process', //Notify_url... set this to the process path of your paypal_ipn::instant_payment_notification::process action
+    'notify_url' => 'http://reservationresources.com/paypal_ipn/process', //'http://www.yoursite.com/paypal_ipn/process', //Notify_url... set this to the process path of your paypal_ipn::instant_payment_notification::process action
     'currency_code' => 'USD', //Currency
     'lc' => 'US', //Locality
     'item_name' => 'Paypal_IPN', //Default item name.

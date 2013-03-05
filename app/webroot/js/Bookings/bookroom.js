@@ -4,6 +4,7 @@ function quickbook(){
 		var checkout = new Date($("#BookingEndDate").val());
 		var checkin = new Date($("#BookingStartDate").val());
 		var guest = $("#BookingGuest").val();
+		$('span').removeClass('error');
 		if((checkin != null) &&(checkout != null) && (checkout >= checkin)){
 		
 			$.ajax({
@@ -21,7 +22,7 @@ function quickbook(){
 						$("input[name ='amount']").val(data.data.total);
 					}
 					else{
-						$("#subtotal").text("The minimum stay restrictions is "+data.data+" days").css('color','red');
+						$("#subtotal").html("<span class = 'error'>The minimum stay restrictions is "+data.data+" days</span>").css('color','red');
 					}
 				}
 			});
@@ -39,7 +40,12 @@ $('#paypal_checkout').on('click',function(){
 			success:function(data){
 				if(data.success == true){
 					$("input[name ='custom']").val(data.data);
-					$('.paypal-form').parent().submit();
+					if($('span').hasClass('error')){
+						alert('Please correct any errors you may have. (e.g The minimum stay restriction)')
+					}
+					else{
+						$('.paypal-form').parent().submit();
+					}
 				}
 				else{
 					$.each(data.data,function(field,value){

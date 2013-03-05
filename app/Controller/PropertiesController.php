@@ -6,11 +6,12 @@
 		}
 		public function beforeFilter(){
 			parent::beforeFilter();
-				$this->Auth->allow('index', 'viewproperty','quickbook','finalizeposting');
+				$this->Auth->allow('index', 'viewproperty','quickbook','finalizeposting','preview');
 				$this->AjaxHandler->handle('quickbook','post','comment');
 				$this->Cookie->time = 31536000; // cookie valid for one year before expiration  
 		}
 		public function index(){
+			$this->set('title_for_layout', 'List your space, room, or vacation rental for free');
 			if($this->request->is('post')&&$this->Auth->loggedIn()){
 				$this->Property->set('user_id',$this->Auth->user('id'));
 				$this->Property->set('status','0');
@@ -22,6 +23,9 @@
 				}
 				if($this->Property->save($this->request->data)){
 					$this->loadModel('Fee');//lets set the default extra guest fee for saving
+					$this->loadModel('Notification');//set notification for user to add additional property details
+					$this->Notification->setNotification($this->Auth->user('id'),1,$this->webroot.'properties/edit/'.$this->Property->id,'Reservation Resources recommend that you update your property to include items such as amenities, fees, etc. Doing so will help potential guest make a better informed decision','Additional Property Information','Add Property Details');
+					$this->Notification->save();
 					$this->Fee->set('property_id',$this->Property->id);
 					$this->Fee->set('fee_name','fee per extra guest');
 					$this->Fee->set('fee_price','0.00');
@@ -37,12 +41,14 @@
 						//we will move the craigslist message to user inbox if any
 						$this->Craigslist->moveToInbox($this->Craigslist->id,$this->Property->id);
 					
-				}
+					}
+					
 				
 					$this->Property->createPropertyFolder($this->Property->id,$this->Auth->user('id'),$property_pictures);
 					if($property_pictures){
 						if($this->Property->handleImage($this->Property->id,$this->Auth->user('id'),$property_pictures)){
-							$this->Session->setFlash('Awesome! Your property is live! :)','flash_success');
+							$this->Notification->create();
+							$this->Notification->setNotification($this->Auth->user('id'),2,$this->webroot.'properties/viewproperty/'.$this->Property->id,'Congrats your property is active! Click the button below to view your live listing','Your property:'.$this->request->data['Property']['title'].' is live!','View Property');
 							$this->redirect(array('controller'=>'dashboard','action'=>'index'));
 						}
 						else{
@@ -51,7 +57,9 @@
 						}
 					}
 					else{
-						$this->Session->setFlash('Awesome! Your property is live!. You can add pictures later if you like in your property page.','flash_success');
+						$this->Notification->create();
+						$this->Notification->setNotification($this->Auth->user('id'),0,$this->webroot.'properties/edit/'.$this->Property->id,'Although your property is live it is highly recommended that you upload property pictures. Please do so now by click the button below','Upload Property Photos','Add Images');
+						$this->Notification->save();
 						$this->redirect(array('controller'=>'dashboard','action'=>'index'));
 					}
 					
@@ -80,6 +88,8 @@
 			$property['Amenity'] = $this->Amenity->parseAmenity($property['Amenity'],true);
 			$this->set('property',$property);
 			$this->set('images',$this->Property->findPropertyImages($property['User']['id'],$property['Property']['id']));
+			//set title for layout
+			$this->set('title_for_layout', $property['Property']['title']);
 			if(!$this->Cookie->read('viewed')){
 				$this->Property->updateAll(array('Property.viewcount'=>'Property.viewcount+1'), array('Property.id'=>$property_id));
 				$this->Cookie->write('viewed', 'true',false);
@@ -100,7 +110,7 @@
 					}
 			}
 			else{
-				$this->set('reviewButton',false);
+				$this->set('reviewButton',true);
 			}
 		
 		}
@@ -124,10 +134,11 @@
 							//Debugger::log($this->data['Image']);
 							$this->Property->handleImage($property_id,$this->Auth->user('id'),$this->data['Image']);
 						}
-						$this->Session->setFlash('Congrats! Your property has been updated');
+						$this->Session->setFlash('Congrats! Your property has been updated','flash_success');
+						$this->redirect(array('controller'=>'properties','action'=>'viewproperty',$property_id));
 					}
 					else{
-						$this->Session->setFlash('Sorry, we could not update your property at this time. Please double check for any information error', "flash_success");
+						$this->Session->setFlash('Sorry, we could not update your property at this time. Please double check for any information error', "flash_error");
 					}
 					$this->set('propertyid',$property_id);
 					
@@ -187,12 +198,14 @@
 					$avg = $this->Review->find( 'all',array('conditions' => array( 'Review.property_id' => $this->request->data['Review']['property_id'] ),'recursive' => 0,'fields'=> array( 'AVG( Review.rating) AS average')));
 					$response['success'] = true;
 					$this->Property->id = $this->request->data['Review']['property_id'];
-					//Debugger::log($avg[0][0]['average']);
-					
 					$this->Property->set('rating',$avg[0][0]['average']);
 					$this->Property->save();
-					//$response['data'] = $avg;
-					
+					//once property has been updated we send the user a notification
+					$this->loadModel('Notification');
+					$this->Property->contain(array());
+					$owner = $this->Property->read(array('user_id','id'),$pid);
+					$this->Notification->setNotification($owner['Property']['user_id'],3,$this->webroot.'properties/viewproperty/'.$owner['Property']['id']."#reviews",'You have received a new property comment on one of your properties. Click the button below to view your property comments','New Comment','View Property Comments');
+					$this->Notification->save();
 				}
 				else{
 					$response['success'] = false;
@@ -201,7 +214,7 @@
 			}
 			else{
 				$this->set('pid',$pid);
-				$this->render('/elements/comment');
+				$this->render('/Elements/comment');
 			}
 		
 		}
@@ -215,12 +228,34 @@
 				$this->set('title',$posting['Craigslist']['title']);
 				$this->set('description',$posting['Craigslist']['body']);
 				$this->set('uuid',$posting['Craigslist']['id']);
+				$this->set('finalizeposting',true);
 				$this->render('index');
 			
 			}
 			else{
 				$this->redirect(array('controller'=>'properties','action'=>'index'));
 			}
+		
+		}
+		
+		public function preview($key = null,$postkey = null){//this will preview the cl post
+		$properties = $this->Session->read('Property.results');
+			if(!empty($key) && $properties['results'][$key]['id'] == $postkey){
+				$results = $properties;
+				$this->set('property',$results['results'][$key]);
+				$this->set('index',$key);
+				$this->set('title_for_layout', $results['results'][$key]['heading']);
+			
+			}
+			else{//query 3 taps for data
+				$this->loadModel('Search');
+				$results = $this->Search->previewproperty($postkey);
+			
+				$this->set('property',$results['results'][0]);
+				$this->set('index',0);
+				$this->set('title_for_layout', $results['results'][0]['heading']);
+			}
+			
 		
 		}
 

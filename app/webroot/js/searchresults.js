@@ -23,6 +23,7 @@ $(document).ready(function(){
 
 
 });*/
+
 $('.guest_host').on('click',function(event){
 
 	status = checkLoginStatus();
@@ -48,9 +49,24 @@ $(document).on('submit','#MessageSubmitMessageForm',null,function(event){
 			url:getDomain()+"messages/submitmessage",
 			type:"POST",
 			data:$('#MessageSubmitMessageForm').serialize(),
-			success:function(data){
+			beforeSend: function(xhr){
 				Shadowbox.close();
-				alert(data.data);
+				$('.info.ajaxmessage').slideDown();
+			
+			},
+			success:function(data){
+				if(data.success == true){
+					$('.info.ajaxmessage').slideUp();
+					$('.success.ajaxmessage').slideDown();
+					setTimeout(function(){$('.success.ajaxmessage').slideUp();},5000);
+				
+				}
+				else{
+					$('.info.ajaxmessage').slideUp();
+					$('.error.ajaxmessage').slideDown();
+					setTimeout(function(){$('.error.ajaxmessage').slideUp();},5000);
+				
+				}
 			}
 		});
 });

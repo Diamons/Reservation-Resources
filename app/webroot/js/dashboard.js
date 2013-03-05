@@ -1,6 +1,9 @@
+
 $(document).ready(function(){
 	var currentUrl = String(window.location.hash);
 	var currentUrl = currentUrl.substring(currentUrl.lastIndexOf("#")+1, currentUrl.length)
+	var ajaxUrl ={}; //this will hold the current url action of the ajax request. i.e detect what url request was done via ajax;
+
 	if(currentUrl === ""){
 		updatePage('notifications');
 	}else{
@@ -21,6 +24,10 @@ $(document).ready(function(){
 	$("#container").on("click",'.viewthread',null,function(){
 		
 		tid = $(this).data('tid')
+		data = {};
+		data.uid = $("#usersocket").data("uid");
+		data.tid = tid;
+		socket.emit('thread connection request',data);
 		updatePage('viewthread',tid);
 	});
 	
@@ -31,14 +38,14 @@ $(document).ready(function(){
 		updatePage('postcraigslist',pid);
 	
 	});
-	$("#container").on("click",'#postNowButton',null,function(){
+	$(document).on("click",'#postNowButton',null,function(){
 		var confirmpost = confirm("Please note that it may take up to two minutes to finish the submission process. Please by patient while our servers communicate with craigslist");
 		if(confirmpost){
-			$("#content").html("<img id = 'loading' src = '"+getDomain()+"img/loading.gif' />");
+
 		$.ajax({
 			url:getDomain()+"properties/post",
-
-			data:"area="+$("#cl_locationselect").val()+"&step=1"+"&title="+$("#PropertyTitle").val()+"&description="+$("#PropertyDescription").val()+"&pid="+$("#PropertyId").val(),
+		
+			data:"area="+$("#cl_locationselect").val()+"&step=1"+"&title="+$("#PropertyTitle").val()+"&description="+escape($("#userbody").html())+"&pid="+$("#PropertyId").val()+"&html="+$("#userbody").html(),
 
 			type:"POST",
 			success:function(html){
@@ -74,19 +81,54 @@ $(document).ready(function(){
 		});
 	});
 	$(document).on("click",'#reply',null,function(){
-	
+		
 		//alert('hello');
 		$.ajax({
 			type:"POST",
 			data:$("#MessageReplyForm").serialize(),
 			url: getDomain()+"messages/reply/",
+			beforeSend: function(xhr){
+				$('.info.ajaxmessage').slideDown();
+			
+			},
 			success:function(data){
 				if(data.success == true){
-					alert('Message Sent!');
+					$('.info.ajaxmessage').slideUp();
+					$('.success.ajaxmessage').slideDown();
+					var uid = $('#MessageUserId').val();
+					//get text area content
+					content = $('textarea').val();
+					if($('.messages:last').is(':hidden')){
+						$('.messages .inner:last').text(content);
+						$('.messages:last').fadeIn();
+					}
+					else{//wee need to check if the reply id is the same user as last message
+					//get last msg id
+					var lastid = $('.messages:last').data('uid');
+						if(lastid == uid){
+							var message = $('.messages:last').clone();
+							message.find('.inner').text(content);
+							message.css('display','none');
+							$('#content .inner:first').append(message);
+							$('.messages:last').fadeIn();
+						}
+						else{
+							var message = $('*[data-uid="'+uid+'"]').clone();
+							message.find('.inner').text(content);
+							message.css('display','none');
+							$('#content .inner:first').append(message);
+							$('.messages:last').fadeIn();
+						}
+					}
+					$('textarea').val('');
+		
+					setTimeout(function(){$('.success.ajaxmessage').slideUp();},5000);
 					
 				}
 				else{
-					alert('Something went wrong we could not deliver your message');
+					$('.info.ajaxmessage').slideUp();
+					$('.error.ajaxmessage').slideDown();
+					setTimeout(function(){$('.error.ajaxmessage').slideUp();},5000);
 				}
 			
 			}
@@ -132,6 +174,7 @@ $(document).ready(function(){
 			success:function(data){
 				if(data.success == true){
 					Shadowbox.close();
+					
 					alert('Calendar Successfully Updated');
 				}
 				else{
@@ -184,6 +227,30 @@ $(document).on("click",'a.btn.btn-large.btn-danger',function(){
 	 
 		});
 	});
+$(document).on('click','.btn.remove',function(){
+	currentobject = $(this);
+	$.ajax({
+			url: getDomain()+"notifications/delete/"+$(this).data('notificationid'),
+			type:"GET",
+			success:function(data){
+				if(data.success == true){
+					
+					var closestdiv = $(currentobject).closest('div');
+					
+					$(closestdiv).fadeOut('5000');
+				}
+				else{
+					alert('We could not delete this notification at this time. We apologize for the inconvenience');
+				}
+			
+			}
+	
+		});
+	});
+$(document).on('click','.action',function(){//this is the action to be taken when user clicks on a notification action
+			
+		updatePage($(this).attr('href').replace(/\#/, ""));
+	});
 });
 
 function updatePage(url,data){
@@ -208,6 +275,9 @@ function updatePage(url,data){
 $(document).on("click", ".sendmessage", function(event){
 	var bid = $(this).data('bid');
 	var status = $(this).data('status');
+	var that = $(this);
+	var confirmaction = confirm('Are your sure you want to '+$(this).val()+' this booking?');
+	if(confirmaction){
 	$.ajax({
 		
 		type:"POST",
@@ -216,7 +286,10 @@ $(document).on("click", ".sendmessage", function(event){
 		success:function(data){
 		
 			if(data.success == true){
-				leaveMessage(bid,status);
+					leaveMessage(bid,status);
+					managecalendar(that,'.person','booked');
+					$(that).closest('.personDiv').fadeOut();
+				
 				
 			
 			}
@@ -225,6 +298,41 @@ $(document).on("click", ".sendmessage", function(event){
 			}
 		}
 		
-	});
+		});
+	}
 	
+});
+
+function managecalendar(that,selector,whichClass){
+	userId = $(that).closest(selector).data('id');
+	start = new Date($(that).closest(selector).data('startdate'));
+	end = new Date($(that).closest(selector).data('enddate'));
+	startDay = start.getDate()+1; //the day of the start date
+	endDay = end.getDate()+1;//the end day from 1-31
+	startMonth = start.getMonth()+1;
+	endMonth = end.getMonth()+1;//end month
+	calendarMonth = $('.calendar').data('month'); 
+	calendarYear = $('.calendar').data('year');
+	end = new Date(end.getFullYear(),end.getMonth(),endDay);
+				
+	if(calendarMonth == startMonth || calendarMonth == endMonth){
+						
+		$(".pending").each(function(){
+		currentDate = new Date(calendarYear,calendarMonth-1,parseInt($(this).find("span").text()));
+		//alert(currentDate);
+		if(currentDate >= start && currentDate <= end ){
+			$(this).addClass(whichClass);
+		}
+			});
+		}
+
+}
+socket.on("new reply",function(data){
+	//alert(data.message);
+	var htmlMessage = $('.messages[data-uid="'+data.from+'"]:first').clone();
+	htmlMessage.find('.inner').text(data.message);
+	htmlMessage.find('.user_message_info.span4 > div').text(data.time);
+	htmlMessage.css('display','none');
+	$('#content .inner:first').append(htmlMessage);
+	$('.messages:last').fadeIn();
 });

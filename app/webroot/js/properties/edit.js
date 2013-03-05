@@ -20,7 +20,21 @@ $(document).ready(function(){
 			$("[data-delete*='"+data.url+"']").remove();
 		});
 	$("#PropertyEditForm").formToWizard();
-	
+	$("li[id*='step']").click(function(){
+		var targetId = $(this).attr('id');
+		var currentId = $("li.current").attr('id');
+		targetId = targetId.charAt(targetId.length-1);
+		currentId = currentId.charAt(currentId.length-1);
+		if(currentId < targetId){
+			for(i = currentId; i < targetId; i++){
+				$("a#step"+i+"Next").click();
+			}
+		} else if ( currentId > targetId){
+			for(i = currentId; i > targetId; i--){
+				$("a#step"+i+"Prev").click();
+			}
+		}
+	});
 	$("#customAmenity").on("click",function(){
 			$("#AmenityAdditionalAmenities").after("<input name='data[Amenity][additional_amenities][]' type='text' value='' />");
 		

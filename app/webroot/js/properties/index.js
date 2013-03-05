@@ -1,5 +1,8 @@
+function chat(){
+	$zopim.livechat.say("I'm interested in listing my space for rent!");
+}
 $(document).ready(function(){
-
+setTimeout(chat,5000);
 jQuery.fx.interval = 0;
 
 var myOptions = {

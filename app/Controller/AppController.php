@@ -21,6 +21,14 @@
  */
 
 App::uses('Controller','Controller');
+App::import('Plugin/WebSocket/Lib/Network/Http', 'WebSocket', array('file'=>'WebSocket.php'));
+/*loading the webocket plugin from the app/lib folder.
+This is rather redundant since the websocket plugin is already loaded.
+However I was experiencing a strange issue with cakephp. I can only seem to 
+instantiate the class once. If I were to create a new websocket class
+it would throw an error when i call it from my logout function. It says
+class Websocket not found although I know its already loaded*/
+
 
 /**
  * Application Controller
@@ -32,8 +40,9 @@ App::uses('Controller','Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	var $components = array('Session','Auth'=>array( 'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')), 'AjaxHandler', 'Twilio.Twilio','Cookie');
+	var $components = array('Session','Auth'=>array( 'loginAction' => array('controller' => 'users', 'action' => 'index')), 'AjaxHandler', 'Twilio.Twilio','Cookie');
 	var $helpers = array('Form','Html','Session','PaypalIpn.Paypal');
+	
 	public function beforeRender()
 	{
 		// only compile it on development mode
@@ -57,6 +66,8 @@ class AppController extends Controller {
 		$this->Auth->allow('display','process');
 			if($this->Auth->loggedIn()){
 				$this->set('auth',true);
+				$this->set("user", $this->Auth->user());
+				$this->set("notificationcount",$this->getNotificationCount($this->Auth->user('id')));
 			}
 			else{
 				$this->set('auth',false);
@@ -104,6 +115,32 @@ class AppController extends Controller {
 		
 		//Find all with the name of the action, return a random entry.
 		$files = $Folder->find("^(".$path['action'].").*", true);
-		return str_replace(".ctp", "", $files[array_rand($files, 1)]);
+		$page = str_replace(".ctp", "", $files[array_rand($files, 1)]);
+		$this->set("abTestName", "<div id='pageName'>$page</div>");
+		return $page;
 	}
+	
+	function getNotificationCount($uid = null){
+		if($uid){
+			$this->loadModel('Notification');
+			$notificationCount = $this->Notification->find('count',array('conditions'=>array('Notification.deleted'=>0,'Notification.user_id'=>$uid)));
+			return $notificationCount;
+		
+		}
+	
+	}
+	
+	function notifyNode($event = null, $data = array()){
+		$websocket = new WebSocket(array('port'=>8124,'scheme'=>'ws','host'=>'localhost'));
+				
+		if($websocket->connect()) {
+			
+			$websocket->emit($event, $data);
+			$websocket->disconnect();
+						
+
+		}
+	
+	}
+
 }

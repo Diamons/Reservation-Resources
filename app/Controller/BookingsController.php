@@ -31,7 +31,7 @@
 				$this->set('y',$this->request->data['y']);
 				$this->set('pid',$this->request->data['pid']);
 				$response['success'] = true;
-				$returnhtml = $this->render('/elements/calendar');
+				$returnhtml = $this->render('/Elements/calendar');
 				$response['data'] =  $returnhtml->body();
 				
 			}
@@ -50,7 +50,7 @@
 				$this->set('x',$this->request->data['x']);
 				$this->set('y',$this->request->data['y']);
 				$response['success'] = true;
-				$returnhtml = $this->render('/elements/fullcalendar');
+				$returnhtml = $this->render('/Elements/fullcalendar');
 				$response['data'] =  $returnhtml->body();
 				
 			//}
@@ -140,7 +140,7 @@
 			//if request data is set then save if not then render blackbooking element
 			if(isset($pid)){
 				$this->set('pid',$pid);
-				$returnhtml = $this->render('/elements/Booking/blackbook');
+				$returnhtml = $this->render('/Elements/Booking/blackbook');
 				$response['success'] = true;
 				$response['data'] =  $returnhtml->body();
 				return $this->AjaxHandler->respond('html',$response);

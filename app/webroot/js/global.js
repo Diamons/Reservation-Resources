@@ -1,5 +1,19 @@
+
 function getDomain(){
-		return "http://reservationresources.com/";
+	return "http://reservationresources.com/"
+}
+function checkRedirectStatus(){
+	var path = location.pathname;
+	
+	path = path.split('/');
+	//commented the following out to implement ajax login change instead of refreshing
+	/*if($.inArray('properties',path) != -1 || $.inArray('finalizeposting',path) != -1){
+		return false;
+	}
+	else{
+		return true;
+	}*/
+	return false;
 }
 function updateCalendar(x,y,z){
 
@@ -37,14 +51,39 @@ $(document).ready(function(){
 			url:$("form#UserLoginForm").attr('action'),
 			data:$("form#UserLoginForm").serialize(),
 			success: function (data){
+				
 				if(data.success == false){
 					$("#UserLoginForm #UsernameLogin ").css('border-color','red').after("<div style = 'color:red;'class = 'fieldError'>"+data.data+"</div");
 					$("#UserLoginForm #UserPassword ").css('border-color','red');
 				
 				}
 				else{
+					
 					Shadowbox.close();
+					var redirectStatus = checkRedirectStatus();
+				
+					if(redirectStatus == true){
+						location.reload(true);
+					}
+					else{
+						$("#menu").remove();
+						$('#header').fadeOut('slow', function() {
+							$('#header').replaceWith(function(){
+								return $(data).hide().fadeIn('slow');
+								 	
+							});
+							$( "#header" ).promise().done(function() {//promise function only fires after all match elements are compelted animating
+								socket.emit('set id',$("#usersocket").data("uid"));
+							});
+							
+						});
+						
+					}
+			
 				}
+				//id = $("#usersocket").data("uid");
+				//alert(id);
+						
 			}
 		});
 	});
@@ -54,10 +93,8 @@ $(document).ready(function(){
 		$.ajax({
 			type:"POST",
 			url:$("form#UserRegister").attr('action'),
-			dataType:"json",
 			data:$("form#UserRegister").serialize(),
 			success: function (data){
-				
 				if(data.success == false){
 					$.each(data.data,function(field,value){
 						$("#UserRegister input[name$='data[User]["+field+"]']").css('border-color','red');
@@ -65,13 +102,60 @@ $(document).ready(function(){
 						
 					});			
 				}
-				else{	//alert(data.success);
-					$("form#UserRegister").slideUp();
+				else{	
+					Shadowbox.close();
+					//$("form#UserRegister").slideUp();
+					var redirectStatus = checkRedirectStatus();
+				
+					if(redirectStatus == true){
+						location.reload(true);
+					}
+					else{
+						$("#menu").remove();
+						$('#header').fadeOut('slow', function() {
+							$('#header').replaceWith(function(){
+								 return $(data).hide().fadeIn('slow');
+							});
+							$( "#header" ).promise().done(function() {//promise function only fires after all match elements are compelted animating
+								socket.emit('set id',$("#usersocket").data("uid"));
+							});
+							
+						});
+						
+						
+						
+					}
+			
+				
 					
 				}
 			}
 		});
 	});
+	
+	$(document).on("click","#logout",function(event){
+	
+		$.ajax({
+			type:"POST",
+			url:getDomain()+"users/logout",
+			success:function(data){
+				if(data.success != false){
+					$(".usermenu").remove();
+					$('#header').fadeOut('slow', function() {
+					$('#header').replaceWith(function(){
+						return $(data).hide().fadeIn('slow');
+							});
+							
+					});
+					
+				}
+			
+			}
+		
+		});
+	
+	});
+
 
 
 });

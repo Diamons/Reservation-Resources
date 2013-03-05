@@ -1,7 +1,14 @@
 <?php
 	$this->start('scriptBottom');
 		echo $this->Html->script('properties/index'); 
+		if(isset($finalizeposting)&&$finalizeposting == true){
+		echo $this->Html->script('properties/finalizeposting'); 
+		}
 	$this->end();
+	echo $this->Html->meta(
+    'description',
+    'Rent any space, from a private home to a private island. Join thousands already renting space on Reservation Resources Listing your room is free!'
+);
 ?>
 <?php 
 	$this->start('cssTop');
@@ -43,7 +50,7 @@
 		for($i = 0; $i <= 31; $i++ ){
 			$minimum_stay[$i] = $i; 
 		}
-		 echo $this->Form->input('minimum_stay',array('options'=>$minimum_stay,'default'=>1)); ?>
+		 echo $this->Form->input('minimum_stay',array('options'=>$minimum_stay,'default'=>1,'label'=>'Minimum Stay in days')); ?>
 		</div>
 		<!--<div class = "span4">
 			<?php echo $this->Form->input('currency_code',array('options'=>$currency_options,'default'=>'USD')); ?>
@@ -77,13 +84,13 @@
 		?>
 		<div class = "row-fluid">
 			<div class = "span4">
-				<?php echo $this->Form->input('price_per_night'); ?>
+				<?php echo $this->Form->input('price_per_night',array('placeholder'=>'Amount without currency symbols')); ?>
 			</div>
 			<div class = "span4">
-				<?php echo $this->Form->input('price_per_week'); ?>
+				<?php echo $this->Form->input('price_per_week',array('placeholder'=>'Amount without currency symbols')); ?>
 			</div>
 			<div class = "span4">
-				<?php echo $this->Form->input('price_per_month'); ?>
+				<?php echo $this->Form->input('price_per_month',array('placeholder'=>'Amount without currency symbols')); ?>
 			</div>
 		</div>
 	</div>

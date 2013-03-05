@@ -9,6 +9,10 @@
 	$this->start('cssTop');
 	echo $this->Html->css(array('properties/viewproperty'));
 	$this->end();
+		echo $this->Html->meta(
+    'description',
+    'You can view a particular vacation rental details here such as booking price, property details, and contact the host for inquiries about a specific property'
+);
 	
 
 ?>
@@ -107,7 +111,7 @@
 						<div>100% Response Rate</div>
 					</div>
 					<div class = "span4">
-						<a href = "#"><div class = "contact_me" data-pid = "<?php echo $property['Property']['id']; ?> ">
+						<a href = "#"><div class = "contact_me" data-type = "reg" data-pid = "<?php echo $property['Property']['id']; ?> ">
 							Contact
 						</div></a>
 					</div>
@@ -159,9 +163,9 @@
 			<?php
 			if(!empty($property['Amenity']['bedroom_amenities'][0])){
 				echo $this->Html->image('icons/bed.png');
-				Debugger::log($property['Amenity']);
+				//Debugger::log($property['Amenity']);
 			?>
-			<ul class = "bed_type amenities_list">
+			<ul class = "clearfix bed_type amenities_list">
 				<?php foreach($property['Amenity']['bedroom_amenities'] as $key => $value ){?>
 				<li><?php echo $property['Amenity']['bedroom_amenities'][$key];?> </li>
 					<?php }?>
@@ -172,7 +176,7 @@
 				echo $this->Html->image('icons/service.png'); 
 			
 			?>
-			<ul class = "amenities_list">
+			<ul class = "clearfix amenities_list">
 				<?php foreach($property['Amenity']['electronic_amenities'] as $key => $value){?>
 				<li><?php echo $property['Amenity']['electronic_amenities'][$key]; ?></li>
 				<?php }?>
@@ -182,7 +186,7 @@
 			if(!empty($property['Amenity']['kitchen_amenities'][0])){
 				echo $this->Html->image('icons/kitchen.png'); 
 				?>
-			<ul class = "kitchen amenities_list">
+			<ul class = "clearfix kitchen amenities_list">
 				<?php foreach ($property['Amenity']['kitchen_amenities'] as $key => $value){?>
 				<li><?php echo $property['Amenity']['kitchen_amenities'][$key]; ?></li>
 				<?php }?>
@@ -235,5 +239,8 @@
 
 		</div>
 	</div>
+	<p id="back-top">
+		<a href="#top"><span></span>Back to Top</a>
+	</p>
 </div>
 

@@ -1,17 +1,25 @@
 <?php
+
 	class UsersController extends AppController{
 	 public $components = array('Password');
+	
 		public function beforeRender()
 		{
 			parent::beforeRender();
+	
 			
 		}
 		public function beforeFilter() {
-			$this->Auth->allow('register','index','login','checkloginstatus', 'getloginpage', 'viewuser','forgotpassword');
-			$this->AjaxHandler->handle('register','login','checkloginstatus', 'getloginpage');
+			$this->Auth->allow('register','login','logout','checkloginstatus', 'getloginpage', 'viewuser','forgotpassword');
+			$this->AjaxHandler->handle('register','login','checkloginstatus', 'getloginpage','logout');
 		}
 		public function index(){
-		
+			if($this->Auth->loggedIn()){
+				if($this->referer() == Router::url('/',true).'users/forgotpassword'){
+						$this->redirect('/dashboard/#editaccount');
+				}		
+				
+			}
 		}
 		public function login(){
 			$this->autoLayout = FALSE;
@@ -20,39 +28,78 @@
 			if($this->Auth->login()){
 				$response['success'] = true;
 				$response['code'] = 1;
-				//$response['data'] = $this->Auth->user();//we also need to figure out website flow functionality
+				//set user variables for header
+				$this->set('user',$this->Auth->user());
+				$this->set('notificationcount',parent::getNotificationCount($this->Auth->user('id')));
+				$response['data'] = $this->render('/Elements/Layout/User/header');
+			
+				
+				
+				return $this->AjaxHandler->respond('html',$response);
 			}
 			else{
 				$response['data'] = "Username/Password Combination Incorrect";
 				$response['code'] = 0;
+				return $this->AjaxHandler->respond('json',$response);
 			}
-			return $this->AjaxHandler->respond('json',$response);
+			
+			
 			
 		}
 		public function logout(){
 			$this->autoRender  = FALSE;
+			$this->layout = 'ajax';
+			$response = array('success' => false);
+			
 			  if($this->Auth->user())
 				{
-				   $this->redirect($this->Auth->logout());
+					parent::notifyNode('logout',array('userId'=>$this->Auth->user('id')));
+				   if($this->Auth->logout()){
+					$response['success'] = true;
+					$response['data']  = $this->render('/Elements/Layout/Guest/header');
+					return $this->AjaxHandler->respond('html',$response);
+				   }
+				   else{
+					$response['success'] = false;
+					return $this->AjaxHandler->respond('json',$response);
+				   }
 				}
 		}
 		public function register(){
 			$this->autoLayout = FALSE;
 			$this->layout = 'ajax';
-			$response = array('success' => false);
+			
 				$this->User->create();
 				if($this->User->save($this->request->data)){
 					$this->User->createUserDirectory($this->User->id);
-					$response['success'] = true;
-					$response['data'] = 1;	
+
+					$this->Mailchimp = $this->Components->load('Mailchimp.Mailchimp');
+					$this->Mailchimp->initialize($this, array('listId' => '226886c1bb'));
+					$this->loadModel('Subscription');
+					$this->Subscription->set($this->request->data);
+					if($this->Subscription->validates()) {
+						$this->Mailchimp->listSubscribe($this->request->data['User']['username'], $this->request->data['User']['first_name']);
+					}
+					
+					
+					
+					if($this->Auth->login()){
+						$this->set('user',$this->Auth->user());
+						$this->set('notificationcount',parent::getNotificationCount($this->Auth->user('id')));
+						$response['success'] = true;
+						$response['data'] = $this->render('/Elements/Layout/User/header');
+						return $this->AjaxHandler->respond('html',$response);
+					}
 				}
 				else{
+					$response = array('success' => false);
 					$response['data'] = $this->User->validationErrors;
 					$response['code'] = 0;
-					
+					return $this->AjaxHandler->respond('json',$response);
 				}
+				
+	
 			
-			return $this->AjaxHandler->respond('json',$response);
 			
 
 		}
@@ -63,6 +110,7 @@
 			if($this->Auth->loggedIn()){
 					$response['success'] = true;
 					$response['data'] = 1;
+					
 			}
 			else{
 					$response['data'] = 0;
@@ -88,12 +136,20 @@
 			$this->layout = 'ajax';
 			$this->User->id = $userid;
 			$this->set('user', $this->User->read());
-			$this->render('/elements/User/viewuser');
+			$this->render('/Elements/User/viewuser');
 		}
 		public function edit(){
-			$this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password'] );
+		
+			if(!empty($this->request->data['User']['password'])){
+				$this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password']);
+				$allowed = array('first_name','last_name','password','profile_picture','phone','paypal_email','about_me');
+			}
+			else{
+				$allowed = array('first_name','last_name','profile_picture','phone','paypal_email','about_me');
+			}
+			
 			if($this->request->data){
-				if($this->User->save($this->request->data,false)){
+				if($this->User->save($this->request->data,false,$allowed)){
 					$this->Session->setFlash('Sweet! Your profile has been updated','flash_success');
 					$this->redirect($this->referer(),null,true);
 				}
@@ -131,6 +187,7 @@
 			}
 		
 		}
+		
 
 	}
 ?>
