@@ -70,13 +70,13 @@ class DATABASE_CONFIG {
 		//'encoding' => 'utf8',
 	);
 
-	public $test = array(
+	public $local = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'test_database_name',
+		'login' => 'root',
+		'password' => '',
+		'database' => 'reservation_resources',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);

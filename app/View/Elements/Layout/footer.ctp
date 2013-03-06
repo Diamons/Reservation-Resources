@@ -2,7 +2,8 @@
 	<div id="footer_container">
 		<div class = "inner_footer">
 			<div class = "social_media"><a href = "http://www.facebook.com/ReservationResources"><?php echo $this->Html->image('icons/facebook.png', array('alt' => 'Facebook Profile')); ?></a> <a href = "http://twitter.com/R_CResources"><?php echo $this->Html->image('icons/twitter.png', array('alt' => 'Twitter Profile')); ?></a></div>
-			<a href = "#"><?php echo $this->Html->image('logo_dark.png', array('id' => 'logo2', 'alt' => 'Reservation Resources')); ?></a>
+			<a href = "/"><?php echo $this->Html->image('logo_dark.png', array('id' => 'logo2', 'alt' => 'Reservation Resources')); ?></a>
+			
 			<nav>
 				<ul>
 					<li><a href = "<?php echo $this->webroot; ?>">Home</a></li>
@@ -39,8 +40,27 @@
 				</ul>
 			</nav>
 			<p>
-				<em>Reservation Resources is an online platform that connects tenants and landlords from all around the world.</em>
+				<em>Reservation Resources is an online platform that connects tenants and landlords from all around the world. We help people seeking a short-term rental to find landlords looking to rent out their houses, apartments, condominiums and other housing properties. </em>
 			</p>
+			<div id="copyrightFooter">
+				<div xmlns:v="http://rdf.data-vocabulary.org/#" typeof="v:Organization"> 
+				Copyright &copy; <?php echo Date('Y'); ?> <span property="v:name">Reservation Resources</span> | 
+				<span rel="v:address">
+					<span typeof="v:Address">
+						<span property="v:street-address">110 West 34th St. Ste 1102</span>,
+						<span property="v:locality">New York</span>,
+						<span property="v:region">NY</span> 
+						<span property="v:postal-code">10001</span>
+					</span>
+				</span>
+				<span rel="v:geo">
+					<span typeof="v:Geo">
+						<span property="v:latitude" content="40.740619"></span>
+						<span property="v:longitude" content="-74.032729"></span>
+					</span>
+				</span>
+				</div>		
+			</div>
 		</div>
 	</div>
 </footer>

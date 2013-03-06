@@ -47,9 +47,8 @@ class SearchesController extends AppController{
 			}
 			
 			$this->set('clresults',$results);
-			
 			//Check cookie, if set they've been here before and they don't want to subscribe. Also don't harass users of the website.
-			if(!$this->Auth->user() && !$this->Cookie->read('Subscription.unique'))
+			if(!$this->Auth->user() && $this->Cookie->read('Subscription.unique') !== false)
 			{
 				$this->Cookie->write('Subscription.unique', 'false');
 				

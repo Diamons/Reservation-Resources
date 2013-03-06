@@ -32,4 +32,14 @@ App::uses('Model', 'Model');
  */
 class AppModel extends Model {
 	public $actsAs = array('Containable');
+	
+	public function __construct($id = false, $table = null, $ds = null) {
+
+		if(stristr(env('HTTP_HOST'), 'reservationresources.com') || stristr(env('HTTP_HOST'), 'www.reservationresources.com')){ 
+			$this->useDbConfig = "default";
+		} else {
+			$this->useDbConfig = "local";
+		}
+		parent::__construct($id, $table, $ds);
+	}
 }

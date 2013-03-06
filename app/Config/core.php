@@ -277,4 +277,8 @@ Cache::config('_cake_model_', array(
 	'duration' => $duration
 ));
 
-Configure::write('MinifyAsset', true);
+if(stristr(env('HTTP_HOST'), 'reservationresources.local')){ 
+    Configure::write('debug', 2); 
+}else{ 
+    Configure::write('debug', 0); 
+}

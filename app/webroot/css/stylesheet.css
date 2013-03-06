@@ -2093,6 +2093,12 @@ footer {
 	text-align: center;
 }
 
+footer .inner_footer em{
+	display: block;
+	padding: 0 100px;
+	text-align: center;
+}
+
 .carousel-control img{
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	width: 12px;
